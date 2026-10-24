@@ -136,6 +136,12 @@ bool configure(const Config &config, std::string &error) {
     if (!set_int("TrapDevice8", 0) || !set_int("Drive8Type", true_drive ? 1541 : 0) ||
         !set_int("Drive8TrueEmulation", true_drive ? 1 : 0) || !set_int("BusDevice8", true_drive ? 0 : 1))
         return false;
+    // A program starts from a disk VICE writes it to, in the machine's own folder (VICE's default
+    // is a per-user cache folder an app does not have).
+    if (!KairoC64_SetString("AutostartPrgDiskImage", (config.home + "/program.d64").c_str())) {
+        error = "VICE refused its program disk " + config.home + "/program.d64";
+        return false;
+    }
     // Port 1: the joystick, or the 1351 mouse; port 2: the joystick. VICE's joyport IDs:
     // 1 is the joystick, 3 the 1351 mouse (joyport.h).
     if (!set_int("Mouse", config.mouse ? 1 : 0) || !set_int("JoyPort1Device", config.mouse ? 3 : 1) ||

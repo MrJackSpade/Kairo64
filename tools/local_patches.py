@@ -55,8 +55,20 @@ VICE_AUTOSTART_KEEPS_VIRTUAL_DRIVE = [
      '                if (chk < 0 && drive_get_disk_drive_type(unit - DRIVE_UNIT_MIN) != DRIVE_TYPE_NONE) {\n'),
 ]
 
+# A program (PRG or P00) starts from a disk VICE writes it to, in the format of drive 8's type.
+# VICE's virtual drive has no type ("none"), so no format was found and no program started; it
+# reads a D64 like any other disk.
+VICE_PROGRAM_DISK_FOR_VIRTUAL_DRIVE = [
+    ('vice/src/autostart-prg.c',
+     '    switch (drive_get_disk_drive_type(unit - 8)) {\n    case DRIVE_TYPE_1540:\n',
+     '    switch (drive_get_disk_drive_type(unit - 8)) {\n'
+     '    case DRIVE_TYPE_NONE: /* Kairo64: the virtual drive reads a D64 like any other disk */\n'
+     '    case DRIVE_TYPE_1540:\n'),
+]
+
 PATCHES = {
     'vice-autostart-keeps-virtual-drive': VICE_AUTOSTART_KEEPS_VIRTUAL_DRIVE,
+    'vice-program-disk-for-virtual-drive': VICE_PROGRAM_DISK_FOR_VIRTUAL_DRIVE,
     'vice-jam': VICE_JAM,
     'vice-kairo-sound': VICE_KAIRO_SOUND,
 }

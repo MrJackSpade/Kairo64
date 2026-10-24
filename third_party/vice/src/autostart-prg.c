@@ -223,6 +223,7 @@ int autostart_prg_with_disk_image(int unit, int drive, const char *file_name,
 
     /* identify disk image type */
     switch (drive_get_disk_drive_type(unit - 8)) {
+    case DRIVE_TYPE_NONE: /* Kairo64: the virtual drive reads a D64 like any other disk */
     case DRIVE_TYPE_1540:
     case DRIVE_TYPE_1541:
     case DRIVE_TYPE_1541II:
