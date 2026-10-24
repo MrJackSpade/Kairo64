@@ -1,0 +1,75 @@
+#!/usr/bin/env python3
+"""Applies Kairo64's local changes to the third-party snapshots in third_party/.
+
+Usage: local_patches.py [--check]
+
+Each change replaces text that must occur exactly once in its file. A change already applied is
+skipped, so the script can run on a fresh import or on the committed tree; --check fails unless
+every change is applied. docs/source-import.md describes each change.
+"""
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parents[1] / 'third_party'
+
+# VICE's sound devices are a fixed table in sound.c. Kairo64's device (core/kairo/soundkairo.c)
+# hands the mixed sound to the host; it comes first, so it is the default.
+VICE_KAIRO_SOUND = [
+    ('vice/src/sound.h',
+     'int sound_init_dummy_device(void);\n',
+     'int sound_init_dummy_device(void);\n'
+     'int sound_init_kairo_device(void); /* Kairo64: core/kairo/soundkairo.c */\n'),
+    ('vice/src/sound.c',
+     'static const sound_register_devices_t sound_register_devices[] = {\n\n',
+     'static const sound_register_devices_t sound_register_devices[] = {\n\n'
+     '    /* Kairo64: the host\'s sound (core/kairo/soundkairo.c) */\n'
+     '    { "kairo", "Kairo64 sound output", sound_init_kairo_device, SOUND_PLAYBACK_DEVICE },\n\n'),
+]
+
+# A JAM instruction stops the C64's CPU (or a drive's). The headless UI only logs it, and the
+# machine would go on running a CPU that does nothing. Kairo64 ends the game with the reason
+# (KairoC64Host_Jam); the next game's power cycle clears the jam.
+VICE_JAM = [
+    ('vice/src/arch/headless/ui.c',
+     '#include "ui.h"\n',
+     '#include "ui.h"\n'
+     '#include "kairo_c64.h" /* Kairo64: KairoC64Host_Jam */\n'),
+    ('vice/src/arch/headless/ui.c',
+     '    log_warning(LOG_DEFAULT, "%s", buffer);\n\n    lib_free(buffer);\n\n'
+     '    /* the headless UI ignores this */\n    return MACHINE_JAM_ACTION_QUIT; /* quit emulator */\n',
+     '    log_warning(LOG_DEFAULT, "%s", buffer);\n'
+     '    KairoC64Host_Jam(buffer); /* Kairo64: the game ends with the reason */\n\n    lib_free(buffer);\n\n'
+     '    return UI_JAM_NONE;\n'),
+]
+
+PATCHES = {
+    'vice-jam': VICE_JAM,
+    'vice-kairo-sound': VICE_KAIRO_SOUND,
+}
+
+
+def main():
+    check = sys.argv[1:] == ['--check']
+    missing = []
+    for name, changes in PATCHES.items():
+        for rel, old, new in changes:
+            path = ROOT / rel
+            # VICE's sources are ASCII and Latin-1; Latin-1 keeps every byte as it is.
+            with open(path, encoding='latin-1', newline='') as f:
+                text = f.read()
+            if text.count(new) == 1:
+                continue
+            if check:
+                missing.append(f'{name}: {rel}')
+                continue
+            if text.count(old) != 1:
+                raise SystemExit(f'patch {name}: {rel} does not contain the text to replace exactly once')
+            with open(path, 'w', encoding='latin-1', newline='') as f:
+                f.write(text.replace(old, new))
+            print(f'applied {name} to {rel}')
+    if missing:
+        raise SystemExit('not applied: ' + ', '.join(missing))
+
+
+if __name__ == '__main__':
+    main()
