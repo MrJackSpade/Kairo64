@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Find the firmware each library game needs: the least of the player's firmware it runs on.
 
-Usage: firmware_pass.py <seconds> [--workers N]
+Usage: firmware_pass.py <seconds> [--workers N] [--scanned]
 
 Boots every game the library lists (each game's set entries and lone images) on the host with the
 core's boot_test (.build/host/boot_test.exe, under shared/tools/run-limited.ps1) for <seconds> of
@@ -22,7 +22,9 @@ there are kept as they are.
 
 Results are kept per game in .downloads/firmware-pass/results.json, so a stopped run carries on,
 and the last frame of every game that needs firmware or fails everywhere is kept beside it for
-review. The firmware is bios/ (kernal, basic, chargen and dos1541).
+review. The firmware is bios/ (kernal, basic, chargen and dos1541). --scanned boots every medium
+the scans found instead, on the model its name asks for, for a pass that starts before the
+research does; the list then takes the results of the library's entries.
 """
 import argparse
 import json
@@ -50,17 +52,32 @@ BASIC_ERROR = re.compile(r"\?[A-Z ]+ ERROR")
 SOUND_RANGE = 2000
 
 
-def library_media():
-    """{content ID: (scan root, archive path, member or None, model)} for every library entry."""
-    research = json.loads((ROOT / "catalog/research/games-v1.json").read_text(encoding="utf-8"))
+def scanned_media():
+    """{content ID: (scan root, archive path, member or None)} for every medium the scans found."""
     where = {}
-    for index_path, _ in catalog_config.SCANS.values():
+    for set_name, (index_path, _) in catalog_config.SCANS.items():
         index = json.loads((ROOT / index_path).read_text(encoding="utf-8"))
         for archive in index["archives"]:
             if archive["status"] != "ready":
                 continue
             for medium in archive["disks"]:
-                where.setdefault(medium["contentId"], (Path(index["root"]), archive["path"], medium["entry"]))
+                where.setdefault(medium["contentId"], (Path(index["root"]), archive["path"], medium["entry"], set_name))
+    return where
+
+
+def all_scanned_media():
+    """{content ID: (scan root, archive path, member or None, model)} for every medium the scans
+    found, each on the model its name asks for (catalog_config.MACHINE): for a pass started before
+    the catalog's research, whose results the library's entries then reuse."""
+    return {content_id: (root, archive, member,
+                         catalog_config.MACHINE(member or archive, set_name, content_id).get("model", "c64"))
+            for content_id, (root, archive, member, set_name) in scanned_media().items()}
+
+
+def library_media():
+    """{content ID: (scan root, archive path, member or None, model)} for every library entry."""
+    research = json.loads((ROOT / "catalog/research/games-v1.json").read_text(encoding="utf-8"))
+    where = {content_id: fields[:3] for content_id, fields in scanned_media().items()}
     media = {}
     for game in research["games"].values():
         if game.get("hidden") or not game.get("contentIds"):
@@ -124,12 +141,14 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("seconds", type=int)
     parser.add_argument("--workers", type=int, default=4)
+    parser.add_argument("--scanned", action="store_true",
+                        help="boot every medium the scans found, not only the library's entries")
     args = parser.parse_args()
     OUT.mkdir(parents=True, exist_ok=True)
     results_path = OUT / "results.json"
     results = json.loads(results_path.read_text(encoding="utf-8")) if results_path.is_file() else {}
     lock = threading.Lock()
-    media = library_media()
+    media = all_scanned_media() if args.scanned else library_media()
     todo = [(content_id, *fields) for content_id, fields in sorted(media.items()) if content_id not in results]
     free = [OUT / f"work-{slot}" for slot in range(args.workers)]
 
@@ -164,10 +183,15 @@ def main():
         for _ in pool.map(run, todo):
             pass
     results_path.write_text(json.dumps(results, indent=1, sort_keys=True) + "\n", encoding="utf-8")
+    if args.scanned:
+        # Disks behind a set entry (a second side, a save disk) are not games of their own; only
+        # a pass over the library's entries decides the list.
+        print(f"{len(results)} media booted; run without --scanned after the research to list the games")
+        return
 
     listed = json.loads(LIST.read_text(encoding="utf-8")) if LIST.is_file() else {"games": {}, "schemaVersion": 1}
     counts = {}
-    for content_id, record in sorted(results.items()):
+    for content_id, record in sorted((key, value) for key, value in results.items() if key in media):
         boots = record["boots"]
         runs_on = next((system for system in SYSTEMS if boots.get(system, {}).get("ok")), None)
         counts[runs_on or "none"] = counts.get(runs_on or "none", 0) + 1
