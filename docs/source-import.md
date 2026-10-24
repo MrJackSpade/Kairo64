@@ -51,6 +51,7 @@ It was imported on 2026-10-24 as the same snapshot as KairoST's (the files match
 | Change | File | What and why |
 | --- | --- | --- |
 | `vice-autostart-keeps-virtual-drive` | `vice/src/autostart.c` | VICE's autostart changes drive 8's type to one that reads the image when the current type cannot. With no true drive every image "cannot", so it turned the virtual drive into an emulated 1541 whenever the 1541 ROM was loaded, against the game's Drive setting. It now changes only a true drive's type; the virtual drive reads every image. |
+| `vice-program-disk-for-virtual-drive` | `vice/src/autostart-prg.c` | VICE starts a program (PRG or P00) from a disk it writes the program to, in the format of drive 8's type. The virtual drive has no type, so no program started on it; it now gets a D64, which it reads like any other disk. |
 | `vice-kairo-sound` | `vice/src/sound.c`, `sound.h` | Lists Kairo64's sound device (`core/kairo/soundkairo.c`) first in VICE's fixed table of sound devices. It hands VICE's mixed sound to the host, whose audio device paces the machine. |
 | `vice-jam` | `vice/src/arch/headless/ui.c` | A JAM instruction, which stops the C64's CPU or a drive's, reaches Kairo64 (`KairoC64Host_Jam`), which ends the game with the reason. The headless UI only logged it, and the machine went on running a CPU that does nothing. |
 
