@@ -108,7 +108,8 @@ def extract(root, archive, member, work):
 
 
 def boot(system, path, model, seconds, work):
-    """The outcome of one boot: {"ok": bool, "why": text, "range": int}."""
+    """The outcome of one boot: {"ok": bool, "why": text, "range": int, "frame": whether it ran to
+    the end and wrote its last frame}."""
     for old in list(work.glob("*.bmp")) + list(work.glob("*.txt")):
         old.unlink()
     result = subprocess.run(["pwsh", "-NoProfile", "-File", str(ROOT / "shared/tools/run-limited.ps1"),
@@ -118,23 +119,23 @@ def boot(system, path, model, seconds, work):
     lines = result.stdout.splitlines() + result.stderr.splitlines()
     for line in lines:
         if line.startswith("run 0: could not start") or line.startswith("run 0: stopped after"):
-            return {"ok": False, "why": line.split(": ", 2)[-1], "range": 0}
+            return {"ok": False, "why": line.split(": ", 2)[-1], "range": 0, "frame": False}
     summary = next((line for line in lines if line.startswith("run 0:") and " range after load " in line), None)
     if summary is None:
         crash = next((line for line in lines if line.startswith("exit -")), None)
         if crash:
-            return {"ok": False, "why": f"the core crashed ({crash})", "range": 0}
+            return {"ok": False, "why": f"the core crashed ({crash})", "range": 0, "frame": False}
         raise RuntimeError(f"boot_test gave no result for {path} on {system}:\n" + "\n".join(lines[-20:]))
     played = int(summary.split(" range after load ")[1].split(",")[0])
     if summary.endswith("(still loading)"):
-        return {"ok": False, "why": f"still loading after {seconds} s", "range": played}
+        return {"ok": False, "why": f"still loading after {seconds} s", "range": played, "frame": True}
     screen = (work / "screen-0.txt").read_text(encoding="ascii")
     error = BASIC_ERROR.search(screen)
     if error:
-        return {"ok": False, "why": f"BASIC says {error.group(0)}", "range": played}
+        return {"ok": False, "why": f"BASIC says {error.group(0)}", "range": played, "frame": True}
     if "READY." in screen and played < SOUND_RANGE:
-        return {"ok": False, "why": "back at BASIC's READY. without a sound", "range": played}
-    return {"ok": True, "why": "runs", "range": played}
+        return {"ok": False, "why": "back at BASIC's READY. without a sound", "range": played, "frame": True}
+    return {"ok": True, "why": "runs", "range": played, "frame": True}
 
 
 def main():
@@ -167,7 +168,9 @@ def main():
                 record["boots"][system] = outcome
                 if outcome["ok"]:
                     break
-            if not record["boots"]["open"]["ok"]:
+            # The last boot's final frame, when it ran to the end (a machine that stops or cannot
+            # start writes none).
+            if not record["boots"]["open"]["ok"] and outcome["frame"]:
                 (work / "frame-0.bmp").replace(OUT / f"{content_id.split(':')[1]}.bmp")
         finally:
             with lock:
