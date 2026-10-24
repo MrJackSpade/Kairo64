@@ -1,5 +1,6 @@
 package com.mrjackspade.kairo64
 
+import com.mrjackspade.kairo.frontend.CatalogSetting
 import com.mrjackspade.kairo.frontend.ChoiceOption
 import com.mrjackspade.kairo.frontend.LayeredGameCatalog
 import com.mrjackspade.kairo.frontend.MachineOption
@@ -63,13 +64,13 @@ object C64Catalog : LayeredGameCatalog.Schema {
 
     val options = listOf(model, system, drive, ports)
 
-    override val fields: Map<String, Set<String>?> = mapOf(MachineOption.SECTION to options.map { it.id }.toSet())
-    override val singleMediaRoles = emptySet<String>()
+    override val settings: List<CatalogSetting> = options.map(CatalogSetting::Choice)
+    override val fields = CatalogSetting.fields(settings)
 
     override fun validMedia(role: String, contentId: String) = false
 
     override fun validField(field: String, value: Any): Boolean =
-        field == MachineOption.SECTION && MachineOption.validSection(options, value)
+        field in fields && CatalogSetting.validSection(settings, field, value)
 
     override fun validBindings(bindings: JSONArray) = C64Keys.bindings.valid(bindings)
 }

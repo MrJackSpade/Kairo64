@@ -5,6 +5,7 @@ plugins {
 
 extra["kairoProduct"] = "kairo64"
 extra["kairoLabel"] = "Kairo64"
+extra["kairoCatalogRules"] = "com.mrjackspade.kairo64.C64Catalog"
 apply(from = rootProject.file("shared/gradle/kairo-app.gradle"))
 
 // The MEGA65 Open ROMs, which the app ships (third_party/open-roms/bin), in assets/openroms;
