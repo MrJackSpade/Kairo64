@@ -40,9 +40,10 @@ struct Vice {
     std::string jam;
     // A machine is running.
     bool machine = false;
-    // VICE is starting or a machine is being set up: VICE logs errors for the ROMs its defaults
-    // and models name before Kairo64 names its own, so its log lines stay in its log file
-    // (KairoC64Host_Log) and in last_error, which a failure reports.
+    // VICE is starting or a machine is being set up, through its first frame: VICE logs errors
+    // for the ROMs its defaults and models name before Kairo64 names its own, and for the KERNAL
+    // traps it cannot install on a KERNAL other than Commodore's as the machine resets, so its log
+    // lines stay in its log file (KairoC64Host_Log) and in last_error, which a failure reports.
     bool quiet = true;
 
     // Lets VICE run until the end of its next frame or until it ends; false when it ended.
@@ -191,7 +192,6 @@ std::unique_ptr<C64Machine> C64Machine::create(const Config &config, std::string
     vice.quiet = true;
     KairoC64_EjectAll();
     if (!configure(config, error)) return nullptr;
-    vice.quiet = false;
     vice.last_error.clear();
     KairoC64_PowerCycle();
     std::unique_ptr<C64Machine> machine(new C64Machine(config));
@@ -232,6 +232,7 @@ bool C64Machine::run_frame(std::string &error) {
         error = "The C64 stopped: " + vice.jam;
         return false;
     }
+    vice.quiet = false;
     return true;
 }
 
@@ -296,6 +297,14 @@ bool C64Machine::insert(Drive drive, const std::string &path, std::string &error
 }
 
 std::string C64Machine::media_path(Drive drive) { return drive_[drive]; }
+
+std::string C64Machine::screen_text() {
+    char cells[KAIRO_C64_SCREEN_CELLS + 1];
+    KairoC64_ScreenText(cells);
+    std::string text;
+    for (int row = 0; row < 25; ++row) text.append(cells + row * 40, 40).push_back('\n');
+    return text;
+}
 
 } // namespace kairo64
 

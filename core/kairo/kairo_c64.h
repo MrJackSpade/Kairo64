@@ -68,6 +68,11 @@ void KairoC64_MouseButton(int button, bool down);
 /* Lets go of every key, RESTORE and both joysticks. */
 void KairoC64_ReleaseInputs(void);
 
+/* The text screen's 40 x 25 cells as ASCII, row after row, for tests: letters, digits and
+ * punctuation as the C64 shows them, "." for graphics characters. */
+#define KAIRO_C64_SCREEN_CELLS 1000
+void KairoC64_ScreenText(char text[KAIRO_C64_SCREEN_CELLS + 1]);
+
 /* Asks VICE to save or load the whole machine at the next instruction boundary, which comes
  * within the next frame; KairoC64_SnapshotFailed then says whether it failed. */
 void KairoC64_RequestSave(const char *path);

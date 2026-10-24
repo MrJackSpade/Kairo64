@@ -1812,7 +1812,8 @@ int autostart_disk(int unit, int drive, const char *file_name, const char *progr
                 log_message(autostart_log, "mounted image is type: %u, %schanging drive.",
                             diskimg->type, (chk < 0) ? "" : "not ");
                 /* change drive type only when image does not work in current drive */
-                if (chk < 0) {
+                /* Kairo64: and only a true drive's; the virtual drive (none) reads every image */
+                if (chk < 0 && drive_get_disk_drive_type(unit - DRIVE_UNIT_MIN) != DRIVE_TYPE_NONE) {
                     if (resources_set_int_sprintf("Drive%dType", drive_image_type_to_drive_type(diskimg->type), unit) < 0) {
                         log_error(LOG_DEFAULT, "Failed to set drive type.");
                     }

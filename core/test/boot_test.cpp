@@ -1,6 +1,6 @@
 // Boots a C64 game on the host and runs it for a while without Android.
 //
-// Usage: boot_test <firmware folder> <work folder> <game> <seconds> [system [runs [keys [model]]]]
+// Usage: boot_test <firmware folder> <work folder> <game> <seconds> [system [runs [keys [model [state]]]]]
 //
 // <system> picks the ROMs: "own" (the default) is the player's firmware in <firmware folder>
 // (kernal, basic, chargen and dos1541, as the retro firmware sets name them); "open" is the
@@ -9,13 +9,18 @@
 //
 // Runs the machine for <seconds> of guest time, writing a frame every five seconds to
 // <work folder>/frame-<run>-<seconds>s.bmp and the last to <work folder>/frame-<run>.bmp, and
-// reports the frame size and how much sound it made. With <runs> above 1 it starts a new machine
+// reports the frame size and how much sound it made, and writes the text screen to
+// <work folder>/screen-<run>.txt. With <runs> above 1 it starts a new machine
 // after each, in the same process, as the app does for the next game. It reports when the load
 // ends (C64Machine::booting) and writes that frame to <work folder>/frame-<run>-booted.bmp.
 // <keys> is a list of "frame:row:column" presses (comma separated) in the keyboard matrix, each
-// held for five frames; a row of "j" is a joystick control instead, held as long.
+// held for five frames; a row of "j" is a joystick control instead, held as long. <model> is a
+// VICE model name ("" for the default). With <state> "state", it saves the machine halfway between
+// the end of the load and the end of the run, notes the frame after, and at the end loads the
+// state and checks that the same frame follows.
 
 #include <algorithm>
+#include <chrono>
 #include <cstdio>
 #include <cstdlib>
 #include <filesystem>
@@ -96,7 +101,7 @@ std::string require(const std::filesystem::path &path) {
 
 int main(int argc, char **argv) {
     if (argc < 5) {
-        std::fprintf(stderr, "usage: boot_test <firmware folder> <work folder> <game> <seconds> [system [runs [keys [model]]]]\n");
+        std::fprintf(stderr, "usage: boot_test <firmware folder> <work folder> <game> <seconds> [system [runs [keys [model [state]]]]]\n");
         return 2;
     }
     const std::filesystem::path firmware = argv[1];
@@ -108,7 +113,8 @@ int main(int argc, char **argv) {
     const std::string system = argc > 5 ? argv[5] : "own";
     const int runs = argc > 6 ? std::atoi(argv[6]) : 1;
     const std::vector<Press> presses = argc > 7 && *argv[7] ? parse_keys(argv[7]) : std::vector<Press>{};
-    if (argc > 8) config.model = argv[8];
+    if (argc > 8 && *argv[8]) config.model = argv[8];
+    const bool state = argc > 9 && std::string(argv[9]) == "state";
 
     // The Open ROMs, beside this source in the checkout.
     const std::filesystem::path open = std::filesystem::path(__FILE__).parent_path() / "../../third_party/open-roms/bin";
@@ -145,9 +151,18 @@ int main(int argc, char **argv) {
         }
         double elapsed = 0;
         long frames = 0;
+        const auto started = std::chrono::steady_clock::now();
+        std::vector<uint8_t> after_save;
+        auto picture = [&] {
+            uint32_t width, height;
+            const uint8_t *rgba = machine->frame(width, height);
+            return std::vector<uint8_t>(rgba, rgba + size_t(width) * height * 4);
+        };
         bool booting = machine->booting();
+        double loaded = 0;
         uint64_t samples = 0;
         int64_t loudest = 0;
+        int lowest_played = 32767, highest_played = -32768;
         while (elapsed < seconds) {
             for (const auto &press : presses) {
                 for (bool down : {true, false}) {
@@ -162,6 +177,7 @@ int main(int argc, char **argv) {
             }
             if (booting && !machine->booting()) {
                 booting = false;
+                loaded = elapsed;
                 std::printf("run %d: load over after %ld frames (%.1f s)\n", run, frames, elapsed);
                 uint32_t width, height;
                 const uint8_t *rgba = machine->frame(width, height);
@@ -176,17 +192,62 @@ int main(int argc, char **argv) {
                           rgba, width, height);
             }
             ++frames;
+            // Halfway between the end of the load and the end of the run: VICE's states hold no
+            // virtual drive in the middle of a transfer, so a state saved during a load cannot
+            // finish it.
+            if (state && after_save.empty() && !booting && elapsed >= (loaded + seconds) / 2) {
+                const std::string file = config.home + "/state.vsf";
+                if (!machine->save_state(file, error) || !machine->run_frame(error)) {
+                    std::fprintf(stderr, "run %d: save failed: %s\n", run, error.c_str());
+                    return 1;
+                }
+                after_save = picture();
+            }
             uint32_t got = machine->read_audio(audio.data(), uint32_t(audio.size() / 2));
             samples += got;
-            for (uint32_t i = 0; i < got * 2; ++i) loudest = std::max<int64_t>(loudest, std::abs(int(audio[i])));
+            for (uint32_t i = 0; i < got * 2; ++i) {
+                loudest = std::max<int64_t>(loudest, std::abs(int(audio[i])));
+                // The SID's output rests at a level of its own, so a game's sound is how far its
+                // samples move after the load.
+                if (!booting) {
+                    lowest_played = std::min<int>(lowest_played, audio[i]);
+                    highest_played = std::max<int>(highest_played, audio[i]);
+                }
+            }
+        }
+        const double wall = std::chrono::duration<double>(std::chrono::steady_clock::now() - started).count();
+        std::printf("run %d: %.1f s of guest time in %.1f s (%.1fx real time)\n", run, elapsed, wall, elapsed / wall);
+        if (state) {
+            if (after_save.empty()) {
+                std::fprintf(stderr, "run %d: no state saved: the game was still loading at the end\n", run);
+                return 1;
+            }
+            const std::string file = config.home + "/state.vsf";
+            if (!machine->load_state(file, error) || !machine->run_frame(error)) {
+                std::fprintf(stderr, "run %d: load failed: %s\n", run, error.c_str());
+                return 1;
+            }
+            const std::vector<uint8_t> after_load = picture();
+            const bool same = after_load == after_save;
+            std::printf("run %d: state %s\n", run, same ? "restored: the frame after it matches" : "MISMATCH after load");
+            if (!same) {
+                uint32_t width, height;
+                machine->frame(width, height);
+                write_bmp(config.home + "/state-" + std::to_string(run) + "-saved.bmp", after_save.data(), width, height);
+                write_bmp(config.home + "/state-" + std::to_string(run) + "-loaded.bmp", after_load.data(), width, height);
+                return 1;
+            }
         }
         uint32_t width, height;
         const uint8_t *rgba = machine->frame(width, height);
         std::string bmp = config.home + "/frame-" + std::to_string(run) + ".bmp";
         write_bmp(bmp, rgba, width, height);
-        std::printf("run %d: %ld frames (%.4f s each), %ux%u, %llu sound frames at %d Hz, peak %lld, %s%s\n", run,
-                    frames, machine->frame_seconds(), width, height, (unsigned long long) samples,
-                    machine->sample_rate(), (long long) loudest, bmp.c_str(), booting ? " (still loading)" : "");
+        // The text screen at the end, where BASIC's messages ("?FILE NOT FOUND", "READY.") show.
+        std::ofstream(config.home + "/screen-" + std::to_string(run) + ".txt", std::ios::binary) << machine->screen_text();
+        std::printf("run %d: %ld frames (%.4f s each), %ux%u, %llu sound frames at %d Hz, peak %lld, range after load %d, "
+                    "%s%s\n", run, frames, machine->frame_seconds(), width, height, (unsigned long long) samples,
+                    machine->sample_rate(), (long long) loudest, booting ? 0 : std::max(0, highest_played - lowest_played),
+                    bmp.c_str(), booting ? " (still loading)" : "");
     }
     return 0;
 }

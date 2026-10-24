@@ -16,6 +16,7 @@
 #include "keyboard.h"
 #include "lib.h"
 #include "machine.h"
+#include "mem.h"
 #include "mouse.h"
 #include "resources.h"
 #include "tape.h"
@@ -124,6 +125,24 @@ void KairoC64_ReleaseInputs(void)
     keyboard_clear_keymatrix();
     machine_set_restore_key(0);
     joystick_clear_all();
+}
+
+/* The VIC-II's text screen: its bank from CIA 2 port A (the inverse of bits 0-1 of $DD00), its
+ * screen at $D018's bits 4-7 in 1 KB steps; read through VICE's peeks, which change nothing. */
+void KairoC64_ScreenText(char text[KAIRO_C64_SCREEN_CELLS + 1])
+{
+    const int io = 3, ram = 1;
+    uint16_t bank = (uint16_t)((3 - (mem_bank_peek(io, 0xdd00, NULL) & 3)) * 0x4000);
+    uint16_t screen = (uint16_t)(bank + ((mem_bank_peek(io, 0xd018, NULL) >> 4) & 0x0f) * 0x400);
+    int i;
+
+    for (i = 0; i < KAIRO_C64_SCREEN_CELLS; i++) {
+        /* Screen codes, reversed or not: 0 is @, 1 to 26 the letters, 32 to 63 as ASCII. */
+        uint8_t code = mem_bank_peek(ram, (uint16_t)(screen + i), NULL) & 0x7f;
+        text[i] = code == 0 ? '@' : code <= 26 ? (char)('A' + code - 1) : (code >= 32 && code < 64) ? (char)code
+                : code == 27 ? '[' : code == 29 ? ']' : '.';
+    }
+    text[KAIRO_C64_SCREEN_CELLS] = '\0';
 }
 
 /* Saved states. VICE saves and loads the machine between CPU instructions, so the request is a

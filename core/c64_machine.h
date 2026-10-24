@@ -96,6 +96,9 @@ public:
     // The image in a drive, as it was inserted; "" when it is empty.
     std::string media_path(Drive drive);
 
+    // The text screen as 25 lines of 40 characters, for tests that look for BASIC's messages.
+    std::string screen_text();
+
 private:
     C64Machine(const Config &config);
     Config config_;

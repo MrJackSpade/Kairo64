@@ -42,7 +42,21 @@ VICE_JAM = [
      '    return UI_JAM_NONE;\n'),
 ]
 
+# VICE's autostart changes drive 8's type to one that reads the image it starts, when the current
+# type cannot. With no true drive (type 0) every image "cannot", so it would turn VICE's virtual
+# drive into an emulated 1541 whenever the 1541 ROM is loaded, against the game's Drive setting.
+# The virtual drive reads every image, so autostart changes only a true drive's type.
+VICE_AUTOSTART_KEEPS_VIRTUAL_DRIVE = [
+    ('vice/src/autostart.c',
+     '                /* change drive type only when image does not work in current drive */\n'
+     '                if (chk < 0) {\n',
+     '                /* change drive type only when image does not work in current drive */\n'
+     '                /* Kairo64: and only a true drive\'s; the virtual drive (none) reads every image */\n'
+     '                if (chk < 0 && drive_get_disk_drive_type(unit - DRIVE_UNIT_MIN) != DRIVE_TYPE_NONE) {\n'),
+]
+
 PATCHES = {
+    'vice-autostart-keeps-virtual-drive': VICE_AUTOSTART_KEEPS_VIRTUAL_DRIVE,
     'vice-jam': VICE_JAM,
     'vice-kairo-sound': VICE_KAIRO_SOUND,
 }
