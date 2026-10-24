@@ -1,0 +1,27 @@
+name: Discord sync
+
+# Mirrors this repository's issues into the Kairo Discord forum, which every Kairo app shares,
+# through the shared reusable workflow; the Discord message IDs are committed under .github/discord-sync.
+on:
+  issues:
+    types: [opened, edited, closed, reopened]
+  issue_comment:
+    types: [created, edited, deleted]
+  workflow_dispatch:
+    inputs:
+      issue:
+        description: 'Issue number to reconcile with its Discord post; leave empty to reconcile every issue'
+        required: false
+
+permissions:
+  contents: write
+  issues: read
+
+jobs:
+  sync:
+    uses: MrJackSpade/Kairo/.github/workflows/discord-sync-run.yml@50c87c7a601afac67cc629b8ab6654287cba27f2
+    with:
+      issue: ${{ inputs.issue }}
+    secrets:
+      webhook: ${{ secrets.KAIRO_DISCORD_WEBHOOK }}
+      bot-token: ${{ secrets.KAIRO_DISCORD_BOT_TOKEN }}
