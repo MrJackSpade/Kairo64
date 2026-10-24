@@ -1,0 +1,4 @@
+instruction fragment followed by conditional jump.
+
+Would be single instruction on most architectures.
+Very common idiom.  No creativity. Not copyrightable.
