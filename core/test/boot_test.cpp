@@ -2,10 +2,11 @@
 //
 // Usage: boot_test <firmware folder> <work folder> <game> <seconds> [system [runs [keys [model [state]]]]]
 //
-// <system> picks the ROMs: "own" (the default) is the player's firmware in <firmware folder>
-// (kernal, basic, chargen and dos1541, as the retro firmware sets name them); "open" is the
-// MEGA65 Open ROMs the app ships (third_party/open-roms), with no drive ROM; "open+1541" is Open
-// ROMs with the player's 1541 ROM.
+// <system> picks the ROMs and the drive, as a game's System and Drive settings do: "own" (the
+// default) is the player's firmware in <firmware folder> (kernal, basic and chargen, as the retro
+// firmware sets name them), "open" the MEGA65 Open ROMs the app ships (third_party/open-roms);
+// either runs VICE's virtual drive, and with "+1541" ("own+1541", "open+1541") an emulated 1541 on
+// the player's dos1541.
 //
 // Runs the machine for <seconds> of guest time, writing a frame every five seconds to
 // <work folder>/frame-<run>-<seconds>s.bmp and the last to <work folder>/frame-<run>.bmp, and
@@ -110,7 +111,7 @@ int main(int argc, char **argv) {
     std::filesystem::create_directories(config.home);
     config.start = argv[3];
     const double seconds = std::atof(argv[4]);
-    const std::string system = argc > 5 ? argv[5] : "own";
+    const std::string system = argc > 5 && *argv[5] ? argv[5] : "own";
     const int runs = argc > 6 ? std::atoi(argv[6]) : 1;
     const std::vector<Press> presses = argc > 7 && *argv[7] ? parse_keys(argv[7]) : std::vector<Press>{};
     if (argc > 8 && *argv[8]) config.model = argv[8];
@@ -118,18 +119,23 @@ int main(int argc, char **argv) {
 
     // The Open ROMs, beside this source in the checkout.
     const std::filesystem::path open = std::filesystem::path(__FILE__).parent_path() / "../../third_party/open-roms/bin";
-    if (system == "own") {
+    const std::string roms = system.substr(0, system.find('+'));
+    if (roms == "own") {
         config.kernal = require(firmware / "kernal");
         config.basic = require(firmware / "basic");
         config.chargen = require(firmware / "chargen");
-        config.dos1541 = require(firmware / "dos1541");
-    } else if (system == "open" || system == "open+1541") {
+    } else if (roms == "open") {
         config.kernal = require(open / "kernal_generic.rom");
         config.basic = require(open / "basic_generic.rom");
         config.chargen = require(open / "chargen_openroms.rom");
-        if (system == "open+1541") config.dos1541 = require(firmware / "dos1541");
         config.t64_on_disk = true;
     } else {
+        std::fprintf(stderr, "unknown system %s\n", system.c_str());
+        return 2;
+    }
+    if (system == roms + "+1541") {
+        config.dos1541 = require(firmware / "dos1541");
+    } else if (system != roms) {
         std::fprintf(stderr, "unknown system %s\n", system.c_str());
         return 2;
     }

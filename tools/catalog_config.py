@@ -1,5 +1,6 @@
 """Kairo64's catalog settings: C64 disk, tape, program and cartridge media, artwork references, the
 platform's slugs and the model a game's name asks for."""
+import json
 import re
 import sys
 from pathlib import Path
@@ -45,11 +46,20 @@ MACHINE_OPTIONS = {
 # No-Intro's regions of NTSC releases: their games are timed for a 60 Hz NTSC C64.
 _NTSC = re.compile(r"\((?:USA|Japan|Canada|USA, Canada)\)")
 
+# Games that need the player's firmware or the 1541 (tools/firmware_pass.py): {content ID:
+# {"system": "own", "drive": "1541", "why": ...}}; a game listed as failing everywhere keeps the
+# defaults.
+_FIRMWARE = json.loads((ROOT / "catalog/research/firmware-v1.json").read_text(encoding="utf-8"))["games"]
+
 
 def MACHINE(name, set_name, content_id):
-    """The model a release's name asks for: an NTSC C64 for a USA or Japanese release, which is
-    timed for one; every other release starts on the default PAL C64."""
-    return {"model": "c64ntsc"} if _NTSC.search(name) else {}
+    """The settings a release asks for: an NTSC C64 for a USA or Japanese release, which is timed
+    for one (every other release starts on the default PAL C64), and the firmware and drive
+    firmware-v1.json found it needs."""
+    settings = {"model": "c64ntsc"} if _NTSC.search(name) else {}
+    needs = _FIRMWARE.get(content_id, {})
+    settings.update({option: needs[option] for option in ("system", "drive") if option in needs})
+    return settings
 
 
 # Disk sets (shared/tools/disk_sets.py): a game starts from its first disk; the others are changed
