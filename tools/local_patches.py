@@ -66,10 +66,29 @@ VICE_PROGRAM_DISK_FOR_VIRTUAL_DRIVE = [
      '    case DRIVE_TYPE_1540:\n'),
 ]
 
+# VICE's autostart loads from the first tape with a bare LOAD, which Commodore's BASIC sends to the
+# tape. The Open ROMs' BASIC sends it to the last drive (8 or above), so a tape never loaded on
+# them. Autostart names the tape, device 1, as it already names the second tape, device 2.
+VICE_TAPE_LOAD_NAMES_DEVICE = [
+    ('vice/src/autostart.c',
+     '                if (autostart_program_name) {\n'
+     '                    tmp = util_concat("LOAD\\"", autostart_program_name, "\\"\\r", NULL);\n'
+     '                } else {\n'
+     '                    tmp = lib_strdup("LOAD\\r");\n'
+     '                }\n',
+     '                /* Kairo64: device 1 by name; the Open ROMs\' LOAD defaults to a drive */\n'
+     '                if (autostart_program_name) {\n'
+     '                    tmp = util_concat("LOAD\\"", autostart_program_name, "\\",1\\r", NULL);\n'
+     '                } else {\n'
+     '                    tmp = lib_strdup("LOAD\\"\\",1\\r");\n'
+     '                }\n'),
+]
+
 PATCHES = {
     'vice-autostart-keeps-virtual-drive': VICE_AUTOSTART_KEEPS_VIRTUAL_DRIVE,
     'vice-program-disk-for-virtual-drive': VICE_PROGRAM_DISK_FOR_VIRTUAL_DRIVE,
     'vice-jam': VICE_JAM,
+    'vice-tape-load-names-device': VICE_TAPE_LOAD_NAMES_DEVICE,
     'vice-kairo-sound': VICE_KAIRO_SOUND,
 }
 

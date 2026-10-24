@@ -54,6 +54,7 @@ It was imported on 2026-10-24 as the same snapshot as KairoST's (the files match
 | `vice-program-disk-for-virtual-drive` | `vice/src/autostart-prg.c` | VICE starts a program (PRG or P00) from a disk it writes the program to, in the format of drive 8's type. The virtual drive has no type, so no program started on it; it now gets a D64, which it reads like any other disk. |
 | `vice-kairo-sound` | `vice/src/sound.c`, `sound.h` | Lists Kairo64's sound device (`core/kairo/soundkairo.c`) first in VICE's fixed table of sound devices. It hands VICE's mixed sound to the host, whose audio device paces the machine. |
 | `vice-jam` | `vice/src/arch/headless/ui.c` | A JAM instruction, which stops the C64's CPU or a drive's, reaches Kairo64 (`KairoC64Host_Jam`), which ends the game with the reason. The headless UI only logged it, and the machine went on running a CPU that does nothing. |
+| `vice-tape-load-names-device` | `vice/src/autostart.c` | VICE's autostart loads from the first tape with a bare `LOAD`, which Commodore's BASIC sends to the tape. The Open ROMs' BASIC sends it to a drive (the last one used, or 8), so no tape loaded on them. Autostart types `LOAD"",1`, naming the tape, as it already names the second tape. |
 
 The rest of Kairo64's replacements need no change to VICE. `core/CMakeLists.txt` builds VICE without these files and compiles Kairo64's in their place (`core/kairo/`):
 

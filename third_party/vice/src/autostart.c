@@ -1094,10 +1094,11 @@ static void advance_hastape(void)
                     tmp = lib_strdup("LOAD\"\",2\r");
                 }
             } else {
+                /* Kairo64: device 1 by name; the Open ROMs' LOAD defaults to a drive */
                 if (autostart_program_name) {
-                    tmp = util_concat("LOAD\"", autostart_program_name, "\"\r", NULL);
+                    tmp = util_concat("LOAD\"", autostart_program_name, "\",1\r", NULL);
                 } else {
-                    tmp = lib_strdup("LOAD\r");
+                    tmp = lib_strdup("LOAD\"\",1\r");
                 }
             }
             kbdbuf_feed(tmp);
