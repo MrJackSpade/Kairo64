@@ -238,7 +238,7 @@ bool C64Machine::autostarting() const { return KairoC64_Autostarting(); }
 
 bool C64Machine::tape_moving() const { return KairoC64_TapeMoving(); }
 
-bool C64Machine::disk_spinning() const { return KairoC64_DiskSpinning(); }
+bool C64Machine::disk_loading() const { return KairoC64_DiskLoading(); }
 
 bool C64Machine::run_frame(std::string &error) {
     if (vice.ended || !vice.run()) {

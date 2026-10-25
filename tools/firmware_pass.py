@@ -60,7 +60,7 @@ SOUND_RANGE = 2000
 # The pass's version: results from an older one are booted again. 2: the core that loads tapes on
 # the Open ROMs and starts a 1541 game after a virtual-drive one, and the picture checks.
 PASS = 2
-LOADING = re.compile(r"loading \(autostart, tape or 1541 motor\) for ([\d.]+) s of guest time, (still at the end|last ending)")
+LOADING = re.compile(r"loading \(autostart, tape or disk\) for ([\d.]+) s of guest time, (still at the end|last ending)")
 PICTURES = re.compile(r"pictures after load: (\d+) distinct of (\d+) seconds; the last has (\d+) colours")
 
 
@@ -132,7 +132,7 @@ def boot(system, path, model, seconds, work):
                             capture_output=True, text=True, encoding="utf-8", errors="replace")
     lines = result.stdout.splitlines() + result.stderr.splitlines()
 
-    # How long the app would run the load flat out (the autostart, the tape's or the 1541's motor),
+    # How long the app would run the load flat out (the autostart, a moving tape, a disk load),
     # and whether that was still going at the end: a game the app would fast-forward in play.
     loading = next((LOADING.search(line) for line in lines if LOADING.search(line)), None)
 

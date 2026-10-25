@@ -68,11 +68,13 @@ public:
     bool autostarting() const;
     // Whether the datasette's tape is moving under its motor.
     bool tape_moving() const;
-    // Whether drive 8 is an emulated 1541 with its motor on.
-    bool disk_spinning() const;
-    // Whether a load is physically running: the autostart, a moving tape or a spinning 1541. The
-    // host runs the machine flat out meanwhile; normal speed comes back when the motor stops.
-    bool loading() const { return autostarting() || tape_moving() || disk_spinning(); }
+    // Whether drive 8 is loading: the serial bus has moved within the last second of guest time,
+    // with an emulated 1541's motor on. A 1541 that only spins (some games leave the motor on
+    // while they play) is not loading.
+    bool disk_loading() const;
+    // Whether a load is physically running: the autostart, a moving tape or a disk load. The
+    // host runs the machine flat out meanwhile; normal speed comes back when the load stops.
+    bool loading() const { return autostarting() || tape_moving() || disk_loading(); }
     // Runs one guest video frame; false with error set when the machine stops.
     bool run_frame(std::string &error);
     // The guest time the last frame lasted.

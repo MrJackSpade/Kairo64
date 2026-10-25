@@ -11,6 +11,8 @@
 #include "c64model.h"
 #include "drive.h"
 #include "drivetypes.h"
+#include "iecbus.h"
+#include "maincpu.h"
 #include "interrupt.h"
 #include "joyport.h"
 #include "joystick.h"
@@ -22,6 +24,13 @@
 #include "mouse.h"
 #include "resources.h"
 #include "tape.h"
+
+/* The serial bus's lines as the C64 and drive 8 last drove them, and when one last changed:
+ * sampled at the end of every raster line (KairoC64_BusLine). A load moves them all the time; a
+ * drive that only spins, or a C64 that never talks to it, leaves them still. */
+static uint8_t bus_cpu, bus_drive;
+static CLOCK bus_changed;
+static bool bus_ever_changed;
 
 bool KairoC64_SetInt(const char *name, int value)
 {
@@ -63,6 +72,8 @@ bool KairoC64_SetModel(const char *name)
 void KairoC64_PowerCycle(void)
 {
     machine_trigger_reset(MACHINE_RESET_MODE_POWER_CYCLE);
+    /* The CPU's clock starts again; the bus has not moved on this machine yet. */
+    bus_ever_changed = false;
 }
 
 void KairoC64_EjectAll(void)
@@ -91,13 +102,30 @@ bool KairoC64_Autostarting(void)
     return autostart_in_progress() != 0;
 }
 
-bool KairoC64_DiskSpinning(void)
+void KairoC64_BusLine(void)
+{
+    if (iecbus.cpu_bus != bus_cpu || iecbus.drv_bus[8] != bus_drive) {
+        bus_cpu = iecbus.cpu_bus;
+        bus_drive = iecbus.drv_bus[8];
+        bus_changed = maincpu_clk;
+        bus_ever_changed = true;
+    }
+}
+
+bool KairoC64_DiskLoading(void)
 {
     const diskunit_context_t *unit = diskunit_context[0];
+    /* Talking within the last second of guest time: the gaps of a load (a seek, a sector's
+     * search, the C64 storing what came) are far shorter. */
+    const bool talking = bus_ever_changed && maincpu_clk >= bus_changed &&
+                         maincpu_clk - bus_changed < (CLOCK)machine_get_cycles_per_second();
 
-    /* Only an emulated drive has a motor; VICE's virtual drive has none. */
-    return unit->enable && unit->type != DRIVE_TYPE_NONE &&
-           (unit->drives[0]->byte_ready_active & BRA_MOTOR_ON) != 0;
+    if (unit->enable && unit->type != DRIVE_TYPE_NONE) {
+        /* An emulated 1541 loads with its motor on. */
+        return talking && (unit->drives[0]->byte_ready_active & BRA_MOTOR_ON) != 0;
+    }
+    /* VICE's virtual drive has no motor: the bus alone tells. */
+    return talking;
 }
 
 void KairoC64_Key(int row, int column, bool down)

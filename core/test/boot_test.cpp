@@ -15,8 +15,8 @@
 // <work folder>/screen-<run>.txt. With <runs> above 1 it starts a new machine
 // after each, in the same process, as the app does for the next game. It reports when the load
 // ends (C64Machine::autostarting) and writes that frame to <work folder>/frame-<run>-booted.bmp,
-// and how long the app would run it flat out (C64Machine::loading: the autostart, the tape's or
-// the 1541's motor).
+// and how long the app would run it flat out (C64Machine::loading: the autostart, a moving tape,
+// a disk load).
 // <keys> is a list of "frame:row:column" presses (comma separated) in the keyboard matrix, each
 // held for five frames; a row of "j" is a joystick control instead, held as long. <model> is a
 // VICE model name ("" for the default). With <state> "state", it saves the machine halfway between
@@ -278,7 +278,7 @@ int main(int argc, char **argv) {
         }
         const double wall = std::chrono::duration<double>(std::chrono::steady_clock::now() - started).count();
         std::printf("run %d: %.1f s of guest time in %.1f s (%.1fx real time)\n", run, elapsed, wall, elapsed / wall);
-        std::printf("run %d: loading (autostart, tape or 1541 motor) for %.1f s of guest time, %s\n", run, loading,
+        std::printf("run %d: loading (autostart, tape or disk) for %.1f s of guest time, %s\n", run, loading,
                     was_loading ? "still at the end" : ("last ending at " + std::to_string(loading_ended) + " s").c_str());
         if (state) {
             if (after_save.empty()) {

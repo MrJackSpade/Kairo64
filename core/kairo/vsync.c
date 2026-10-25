@@ -185,10 +185,12 @@ void vsyncarch_get_metrics(double *cpu_percent, double *emulated_fps, int *is_wa
     *is_warp_enabled = warp_enabled;
 }
 
-/* At the end of every raster line: the sound produced so far goes to the sound device. */
+/* At the end of every raster line: the sound produced so far goes to the sound device, and the
+ * serial bus is sampled for the host's view of a load (KairoC64_DiskLoading). */
 void vsync_do_end_of_line(void)
 {
     sound_flush();
+    KairoC64_BusLine();
 }
 
 /* Every frame is drawn. */

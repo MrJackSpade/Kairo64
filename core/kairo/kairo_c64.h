@@ -60,8 +60,11 @@ bool KairoC64_Autostarting(void);
 /* Whether the datasette's tape is moving: a tape in, the motor on and a button down
  * (kairo/uistatusbar.c). */
 bool KairoC64_TapeMoving(void);
-/* Whether drive 8 is an emulated 1541 with its spindle motor on. */
-bool KairoC64_DiskSpinning(void);
+/* Whether drive 8 is loading: the C64 and the drive have moved the serial bus's lines within the
+ * last second of guest time, with an emulated 1541's motor on. */
+bool KairoC64_DiskLoading(void);
+/* At the end of every raster line (kairo/vsync.c): samples the serial bus for KairoC64_DiskLoading. */
+void KairoC64_BusLine(void);
 
 /* A key by its place in the keyboard matrix: row 0 to 7, column 0 to 7. */
 void KairoC64_Key(int row, int column, bool down);

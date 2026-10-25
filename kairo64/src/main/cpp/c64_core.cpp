@@ -36,7 +36,7 @@ public:
     std::string details() override {
         return std::string("load=") + (machine_->autostarting() ? "autostart"
                                        : machine_->tape_moving() ? "tape"
-                                       : machine_->disk_spinning() ? "disk" : "none");
+                                       : machine_->disk_loading() ? "disk" : "none");
     }
     const uint8_t *frame(uint32_t &width, uint32_t &height) override { return machine_->frame(width, height); }
     double frame_seconds() override { return machine_->frame_seconds(); }
