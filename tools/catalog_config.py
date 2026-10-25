@@ -68,6 +68,13 @@ def MACHINE(name, set_name, content_id):
     return settings
 
 
+def BROKEN_DISK(content_id):
+    """A disk no setup starts (firmware-v1.json "fails"): it leads its set, dump set or folder only
+    when every other candidate fails too (shared disk_sets.py), so a set whose first disk holds no
+    boot file starts from the one that boots."""
+    return "fails" in _FIRMWARE.get(content_id, {})
+
+
 # Disk sets (shared/tools/disk_sets.py): a game starts from its first disk; the others are changed
 # in drive 8 during play, so none is inserted beside it.
 BOOT_KINDS = ["disk", "tape", "prg", "cart"]

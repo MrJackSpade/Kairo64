@@ -1410,6 +1410,9 @@
    "system": "own",
    "why": "firmware_pass.py: on the Open ROMs and the virtual drive: The C64 stopped:    Main CPU: JAM at $E703   ; on own: runs"
   },
+  "sha256-disk-v1:3d3739d2de505cf2b3eb27b2032628b664ce238928fdb5b13d942ef1e4136dfc": {
+   "fails": "firmware_pass.py: fails on every setup; on the Open ROMs: back at BASIC's READY. without a sound"
+  },
   "sha256-disk-v1:3d8ab7406e3f913acf51b9a1877c64c1a75626e7752fc07ada3a03e3fc4e1571": {
    "drive": "1541",
    "system": "own",
@@ -1452,6 +1455,9 @@
   "sha256-disk-v1:3fedab8bfd2962d1dbfcfc60157060ad684025ea1315d943f02dba9ceda8a902": {
    "system": "own",
    "why": "firmware_pass.py: on the Open ROMs and the virtual drive: The C64 stopped:    Main CPU: JAM at $A3C1   ; on own: runs"
+  },
+  "sha256-disk-v1:3fff05619faa407b317d986b847f090b13b9f88be6debe31ab01840b70e6068f": {
+   "fails": "firmware_pass.py: fails on every setup; on the Open ROMs: back at BASIC's READY. without a sound"
   },
   "sha256-disk-v1:4004c544e4b3407e0930c1f50c4b098ecb73cd130555cdb5aebd84e1c5fbe9f6": {
    "system": "own",
@@ -4728,6 +4734,9 @@
    "system": "own",
    "why": "firmware_pass.py: on the Open ROMs and the virtual drive: The C64 stopped:    Main CPU: JAM at $E536   ; on own: runs"
   },
+  "sha256-disk-v1:bd51ddb20c0ba49f72ca9f5339afd6dacb2155c2774893e97ce84e4dfbc16831": {
+   "fails": "firmware_pass.py: fails on every setup; on the Open ROMs: back at BASIC's READY. without a sound"
+  },
   "sha256-disk-v1:bd8707c1d816a74b4707445150852e9c406c78349911ef349579004c2e70f05d": {
    "system": "own",
    "why": "firmware_pass.py: on the Open ROMs and the virtual drive: back at BASIC's READY. without a sound; on own: runs"
@@ -4915,6 +4924,10 @@
   "sha256-disk-v1:c5a2cb0d6b9ebe5a2c3cab10d41421d42026343032aaaa2e9ef32c2005d7f7d6": {
    "system": "own",
    "why": "firmware_pass.py: on the Open ROMs and the virtual drive: The C64 stopped:    Main CPU: JAM at $FEBC   ; on own: runs"
+  },
+  "sha256-disk-v1:c606ce181b7ac8370577b1ead5fe5342c00c9d4aa6637bc3cc506f7ddb08a497": {
+   "system": "own",
+   "why": "firmware_pass.py: on the Open ROMs and the virtual drive: The C64 stopped:    Main CPU: JAM at $E703   ; on own: runs"
   },
   "sha256-disk-v1:c630c3e78e70422d59b7586f3a7e5384825d3c23275de276c2d6db3dff9141d5": {
    "system": "own",
@@ -8302,6 +8315,10 @@
    "system": "own",
    "why": "firmware_pass.py: on the Open ROMs and the virtual drive: BASIC says ?NOT IMPLEMENTED ERROR; on own: runs"
   },
+  "sha256-tape-v1:5669303153be4cb6d30f1f11cc55dc44154c86d859336ffa2ef1d3c6f404b3b7": {
+   "system": "own",
+   "why": "firmware_pass.py: on the Open ROMs and the virtual drive: back at BASIC's READY. without a sound; on own: runs"
+  },
   "sha256-tape-v1:566b14e85ce7cc44e96b9da82a1aee768faba7e94d6017f9b7e08ebabe52dd72": {
    "system": "own",
    "why": "firmware_pass.py: on the Open ROMs and the virtual drive: back at BASIC's READY. without a sound; on own: runs"
@@ -8309,6 +8326,9 @@
   "sha256-tape-v1:56903d8cf1047bf8bf03e4188b154db4be706fde8f2b0ab29f1a37ac8662e328": {
    "system": "own",
    "why": "firmware_pass.py: on the Open ROMs and the virtual drive: BASIC says ?NOT IMPLEMENTED ERROR; on own: runs"
+  },
+  "sha256-tape-v1:56d9c74dd62a91ed9410aadbc22159395af22df6657fe628828e8859d5897a5b": {
+   "fails": "firmware_pass.py: fails on every setup; on the Open ROMs: BASIC says ?SYNTAX ERROR"
   },
   "sha256-tape-v1:56edd068e5b53ea74260068e674c2cd0f72067928a1c5d9f10283c140c676a26": {
    "system": "own",

@@ -52393,10 +52393,15 @@
    ],
    "description": "Pure strategy version of the War of the Ring, directing the forces of good across Middle-earth from the moment the Fellowship forms, without the 16-bit game's RPG questing.",
    "developer": "Maelstrom Games",
+   "diskMachine": {
+    "sha256-disk-v1:c606ce181b7ac8370577b1ead5fe5342c00c9d4aa6637bc3cc506f7ddb08a497": {
+     "system": "own"
+    }
+   },
    "diskSets": {
-    "sha256-disk-v1:d6b92500bc044550ac96b77bb9f359d178019970cc052d37aab7f4423218a1e0": {
+    "sha256-disk-v1:c606ce181b7ac8370577b1ead5fe5342c00c9d4aa6637bc3cc506f7ddb08a497": {
      "setDisks": [
-      "sha256-disk-v1:c606ce181b7ac8370577b1ead5fe5342c00c9d4aa6637bc3cc506f7ddb08a497"
+      "sha256-disk-v1:d6b92500bc044550ac96b77bb9f359d178019970cc052d37aab7f4423218a1e0"
      ]
     }
    },
@@ -99938,10 +99943,15 @@
    ],
    "description": "The first expansion of questions for Trivial Pursuit, aimed at children and teenagers, adding 3,000 questions split into ages 7 to 12 and 12 and up, with categories such as People and Places.",
    "developer": "Oxford Digital Enterprises",
+   "diskMachine": {
+    "sha256-tape-v1:5669303153be4cb6d30f1f11cc55dc44154c86d859336ffa2ef1d3c6f404b3b7": {
+     "system": "own"
+    }
+   },
    "diskSets": {
-    "sha256-tape-v1:3fdaea102366e166a4abacc2da4a4fdc739d4fcc39626e74b746120aaa8bcf6e": {
+    "sha256-tape-v1:5669303153be4cb6d30f1f11cc55dc44154c86d859336ffa2ef1d3c6f404b3b7": {
      "setDisks": [
-      "sha256-tape-v1:5669303153be4cb6d30f1f11cc55dc44154c86d859336ffa2ef1d3c6f404b3b7"
+      "sha256-tape-v1:3fdaea102366e166a4abacc2da4a4fdc739d4fcc39626e74b746120aaa8bcf6e"
      ]
     }
    },
@@ -172880,11 +172890,11 @@
    "description": "The demon Cerberus has abducted Elvira to steal her power; search the Black Widow Productions film studios, whose horror movie sets have come to life, to rescue her.",
    "developer": "Horror Soft",
    "diskSets": {
-    "sha256-disk-v1:7c8296ed7d55594bd531e825477942dc8c75232a6a3398045dd1f61cb700dbae": {
+    "sha256-disk-v1:2f02094207820960810b5bf165045424b48eaaebbc14f63abca3a3aac9acf4ae": {
      "setDisks": [
-      "sha256-disk-v1:2f02094207820960810b5bf165045424b48eaaebbc14f63abca3a3aac9acf4ae",
       "sha256-disk-v1:3d3739d2de505cf2b3eb27b2032628b664ce238928fdb5b13d942ef1e4136dfc",
       "sha256-disk-v1:445ded502a7de8fe68a6a5c045874608baa8b77555f18510344e71c66cc4421c",
+      "sha256-disk-v1:7c8296ed7d55594bd531e825477942dc8c75232a6a3398045dd1f61cb700dbae",
       "sha256-disk-v1:bd51ddb20c0ba49f72ca9f5339afd6dacb2155c2774893e97ce84e4dfbc16831"
      ]
     }
