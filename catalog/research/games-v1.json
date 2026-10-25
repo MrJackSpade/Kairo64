@@ -3950,6 +3950,7 @@
    "contentIds": [
     "sha256-tape-v1:0e26dddd6c9115e795ffff13dd855f70e61c5a0485a41bfcbfcd58c4ab1e9255"
    ],
+   "description": "One or two players race each other at once as big-nosed boaters who dive beneath the surface to grab treasure, dodging fish and other sea creatures while an air gauge drains for as long as they stay under.",
    "developer": "Tony Kelly",
    "launchbox": "125402",
    "publisher": "Mastertronic",
@@ -4174,6 +4175,7 @@
    "contentIds": [
     "sha256-tape-v1:35f8959aa146dbd90aa1e831f8cd2fbf4ff403c11989970a6872386587816fdd"
    ],
+   "description": "Solo contract bridge against a computer that handles both opposing hands. Deals are random, bidding follows ACOL with Stayman and Blackwood, and you can set up specific hands or contracts, replay the play and even look at the opponents' cards.",
    "launchbox": "125417",
    "publisher": "Sagittarian Software",
    "screenshotUrl": "https://images.launchbox-app.com/f249a22f-b830-4073-9455-79a422a98031.png",
@@ -6468,6 +6470,7 @@
    "contentIds": [
     "sha256-tape-v1:cdb264d77b6946c602e7c0eebae6b68fff06c04b2f3d45c7adcda34c4bb9e707"
    ],
+   "description": "A light-handed car race through Tokyo in which the computer handles much of the steering at low speeds, demanding more from the driver the faster you go. Choose 1, 5 or 10 laps, view the whole circuit from above or check the world rankings.",
    "developer": "Mark Turmell",
    "launchbox": "125849",
    "publisher": "CP Verlag",
@@ -10625,6 +10628,7 @@
    "contentIds": [
     "sha256-tape-v1:4d6353b674dac1721f12abd6962508dbfe733adaaa608be0bccb157cbfd6fdbc"
    ],
+   "description": "One of the earliest text adventures: a knight sets out from a campsite with a mule-like burdenbeast and a dart shooter to recover treasures hidden in the caverns of Spider Mountain. A fantasy rework of Lost Dutchman's Gold with its own odd vocabulary.",
    "developer": "Bob Liddel",
    "diskMachine": {
     "sha256-tape-v1:4d6353b674dac1721f12abd6962508dbfe733adaaa608be0bccb157cbfd6fdbc": {
@@ -11317,6 +11321,7 @@
    "contentIds": [
     "sha256-disk-v1:d651d9aa1964fa1cfac591910f98be1e91bf2c6d12adc6e2f92920960d58a12b"
    ],
+   "description": "Tonk roams the floating islands of TinkTonk Land gathering Buddy-Bot parts while avoiding Gork's soldiers and black holes, either of which send him to Gork's Castle; a map helps with navigation in this children's thinking game.",
    "developer": "Angelsoft",
    "diskMachine": {
     "sha256-disk-v1:d651d9aa1964fa1cfac591910f98be1e91bf2c6d12adc6e2f92920960d58a12b": {
@@ -57182,6 +57187,7 @@
    "contentIds": [
     "sha256-disk-v1:8032fa1b60bbc1a95f15a2be3ba9a3bf5a3284707b2adeca2b6531a044c3c0c6"
    ],
+   "description": "A Hungarian helicopter shoot 'em up known for its soundtrack and brutally hard attack waves; the chopper's gun is upgraded on the third level, and finishing the game unlocks an ending screen.",
    "developer": "Csaba Toth",
    "launchbox": "150917",
    "publisher": "CP Verlag",
@@ -58335,6 +58341,7 @@
    "contentIds": [
     "sha256-tape-v1:a4646228b2c331bb0155362a9d5d610f1d4df1f4032aca6b1701a4f9210907c4"
    ],
+   "description": "Push a ball into green stones to knock them across the board and sink them in blast holes: a single target on the frantic first stage, one hole per corner on the second, then a chessboard stage where touching a small star blows up the ball. Three lives per screen.",
    "developer": "Jan Westphal",
    "launchbox": "151250",
    "publisher": "Markt & Technik",
@@ -63676,6 +63683,7 @@
    "contentIds": [
     "sha256-disk-v1:2d9365d88d809b7a04c94a841f6355e662fefb5cfdca045eee5365103576bd52"
    ],
+   "description": "Command the armies of the Great Northern War, in which a Russian-led coalition fought the Swedish Empire, choosing the strategy and timing when the cavalry swings around the flank to charge.",
    "developer": "Carl Carlsson",
    "launchbox": "152827",
    "publisher": "Romik Software",
@@ -63834,6 +63842,7 @@
    "contentIds": [
     "sha256-tape-v1:0019d4761faff72b0c8aca657acb560f60e5155c7b335b553521d95e649a68bc"
    ],
+   "description": "Steer a white arrow across a scrolling field of coloured tiles, erasing the yellow ones as you pass. Tiles with clipped corners add super jumps that carry the arrow over gaps; clear the screen inside two minutes to advance.",
    "developer": "Tobias Erbsland",
    "launchbox": "152838",
    "publisher": "Magna Media",
@@ -78112,6 +78121,7 @@
    "contentIds": [
     "sha256-disk-v1:8f1a2adf0ca38d2d3ceda6a7d35702bd2f98fdf1f254b5aa33b534a20d856c3f"
    ],
+   "description": "Fill a 96-square board with 76 symbol stones before time runs out, placing each next to stones that share its shape or colour. A question mark occasionally appears and must be reached within three seconds or it blocks a square or wipes out surrounding stones.",
    "developer": "Michael Strelecki",
    "launchbox": "159442",
    "publisher": "Markt & Technik",
@@ -94056,6 +94066,7 @@
    "contentIds": [
     "sha256-tape-v1:1d49b17a4060c798c802e62b0c4aaccb148c6a9782098566bdeed9cfd50ef8de"
    ],
+   "description": "Zenos, a woman starpilot passed over for the Ace Starpilot post of Zigmundia, steals the retired ace's Tesscan starfighter to show the federation its supposedly unbeatable defence system can be broken.",
    "developer": "Imagez Software",
    "launchbox": "166374",
    "publisher": "Top Ten Software",
@@ -97001,6 +97012,7 @@
    "contentIds": [
     "sha256-disk-v1:2a2644352b106fc4a7b1a4e6bcec053a7b580701216c38338c8398c52ea10456"
    ],
+   "description": "Rebels set out to destroy Lincoln, a supercomputer ruling the universe that demands women as sacrifices. Its stages cover hopping hidden capsules between planets on transport ships, sniping defence systems so they can land, freeing the captives with a flute-playing creature, and infiltrating the city to plant nine viruses.",
    "developer": "Antsoft",
    "launchbox": "168827",
    "publisher": "Multisoft",
@@ -97252,6 +97264,7 @@
    "contentIds": [
     "sha256-disk-v1:479d1439fedc1cbd76c81b84b4affd06dbdd43ac92d115152fd54fb6c2798506"
    ],
+   "description": "Pilot a small glider through a sprawling underground labyrinth of hell, picking up energy symbols, recharging at refuelling pads, braving teleporters, timed energy barriers and magnetic fields, and hunting hidden keys that open locked gates.",
    "developer": "Dynafield Systems International",
    "launchbox": "168922",
    "publisher": "CP Verlag",
@@ -99912,6 +99925,7 @@
    "contentIds": [
     "sha256-tape-v1:fbe639235287c40669c5a860661320bc7e2792dea974a5c315532c8db438655f"
    ],
+   "description": "A small text adventure with a verb-noun parser where the first puzzle is working out whether the vessel you escaped was a spaceship or a cruise liner.",
    "developer": "Anthony Maro",
    "launchbox": "171520",
    "publisher": "Commodore Magazine",
@@ -100689,6 +100703,7 @@
    "contentIds": [
     "sha256-tape-v1:0ff3c8fd0ee17e6084d109ff97916ab5b1022cbbf9fffd0129272ab7160dde1f"
    ],
+   "description": "A shooter in the vein of Uridium where a lone fighter takes on the defences of a huge space station.",
    "developer": "Reaktör Software",
    "launchbox": "171620",
    "publisher": "Ariolasoft",
@@ -102772,6 +102787,7 @@
    "contentIds": [
     "sha256-disk-v1:dce5947d1cd3bd991a2f7efcd7c52f7e5bfe1db63b79b15d6132340342437d4b"
    ],
+   "description": "Teacher-designed geography drills built on matching U.S. facts with words and phrases, with an authoring mode for typing in your own quizzes and games.",
    "developer": "Kevin Armstrong",
    "diskMachine": {
     "sha256-disk-v1:dce5947d1cd3bd991a2f7efcd7c52f7e5bfe1db63b79b15d6132340342437d4b": {
@@ -103348,6 +103364,7 @@
    "contentIds": [
     "sha256-disk-v1:e553375d5246d72b4604e66fc399b6746dd6e366bcce333642c01012aad185fd"
    ],
+   "description": "As secret agent Mr. White, collect every microdot in a maze while guards hunt you down, using speed boosts to escape. Survival mode has no gun; Escape mode gives you bullets but fewer exits. Unused boosts and bullets add bonus points.",
    "developer": "Stefan Wessels",
    "launchbox": "172007",
    "screenshotUrl": "https://images.launchbox-app.com/f2119d06-6e43-478f-bb6a-9d25f345a480.png",
@@ -106785,6 +106802,7 @@
    "contentIds": [
     "sha256-disk-v1:621de2477464ab0d34587c5c64a83491ed7ca570aaac07021522a85cba38652b"
    ],
+   "description": "A small ship that moves in any direction and fires straight up battles three huge aliens that cannot be destroyed; each hit scores points but makes the monster start shooting back. Five lives.",
    "developer": "General Masters Corporation",
    "diskMachine": {
     "sha256-disk-v1:621de2477464ab0d34587c5c64a83491ed7ca570aaac07021522a85cba38652b": {
@@ -113241,6 +113259,7 @@
    "contentIds": [
     "sha256-tape-v1:0bc0b150038d3709715d602136ee90d14205817560279a192131bbdc2d00cd90"
    ],
+   "description": "Across 64 levels, brown blocks win over grey ones simply by touching them, but each brown block has a limited number of moves, so every step needs planning. No time limit, and passwords record your progress.",
    "developer": "Axel Teichmann",
    "launchbox": "173930",
    "publisher": "CP Verlag",
@@ -113274,6 +113293,7 @@
    "contentIds": [
     "sha256-disk-v1:b9685f250cb7bbc9b9dd2cca0d677e92a8d9361edeb24edfdb7d8fedd8997b0f"
    ],
+   "description": "Roll a ball over coloured tiles without falling off: green is solid ground unless cracked, blue slides you like ice to the next colour, and the flashing violet squares that must be collected vanish once crossed. One life, and an editor for building or changing levels.",
    "developer": "Jürgen Graser",
    "launchbox": "173932",
    "publisher": "CP Verlag",
@@ -121118,6 +121138,7 @@
    "contentIds": [
     "sha256-tape-v1:9f4acaf6efd4cc727d02ebe3d149ef2984b2e050eacf612ceba43763f4b90df9"
    ],
+   "description": "Guide an Indiana Jones-like explorer through a house collecting bags of gold before time runs out, while a ghost gives chase. Five levels and four speed settings, all from a 20-line program.",
    "developer": "Markt & Technik",
    "launchbox": "176617",
    "publisher": "Maik Qualmann",
@@ -122751,6 +122772,7 @@
    "contentIds": [
     "sha256-disk-v1:822416902e568514df74e501212aa3e0438c75fcdc81e891ba9cf1c70f227aaf"
    ],
+   "description": "Place each stone the computer hands you so that it matches every neighbour in pattern, colour or both, racing a timer. Filling a row or column scores a bonus, largest for a single colour, and clears it. Played solo or by two.",
    "developer": "Thomas Kemmer",
    "launchbox": "177539",
    "publisher": "CP Verlag",
@@ -128833,6 +128855,7 @@
    "contentIds": [
     "sha256-tape-v1:547b2a6e6b9cfe9a1695715e7f07774404011dff34eebda5f83428bbd3f0b511"
    ],
+   "description": "On an 8x8 grid of coloured blocks, place pieces into one area so it matches the pattern in the other before a fast-shrinking timer expires.",
    "developer": "Andrew Rodger",
    "launchbox": "180710",
    "publisher": "Digital Dynamite Productions",
@@ -137390,6 +137413,7 @@
    "contentIds": [
     "sha256-disk-v1:bbe78c04634c646a8956714c25a3116ff36497a5b419f672aa44561b9863292b"
    ],
+   "description": "Restore a scrambled field to match the pattern shown beside it by rotating its pieces; turning one piece also turns every piece connected to it.",
    "developer": "Lars Hutzelmann",
    "launchbox": "187058",
    "publisher": "CP Verlag",
@@ -137425,6 +137449,7 @@
    "contentIds": [
     "sha256-disk-v1:a1e402bba2e7eefaf8bb82fe77834397a6f65dc26ab691e3ab86c90e8bbdf0f6"
    ],
+   "description": "Fly a glider through tight underground mazes shooting the 75 energy blocks on each level. Moving and firing burn energy, which hitting energy blocks restores; barriers fall only when hit at their ends, and landing on a base sets a restart point. Seven gliders.",
    "developer": "Mr-Soft",
    "launchbox": "187338",
    "publisher": "CP Verlag",
