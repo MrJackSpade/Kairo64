@@ -6,7 +6,8 @@
 // default) is the player's firmware in <firmware folder> (kernal, basic and chargen, as the retro
 // firmware sets name them), "open" the MEGA65 Open ROMs the app ships (third_party/open-roms);
 // either runs VICE's virtual drive, and with "+1541" ("own+1541", "open+1541") an emulated 1541 on
-// the player's dos1541.
+// the player's dos1541. A comma-separated list ("open,own+1541") gives each run its own, in turn,
+// as a player starts games with different settings one after another in the app.
 //
 // Runs the machine for <seconds> of guest time, writing a frame every five seconds to
 // <work folder>/frame-<run>-<seconds>s.bmp and the last to <work folder>/frame-<run>.bmp, and
@@ -98,6 +99,34 @@ std::string require(const std::filesystem::path &path) {
     return std::filesystem::weakly_canonical(std::filesystem::absolute(path)).string();
 }
 
+// Sets the ROMs and drive of a <system> ("open", "own+1541", ...); false for an unknown one.
+bool set_system(kairo64::Config &config, const std::string &system, const std::filesystem::path &firmware) {
+    // The Open ROMs, beside this source in the checkout.
+    const std::filesystem::path open = std::filesystem::path(__FILE__).parent_path() / "../../third_party/open-roms/bin";
+    const std::string roms = system.substr(0, system.find('+'));
+    if (roms == "own") {
+        config.kernal = require(firmware / "kernal");
+        config.basic = require(firmware / "basic");
+        config.chargen = require(firmware / "chargen");
+        config.t64_on_disk = false;
+    } else if (roms == "open") {
+        config.kernal = require(open / "kernal_generic.rom");
+        config.basic = require(open / "basic_generic.rom");
+        config.chargen = require(open / "chargen_openroms.rom");
+        config.t64_on_disk = true;
+    } else {
+        return false;
+    }
+    if (system == roms + "+1541") {
+        config.dos1541 = require(firmware / "dos1541");
+    } else if (system == roms) {
+        config.dos1541.clear();
+    } else {
+        return false;
+    }
+    return true;
+}
+
 } // namespace
 
 int main(int argc, char **argv) {
@@ -111,33 +140,21 @@ int main(int argc, char **argv) {
     std::filesystem::create_directories(config.home);
     config.start = argv[3];
     const double seconds = std::atof(argv[4]);
-    const std::string system = argc > 5 && *argv[5] ? argv[5] : "own";
+    std::vector<std::string> systems;
+    {
+        std::stringstream list(argc > 5 && *argv[5] ? argv[5] : "own");
+        for (std::string item; std::getline(list, item, ',');) systems.push_back(item);
+    }
     const int runs = argc > 6 ? std::atoi(argv[6]) : 1;
     const std::vector<Press> presses = argc > 7 && *argv[7] ? parse_keys(argv[7]) : std::vector<Press>{};
     if (argc > 8 && *argv[8]) config.model = argv[8];
     const bool state = argc > 9 && std::string(argv[9]) == "state";
 
-    // The Open ROMs, beside this source in the checkout.
-    const std::filesystem::path open = std::filesystem::path(__FILE__).parent_path() / "../../third_party/open-roms/bin";
-    const std::string roms = system.substr(0, system.find('+'));
-    if (roms == "own") {
-        config.kernal = require(firmware / "kernal");
-        config.basic = require(firmware / "basic");
-        config.chargen = require(firmware / "chargen");
-    } else if (roms == "open") {
-        config.kernal = require(open / "kernal_generic.rom");
-        config.basic = require(open / "basic_generic.rom");
-        config.chargen = require(open / "chargen_openroms.rom");
-        config.t64_on_disk = true;
-    } else {
-        std::fprintf(stderr, "unknown system %s\n", system.c_str());
-        return 2;
-    }
-    if (system == roms + "+1541") {
-        config.dos1541 = require(firmware / "dos1541");
-    } else if (system != roms) {
-        std::fprintf(stderr, "unknown system %s\n", system.c_str());
-        return 2;
+    for (const auto &system : systems) {
+        if (!set_system(config, system, firmware)) {
+            std::fprintf(stderr, "unknown system %s\n", system.c_str());
+            return 2;
+        }
     }
     if (!std::ifstream(config.start, std::ios::binary)) {
         std::fprintf(stderr, "run 0: could not start: cannot open %s\n", config.start.c_str());
@@ -150,6 +167,9 @@ int main(int argc, char **argv) {
     std::vector<int16_t> audio(48000 * 2);
     for (int run = 0; run < runs; ++run) {
         std::string error;
+        const std::string &system = systems[run % systems.size()];
+        set_system(config, system, firmware);
+        std::printf("run %d: %s\n", run, system.c_str());
         auto machine = kairo64::C64Machine::create(config, error);
         if (!machine) {
             std::fprintf(stderr, "run %d: could not start: %s\n", run, error.c_str());

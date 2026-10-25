@@ -417,7 +417,10 @@ int drive_set_disk_drive_type(unsigned int type, struct diskunit_context_s *drv)
     drive1 = drv->drives[1];
 
     /* TODO: drive 1? */
-    rotation_rotate_disk(drive0);
+    /* Kairo64: only a running drive's disk turns; a disabled one's rotation clock is stale */
+    if (drv->enable) {
+        rotation_rotate_disk(drive0);
+    }
     drivesync_clock_frequency(drv, type);
 
     rotation_init(0, dnr);
@@ -514,6 +517,8 @@ int drive_enable(diskunit_context_t *drv)
 
     /* resync */
     drv->cpu->stop_clk = *(drv->clk_ptr);
+    /* Kairo64: and the rotation, which stood still while the drive was off */
+    rotation_begins(drv->drives[0]);
 
     if (drv->type == DRIVE_TYPE_2000 ||
         drv->type == DRIVE_TYPE_4000 ||

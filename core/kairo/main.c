@@ -14,8 +14,16 @@
 /* Where archdep_vice_exit returns to: the end of KairoC64_Run. */
 jmp_buf kairo_c64_exit;
 
-void KairoC64_Run(int argc, char **argv)
+/* VICE's per-user folder (kairo/archdep_user_paths.c). */
+extern const char *kairo_c64_user_dir;
+
+void KairoC64_Run(const char *user_dir, int argc, char **argv)
 {
+    if (user_dir == NULL) {
+        KairoC64Host_Fatal("VICE has no user folder");
+        return;
+    }
+    kairo_c64_user_dir = user_dir;
     if (setjmp(kairo_c64_exit) != 0) {
         return;
     }

@@ -40,6 +40,9 @@ struct Vice {
     std::string jam;
     // A machine is running.
     bool machine = false;
+    // VICE's folder for its cache, configuration and state: the home folder of the machine it
+    // started with, kept for VICE's life.
+    std::string user_dir;
     // VICE is starting or a machine is being set up, through its first frame: VICE logs errors
     // for the ROMs its defaults and models name before Kairo64 names its own, and for the KERNAL
     // traps it cannot install on a KERNAL other than Commodore's as the machine resets, so its log
@@ -69,15 +72,16 @@ struct Vice {
         return message;
     }
 
-    // Starts VICE with its command line and waits for the end of its first frame; false with
-    // error set when it could not start.
-    bool start(std::vector<std::string> args, std::string &error) {
+    // Starts VICE with its user folder and command line and waits for the end of its first frame;
+    // false with error set when it could not start.
+    bool start(const std::string &home, std::vector<std::string> args, std::string &error) {
         started = true;
+        user_dir = home;
         std::thread([this, args = std::move(args)]() mutable {
             std::vector<char *> argv;
             for (auto &arg : args) argv.push_back(arg.data());
             argv.push_back(nullptr);
-            KairoC64_Run(int(args.size()), argv.data());
+            KairoC64_Run(user_dir.c_str(), int(args.size()), argv.data());
             std::lock_guard lock(mutex);
             ended = true;
             changed.notify_all();
@@ -133,8 +137,11 @@ bool configure(const Config &config, std::string &error) {
     // Never KERNAL traps, which patch Commodore's KERNAL and so fit only it.
     const bool true_drive = !config.dos1541.empty();
     if (true_drive && !set_string("DosName1541", config.dos1541, "1541 drive ROM")) return false;
-    if (!set_int("TrapDevice8", 0) || !set_int("Drive8Type", true_drive ? 1541 : 0) ||
-        !set_int("Drive8TrueEmulation", true_drive ? 1 : 0) || !set_int("BusDevice8", true_drive ? 0 : 1))
+    // True emulation before the type: VICE puts a drive of a new type on the bus only while true
+    // emulation is on, so after a machine on the virtual drive (true emulation off) a 1541 set
+    // first would never answer ("?DEVICE NOT PRESENT").
+    if (!set_int("TrapDevice8", 0) || !set_int("Drive8TrueEmulation", true_drive ? 1 : 0) ||
+        !set_int("Drive8Type", true_drive ? 1541 : 0) || !set_int("BusDevice8", true_drive ? 0 : 1))
         return false;
     // A program starts from a disk VICE writes it to, in the machine's own folder (VICE's default
     // is a per-user cache folder an app does not have).
@@ -192,7 +199,7 @@ std::unique_ptr<C64Machine> C64Machine::create(const Config &config, std::string
             "-chargen", config.chargen,
             "-drive8type", "0",
         };
-        if (!vice.start(std::move(args), error)) return nullptr;
+        if (!vice.start(config.home, std::move(args), error)) return nullptr;
     }
     vice.jam.clear();
     vice.quiet = true;

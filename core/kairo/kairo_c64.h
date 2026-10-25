@@ -21,8 +21,10 @@ extern "C" {
 #define KAIRO_C64_JOYSTICK_CONTROLS 5
 
 /* Starts VICE with its command line and runs it until it ends; returns only when VICE stops for
- * good, which ends the process's use of it (KairoC64Host_Fatal says why). */
-void KairoC64_Run(int argc, char **argv);
+ * good, which ends the process's use of it (KairoC64Host_Fatal says why). [user_dir] is VICE's
+ * folder for its cache, configuration and state (kairo/archdep_user_paths.c); it must outlive
+ * VICE. */
+void KairoC64_Run(const char *user_dir, int argc, char **argv);
 
 /* The guest time of one frame, from the machine's refresh rate. */
 double KairoC64_FrameSeconds(void);

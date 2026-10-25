@@ -66,6 +66,26 @@ VICE_PROGRAM_DISK_FOR_VIRTUAL_DRIVE = [
      '    case DRIVE_TYPE_1540:\n'),
 ]
 
+# A drive that true emulation turned off keeps its rotation clock and motor state, while a power
+# cycle sets its CPU clock back to zero. Changing its type advanced the disk's rotation from that
+# stale clock: the difference wrapped around and the catch-up never ended (Kairo64 hung starting a
+# 1541 game after a virtual-drive one). A disabled drive's disk does not turn, and enabling a
+# drive starts its rotation from the drive's own clock, as its CPU's already is.
+VICE_DRIVE_ROTATION_AFTER_DISABLE = [
+    ('vice/src/drive/drive.c',
+     '    /* TODO: drive 1? */\n    rotation_rotate_disk(drive0);\n',
+     '    /* TODO: drive 1? */\n'
+     '    /* Kairo64: only a running drive\'s disk turns; a disabled one\'s rotation clock is stale */\n'
+     '    if (drv->enable) {\n'
+     '        rotation_rotate_disk(drive0);\n'
+     '    }\n'),
+    ('vice/src/drive/drive.c',
+     '    /* resync */\n    drv->cpu->stop_clk = *(drv->clk_ptr);\n',
+     '    /* resync */\n    drv->cpu->stop_clk = *(drv->clk_ptr);\n'
+     '    /* Kairo64: and the rotation, which stood still while the drive was off */\n'
+     '    rotation_begins(drv->drives[0]);\n'),
+]
+
 # VICE's autostart loads from the first tape with a bare LOAD, which Commodore's BASIC sends to the
 # tape. The Open ROMs' BASIC sends it to the last drive (8 or above), so a tape never loaded on
 # them. Autostart names the tape, device 1, as it already names the second tape, device 2.
@@ -86,6 +106,7 @@ VICE_TAPE_LOAD_NAMES_DEVICE = [
 
 PATCHES = {
     'vice-autostart-keeps-virtual-drive': VICE_AUTOSTART_KEEPS_VIRTUAL_DRIVE,
+    'vice-drive-rotation-after-disable': VICE_DRIVE_ROTATION_AFTER_DISABLE,
     'vice-program-disk-for-virtual-drive': VICE_PROGRAM_DISK_FOR_VIRTUAL_DRIVE,
     'vice-jam': VICE_JAM,
     'vice-tape-load-names-device': VICE_TAPE_LOAD_NAMES_DEVICE,

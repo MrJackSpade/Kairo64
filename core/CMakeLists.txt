@@ -139,14 +139,18 @@ include("${CMAKE_CURRENT_LIST_DIR}/vice_sources.cmake")
 # - arch/headless/mousedrv.c: the host's mouse buttons reach VICE's mouse emulation.
 # - arch/shared/archdep_exit.c: an exit ends the machine with an error instead of the process.
 # - arch/shared/archdep_default_logger.c: VICE's log goes to the host.
+# - arch/shared/archdep_user_{cache,config,state}_path.c: VICE's per-user folders are the
+#   machine's home folder (archdep_user_paths.c), not the XDG folders an Android app cannot write.
 list(REMOVE_ITEM VICE_BASE_SOURCES "${VICE}/vsync.c")
 list(APPEND VICE_BASE_SOURCES "${KAIRO}/vsync.c" "${KAIRO}/control.c" "${KAIRO}/tapedisk.c")
 list(REMOVE_ITEM VICE_LIBRARY_arch "${VICE}/arch/headless/main.c" "${VICE}/arch/headless/video.c"
     "${VICE}/arch/headless/mousedrv.c")
 list(APPEND VICE_LIBRARY_arch "${KAIRO}/main.c" "${KAIRO}/video.c" "${KAIRO}/mousedrv.c")
 list(REMOVE_ITEM VICE_LIBRARY_archdep "${VICE}/arch/shared/archdep_exit.c"
-    "${VICE}/arch/shared/archdep_default_logger.c")
-list(APPEND VICE_LIBRARY_archdep "${KAIRO}/archdep_exit.c" "${KAIRO}/archdep_default_logger.c")
+    "${VICE}/arch/shared/archdep_default_logger.c" "${VICE}/arch/shared/archdep_user_cache_path.c"
+    "${VICE}/arch/shared/archdep_user_config_path.c" "${VICE}/arch/shared/archdep_user_state_path.c")
+list(APPEND VICE_LIBRARY_archdep "${KAIRO}/archdep_exit.c" "${KAIRO}/archdep_default_logger.c"
+    "${KAIRO}/archdep_user_paths.c")
 # The sound device that hands VICE's sound to the host (the vice-kairo-sound local change lists it).
 list(APPEND VICE_LIBRARY_sounddrv "${KAIRO}/soundkairo.c")
 # sound.c lists Windows' waveout device on Windows, which configure's SOUND_DRIVERS adds there (the

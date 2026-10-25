@@ -16,7 +16,7 @@ The machine also builds for the host, without Android: build `core/` with CMake 
 boot_test <firmware folder> <work folder> <game> <seconds> [system [runs [keys [model [state]]]]]
 ```
 
-`<system>` is `open` (the Open ROMs in `third_party/open-roms/bin`) or `own` (the KERNAL, BASIC and character ROMs in the firmware folder, named `kernal`, `basic` and `chargen`), each with VICE's virtual drive, or with `+1541` an emulated 1541 on the folder's `dos1541`. It writes frames, the text screen and VICE's log to the work folder; `boot_test.cpp` describes the rest.
+`<system>` is `open` (the Open ROMs in `third_party/open-roms/bin`) or `own` (the KERNAL, BASIC and character ROMs in the firmware folder, named `kernal`, `basic` and `chargen`), each with VICE's virtual drive, or with `+1541` an emulated 1541 on the folder's `dos1541`. A comma-separated list (`open,own+1541`) gives each of `<runs>` its own in turn, in one process, as a player switches settings between games. It writes frames, the text screen and VICE's log to the work folder; `boot_test.cpp` describes the rest.
 
 `tools/firmware_pass.py <seconds>` boots every game the catalog lists on the host, from the Open ROMs and virtual drive up to the player's firmware and the 1541, and records in `catalog/research/firmware-v1.json` the games that need firmware.
 
