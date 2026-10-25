@@ -109,6 +109,8 @@ std::unique_ptr<kairo::MachineCore> kairo::create_core(const kairo::Launch &laun
     }
     config.start = launch.media[0];
     config.drive8 = launch.media[1];
+    // The program the start loads (C64Catalog.program): "" for its first.
+    config.program = launch.settings.at("program");
     // The settings C64Catalog's options name; every launch passes them.
     config.model = launch.settings.at("model");
     const std::string &system = launch.settings.at("system");

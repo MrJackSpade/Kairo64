@@ -46,19 +46,25 @@ MACHINE_OPTIONS = {
 # No-Intro's regions of NTSC releases: their games are timed for a 60 Hz NTSC C64.
 _NTSC = re.compile(r"\((?:USA|Japan|Canada|USA, Canada)\)")
 
-# Games that need the player's firmware or the 1541 (tools/firmware_pass.py): {content ID:
-# {"system": "own", "drive": "1541", "why": ...}}; a game listed as failing everywhere keeps the
-# defaults.
+# Games that need the player's firmware, the 1541 or another program than their media's first
+# (tools/firmware_pass.py): {content ID: {"system": "own", "drive": "1541", "program": "NAME",
+# "why": ...}}; a game listed as failing everywhere keeps the defaults.
 _FIRMWARE = json.loads((ROOT / "catalog/research/firmware-v1.json").read_text(encoding="utf-8"))["games"]
+
+# The launch fields a disk's record may carry (shared app_catalog): the program autostart loads
+# and runs instead of the first (C64Catalog.program), by its name; no quote, which ends the name.
+LAUNCH_FIELDS = {"program": r"[ !#-~]{1,16}"}
 
 
 def MACHINE(name, set_name, content_id):
     """The settings a release asks for: an NTSC C64 for a USA or Japanese release, which is timed
-    for one (every other release starts on the default PAL C64), and the firmware and drive
-    firmware-v1.json found it needs."""
+    for one (every other release starts on the default PAL C64), and the firmware, drive and start
+    program firmware-v1.json found it needs."""
     settings = {"model": "c64ntsc"} if _NTSC.search(name) else {}
     needs = _FIRMWARE.get(content_id, {})
     settings.update({option: needs[option] for option in ("system", "drive") if option in needs})
+    if "program" in needs:
+        settings["launch"] = {"program": needs["program"]}
     return settings
 
 

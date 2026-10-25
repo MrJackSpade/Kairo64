@@ -224,8 +224,9 @@ std::unique_ptr<C64Machine> C64Machine::create(const Config &config, std::string
         start = disk;
         machine->config_.drive8 = disk;
     }
-    if (!start.empty() && !KairoC64_Autostart(start.c_str())) {
-        error = "VICE could not start " + start + (vice.last_error.empty() ? "" : ": " + vice.last_error);
+    if (!start.empty() && !KairoC64_Autostart(start.c_str(), config.program.c_str())) {
+        error = "VICE could not start " + start + (config.program.empty() ? "" : " (program " + config.program + ")") +
+                (vice.last_error.empty() ? "" : ": " + vice.last_error);
         return nullptr;
     }
     // A disk the game starts from is already in drive 8: autostart put it there.

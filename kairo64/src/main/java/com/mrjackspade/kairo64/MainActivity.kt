@@ -71,7 +71,7 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
     override fun startGame(entry: DiskImageEntry, game: CatalogGame, cancelled: AtomicBoolean,
                            progress: (String) -> Unit) {
         val home = prepareHome(progress)
-        val options = optionValues(game)
+        val options = optionValues(game).toMutableMap()
         val set = firmwareSets.single().second
         if (options.getValue(C64Catalog.system.id) == C64Catalog.OWN_ROMS) {
             val missing = C64Firmware.system.filterNot(set::installed)
@@ -85,6 +85,7 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
             }
         }
         val start = images.prepare(entry, cancelled, progress).absolutePath
+        options[C64Catalog.PROGRAM] = C64Catalog.program(game)
         // In the core's order (c64_core.cpp): the game to start, then drive 8's disk.
         check(bridge.start(firmwareDirectory.absolutePath, home.absolutePath,
             listOf(start, if (isDisk(entry)) start else ""), options)) { "Another machine is still running" }

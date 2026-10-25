@@ -42,6 +42,8 @@ struct Config {
     // The game to start: a disk, tape or program, loaded and run as VICE's autostart does; "" for
     // none (the machine starts at BASIC's prompt).
     std::string start;
+    // The program on the start's disk or tape to load and run, by its name; "" for its first.
+    std::string program;
     // The KERNAL has no Commodore tape routines for VICE to trap (the Open ROMs): a T64 tape's
     // programs then start from a disk written from it (home/tape.d64) in drive 8.
     bool t64_on_disk = false;

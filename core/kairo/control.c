@@ -83,9 +83,9 @@ void KairoC64_EjectAll(void)
     tape_image_detach_all();
 }
 
-bool KairoC64_Autostart(const char *path)
+bool KairoC64_Autostart(const char *path, const char *program)
 {
-    return autostart_autodetect(path, NULL, 0, AUTOSTART_MODE_RUN) == 0;
+    return autostart_autodetect(path, *program ? program : NULL, 0, AUTOSTART_MODE_RUN) == 0;
 }
 
 bool KairoC64_AttachDisk(int unit, const char *path)

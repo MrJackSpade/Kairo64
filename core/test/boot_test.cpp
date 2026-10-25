@@ -1,6 +1,6 @@
 // Boots a C64 game on the host and runs it for a while without Android.
 //
-// Usage: boot_test <firmware folder> <work folder> <game> <seconds> [system [runs [keys [model [state]]]]]
+// Usage: boot_test <firmware folder> <work folder> <game> <seconds> [system [runs [keys [model [state [program]]]]]]
 //
 // <system> picks the ROMs and the drive, as a game's System and Drive settings do: "own" (the
 // default) is the player's firmware in <firmware folder> (kernal, basic and chargen, as the retro
@@ -21,7 +21,8 @@
 // held for five frames; a row of "j" is a joystick control instead, held as long. <model> is a
 // VICE model name ("" for the default). With <state> "state", it saves the machine halfway between
 // the end of the load and the end of the run, notes the frame after, and at the end loads the
-// state and checks that the same frame follows.
+// state and checks that the same frame follows. <program> names the program on the game's disk or
+// tape to start instead of its first, as a game's Start program setting does.
 
 #include <algorithm>
 #include <chrono>
@@ -185,6 +186,7 @@ int main(int argc, char **argv) {
     const std::vector<Press> presses = argc > 7 && *argv[7] ? parse_keys(argv[7]) : std::vector<Press>{};
     if (argc > 8 && *argv[8]) config.model = argv[8];
     const bool state = argc > 9 && std::string(argv[9]) == "state";
+    if (argc > 10) config.program = argv[10];
 
     for (const auto &system : systems) {
         if (!set_system(config, system, firmware)) {

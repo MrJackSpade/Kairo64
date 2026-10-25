@@ -24,7 +24,9 @@ first doubtful one does, marked for review. catalog/research/firmware-v1.json re
 that runs a game when it needs more than the first, so tools/catalog_config.MACHINE gives it
 "system": "own" and/or "drive": "1541"; a game none runs is recorded as failing, for review.
 The tool's own entries ("firmware_pass.py: ...") follow each run's results; entries decided by
-hand are kept as they are.
+hand are kept as they are. A hand entry may also name the "program" the game's medium starts
+instead of its first (C64Catalog.program, boot_test's <program>), for a disk whose first file is
+not the game.
 
 Results are kept per game in .downloads/firmware-pass/results.json, so a stopped run carries on;
 a game booted by an older pass (PASS below its version) is booted again from the first setup

@@ -46,9 +46,9 @@ bool KairoC64_SetModel(const char *name);
 void KairoC64_PowerCycle(void);
 /* Ejects every disk and tape and forgets any autostart in progress. */
 void KairoC64_EjectAll(void);
-/* Starts a game image (a disk, tape or program) as VICE's autostart does: loads its first
- * program and runs it. False when VICE could not. */
-bool KairoC64_Autostart(const char *path);
+/* Starts a game image (a disk, tape or program) as VICE's autostart does: loads its program named
+ * program, or its first for "", and runs it. False when VICE could not. */
+bool KairoC64_Autostart(const char *path, const char *program);
 /* Inserts a disk image in drive 8 or 9, or ejects it for ""; false when VICE refused it. */
 bool KairoC64_AttachDisk(int unit, const char *path);
 /* Writes the programs of the T64 tape container tape onto a new D64 disk at disk, in the tape's

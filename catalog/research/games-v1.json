@@ -45298,6 +45298,14 @@
    ],
    "description": "World War II strategy and action: as tank commander Lone Wolf, move across an overhead map of North Africa to protect Allied depots from Rommel's attacks.",
    "developer": "Sydney Development",
+   "diskMachine": {
+    "sha256-disk-v1:2f3f0c872c54cb1126bcd1d3c2f51c721754c59d43a9731a8284175183942113": {
+     "launch": {
+      "program": "DESERT FOX 1986"
+     },
+     "system": "own"
+    }
+   },
    "diskSets": {
     "sha256-disk-v1:2f3f0c872c54cb1126bcd1d3c2f51c721754c59d43a9731a8284175183942113": {
      "setDisks": [
@@ -72572,6 +72580,11 @@
    "description": "One or two players compete in five Scottish events such as the hammer throw, each based on timing and fast joystick movement.",
    "developer": "Martin Thomson",
    "diskMachine": {
+    "sha256-disk-v1:0cbf70b4ff9688ac05cf1989ab31888641d54ea1eec9c69b766fd1fe7795fd6c": {
+     "launch": {
+      "program": "HIGHLAND GAMES"
+     }
+    },
     "sha256-disk-v1:1dfe72209c60e5147078c44425ca50da5138355c5c46b7dfc96802fb5e1caf17": {
      "model": "c64ntsc"
     },
@@ -126077,6 +126090,12 @@
    "description": "Compete in winter sports events such as ski jump, hot dog aerials, biathlon, bobsled, free skating and figure skating.",
    "developer": "Action Graphics",
    "diskMachine": {
+    "sha256-disk-v1:4a84cd716e9879fc82c11c8f614900bb1c040d7842c42d605eda52eb640284b5": {
+     "launch": {
+      "program": "WINTER GAMES"
+     },
+     "system": "own"
+    },
     "sha256-disk-v1:90798ead745a23e195b7cf04a26a1108367920246dd42c3d04328a9ab856dc02": {
      "model": "c64ntsc"
     },
@@ -128033,7 +128052,8 @@
    "developer": "Mervyn Beamish",
    "diskMachine": {
     "sha256-disk-v1:a9b24a0bb7a2cb79459b04619ae7786fb8b63e7f490a0eddb1be840c55faa27c": {
-     "model": "c64ntsc"
+     "model": "c64ntsc",
+     "system": "own"
     }
    },
    "launchbox": "174900",
@@ -146965,6 +146985,14 @@
    ],
    "description": "Fly a hovering taxi through 25 screens of obstacles, picking up passengers from landing pads and delivering them to the pads they ask for; slow trips shrink the fare.",
    "developer": "Muse Software",
+   "diskMachine": {
+    "sha256-disk-v1:42e7ccdb8e7d1eb9d35ba44c9e83627d5b199e83c0f5ef07766ecc2017e06705": {
+     "launch": {
+      "program": "SPACE TAXI"
+     },
+     "system": "own"
+    }
+   },
    "diskSets": {
     "sha256-disk-v1:42e7ccdb8e7d1eb9d35ba44c9e83627d5b199e83c0f5ef07766ecc2017e06705": {
      "setDisks": [
@@ -149986,7 +150014,11 @@
    "developer": "Charles Sharp Jr.",
    "diskMachine": {
     "sha256-disk-v1:d58f08a874ba6fe725bbd7f8215227e95a92e7238fd709c3feb3bc84da3c20f4": {
-     "model": "c64ntsc"
+     "launch": {
+      "program": "YOUNG ART. QUEST"
+     },
+     "model": "c64ntsc",
+     "system": "own"
     }
    },
    "launchbox": "187796",
@@ -169195,6 +169227,13 @@
    "description": "Jumpman must defuse bombs that terrorists planted on Jupiter by touching each one, climbing ladders and one-way ropes and jumping between platforms without falling.",
    "developer": "Epyx",
    "diskMachine": {
+    "sha256-disk-v1:21d0564356fe5a74fdeedcfae569fea11e5f55540c9dc21674a16e077e4c6509": {
+     "drive": "1541",
+     "launch": {
+      "program": "JUMPMAN JUNIOR"
+     },
+     "system": "own"
+    },
     "sha256-disk-v1:dd2a480e4700fc59a63c76bbdefa6b2bf410dd242ed200c57e029bff4d3f10be": {
      "model": "c64ntsc"
     }

@@ -324,7 +324,8 @@
    "why": "firmware_pass.py: on the Open ROMs and the virtual drive: BASIC says ?SYNTAX ERROR; on own: runs"
   },
   "sha256-disk-v1:0cbf70b4ff9688ac05cf1989ab31888641d54ea1eec9c69b766fd1fe7795fd6c": {
-   "fails": "firmware_pass.py: fails on every setup; on the Open ROMs: back at BASIC's READY. without a sound"
+   "program": "HIGHLAND GAMES",
+   "why": "decided by hand: its first file is a records file; HIGHLAND GAMES starts the game on the Open ROMs"
   },
   "sha256-disk-v1:0d3fcb733ffd89bc4a3e661d290ac867aa0bb8cdda77044b110759cc4d7543b9": {
    "system": "own",
@@ -828,7 +829,10 @@
    "why": "firmware_pass.py: on the Open ROMs and the virtual drive: The C64 stopped:    Main CPU: JAM at $E536   ; on own: runs"
   },
   "sha256-disk-v1:21d0564356fe5a74fdeedcfae569fea11e5f55540c9dc21674a16e077e4c6509": {
-   "fails": "firmware_pass.py: fails on every setup; on the Open ROMs: back at BASIC's READY. without a sound"
+   "drive": "1541",
+   "program": "JUMPMAN JUNIOR",
+   "system": "own",
+   "why": "decided by hand: its first file is a score table; JUMPMAN JUNIOR runs on own+1541 (player count and speed prompts, sound)"
   },
   "sha256-disk-v1:2248a7b9ddb017dd375f87652277fc9da9470e5c3542dc502c0d5013a3d38fa2": {
    "system": "own",
@@ -1090,7 +1094,9 @@
    "why": "firmware_pass.py: on the Open ROMs and the virtual drive: BASIC says ?NOT IMPLEMENTED ERROR; on own: runs"
   },
   "sha256-disk-v1:2f3f0c872c54cb1126bcd1d3c2f51c721754c59d43a9731a8284175183942113": {
-   "fails": "firmware_pass.py: fails on every setup; on the Open ROMs: back at BASIC's READY. without a sound"
+   "program": "DESERT FOX 1986",
+   "system": "own",
+   "why": "decided by hand: DESERT BOOT and DESERT GAME return to READY.; DESERT FOX 1986 runs its intro with music on own"
   },
   "sha256-disk-v1:2f4dd9df2d0222c872040f64067ca82d8c72dee8c316902264d5f96f2898c9a6": {
    "system": "own",
@@ -1509,7 +1515,9 @@
    "why": "firmware_pass.py: on the Open ROMs and the virtual drive: BASIC says ?NOT IMPLEMENTED ERROR; on own: runs"
   },
   "sha256-disk-v1:42e7ccdb8e7d1eb9d35ba44c9e83627d5b199e83c0f5ef07766ecc2017e06705": {
-   "fails": "firmware_pass.py: fails on every setup; on the Open ROMs: back at BASIC's READY. without a sound"
+   "program": "SPACE TAXI",
+   "system": "own",
+   "why": "decided by hand: its first files are demo data; SPACE TAXI runs its attract demo on own"
   },
   "sha256-disk-v1:42fbf6d386b50676096072a4711368ce7664d2809155f5ba0e0c77a8e298aa72": {
    "system": "own",
@@ -1702,7 +1710,9 @@
    "why": "firmware_pass.py: on the Open ROMs and the virtual drive: BASIC says ?NOT IMPLEMENTED ERROR; on own: runs"
   },
   "sha256-disk-v1:4a84cd716e9879fc82c11c8f614900bb1c040d7842c42d605eda52eb640284b5": {
-   "fails": "firmware_pass.py: fails on every setup; on the Open ROMs: back at BASIC's READY. without a sound"
+   "program": "WINTER GAMES",
+   "system": "own",
+   "why": "decided by hand: its first files are game data; WINTER GAMES reaches its title on own (?SYNTAX ERROR on the Open ROMs)"
   },
   "sha256-disk-v1:4aa41c395956900c18803f1eafee5ade2d0d16ad8f220e856e6a85c10708355f": {
    "drive": "1541",
@@ -4164,7 +4174,8 @@
    "why": "firmware_pass.py: on the Open ROMs and the virtual drive: The C64 stopped:    Main CPU: JAM at $A61D   ; on own: runs"
   },
   "sha256-disk-v1:a9b24a0bb7a2cb79459b04619ae7786fb8b63e7f490a0eddb1be840c55faa27c": {
-   "fails": "firmware_pass.py: fails on every setup; on the Open ROMs: BASIC says ?NOT IMPLEMENTED ERROR"
+   "system": "own",
+   "why": "decided by hand: its first file shows a note to load TAREK next (LOAD\"TAREK\",8 then RUN, typed by the player), which the Open ROMs cannot show (?NOT IMPLEMENTED ERROR)"
   },
   "sha256-disk-v1:a9d03dfd0d27d160fd4689f0e9592476455cf86daf631ee58a1d3c41c0cd33a1": {
    "system": "own",
@@ -5297,7 +5308,9 @@
    "why": "firmware_pass.py: on the Open ROMs and the virtual drive: The C64 stopped:    Main CPU: JAM at $E703   ; on own: runs"
   },
   "sha256-disk-v1:d58f08a874ba6fe725bbd7f8215227e95a92e7238fd709c3feb3bc84da3c20f4": {
-   "fails": "firmware_pass.py: fails on every setup; on the Open ROMs: BASIC says ?NOT IMPLEMENTED ERROR"
+   "program": "YOUNG ART. QUEST",
+   "system": "own",
+   "why": "decided by hand: its first file is a 22-column print formatter; the game is YOUNG ART. QUEST, whose BASIC the Open ROMs lack (?NOT IMPLEMENTED ERROR)"
   },
   "sha256-disk-v1:d5d828bc63776c1a363f8af8ab61e086df282df47a592de4b832f1591bb3fe7c": {
    "system": "own",

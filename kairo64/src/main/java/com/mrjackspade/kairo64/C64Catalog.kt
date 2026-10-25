@@ -1,5 +1,6 @@
 package com.mrjackspade.kairo64
 
+import com.mrjackspade.kairo.frontend.CatalogGame
 import com.mrjackspade.kairo.frontend.CatalogSetting
 import com.mrjackspade.kairo.frontend.ChoiceOption
 import com.mrjackspade.kairo.frontend.LayeredGameCatalog
@@ -8,7 +9,8 @@ import org.json.JSONArray
 
 /**
  * Kairo64's catalog records beyond the common fields: the C64 model a game runs on (`model`, by
- * VICE's name for it), its system ROMs, its drive and what is in its control ports.
+ * VICE's name for it), its system ROMs, its drive and what is in its control ports, and the program
+ * its disk or tape starts (`launch.program`).
  */
 object C64Catalog : LayeredGameCatalog.Schema {
     override val platform = "c64"
@@ -64,7 +66,22 @@ object C64Catalog : LayeredGameCatalog.Schema {
 
     val options = listOf(model, system, drive, ports)
 
-    override val settings: List<CatalogSetting> = options.map(CatalogSetting::Choice)
+    const val LAUNCH = "launch"
+    const val PROGRAM = "program"
+
+    /**
+     * The program on a disk or tape that autostart loads and runs, by its name (CBM DOS patterns
+     * such as SPACE* match too), for a disk whose first file is not the game; "" for its first.
+     */
+    val program = CatalogSetting.Text(LAUNCH, PROGRAM, "Start program", "Name on the disk or tape",
+        Regex("[ !#-~]{1,16}"), "First program", { it.trim().uppercase() }) {
+        it.startsWith("sha256-disk-v1:") || it.startsWith("sha256-tape-v1:")
+    }
+
+    /** The program [game] starts: its own, or "" for its media's first. */
+    fun program(game: CatalogGame) = program.value(game)
+
+    override val settings: List<CatalogSetting> = options.map(CatalogSetting::Choice) + program
     override val fields = CatalogSetting.fields(settings)
 
     override fun validMedia(role: String, contentId: String) = false
