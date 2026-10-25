@@ -21,8 +21,11 @@
 // held for five frames; a row of "j" is a joystick control instead, held as long. <model> is a
 // VICE model name ("" for the default). With <state> "state", it saves the machine halfway between
 // the end of the load and the end of the run, notes the frame after, and at the end loads the
-// state and checks that the same frame follows. <program> names the program on the game's disk or
-// tape to start instead of its first, as a game's Start program setting does.
+// state and checks that the same frame follows. With "state@<seconds>" it saves at that guest
+// second, loading or not, and at the end loads the state and runs to the same guest time again:
+// the last picture must be the one the run ended on (a state saved during a tape or disk load
+// finishes the load). <program> names the program on the game's disk or tape to start instead of
+// its first, as a game's Start program setting does.
 
 #include <algorithm>
 #include <chrono>
@@ -186,6 +189,8 @@ int main(int argc, char **argv) {
     const std::vector<Press> presses = argc > 7 && *argv[7] ? parse_keys(argv[7]) : std::vector<Press>{};
     if (argc > 8 && *argv[8]) config.model = argv[8];
     const bool state = argc > 9 && std::string(argv[9]) == "state";
+    // "state@<seconds>": the guest second to save at; below 0 when not asked for.
+    const double save_at = argc > 9 && std::string(argv[9]).rfind("state@", 0) == 0 ? std::atof(argv[9] + 6) : -1;
     if (argc > 10) config.program = argv[10];
 
     for (const auto &system : systems) {
@@ -217,6 +222,7 @@ int main(int argc, char **argv) {
         long frames = 0;
         const auto started = std::chrono::steady_clock::now();
         std::vector<uint8_t> after_save;
+        double saved_at = -1;
         auto picture = [&] {
             uint32_t width, height;
             const uint8_t *rgba = machine->frame(width, height);
@@ -282,6 +288,14 @@ int main(int argc, char **argv) {
                 }
                 after_save = picture();
             }
+            if (save_at >= 0 && saved_at < 0 && elapsed >= save_at) {
+                if (!machine->save_state(config.home + "/state.vsf", error)) {
+                    std::fprintf(stderr, "run %d: save failed: %s\n", run, error.c_str());
+                    return 1;
+                }
+                saved_at = elapsed;
+                std::printf("run %d: state saved at %.1f s, %s\n", run, elapsed, now_loading ? "loading" : "not loading");
+            }
             uint32_t got = machine->read_audio(audio.data(), uint32_t(audio.size() / 2));
             samples += got;
             for (uint32_t i = 0; i < got * 2; ++i) {
@@ -316,6 +330,34 @@ int main(int argc, char **argv) {
                 machine->frame(width, height);
                 write_bmp(config.home + "/state-" + std::to_string(run) + "-saved.bmp", after_save.data(), width, height);
                 write_bmp(config.home + "/state-" + std::to_string(run) + "-loaded.bmp", after_load.data(), width, height);
+                return 1;
+            }
+        }
+        if (save_at >= 0) {
+            if (saved_at < 0) {
+                std::fprintf(stderr, "run %d: no state saved: the run ended before %.1f s\n", run, save_at);
+                return 1;
+            }
+            const std::vector<uint8_t> ended = picture();
+            if (!machine->load_state(config.home + "/state.vsf", error)) {
+                std::fprintf(stderr, "run %d: load failed: %s\n", run, error.c_str());
+                return 1;
+            }
+            for (double again = saved_at; again < elapsed; again += machine->frame_seconds()) {
+                if (!machine->run_frame(error)) {
+                    std::fprintf(stderr, "run %d: stopped after the state: %s\n", run, error.c_str());
+                    return 1;
+                }
+                machine->read_audio(audio.data(), uint32_t(audio.size() / 2));
+            }
+            const bool same = picture() == ended;
+            std::printf("run %d: state from %.1f s %s\n", run, saved_at,
+                        same ? "ran on to the same last picture" : "MISMATCH: a different last picture");
+            if (!same) {
+                uint32_t width, height;
+                machine->frame(width, height);
+                write_bmp(config.home + "/state-" + std::to_string(run) + "-ended.bmp", ended.data(), width, height);
+                write_bmp(config.home + "/state-" + std::to_string(run) + "-again.bmp", picture().data(), width, height);
                 return 1;
             }
         }

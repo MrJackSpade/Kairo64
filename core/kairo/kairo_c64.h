@@ -42,6 +42,12 @@ bool KairoC64_SetString(const char *name, const char *value);
  * "c64c", "c64ntsc", "c64cntsc" and the rest): VIC-II, SID, CIAs and board. It names the model's
  * own ROMs too, so the ROMs are set after it. False for a name VICE does not have. */
 bool KairoC64_SetModel(const char *name);
+/* Loads the KERNAL, BASIC and character ROM files, and with drive1541 the 1541's
+ * DOS ROM into drive 8, whether or not a name changed: VICE loads a ROM only when its name
+ * changes, and a loaded state puts the ROMs it was saved with in their place, so the next machine
+ * with the same names would start on the state's ROMs (an Open ROMs game after a state saved on
+ * the player's firmware stopped at the Open KERNAL's "ROM MISMATCH"). False when one failed. */
+bool KairoC64_LoadRoms(const char *kernal, const char *basic, const char *chargen, bool drive1541);
 /* A hard reset: the power switch, with every disk and tape left in. */
 void KairoC64_PowerCycle(void);
 /* Ejects every disk and tape and forgets any autostart in progress. */

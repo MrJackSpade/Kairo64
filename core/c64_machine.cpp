@@ -143,6 +143,13 @@ bool configure(const Config &config, std::string &error) {
     if (!set_int("TrapDevice8", 0) || !set_int("Drive8TrueEmulation", true_drive ? 1 : 0) ||
         !set_int("Drive8Type", true_drive ? 1541 : 0) || !set_int("BusDevice8", true_drive ? 0 : 1))
         return false;
+    // This machine's ROMs, also when the last one had the same names and a state loaded since
+    // put other ROMs in their place; the 1541's once drive 8 is one.
+    if (!KairoC64_LoadRoms(config.kernal.c_str(), config.basic.c_str(), config.chargen.c_str(), true_drive)) {
+        error = "VICE could not load the ROMs " + config.kernal + ", " + config.basic + ", " + config.chargen +
+                (true_drive ? ", " + config.dos1541 : std::string());
+        return false;
+    }
     // A program starts from a disk VICE writes it to, in the machine's own folder (VICE's default
     // is a per-user cache folder an app does not have).
     if (!KairoC64_SetString("AutostartPrgDiskImage", (config.home + "/program.d64").c_str())) {

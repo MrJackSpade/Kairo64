@@ -9,9 +9,11 @@
 #include "attach.h"
 #include "autostart.h"
 #include "c64model.h"
+#include "c64rom.h"
 #include "drive.h"
 #include "drivetypes.h"
 #include "iecbus.h"
+#include "machine-drive.h"
 #include "maincpu.h"
 #include "interrupt.h"
 #include "joyport.h"
@@ -67,6 +69,20 @@ bool KairoC64_SetModel(const char *name)
         }
     }
     return false;
+}
+
+bool KairoC64_LoadRoms(const char *kernal, const char *basic, const char *chargen, bool drive1541)
+{
+    /* The files themselves, not the resources: loading a KERNAL sets KernalRev, whose setter
+     * renames KernalName to the stock file of that revision. The drive's set-up reads drive 8's
+     * ROM for its type (DosName1541) into the drive. */
+    if (c64rom_load_kernal(kernal, NULL) < 0 || c64rom_load_basic(basic) < 0 || c64rom_load_chargen(chargen) < 0) {
+        return false;
+    }
+    if (drive1541) {
+        machine_drive_rom_setup_image(0);
+    }
+    return true;
 }
 
 void KairoC64_PowerCycle(void)
