@@ -14,7 +14,9 @@
 // reports the frame size and how much sound it made, and writes the text screen to
 // <work folder>/screen-<run>.txt. With <runs> above 1 it starts a new machine
 // after each, in the same process, as the app does for the next game. It reports when the load
-// ends (C64Machine::booting) and writes that frame to <work folder>/frame-<run>-booted.bmp.
+// ends (C64Machine::autostarting) and writes that frame to <work folder>/frame-<run>-booted.bmp,
+// and how long the app would run it flat out (C64Machine::loading: the autostart, the tape's or
+// the 1541's motor).
 // <keys> is a list of "frame:row:column" presses (comma separated) in the keyboard matrix, each
 // held for five frames; a row of "j" is a joystick control instead, held as long. <model> is a
 // VICE model name ("" for the default). With <state> "state", it saves the machine halfway between
@@ -34,6 +36,24 @@
 #include "c64_machine.h"
 
 namespace {
+
+// A picture's fingerprint (FNV-1a over its pixels), to tell pictures apart.
+uint64_t fingerprint(const uint8_t *rgba, uint32_t width, uint32_t height) {
+    uint64_t hash = 14695981039346656037ull;
+    for (size_t i = 0, n = size_t(width) * height * 4; i < n; ++i) hash = (hash ^ rgba[i]) * 1099511628211ull;
+    return hash;
+}
+
+// How many colours a picture has, up to 17: a blank screen has one or two (the border and the
+// background), a game's picture more.
+int colours(const uint8_t *rgba, uint32_t width, uint32_t height) {
+    std::vector<uint32_t> seen;
+    for (size_t i = 0, n = size_t(width) * height; i < n && seen.size() <= 16; ++i) {
+        uint32_t pixel = uint32_t(rgba[i * 4]) | uint32_t(rgba[i * 4 + 1]) << 8 | uint32_t(rgba[i * 4 + 2]) << 16;
+        if (std::find(seen.begin(), seen.end(), pixel) == seen.end()) seen.push_back(pixel);
+    }
+    return int(seen.size());
+}
 
 void write_bmp(const std::string &path, const uint8_t *rgba, uint32_t width, uint32_t height) {
     const uint32_t row = width * 3 + (4 - width * 3 % 4) % 4;
@@ -184,8 +204,12 @@ int main(int argc, char **argv) {
             const uint8_t *rgba = machine->frame(width, height);
             return std::vector<uint8_t>(rgba, rgba + size_t(width) * height * 4);
         };
-        bool booting = machine->booting();
+        bool booting = machine->autostarting();
         double loaded = 0;
+        // Guest time the app runs flat out (C64Machine::loading), and when that last ended.
+        double loading = 0, loading_ended = 0;
+        std::vector<uint64_t> pictures;
+        bool was_loading = machine->loading();
         uint64_t samples = 0;
         int64_t loudest = 0;
         int lowest_played = 32767, highest_played = -32768;
@@ -201,7 +225,11 @@ int main(int argc, char **argv) {
                 std::fprintf(stderr, "run %d: stopped after %ld frames: %s\n", run, frames, error.c_str());
                 return 1;
             }
-            if (booting && !machine->booting()) {
+            const bool now_loading = machine->loading();
+            if (now_loading) loading += machine->frame_seconds();
+            if (was_loading && !now_loading) loading_ended = elapsed;
+            was_loading = now_loading;
+            if (booting && !machine->autostarting()) {
                 booting = false;
                 loaded = elapsed;
                 std::printf("run %d: load over after %ld frames (%.1f s)\n", run, frames, elapsed);
@@ -211,6 +239,13 @@ int main(int argc, char **argv) {
             }
             const double before = elapsed;
             elapsed += machine->frame_seconds();
+            // A fingerprint of the picture each second after the load, to tell a game that moves
+            // from one stuck on a still picture.
+            if (!booting && int(elapsed) != int(before)) {
+                uint32_t width, height;
+                const uint8_t *rgba = machine->frame(width, height);
+                pictures.push_back(fingerprint(rgba, width, height));
+            }
             if (int(elapsed / 5) != int(before / 5)) {
                 uint32_t width, height;
                 const uint8_t *rgba = machine->frame(width, height);
@@ -243,6 +278,8 @@ int main(int argc, char **argv) {
         }
         const double wall = std::chrono::duration<double>(std::chrono::steady_clock::now() - started).count();
         std::printf("run %d: %.1f s of guest time in %.1f s (%.1fx real time)\n", run, elapsed, wall, elapsed / wall);
+        std::printf("run %d: loading (autostart, tape or 1541 motor) for %.1f s of guest time, %s\n", run, loading,
+                    was_loading ? "still at the end" : ("last ending at " + std::to_string(loading_ended) + " s").c_str());
         if (state) {
             if (after_save.empty()) {
                 std::fprintf(stderr, "run %d: no state saved: the game was still loading at the end\n", run);
@@ -268,6 +305,11 @@ int main(int argc, char **argv) {
         const uint8_t *rgba = machine->frame(width, height);
         std::string bmp = config.home + "/frame-" + std::to_string(run) + ".bmp";
         write_bmp(bmp, rgba, width, height);
+        std::vector<uint64_t> distinct = pictures;
+        std::sort(distinct.begin(), distinct.end());
+        distinct.erase(std::unique(distinct.begin(), distinct.end()), distinct.end());
+        std::printf("run %d: pictures after load: %zu distinct of %zu seconds; the last has %d colours\n", run,
+                    distinct.size(), pictures.size(), colours(rgba, width, height));
         // The text screen at the end, where BASIC's messages ("?FILE NOT FOUND", "READY.") show.
         std::ofstream(config.home + "/screen-" + std::to_string(run) + ".txt", std::ios::binary) << machine->screen_text();
         std::printf("run %d: %ld frames (%.4f s each), %ux%u, %llu sound frames at %d Hz, peak %lld, range after load %d, "

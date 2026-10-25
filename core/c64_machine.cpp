@@ -234,7 +234,11 @@ std::unique_ptr<C64Machine> C64Machine::create(const Config &config, std::string
     return machine;
 }
 
-bool C64Machine::booting() const { return KairoC64_Booting(); }
+bool C64Machine::autostarting() const { return KairoC64_Autostarting(); }
+
+bool C64Machine::tape_moving() const { return KairoC64_TapeMoving(); }
+
+bool C64Machine::disk_spinning() const { return KairoC64_DiskSpinning(); }
 
 bool C64Machine::run_frame(std::string &error) {
     if (vice.ended || !vice.run()) {

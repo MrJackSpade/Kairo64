@@ -9,6 +9,8 @@
 #include "attach.h"
 #include "autostart.h"
 #include "c64model.h"
+#include "drive.h"
+#include "drivetypes.h"
 #include "interrupt.h"
 #include "joyport.h"
 #include "joystick.h"
@@ -84,9 +86,18 @@ bool KairoC64_AttachDisk(int unit, const char *path)
     return file_system_attach_disk((unsigned int)unit, 0, path) == 0;
 }
 
-bool KairoC64_Booting(void)
+bool KairoC64_Autostarting(void)
 {
     return autostart_in_progress() != 0;
+}
+
+bool KairoC64_DiskSpinning(void)
+{
+    const diskunit_context_t *unit = diskunit_context[0];
+
+    /* Only an emulated drive has a motor; VICE's virtual drive has none. */
+    return unit->enable && unit->type != DRIVE_TYPE_NONE &&
+           (unit->drives[0]->byte_ready_active & BRA_MOTOR_ON) != 0;
 }
 
 void KairoC64_Key(int row, int column, bool down)

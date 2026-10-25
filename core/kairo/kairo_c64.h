@@ -55,8 +55,13 @@ bool KairoC64_AttachDisk(int unit, const char *path);
  * order, for a KERNAL VICE cannot load T64 files on (the Open ROMs: VICE loads T64 programs by
  * trapping Commodore's KERNAL). False with a message in error when it could not. */
 bool KairoC64_TapeToDisk(const char *tape, const char *disk, char *error, size_t error_size);
-/* Whether an autostart is still loading its program, which the host runs at full speed. */
-bool KairoC64_Booting(void);
+/* Whether VICE's autostart is still loading the game's first program. */
+bool KairoC64_Autostarting(void);
+/* Whether the datasette's tape is moving: a tape in, the motor on and a button down
+ * (kairo/uistatusbar.c). */
+bool KairoC64_TapeMoving(void);
+/* Whether drive 8 is an emulated 1541 with its spindle motor on. */
+bool KairoC64_DiskSpinning(void);
 
 /* A key by its place in the keyboard matrix: row 0 to 7, column 0 to 7. */
 void KairoC64_Key(int row, int column, bool down);

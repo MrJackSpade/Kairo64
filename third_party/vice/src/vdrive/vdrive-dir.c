@@ -270,6 +270,7 @@ uint8_t *vdrive_dir_find_next_slot(vdrive_dir_context_t *dir)
     int j;
     unsigned int t, s, c;
     uint8_t *dirbuf = NULL;
+    unsigned int sectors_read = 0; /* Kairo64: a directory chain that loops */
 
 #ifdef DEBUG_DRIVE
     log_debug(LOG_DEFAULT, "DIR: vdrive_dir_find_next_slot start (t:%u/s:%u) #%u",
@@ -298,6 +299,12 @@ uint8_t *vdrive_dir_find_next_slot(vdrive_dir_context_t *dir)
             dir->track = (unsigned int)dir->buffer[0];
             dir->sector = (unsigned int)dir->buffer[1];
 
+            /* Kairo64: more sectors than a disk has numbers for: the chain loops */
+            if (++sectors_read > 256 * 256) {
+                log_error(vdrive_dir_log, "The directory's chain of sectors loops (at %u/%u).",
+                          dir->track, dir->sector);
+                return NULL; /* error */
+            }
             status = vdrive_read_sector(vdrive, dir->buffer, dir->track, dir->sector);
             if (status != 0) {
                 return NULL; /* error */
@@ -891,6 +898,7 @@ uint8_t *vdrive_dir_part_find_next_slot(vdrive_dir_context_t *dir)
 {
     static uint8_t return_slot[32];
     vdrive_t *vdrive = dir->vdrive;
+    unsigned int sectors_read = 0; /* Kairo64: a directory chain that loops */
 
 #ifdef DEBUG_DRIVE
     log_debug(LOG_DEFAULT, "DIR: vdrive_dir_find_next_slot start (t:%u/s:%u) #%u", dir->track, dir->sector, dir->slot);
@@ -918,6 +926,12 @@ uint8_t *vdrive_dir_part_find_next_slot(vdrive_dir_context_t *dir)
             dir->track = (unsigned int)dir->buffer[0];
             dir->sector = (unsigned int)dir->buffer[1];
 
+            /* Kairo64: more sectors than a disk has numbers for: the chain loops */
+            if (++sectors_read > 256 * 256) {
+                log_error(vdrive_dir_log, "The partition table's chain of sectors loops (at %u/%u).",
+                          dir->track, dir->sector);
+                return NULL; /* error */
+            }
             status = vdrive_read_sector(vdrive, dir->buffer, dir->track, dir->sector);
             if (status != 0) {
                 return NULL; /* error */

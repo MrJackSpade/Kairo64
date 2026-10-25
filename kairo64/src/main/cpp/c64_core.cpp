@@ -29,8 +29,15 @@ public:
     explicit C64Core(std::unique_ptr<C64Machine> machine) : machine_(std::move(machine)) {}
 
     bool run_frame() override { return machine_->run_frame(error_); }
-    bool booting() override { return machine_->booting(); }
+    // Flat out for as long as a load physically runs (C64Machine::loading).
+    bool booting() override { return machine_->loading(); }
     std::string error() override { return error_; }
+    // What is loading, for tests and diagnostics: "load=autostart", "tape", "disk" or "none".
+    std::string details() override {
+        return std::string("load=") + (machine_->autostarting() ? "autostart"
+                                       : machine_->tape_moving() ? "tape"
+                                       : machine_->disk_spinning() ? "disk" : "none");
+    }
     const uint8_t *frame(uint32_t &width, uint32_t &height) override { return machine_->frame(width, height); }
     double frame_seconds() override { return machine_->frame_seconds(); }
     int32_t audio_rate() override { return machine_->sample_rate(); }

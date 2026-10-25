@@ -8,6 +8,7 @@ import com.mrjackspade.kairo.frontend.GuestKeyboardLayout
 import com.mrjackspade.kairo.frontend.GuestKeyboardPage
 import com.mrjackspade.kairo.frontend.JoystickInputRouter
 import com.mrjackspade.kairo.frontend.KeyboardKey
+import com.mrjackspade.kairo.frontend.SymbolPage
 
 /**
  * The C64 keyboard by its place in the keyboard matrix: a key's code is row × 8 + column + 1
@@ -100,18 +101,20 @@ object C64Keys {
             KeyboardKey("↓", CURSOR_DOWN), KeyboardKey("→", CURSOR_RIGHT))
     )
 
-    /** Each symbol on its own key, Shift chorded where the C64 types it shifted. */
-    private fun symbolRows(): List<List<KeyboardKey>> = listOf(
-        DIGITS.map { KeyboardKey("$it", digit(it)) } + KeyboardKey("Del", DELETE, 1.5f),
-        DIGITS.zip(SHIFTED_DIGITS).dropLast(1).map { (char, symbol) -> KeyboardKey("$symbol", digit(char), chordShift = true) } +
-            KeyboardKey("Return", RETURN, 1.5f),
-        listOf("+" to PLUS, "−" to MINUS, "£" to POUND, "@" to AT, "*" to ASTERISK, "↑" to UP_ARROW,
+    /** Each symbol on its own key, Shift chorded where the C64 types it shifted (SymbolPage). */
+    private fun symbolRows(): List<List<KeyboardKey>> = SymbolPage.rows(
+        digits = DIGITS.map { KeyboardKey("$it", digit(it)) },
+        delete = KeyboardKey("Del", DELETE, 1.5f),
+        shiftedDigits = DIGITS.zip(SHIFTED_DIGITS).dropLast(1)
+            .map { (char, symbol) -> KeyboardKey("$symbol", digit(char), chordShift = true) },
+        symbols = listOf("+" to PLUS, "−" to MINUS, "£" to POUND, "@" to AT, "*" to ASTERISK, "↑" to UP_ARROW,
             ":" to COLON, ";" to SEMICOLON, "=" to EQUALS, "," to COMMA, "." to PERIOD, "/" to SLASH)
             .map { (label, code) -> KeyboardKey(label, code) },
-        listOf("[" to COLON, "]" to SEMICOLON, "<" to COMMA, ">" to PERIOD, "?" to SLASH, "π" to UP_ARROW)
+        shiftedSymbols = listOf("[" to COLON, "]" to SEMICOLON, "<" to COMMA, ">" to PERIOD, "?" to SLASH, "π" to UP_ARROW)
             .map { (label, code) -> KeyboardKey(label, code, chordShift = true) } +
             KeyboardKey("←", LEFT_ARROW),
-        listOf(KeyboardKey("Space", SPACE, 5f), KeyboardKey("Return", RETURN, 1.5f))
+        space = KeyboardKey("Space", SPACE, 5f),
+        enter = KeyboardKey("Return", RETURN, 1.5f)
     )
 
     /** The function keys, RUN/STOP, RESTORE and the cursor keys. */

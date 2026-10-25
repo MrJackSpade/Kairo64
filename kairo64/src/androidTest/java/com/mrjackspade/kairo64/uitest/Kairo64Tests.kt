@@ -43,7 +43,7 @@ object Kairo64App : AppUnderTest() {
     override val arrowKeys = listOf(C64Keys.CURSOR_DOWN, C64Keys.CURSOR_DOWN, C64Keys.CURSOR_RIGHT, C64Keys.CURSOR_RIGHT)
     override val returnKey = C64Keys.RETURN
     override val spaceKey = C64Keys.SPACE
-    override val mediaSwap = MediaSwap("Klax", "Drive 8", "Deflektor")
+    override val mediaSwap = MediaSwap("Klax", "Drive 8", "Deflektor", filler = "d64")
 }
 
 class Kairo64FirstRunTests : FirstRunTests() { override val app = Kairo64App }

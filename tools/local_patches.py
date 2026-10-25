@@ -104,7 +104,66 @@ VICE_TAPE_LOAD_NAMES_DEVICE = [
      '                }\n'),
 ]
 
+# The virtual drive follows a directory's chain of sectors until one has no next sector. A disk
+# whose chain loops back (Quizam! (Europe) (Disk 3)) kept a search for a name it does not hold
+# going for ever inside one emulated instruction, and the app froze. A chain cannot hold more
+# sectors than a disk has track and sector numbers (256 x 256), so a search that reads more ends
+# with an error, as one that cannot read a sector does.
+VICE_DIRECTORY_LOOP = [
+    ('vice/src/vdrive/vdrive-dir.c',
+     '    unsigned int t, s, c;\n    uint8_t *dirbuf = NULL;\n',
+     '    unsigned int t, s, c;\n    uint8_t *dirbuf = NULL;\n'
+     '    unsigned int sectors_read = 0; /* Kairo64: a directory chain that loops */\n'),
+    ('vice/src/vdrive/vdrive-dir.c',
+     '            status = vdrive_read_sector(vdrive, dir->buffer, dir->track, dir->sector);\n'
+     '            if (status != 0) {\n'
+     '                return NULL; /* error */\n'
+     '            }\n'
+     '        }\n\n'
+     '        if (vdrive_dir_name_match(',
+     '            /* Kairo64: more sectors than a disk has numbers for: the chain loops */\n'
+     '            if (++sectors_read > 256 * 256) {\n'
+     '                log_error(vdrive_dir_log, "The directory\'s chain of sectors loops (at %u/%u).",\n'
+     '                          dir->track, dir->sector);\n'
+     '                return NULL; /* error */\n'
+     '            }\n'
+     '            status = vdrive_read_sector(vdrive, dir->buffer, dir->track, dir->sector);\n'
+     '            if (status != 0) {\n'
+     '                return NULL; /* error */\n'
+     '            }\n'
+     '        }\n\n'
+     '        if (vdrive_dir_name_match('),
+    ('vice/src/vdrive/vdrive-dir.c',
+     '    static uint8_t return_slot[32];\n    vdrive_t *vdrive = dir->vdrive;\n\n'
+     '#ifdef DEBUG_DRIVE\n'
+     '    log_debug(LOG_DEFAULT, "DIR: vdrive_dir_find_next_slot start (t:%u/s:%u) #%u", dir->track, dir->sector, dir->slot);\n',
+     '    static uint8_t return_slot[32];\n    vdrive_t *vdrive = dir->vdrive;\n'
+     '    unsigned int sectors_read = 0; /* Kairo64: a directory chain that loops */\n\n'
+     '#ifdef DEBUG_DRIVE\n'
+     '    log_debug(LOG_DEFAULT, "DIR: vdrive_dir_find_next_slot start (t:%u/s:%u) #%u", dir->track, dir->sector, dir->slot);\n'),
+    ('vice/src/vdrive/vdrive-dir.c',
+     '            status = vdrive_read_sector(vdrive, dir->buffer, dir->track, dir->sector);\n'
+     '            if (status != 0) {\n'
+     '                return NULL; /* error */\n'
+     '            }\n'
+     '        }\n'
+     '        if (vdrive_dir_part_name_match(',
+     '            /* Kairo64: more sectors than a disk has numbers for: the chain loops */\n'
+     '            if (++sectors_read > 256 * 256) {\n'
+     '                log_error(vdrive_dir_log, "The partition table\'s chain of sectors loops (at %u/%u).",\n'
+     '                          dir->track, dir->sector);\n'
+     '                return NULL; /* error */\n'
+     '            }\n'
+     '            status = vdrive_read_sector(vdrive, dir->buffer, dir->track, dir->sector);\n'
+     '            if (status != 0) {\n'
+     '                return NULL; /* error */\n'
+     '            }\n'
+     '        }\n'
+     '        if (vdrive_dir_part_name_match('),
+]
+
 PATCHES = {
+    'vice-directory-loop': VICE_DIRECTORY_LOOP,
     'vice-autostart-keeps-virtual-drive': VICE_AUTOSTART_KEEPS_VIRTUAL_DRIVE,
     'vice-drive-rotation-after-disable': VICE_DRIVE_ROTATION_AFTER_DISABLE,
     'vice-program-disk-for-virtual-drive': VICE_PROGRAM_DISK_FOR_VIRTUAL_DRIVE,
