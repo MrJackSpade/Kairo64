@@ -46,13 +46,29 @@ uint64_t fingerprint(const uint8_t *rgba, uint32_t width, uint32_t height) {
 
 // How many colours a picture has, up to 17: a blank screen has one or two (the border and the
 // background), a game's picture more.
-int colours(const uint8_t *rgba, uint32_t width, uint32_t height) {
+int colours(const uint8_t *rgba, uint32_t width, uint32_t height, uint32_t left = 0, uint32_t top = 0,
+            uint32_t right = UINT32_MAX, uint32_t bottom = UINT32_MAX) {
     std::vector<uint32_t> seen;
-    for (size_t i = 0, n = size_t(width) * height; i < n && seen.size() <= 16; ++i) {
-        uint32_t pixel = uint32_t(rgba[i * 4]) | uint32_t(rgba[i * 4 + 1]) << 8 | uint32_t(rgba[i * 4 + 2]) << 16;
-        if (std::find(seen.begin(), seen.end(), pixel) == seen.end()) seen.push_back(pixel);
+    for (uint32_t y = top; y < std::min(bottom, height) && seen.size() <= 16; ++y) {
+        for (uint32_t x = left; x < std::min(right, width) && seen.size() <= 16; ++x) {
+            const uint8_t *p = rgba + (size_t(y) * width + x) * 4;
+            uint32_t pixel = uint32_t(p[0]) | uint32_t(p[1]) << 8 | uint32_t(p[2]) << 16;
+            if (std::find(seen.begin(), seen.end(), pixel) == seen.end()) seen.push_back(pixel);
+        }
     }
     return int(seen.size());
+}
+
+// How many colours the VIC-II's 320 x 200 display window has (inside the border), up to 17: one
+// for a blank screen, two for text on its background. The window starts 32 pixels in and, below
+// VICE's normal top border, 35 lines down on a PAL frame (272 lines) or 23 on an NTSC one (247).
+int window_colours(const uint8_t *rgba, uint32_t width, uint32_t height) {
+    const uint32_t top = height == 272 ? 35 : height == 247 ? 23 : UINT32_MAX;
+    if (width != 384 || top == UINT32_MAX) {
+        std::fprintf(stderr, "no display window known for a %ux%u frame\n", width, height);
+        std::exit(2);
+    }
+    return colours(rgba, width, height, 32, top, 352, top + 200);
 }
 
 void write_bmp(const std::string &path, const uint8_t *rgba, uint32_t width, uint32_t height) {
@@ -308,8 +324,9 @@ int main(int argc, char **argv) {
         std::vector<uint64_t> distinct = pictures;
         std::sort(distinct.begin(), distinct.end());
         distinct.erase(std::unique(distinct.begin(), distinct.end()), distinct.end());
-        std::printf("run %d: pictures after load: %zu distinct of %zu seconds; the last has %d colours\n", run,
-                    distinct.size(), pictures.size(), colours(rgba, width, height));
+        std::printf("run %d: pictures after load: %zu distinct of %zu seconds; the last has %d colours, %d in "
+                    "its display window\n", run, distinct.size(), pictures.size(), colours(rgba, width, height),
+                    window_colours(rgba, width, height));
         // The text screen at the end, where BASIC's messages ("?FILE NOT FOUND", "READY.") show.
         std::ofstream(config.home + "/screen-" + std::to_string(run) + ".txt", std::ios::binary) << machine->screen_text();
         std::printf("run %d: %ld frames (%.4f s each), %ux%u, %llu sound frames at %d Hz, peak %lld, range after load %d, "

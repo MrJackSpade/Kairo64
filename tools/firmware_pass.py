@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Find the firmware each library game needs: the least of the player's firmware it runs on.
 
-Usage: firmware_pass.py <seconds> [--workers N] [--scanned]
+Usage: firmware_pass.py <seconds> [--tape-seconds N] [--workers N] [--scanned]
 
 Boots every game the library lists (each game's set entries and lone images) on the host with the
 core's boot_test (.build/host/boot_test.exe, under shared/tools/run-limited.ps1) for <seconds> of
@@ -14,15 +14,17 @@ firmware a setup needs, until one runs it:
   own+1541    the player's ROMs and an emulated 1541
 
 A boot fails when the machine stops (a JAM), the load has not finished, the text screen shows a
-BASIC error ("?FILE NOT FOUND ERROR", "?LOAD ERROR" and the rest) or BASIC's READY. with no sound
-since the load, or the screen is blank (two colours at most), still and silent. A boot that
+BASIC error ("?FILE NOT FOUND ERROR", "?LOAD ERROR" and the rest), or BASIC's READY. as its last
+line with no sound since the load, or the screen is blank (one colour inside the border), still
+and silent. A boot that
 passes those runs for certain when it makes a sound or its picture changes after the load; one
 that shows a single still picture in silence is doubtful (a title waiting for a key, or a game
 stuck), so the next setups are tried too and the first that runs for certain wins; with none, the
 first doubtful one does, marked for review. catalog/research/firmware-v1.json records the setup
 that runs a game when it needs more than the first, so tools/catalog_config.MACHINE gives it
 "system": "own" and/or "drive": "1541"; a game none runs is recorded as failing, for review.
-Entries already decided there are kept as they are.
+The tool's own entries ("firmware_pass.py: ...") follow each run's results; entries decided by
+hand are kept as they are.
 
 Results are kept per game in .downloads/firmware-pass/results.json, so a stopped run carries on;
 a game booted by an older pass (PASS below its version) is booted again from the first setup
@@ -59,9 +61,14 @@ BASIC_ERROR = re.compile(r"\?[A-Z ]+ ERROR")
 SOUND_RANGE = 2000
 # The pass's version: results from an older one are booted again. 2: the core that loads tapes on
 # the Open ROMs and starts a 1541 game after a virtual-drive one, and the picture checks.
-PASS = 2
+PASS = 3
+# Failures pass 3 judges anew: pass 2 failed a game whose screen showed READY. anywhere (a game
+# written in BASIC shows it above what it prints after RUN) and counted text on one background
+# colour as a blank screen.
+RECHECK = {"back at BASIC's READY. without a sound", "a blank screen, still and silent"}
 LOADING = re.compile(r"loading \(autostart, tape or disk\) for ([\d.]+) s of guest time, (still at the end|last ending)")
-PICTURES = re.compile(r"pictures after load: (\d+) distinct of (\d+) seconds; the last has (\d+) colours")
+PICTURES = re.compile(r"pictures after load: (\d+) distinct of (\d+) seconds; the last has (\d+) colours, (\d+) in "
+                      r"its display window")
 
 
 def scanned_media():
@@ -119,6 +126,13 @@ def extract(root, archive, member, work):
     return target
 
 
+def basic_idle(screen):
+    """Whether BASIC sits at its prompt: READY. is the last text on the screen (a game written in
+    BASIC also shows READY. above what it prints after RUN)."""
+    rows = [row.strip() for row in screen.splitlines() if row.strip()]
+    return bool(rows) and rows[-1] == "READY."
+
+
 def boot(system, path, model, seconds, work):
     """The outcome of one boot: {"ok": bool, "doubtful": whether it ran only on a still, silent
     picture, "why": text, "range": int, "pictures": distinct pictures after the load, "colours": the
@@ -155,7 +169,7 @@ def boot(system, path, model, seconds, work):
         raise RuntimeError(f"boot_test gave no result for {path} on {system}:\n" + "\n".join(lines[-20:]))
     played = int(summary.split(" range after load ")[1].split(",")[0])
     found = next(PICTURES.search(line) for line in lines if PICTURES.search(line))
-    pictures, colours = int(found.group(1)), int(found.group(3))
+    pictures, colours = int(found.group(1)), int(found.group(4))
     if summary.endswith("(still loading)"):
         return outcome(False, f"still loading after {seconds} s", played, pictures, colours)
     screen = (work / "screen-0.txt").read_text(encoding="ascii")
@@ -163,11 +177,11 @@ def boot(system, path, model, seconds, work):
     if error:
         return outcome(False, f"BASIC says {error.group(0)}", played, pictures, colours)
     sound = played >= SOUND_RANGE
-    if "READY." in screen and not sound:
+    if basic_idle(screen) and not sound:
         return outcome(False, "back at BASIC's READY. without a sound", played, pictures, colours)
     if sound or pictures > 1:
         return outcome(True, "runs", played, pictures, colours)
-    if colours <= 2:
+    if colours <= 1:
         return outcome(False, "a blank screen, still and silent", played, pictures, colours)
     return outcome(True, "a still picture without a sound", played, pictures, colours, doubtful=True)
 
@@ -185,6 +199,8 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("seconds", type=int)
     parser.add_argument("--workers", type=int, default=4)
+    parser.add_argument("--tape-seconds", type=int,
+                        help="guest seconds for a tape (TAP), whose load alone can take minutes; <seconds> otherwise")
     parser.add_argument("--scanned", action="store_true",
                         help="boot every medium the scans found, not only the library's entries")
     args = parser.parse_args()
@@ -193,8 +209,19 @@ def main():
     results = json.loads(results_path.read_text(encoding="utf-8")) if results_path.is_file() else {}
     lock = threading.Lock()
     media = all_scanned_media() if args.scanned else library_media()
-    todo = [(content_id, *fields) for content_id, fields in sorted(media.items())
-            if results.get(content_id, {}).get("pass") != PASS]
+
+    def seconds_for(name):
+        return args.tape_seconds if args.tape_seconds and name.lower().endswith(".tap") else args.seconds
+
+    def wanted(content_id, fields):
+        """Whether a medium needs booting: never booted by this pass, or failed with less time than
+        it is given now."""
+        record = results.get(content_id, {})
+        if record.get("pass") != PASS:
+            return True
+        return record["runsOn"] is None and record.get("seconds", args.seconds) < seconds_for(fields[2] or fields[1])
+
+    todo = [(content_id, *fields) for content_id, fields in sorted(media.items()) if wanted(content_id, fields)]
     free = [OUT / f"work-{slot}" for slot in range(args.workers)]
     booted = [0]
 
@@ -207,17 +234,24 @@ def main():
                 shutil.rmtree(work)
             work.mkdir(parents=True)
             path = extract(root, archive, member, work)
-            record = {"pass": PASS, "model": model, "boots": {}}
-            # The setups an older pass saw fail stay failed: later passes only add reasons to fail
-            # or doubt. Tapes are booted again on every setup: pass 2's core loads them on the
-            # Open ROMs.
-            earlier = results.get(content_id, {}).get("boots", {})
+            seconds = seconds_for(member or archive)
+            record = {"pass": PASS, "model": model, "seconds": seconds, "boots": {}}
+            # An older pass's outcomes stand, except failures for the reasons a later pass judges
+            # anew (RECHECK), a run pass 1 judged without the picture checks, and pass 1's tapes,
+            # which pass 2's core loads on the Open ROMs. A setup's outcome is reused when it
+            # booted with as much time as it is given now.
+            previous = results.get(content_id, {})
+            earlier_pass = previous.get("pass", 1)
+            earlier = previous.get("boots", {}) if previous.get("seconds", args.seconds) >= seconds else {}
             booted_now = []
             for system in SYSTEMS:
-                if system in earlier and not earlier[system]["ok"] and not path.suffix == ".tap":
-                    record["boots"][system] = dict(earlier[system], fromPass=results[content_id].get("pass", 1))
+                old = earlier.get(system)
+                if old is not None and not (old["ok"] and earlier_pass == 1) and old["why"] not in RECHECK                         and not (path.suffix == ".tap" and earlier_pass == 1):
+                    outcome = record["boots"][system] = dict(old, fromPass=old.get("fromPass", earlier_pass))
+                    if outcome["ok"] and not outcome["doubtful"]:
+                        break
                     continue
-                outcome = boot(system, path, model, args.seconds, work)
+                outcome = boot(system, path, model, seconds, work)
                 record["boots"][system] = outcome
                 booted_now.append(system)
                 if outcome["ok"] and not outcome["doubtful"]:
@@ -256,13 +290,21 @@ def main():
         return
 
     listed = json.loads(LIST.read_text(encoding="utf-8")) if LIST.is_file() else {"games": {}, "schemaVersion": 1}
+
+    def own(entry):
+        """Whether an entry is this tool's, which each run replaces; others were decided by hand."""
+        return (entry.get("why") or entry.get("fails") or "").startswith("firmware_pass.py:")
     counts = {}
     for content_id, record in sorted((key, value) for key, value in results.items() if key in media):
         boots = record["boots"]
         chosen = record["runsOn"]
         key = (chosen or "none") + (" (doubtful)" if chosen and boots[chosen]["doubtful"] else "")
         counts[key] = counts.get(key, 0) + 1
-        if content_id in listed["games"] or chosen == "open":
+        entry = listed["games"].get(content_id)
+        if entry is not None and not own(entry):
+            continue  # decided by hand
+        if chosen == "open":
+            listed["games"].pop(content_id, None)
             continue
         failure = boots["open"]["why"]
         if chosen is None:
