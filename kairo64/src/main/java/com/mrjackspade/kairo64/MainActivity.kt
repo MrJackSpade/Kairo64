@@ -19,8 +19,8 @@ import java.util.concurrent.atomic.AtomicBoolean
 class MainActivity : MachineActivity<DiskImageEntry>() {
     override val identity = Identity("KAIRO64", 0xff006BFD.toInt(), "Kairo64", "C64", "kairo64",
         LibraryStrings("KAIRO64", "Kairo64"),
-        "Kairo64 uses VICE's Commodore 64 emulation and the MEGA65 Open ROMs. Source and provenance: " +
-            "github.com/MrJackSpade/Kairo64.",
+        "Kairo64 uses VICE's Commodore 64 emulation and the MEGA65 project's free C64 firmware. Source and " +
+            "provenance: github.com/MrJackSpade/Kairo64.",
         "Choose a games folder to find disk, tape, program and cartridge images and the ZIP and 7z archives holding them",
         "Folder access expired. Select the games folder again.",
         MachineFirstRun.Folder("Choose a games folder", "Select the folder containing your C64 games. Kairo64 will " +

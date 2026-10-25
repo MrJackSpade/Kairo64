@@ -41,7 +41,7 @@ object C64Catalog : LayeredGameCatalog.Schema {
      * player's Commodore ROMs, which games that call the KERNAL's insides need.
      */
     val system = MachineOption("system", "System", listOf(
-        ChoiceOption(OPEN_ROMS, "Open ROMs"),
+        ChoiceOption(OPEN_ROMS, "Free C64 firmware"),
         ChoiceOption(OWN_ROMS, "Your C64 firmware")), OPEN_ROMS)
 
     const val TRUE_DRIVE = "1541"

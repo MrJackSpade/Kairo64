@@ -1,10 +1,8 @@
 package com.mrjackspade.kairo64.uitest
 
-import android.view.KeyEvent
 import com.mrjackspade.kairo.uitest.AppUnderTest
 import com.mrjackspade.kairo.uitest.AppUnderTest.BiosFile
 import com.mrjackspade.kairo.uitest.AppUnderTest.MediaSwap
-import com.mrjackspade.kairo.uitest.GamePage
 import com.mrjackspade.kairo.uitest.KairoUiTest
 import com.mrjackspade.kairo.uitest.suites.ControllerTests
 import com.mrjackspade.kairo.uitest.suites.FirstRunTests
@@ -66,10 +64,11 @@ class C64Tests : KairoUiTest() {
 
     /** Starts Klax with one of its settings changed, and checks the machine took it and draws. */
     private fun startsWith(option: String, value: String) {
-        val settings = screens.completeFirstRun().open(app.bootGame).openSettings()
+        val game = screens.completeFirstRun().open(app.bootGame)
+        val settings = game.openSettings()
         screens.choose(settings, option, value)
-        driver.press(KeyEvent.KEYCODE_BUTTON_B)
-        GamePage(driver, app, app.bootGame).play()
+        game.closeSettings()
+        game.play()
         expect.equal("Klax's $option after choosing $value for it", value, driver.probe().details["machine.$option"])
         driver.waitFrames(600)
         val picture = driver.pictures.game("klax-$option-$value")
