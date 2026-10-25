@@ -156,8 +156,13 @@ bool configure(const Config &config, std::string &error) {
     // Raw pixels at the VIC-II's own size with the normal borders, for the host's shaders; a JAM
     // reaches KairoC64Host_Jam through the headless UI's dialog (local change vice-jam); the host
     // runs the load at full speed itself, so autostart does not warp.
+    // reSID samples the SID's output directly (0, SID_RESID_SAMPLING_FAST). VICE's default
+    // resampling filter kept the C64 below real time on the RG DS (0.9x flat out); interpolation
+    // reached 1.05x, too little headroom for play; direct sampling runs a frame in 13.8 of its
+    // 20 ms there (#1).
     return set_int("VICIIFilter", 0) && set_int("VICIIDoubleSize", 0) && set_int("VICIIDoubleScan", 0) &&
-           set_int("VICIIBorderMode", 0) && set_int("JAMAction", 0) && set_int("AutostartWarp", 0);
+           set_int("VICIIBorderMode", 0) && set_int("JAMAction", 0) && set_int("AutostartWarp", 0) &&
+           set_int("SidResidSampling", 0);
 }
 
 } // namespace
