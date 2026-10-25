@@ -61515,6 +61515,14 @@
    ],
    "description": "Get home safely while eating food to keep strength up, killing a thief and a thug, collecting magic rings and steering clear of evil wizards; the blue tower is a place to find food.",
    "developer": "A.D. Williams",
+   "diskMachine": {
+    "sha256-disk-v1:26aa1c829948e4d84c6d968b05b3a8573df2381a682342e5fda7ce3d386a49dd": {
+     "launch": {
+      "program": "1FIDICENBOOT"
+     },
+     "system": "own"
+    }
+   },
    "launchbox": "150592",
    "publisher": "Xenon Software",
    "screenshotUrl": "https://images.launchbox-app.com/b5d0e643-50b1-4dc3-ba24-e17e437ab37d.png",
@@ -82155,7 +82163,11 @@
    "developer": "Commodore Business Machines (UK)",
    "diskMachine": {
     "sha256-disk-v1:7207d359805e1118bdc86fdff423e4048887608f9fc1d824926963986c30312f": {
-     "model": "c64ntsc"
+     "launch": {
+      "program": "NUMBER PUZZLER A"
+     },
+     "model": "c64ntsc",
+     "system": "own"
     }
    },
    "launchbox": "159054",

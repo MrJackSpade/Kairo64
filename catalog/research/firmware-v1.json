@@ -933,7 +933,9 @@
    "why": "firmware_pass.py: on the Open ROMs and the virtual drive: BASIC says ?SYNTAX ERROR; on own+1541: runs"
   },
   "sha256-disk-v1:26aa1c829948e4d84c6d968b05b3a8573df2381a682342e5fda7ce3d386a49dd": {
-   "fails": "firmware_pass.py: fails on every setup; on the Open ROMs: back at BASIC's READY. without a sound"
+   "program": "1FIDICENBOOT",
+   "system": "own",
+   "why": "decided by hand: its first file returns to READY.; 1FIDICENBOOT reaches the title with music (on the Open ROMs too, under a BASIC error line)"
   },
   "sha256-disk-v1:271b69746472498676e819d2ef27368a25225639cb41cba34e2309b50e4aee2e": {
    "system": "own",
@@ -2785,7 +2787,9 @@
    "why": "firmware_pass.py: on the Open ROMs and the virtual drive: BASIC says ?NOT IMPLEMENTED ERROR; on own+1541: runs"
   },
   "sha256-disk-v1:7207d359805e1118bdc86fdff423e4048887608f9fc1d824926963986c30312f": {
-   "fails": "firmware_pass.py: fails on every setup; on the Open ROMs: back at BASIC's READY. without a sound"
+   "program": "NUMBER PUZZLER A",
+   "system": "own",
+   "why": "decided by hand: its first file returns to READY.; NUMBER PUZZLER A runs its menu with sound on own (?SYNTAX ERROR on the Open ROMs)"
   },
   "sha256-disk-v1:726f8da9dfc9e101d80b87ec050637efb5c7464804d3102ded1a4c2fa8d83602": {
    "system": "own",
