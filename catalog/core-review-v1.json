@@ -21,13 +21,37 @@
    "reason": "Adult-content review",
    "title": "Bite of the Sorority Vampires"
   },
+  "c64:139202": {
+   "reason": "MobyGames Adult genre",
+   "title": "Strip Poker II (Byte Back)"
+  },
+  "c64:139297": {
+   "reason": "MobyGames Adult genre",
+   "title": "Wolfman"
+  },
   "c64:144157": {
    "reason": "Adult-content review",
    "title": "Cover Girl Poker"
   },
+  "c64:145504": {
+   "reason": "MobyGames Adult genre",
+   "title": "How to Be a Complete Bastard"
+  },
+  "c64:146920": {
+   "reason": "MobyGames Adult genre",
+   "title": "Viz: The Game"
+  },
   "c64:147400": {
    "reason": "Adult-content review",
    "title": "Dr. Ruth's Computer Game of Good Sex"
+  },
+  "c64:147686": {
+   "reason": "MobyGames Adult genre",
+   "title": "Drink & Drown"
+  },
+  "c64:147690": {
+   "reason": "MobyGames Adult genre",
+   "title": "Drive-In"
   },
   "c64:150352": {
    "reason": "Adult-content review",
@@ -53,9 +77,17 @@
    "reason": "Adult-content review",
    "title": "Leather Goddesses of Phobos"
   },
+  "c64:158629": {
+   "reason": "MobyGames Adult genre",
+   "title": "Maria's Christmas Box"
+  },
   "c64:159987": {
    "reason": "Adult-content review",
    "title": "Strip Poker: A Sizzling Game of Chance"
+  },
+  "c64:160452": {
+   "reason": "Adult-content review",
+   "title": "Logo"
   },
   "c64:171610": {
    "reason": "Adult-content review",
@@ -68,6 +100,14 @@
   "c64:171762": {
    "reason": "Adult-content review",
    "title": "Manganoid"
+  },
+  "c64:172394": {
+   "reason": "MobyGames Adult genre",
+   "title": "Mind Prober"
+  },
+  "c64:172876": {
+   "reason": "MobyGames Adult genre",
+   "title": "Nanako in Classic Japanese Monster Castle"
   },
   "c64:175748": {
    "reason": "Adult-content review",
@@ -93,17 +133,65 @@
    "reason": "Adult-content review",
    "title": "Stud's Challenge"
   },
+  "c64:181857": {
+   "reason": "MobyGames Adult genre",
+   "title": "Sweet Sixteen"
+  },
   "c64:187619": {
    "reason": "Adult-content review",
    "title": "X-Rated Game"
+  },
+  "c64:201034": {
+   "reason": "MobyGames Adult genre",
+   "title": "Hired Sword 2"
+  },
+  "c64:34713": {
+   "reason": "MobyGames Adult genre",
+   "title": "Rock Star Ate My Hamster"
+  },
+  "c64:440203": {
+   "reason": "MobyGames Adult genre",
+   "title": "Softporn Adventure"
+  },
+  "c64:465778": {
+   "reason": "MobyGames Adult genre",
+   "title": "Naughty Tales"
   },
   "c64:6408": {
    "reason": "Adult-content review",
    "title": "Samantha Fox Strip Poker"
   },
-  "c64:local-f81469fb49": {
-   "reason": "Adult-content review",
-   "title": "Logo"
+  "c64:moby-145221": {
+   "reason": "MobyGames Adult genre",
+   "title": "Strip Poker Data Disk #1: Female - Candi and Marlena"
+  },
+  "c64:moby-145269": {
+   "reason": "MobyGames Adult genre",
+   "title": "Strip Poker Data Disk #2: Male - David and Tony"
+  },
+  "c64:moby-36176": {
+   "reason": "MobyGames Adult genre",
+   "title": "Sex And Violence Vol 1"
+  },
+  "c64:moby-38881": {
+   "reason": "MobyGames Adult genre",
+   "title": "Sex Games"
+  },
+  "c64:moby-65571": {
+   "reason": "MobyGames Adult genre",
+   "title": "Ucieczka ze Spejs-Szipu"
+  },
+  "c64:moby-98161": {
+   "reason": "MobyGames Adult genre",
+   "title": "Okręty"
+  },
+  "c64:moby-98165": {
+   "reason": "MobyGames Adult genre",
+   "title": "Zdeba Puzzle"
+  },
+  "c64:moby-98480": {
+   "reason": "MobyGames Adult genre",
+   "title": "Samowolka"
   }
  }
 }

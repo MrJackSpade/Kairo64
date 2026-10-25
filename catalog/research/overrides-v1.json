@@ -42,6 +42,9 @@
   "c64:159987": {
    "adult": true
   },
+  "c64:160452": {
+   "adult": true
+  },
   "c64:171610": {
    "adult": true
   },
@@ -73,9 +76,6 @@
    "adult": true
   },
   "c64:6408": {
-   "adult": true
-  },
-  "c64:local-f81469fb49": {
    "adult": true
   }
  },

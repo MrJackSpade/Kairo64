@@ -1,5 +1,4 @@
 {
- "schemaVersion": 1,
  "descriptions": {
   "c64:125353": "Strip game built on Maxit: beat a series of sexy female androids at an 8x8 number-grid board game, and each win uncovers more of the opponent's nude picture, across ten stages.",
   "c64:136678": "Strip poker against four women, including a former Miss Germany, each shown in five digitized photos that reveal more as she loses hands.",
@@ -15,6 +14,7 @@
   "c64:157582": "An adult party board game for 2 to 10 players of mixed sexes: sip a magic potion, roll the die and move around the board stealing other players' clothes, while the Mad Mugger takes more clothes and Kindly Jack returns them.",
   "c64:158621": "Infocom's bawdy sci-fi comedy adventure: abducted in 1936 by the Leather Goddesses of Phobos, who plan to enslave Earth, the hero must escape; the game's naughtiness level can be set from tame up to lewd.",
   "c64:159987": "Strip poker: beat Suzi or Melissa at five-card draw and her digitized photo shows her in fewer and fewer clothes; expansion disks added further models.",
+  "c64:160452": "Between levels the game shows digitized photos of nude or partly nude women as rewards for solving the puzzles.",
   "c64:171610": "A forfeit game for two lovers: over 13,000 combinations of saucy dares and rewards, billed as the naughtiest thing the computer can do.",
   "c64:171611": "A sexually themed quiz party game for two or more intimate players, with suggestive trivia and a provocative scoring system of forfeits.",
   "c64:171762": "Adult Arkanoid variant for one or two players: knocking out the cubes gradually uncovers an erotic manga-style picture underneath.",
@@ -25,7 +25,7 @@
   "c64:180826": "Crude novelty game simulating a hand stimulating a penis, switching stroke direction with the joystick or arrow keys; keeping up speed and rhythm makes it grow, and overstimulation turns it a warning colour.",
   "c64:180827": "Raunchy text adventure: find your partner, discover what pleases them in bed and enjoy mutually satisfying sex.",
   "c64:187619": "An explicit text adventure set in Hornyville: a visitor pays for sex with the town's women, visits a steam room and a peep show, gambles at Horny Henry's casino, and risks the sheriff's jail, escaped only through a maze. Sex scenes are described in graphic prose.",
-  "c64:6408": "Strip poker against pin-up model Samantha Fox: win hands and she removes her clothing, shown in digitised photos.",
-  "c64:local-f81469fb49": "Between levels the game shows digitized photos of nude or partly nude women as rewards for solving the puzzles."
- }
+  "c64:6408": "Strip poker against pin-up model Samantha Fox: win hands and she removes her clothing, shown in digitised photos."
+ },
+ "schemaVersion": 1
 }
