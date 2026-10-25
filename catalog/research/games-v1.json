@@ -6762,6 +6762,7 @@
    "contentIds": [
     "sha256-tape-v1:4825c4aa6ab0391896e722e4761f2a8486378f1e459335a9500352a6db417f6a"
    ],
+   "description": "Glob must recover the 16 scattered pieces of the Scroll of Evolution before a candle burns down, dropping between flick-screen rooms with reversed gravity and lifts, then sliding the collected pieces into order in a puzzle mode.",
    "developer": "Tynesoft Computer Software",
    "launchbox": "125865",
    "publisher": "Microvalue",
@@ -17126,6 +17127,7 @@
     "sha256-disk-v1:b93d21f613ef45b646e407da8832082ec2fef9f4d19ba80418f7e08bebc2f3ef",
     "sha256-disk-v1:c080a7fccef5b6092cefea64a868edb392a098fba46ab7182f8d201a549ea505"
    ],
+   "description": "Humanity's last forces strike back at the alien Aliants: an arcade landing at the hidden base Valley Forge and a laser simulator test lead into a strategy campaign commanding battle carriers on a 10x10 grid to liberate captured colonies.",
    "developer": "Starsoft Development Laboratories",
    "diskMachine": {
     "sha256-disk-v1:07a9db6912638b21836fbb38a58b2dbdeff8789a1ab1f682658848267e216696": {
@@ -17713,6 +17715,7 @@
    "contentIds": [
     "sha256-tape-v1:c2648cd1cd8549fad84d0e225b453176a34910872049b976ab74039d2d7a8da2"
    ],
+   "description": "A shooter dressed up as bowling: move across eight wrapping lanes firing bowling balls at pins while dodging wine bottles, and catch falling strike and spare symbols to fill a scorecard, with ten symbols clearing the level.",
    "developer": "Leonard Bertoni",
    "diskMachine": {
     "sha256-tape-v1:c2648cd1cd8549fad84d0e225b453176a34910872049b976ab74039d2d7a8da2": {
@@ -19682,6 +19685,7 @@
    "contentIds": [
     "sha256-tape-v1:9e3a51468e4ab83f8c319c7f7903321ccb5659fe5746dc4988a225a5e4437bce"
    ],
+   "description": "The American release of Asterix and the Magic Cauldron with the hero redrawn as a barbarian: search fifty screens of village, Roman camp and forest for pieces of a smashed cauldron, trading punches and kicks with boars and soldiers.",
    "developer": "Beam Software",
    "diskMachine": {
     "sha256-tape-v1:9e3a51468e4ab83f8c319c7f7903321ccb5659fe5746dc4988a225a5e4437bce": {
@@ -24099,6 +24103,7 @@
     "sha256-prg-v1:7a26078d8a3523baebf8f81a4f7d84638849c2e7c5e3c03afee9f9af88482720",
     "sha256-tape-v1:a84a68bec4fed0647ee5eb80bb65ff0d065afd845ee7e3a7b9183135778d20db"
    ],
+   "description": "Hired by the Sahiban to steal the Mazeli superweapon ship Blazer, you fly a vertically scrolling overhead shoot-'em-up armed only with a forward cannon and no power-ups, facing enemies from above and the sides and shooting ground bases.",
    "developer": "Mark Greenshields",
    "diskSets": {
     "sha256-tape-v1:a84a68bec4fed0647ee5eb80bb65ff0d065afd845ee7e3a7b9183135778d20db": {
@@ -25776,6 +25781,7 @@
    "contentIds": [
     "sha256-disk-v1:76fcd0ea2534af1edb78ba494f56a7c3ea9eef4f4b07c5613c307931bde5d1f6"
    ],
+   "description": "Space thief Philip Sunset, hunted by the Drowhar army after stealing its secret Sprocket System, flies for the Terra-1 forces in this horizontally scrolling shooter, grabbing extra weapons, speed and lives against fast swarms of erratic enemies.",
    "developer": "Dinamic Software",
    "launchbox": "139114",
    "publisher": "Dinamic Software",
@@ -26318,6 +26324,7 @@
    "contentIds": [
     "sha256-disk-v1:8fce63d0b7e98f1a00ca21e308c162981d9e2eeadf4872ad43f79a7941f88339"
    ],
+   "description": "Hostile Hadean craft are using Earth's refinery planet Erebus to brew nerve gas. Fly a scrolling overhead shooter, passing over every section of a level to open its dimension duct, then survive a 30-second bonus wave by dodging up and down.",
    "developer": "Steve Lee",
    "launchbox": "139212",
    "publisher": "Virgin Games",
@@ -26654,6 +26661,7 @@
     "sha256-disk-v1:8bbdbfd8a9720f6aca3ac37301a766cd8b0d51b52711353d9b902bfff080701e",
     "sha256-disk-v1:d5d5f59ad7985283b81097422f56b1fc2464f3829742d147fe7f91d5ed0995fb"
    ],
+   "description": "Ryu brawls through Las Vegas, the Grand Canyon, Brooklyn and other American stages in this arcade beat-'em-up, using flying neck throws, back flips and hanging kicks, smashing phone booths and oil drums for power-ups and swords, with two-player co-op.",
    "developer": "Teque Software Development",
    "diskSets": {
     "sha256-disk-v1:d5d5f59ad7985283b81097422f56b1fc2464f3829742d147fe7f91d5ed0995fb": {
@@ -40298,6 +40306,7 @@
    "contentIds": [
     "sha256-tape-v1:a545ed49b581ce137863bf5c738177a68476f06368e9c66fd3414408ce8f42ea"
    ],
+   "description": "A Robotron-style single-screen shooter: blast every Tron, Brain and Enforcer droid hunting the last humans and pick up wandering people for bonus points, with an option to aim the laser using a second joystick.",
    "developer": "Darrell Etherington",
    "launchbox": "145438",
    "publisher": "Anirog Software",
@@ -41637,6 +41646,7 @@
    "contentIds": [
     "sha256-tape-v1:e015e577587866a4b234c6409f3880dd006bcae9f3d1dda267860edcf671bf90"
    ],
+   "description": "A text adventure set on a moonbase during a stalled Mars colony project: after a bomb attack by the terrorist Mining Group, uncover your own mission and the group's motives through typed commands.",
    "developer": "Interactive Technology",
    "launchbox": "145769",
    "publisher": "The Guild Adventure Software",
@@ -42095,6 +42105,7 @@
    "contentIds": [
     "sha256-disk-v1:12aefc6747a079222d1d79d5dac9cf830a84acd05fb832135a099b5e3fba1421"
    ],
+   "description": "Asleep by the open fridge, Garfield dreams of the Swiss Alps across three mini-games playable in any order: skiing to a lasagna factory, keeping mechanical chickens fed with chocolate, and skating a frozen lake while Odie makes mischief.",
    "developer": "Softek International",
    "launchbox": "145941",
    "publisher": "The Edge",
@@ -55837,6 +55848,7 @@
    "contentIds": [
     "sha256-tape-v1:f42be3202e8de45d233c4160421f7f93520f0292a5017a80464bafcb253f813b"
    ],
+   "description": "As a time lord aboard the ship Falcon's Wing, hunt a renegade TIME agent who swaps artifacts between eras, then leave the ship with a jet pack and laser to put them back, guided by the onboard computer CAIN.",
    "developer": "Steve Lee",
    "launchbox": "150270",
    "publisher": "Virgin Games",
@@ -67655,6 +67667,7 @@
    "contentIds": [
     "sha256-tape-v1:b8f528f160d95f0bf6776abfaec5b6966ff65c349e42c564aa8ceea0d0a1c906"
    ],
+   "description": "Quasimodo goes for Olympic gold in a joystick-waggling athletics game covering the 100m sprint, 110m hurdles, long jump, high jump, shot put, discus and javelin, with well-timed releases needed in the field events.",
    "developer": "Seatongrove",
    "launchbox": "155610",
    "publisher": "Software Projects",
@@ -69434,6 +69447,7 @@
    "contentIds": [
     "sha256-tape-v1:82d0b821219026337c8685f7ea4de91ed7418ee48bcec2c978f1864b0d1986cd"
    ],
+   "description": "A Reversi-inspired board strategy game, completed but shelved by Virgin, whose idea later became Ataxx and Spot: spread your pieces across the grid to convert neighbouring enemy pieces, against the computer or in a four-player mode, with a level editor.",
    "developer": "Craig Galley",
    "launchbox": "156514",
    "screenshotUrl": "https://images.launchbox-app.com/146b428f-993c-4ac0-8eba-72448167b85f.png",
@@ -71071,6 +71085,7 @@
    "contentIds": [
     "sha256-tape-v1:b68a9c4f1a4c66657b76fc0fa05bbec4d7f2e61b25e7ecda16b5e60dc6a8a7cd"
    ],
+   "description": "Opera Soft recreates Basque pelota: teams of two take turns catching the ball in the wicker cesta and flinging it back against the front wall of a three-walled court, scoring only while they hold the serve.",
    "developer": "Opera Soft",
    "launchbox": "156818",
    "publisher": "Opera Soft",
@@ -73915,6 +73930,7 @@
    "contentIds": [
     "sha256-tape-v1:0cd8b125aae0e31200267258acf5e58ae2073c6b25a52fb42f421d04f6ffeba6"
    ],
+   "description": "Quasimodo hurls rocks at soldiers climbing ladders up the cathedral walls, then the button switches to jumping as he swings across bell ropes and climbs to carry gems down to altars, each delivery opening another area.",
    "developer": "Mark Bigelow",
    "diskMachine": {
     "sha256-tape-v1:0cd8b125aae0e31200267258acf5e58ae2073c6b25a52fb42f421d04f6ffeba6": {
@@ -75121,6 +75137,7 @@
    "contentIds": [
     "sha256-tape-v1:d2bb19d0741cb5d13d46554f324ae40fae8a853df479b960c16aa106a2ca3816"
    ],
+   "description": "A hotel photographer searches behind doors for a pass, key, camera and flashbulb, then must snap a guest in the far-left room, dodging the inspector, manager and a bar patron, plus the furious Mr. Angry if he is woken.",
    "developer": "Steve Wiggins",
    "launchbox": "158896",
    "publisher": "Codemasters Software",
@@ -88207,6 +88224,7 @@
    "contentIds": [
     "sha256-tape-v1:e58632f709f8f714ac1c602fff6561433864bb8db72f030693a525c43d4a7a59"
    ],
+   "description": "Table football on the computer: with 30 seconds per turn, pick a player, aim, and hold the button to decide how hard the flick is and how much it curves, while the side without the ball may first make a blocking flick; hitting an opponent hands over possession.",
    "developer": "Goliath Games",
    "launchbox": "163357",
    "publisher": "Electronic Zoo",
@@ -90279,6 +90297,7 @@
    "contentIds": [
     "sha256-tape-v1:471124124bf73ca110fdf1273dd620f84cca50d2d5922f8233c80646a9a23a00"
    ],
+   "description": "Fly a plectrum-shaped ship around single-screen levels shooting Zoids that start as dots and morph, needing more hits the longer they survive; firing drains energy, which is restored by collecting drifting spacemen.",
    "developer": "Gordon Russell",
    "launchbox": "163983",
    "publisher": "Softek International",
@@ -91904,6 +91923,7 @@
    "contentIds": [
     "sha256-tape-v1:5e05542b57ffd6205769c1e7d265c2ac73738ef344eb012f8574cccf8c2a0abf"
    ],
+   "description": "The official Mexico '86 football tie-in: run a World Cup from the quarter-finals with human or computer teams, playing 90-minute matches on a scrolling three-screen pitch where you steer the player nearest the ball, shoot with fire and dive with the keeper.",
    "developer": "Artic Computing",
    "launchbox": "164433",
    "publisher": "U.S. Gold",
@@ -121958,6 +121978,7 @@
    "contentIds": [
     "sha256-disk-v1:8f034afb1d4fbbfd5b335df4c43a03c3bbd1283ca6a8212cc28db10446a71af8"
    ],
+   "description": "Sheep battle foxes once more in this deluxe sequel to Sheep vs Fox, a Shoot-'Em-Up Construction Kit game by Alf Yngve with fresh obstacles, comic touches and a country-style tune. Psytronik included it as a bonus alongside Sheepoid DX and Woolly Jumper.",
    "developer": "Chris Yates",
    "launchbox": "177227",
    "publisher": "Psytronik Software",
@@ -123405,6 +123426,7 @@
    "contentIds": [
     "sha256-disk-v1:2651e970bdce89a311bb5baf9c1d5f87dfe036eeb39e687d9f7a86ee508d48d3"
    ],
+   "description": "An English-teaching program from Hungary's Novotrade for one to four players, drilling grammar with a focus on irregular verbs.",
    "developer": "Béla Dóri",
    "launchbox": "177760",
    "publisher": "Novotrade",
@@ -125167,6 +125189,7 @@
    "contentIds": [
     "sha256-disk-v1:43e7fa2fbfe1aedfd1f9a9eb2a8d4f32d38d50f80bf3ad4f75292e8f29023684"
    ],
+   "description": "A budget follow-up to Vegas Casino from Tarheel Technologies and Mastertronic, offering just two table games, roulette and craps, for up to four players. It came on a dual-format disk for the C64 and PC and was sold only in America.",
    "developer": "Tarheel Technologies",
    "launchbox": "179270",
    "publisher": "Virgin Mastertronic",
@@ -125819,6 +125842,7 @@
    "contentIds": [
     "sha256-tape-v1:bb76cc8d7a7566e85ade7adfad82aa67e3edf1a34746aed06cacd03e0afc9dff"
    ],
+   "description": "Rather than a shooter, this Shoot-'Em-Up Construction Kit creation is a driving game for one or two players at once, with music by Thomas Mogensen. It was given away on the cover disk of Commodore Zone issue 9.",
    "developer": "Chris Yates",
    "launchbox": "179476",
    "publisher": "Binary Zone PD",
@@ -126526,6 +126550,7 @@
    "contentIds": [
     "sha256-disk-v1:37bfc16686d7bd8946ff8fceda1a2e4761938a9110101be8af87b1881cc85629"
    ],
+   "description": "Guide your horse around a show-jumping course and clear the fences in this German equestrian game from the Golden Disk 64 disk magazine.",
    "launchbox": "180034",
    "publisher": "CP Verlag",
    "screenshotUrl": "https://images.launchbox-app.com/e067f8f6-5119-49fa-b48c-d0ec2c43f8c2.png",
@@ -126959,6 +126984,7 @@
    "contentIds": [
     "sha256-disk-v1:32446787e5ac08d36dc28d96624656018a0440b34ea828a01afbd4750989a144"
    ],
+   "description": "Alien life forms have destroyed the Alpha Centauri B system, and as a B-class pilot you are teleported into the danger zone to confront them. Made by the Ultraforce Software Team and published on a 64'er games disk.",
    "developer": "Szabolcs Vertes",
    "launchbox": "180127",
    "publisher": "Markt & Technik",
@@ -127206,6 +127232,7 @@
    "contentIds": [
     "sha256-disk-v1:bd810382497c081ffe37cf41b65c05daa8497c1e1535a0be19541af366587dab"
    ],
+   "description": "Mr. Universum, once the unbeatable hero of the galaxy, has been slimmed down by a few kilos courtesy of an evil alien in this single-screen platformer by Stefan Gutsch, released by Protovision and on the GO64! disk.",
    "developer": "Stefan Gutsch",
    "launchbox": "180258",
    "publisher": "Protovision PD",
@@ -130377,6 +130404,7 @@
    "contentIds": [
     "sha256-tape-v1:7732033333095b4bae673119cb23c538e728be5dfde25d11c6d0854f05250201"
    ],
+   "description": "A Commodore text adventure known for a flaw in its object handling: item names get shuffled, so opening the chest might call for the book, the key might need reading, and the lion's pit could not be escaped. Patched versions were later circulated.",
    "developer": "B. Wildman",
    "diskMachine": {
     "sha256-tape-v1:7732033333095b4bae673119cb23c538e728be5dfde25d11c6d0854f05250201": {
@@ -131627,6 +131655,7 @@
    "contentIds": [
     "sha256-tape-v1:14047ee1a9dd4ac389e591ac2a4c4d81c72e0c2585ef1671ac8c3ef73373b58c"
    ],
+   "description": "A ten-finger typing course in seven lessons, from the home row up to whole texts, plus a game where words must be typed before a laser beam wipes them out, costing energy, across nine levels.",
    "developer": "Cees Kramer",
    "launchbox": "182369",
    "publisher": "RadarSoft",
@@ -132227,6 +132256,7 @@
    "contentIds": [
     "sha256-tape-v1:0ffe4ea0aa6bccc765cf7d0560e8df5b09b938b028d7cd286f64e786c68ebc24"
    ],
+   "description": "Up to four players take turns buying and selling on a simulated stock market in this early keyboard-driven trading game by John D. Price.",
    "developer": "John D. Price",
    "diskMachine": {
     "sha256-tape-v1:0ffe4ea0aa6bccc765cf7d0560e8df5b09b938b028d7cd286f64e786c68ebc24": {
@@ -132876,6 +132906,7 @@
    "contentIds": [
     "sha256-disk-v1:ff0d7e3d0d485ccf75b3c43e1a7d393428f205944552bc4809428904e386f9cf"
    ],
+   "description": "Ralf Kober's timed puzzle from Game On makes you dodge bombs, keep an eye on the clock and decide on the spot whether each special that pops up will help or hurt you.",
    "developer": "Sonics Artworks",
    "launchbox": "182967",
    "publisher": "CP Verlag",
@@ -133642,6 +133673,7 @@
    "contentIds": [
     "sha256-tape-v1:7048b10dcebfc0fda3217d7b4799f3bc3f3ff59ff0cc992fe765bbab04d6578e"
    ],
+   "description": "Tidy up the toys by kicking them around the garden in this puzzle game, made single-handedly by Jan Schulze, that plays like a blend of Puzznic and Sokoban. It was entered in the 2014 RGCD 16KB cartridge competition.",
    "developer": "Jan Schulze",
    "launchbox": "183739",
    "screenshotUrl": "https://images.launchbox-app.com/ce439c74-8129-4cf6-b53b-88d219464635.png",
@@ -135998,6 +136030,7 @@
    "contentIds": [
     "sha256-tape-v1:1f28c773083f6b4515820ee84b803a51c41351fdfe31629445e8bf9ae4e88e97"
    ],
+   "description": "Cosine's horizontally scrolling space shoot 'em up, first given away on the cover disk of Commodore Zone issue 4 in 1996. Typing \"the magic roundabout\" on the title screen switches on invincibility.",
    "developer": "Cosine Systems",
    "launchbox": "185124",
    "publisher": "Commodore Zone",
@@ -136016,6 +136049,7 @@
    "contentIds": [
     "sha256-tape-v1:e36cbffe41eacc3dbe907701697b11319a158031b7a9fdb2cbaf91409413d891"
    ],
+   "description": "Cosine's 2006 remix of its 1996 shooter Warflame, rebuilt for release through Cronosoft with new background colours, a more detailed loading picture and reworked collision detection that makes it noticeably easier.",
    "developer": "Cosine Systems",
    "launchbox": "185125",
    "publisher": "Cronosoft",
@@ -136171,6 +136205,7 @@
    "contentIds": [
     "sha256-disk-v1:975a84bb97ed47c0fc9577c0409e578c7f78f341dcc8b2a80ef754b703e4a8d5"
    ],
+   "description": "The fourth Warrior of Ras role-playing game takes you into the Ziggurat of Ras, tomb of a tyrant king, in search of the Sapient Scepter of Sirocco. You climb randomly built levels using typed commands, defeat the guardian mummy at the top and then make your way back out.",
    "developer": "Randall Don Masteller",
    "diskMachine": {
     "sha256-disk-v1:975a84bb97ed47c0fc9577c0409e578c7f78f341dcc8b2a80ef754b703e4a8d5": {
@@ -137474,6 +137509,7 @@
    "contentIds": [
     "sha256-tape-v1:47bbbdc07416cb34157a8d4f32dd82a04a12e636326cbcc41d89b5c7abbb2eaa"
    ],
+   "description": "Fuzzle works in Santa's present factory, dropping gifts into boxes of the matching colour as they roll along a conveyor belt, while a cheeky character pelts him with snowballs to slow him down.",
    "developer": "The New Dimension (TND)",
    "launchbox": "187597",
    "publisher": "The New Dimension (TND)",
@@ -138146,6 +138182,7 @@
    "contentIds": [
     "sha256-tape-v1:f93d2c5e954abdae51203f80555c5d205d6299134dd7cd88742e14b2ac28927a"
    ],
+   "description": "A slot machine simulation from the Magic Disk 64 disk magazine that lets you gamble on the reels without spending real money.",
    "developer": "Helge Sascha Anders Kozielek",
    "launchbox": "188950",
    "publisher": "CP Verlag",
@@ -140410,6 +140447,7 @@
    "contentIds": [
     "sha256-tape-v1:e76145b6d2dcb54330e8584253d1628d592d1598e5f8aa4cd358dd7f97da4227"
    ],
+   "description": "Never officially released, this unfinished side-scrolling shoot 'em up supports one or two players and was coded by Duncan MacDonald with graphics by Dave Edwardson. It offers only a handful of attack waves, and its Rob Hubbard music is borrowed from Deep Strike.",
    "developer": "Rob Hubbard",
    "diskMachine": {
     "sha256-tape-v1:e76145b6d2dcb54330e8584253d1628d592d1598e5f8aa4cd358dd7f97da4227": {
@@ -158435,6 +158473,7 @@
    "contentIds": [
     "sha256-disk-v1:c805826bd860fd902bd03d29317bd32f0d3b2c1ca1a922576d74db57c034f81e"
    ],
+   "description": "Ocean turns its hunchback hero into a text adventure: Quasimodo seeks to help Esmeralda by exploring Notre Dame and places in, around and beneath Paris, gathering items to solve puzzles and get past the Bishop's and Cardinal's servants.",
    "developer": "Ocean Software",
    "launchbox": "29706",
    "publisher": "Ocean Software",
@@ -159094,6 +159133,7 @@
    "contentIds": [
     "sha256-tape-v1:83be77018b6450a0198190811109bd86b704a58c4db948c780fea7243e2f9817"
    ],
+   "description": "Left by his wife, Finnish film comic Uuno Turhapuro moves to the country in this side-scrolling game, ploughing fields around rocks to earn money, water-skiing past ducks and birds, and fleeing an angry neighbour.",
    "developer": "Pasi Hytönen",
    "diskMachine": {
     "sha256-tape-v1:83be77018b6450a0198190811109bd86b704a58c4db948c780fea7243e2f9817": {
@@ -160783,6 +160823,7 @@
    "contentIds": [
     "sha256-tape-v1:db5f003c32f3e7d1707e29a76b94d6d91a0bdb43c1c2944a40ae86b3b30703e4"
    ],
+   "description": "An isometric shoot-'em-up sequel in which a commando blows up chemical plant valves, clears an airfield of troops, tanks and helicopters, crosses battleships in a harbor, and frees prisoners from a jungle camp, using limited grenades on foxholes.",
    "developer": "David Sowerby",
    "launchbox": "32261",
    "publisher": "Zeppelin Games",
@@ -162040,6 +162081,7 @@
     "sha256-disk-v1:75ffce5b056f5f70e56ab15dcc974a46c97cd113ca35f61564f6b71f3dbbc9e1",
     "sha256-disk-v1:dd6263f2e49bdfbfb40b9059b3eb1c3b1e0df97968c3d081afd7297ccb6f669b"
    ],
+   "description": "A vertically scrolling Formula 1 racer covering a full season of qualifying laps and five-lap races; manage pit stops for fuel and repairs and spend prize money on car upgrades, with parody names standing in for real teams.",
    "developer": "Omid Ehsani",
    "diskSets": {
     "sha256-disk-v1:75ffce5b056f5f70e56ab15dcc974a46c97cd113ca35f61564f6b71f3dbbc9e1": {
@@ -162507,6 +162549,7 @@
    "contentIds": [
     "sha256-disk-v1:fda45d99cea54856cccf632ecfab172da43989ecc7eba6576889dc87669fad96"
    ],
+   "description": "A chess program with seven strength levels, from instant replies to deep searches, a randomized opening book, a hint mode and a position editor; moves are entered as coordinates such as E2-E4.",
    "developer": "Alex Ford",
    "diskMachine": {
     "sha256-disk-v1:fda45d99cea54856cccf632ecfab172da43989ecc7eba6576889dc87669fad96": {
@@ -163063,6 +163106,7 @@
    "contentIds": [
     "sha256-tape-v1:ab7adc08ffd10b8430d77f23a172d5b8681e92ff47fbc5d374dd59a86be236c0"
    ],
+   "description": "Arithmetic drill starring Snoopy in his flying-ace role: work out each math problem quickly enough or the Red Baron shoots him down. Programmed by Albert Lee from Creative Computing's original.",
    "developer": "Creative Computing",
    "launchbox": "417560",
    "publisher": "Commodore Educational Software",
@@ -167562,6 +167606,7 @@
    "contentIds": [
     "sha256-tape-v1:d692775e81cedf76d42e4517f9cf75f243efaefb8b2ad1bb5327328b443ca001"
    ],
+   "description": "Kyle Hodgetts' public-domain version of Capcom's 1984 coin-op Vulgus, a vertically scrolling space shooter in which a lone fighter blasts endless alien waves, here accompanied by a Rob Hubbard tune.",
    "developer": "Suicide Service",
    "diskMachine": {
     "sha256-tape-v1:d692775e81cedf76d42e4517f9cf75f243efaefb8b2ad1bb5327328b443ca001": {
@@ -170961,6 +171006,7 @@
    "contentIds": [
     "sha256-tape-v1:d435fbef4b53ddde08c9c95d0e127692b8db5de56c48e9ceb128791df3b0ac12"
    ],
+   "description": "Alf Yngve's second Cops shoot-'em-up, a SEUCK creation. Policemen Mike and Singh go to Greece on holiday, only for terrorists to seize several small islands and hold tourists and locals hostage, so the pair take them on alone.",
    "developer": "Chris Yates",
    "launchbox": "456563",
    "screenshotUrl": "https://images.launchbox-app.com/1a544774-217e-4a51-9541-9f8ba3d55d55.jpg",
@@ -174600,6 +174646,7 @@
    "contentIds": [
     "sha256-disk-v1:9102d17a606695b15673587649d89b648dcc8cd35dc5f6f154da099966e1e089"
    ],
+   "description": "A Commodore 64 take on the one-button endless runner: a man in a suit sprints across the rooftops of a collapsing city, jumping gaps and crashing through windows, with the distance covered as the score.",
    "developer": "Andreas Varga",
    "launchbox": "461087",
    "publisher": "Mr. SID",
@@ -194130,6 +194177,7 @@
     "sha256-disk-v1:bcbc3e2e12d47d02a5a05fb32b6efc5f565399784c20b6c75310eca7f1b386e2",
     "sha256-disk-v1:c2ba6dc867392eaa3b3620052a2202b459f5b1acb2edc255328715095ea80a36"
    ],
+   "description": "Armakuni defends the Tibetan temples that feed his power against Shogun Kunitoki, across levels themed on Earth, Wind, Water, Fire and Void, earning Bushido by fighting honorably with matching weapons and never fleeing a duel.",
    "developer": "System 3 Software",
    "diskSets": {
     "sha256-disk-v1:15ad1f9e34956ce00de84d88add312cbf6aa1f85ccce0b5c0d9b725585a221b6": {
@@ -195820,6 +195868,7 @@
    "contentIds": [
     "sha256-disk-v1:7b07ad15eb8d6caf1a5f50992b280d204395f954037edcac1022c5044784538a"
    ],
+   "description": "Matt Trakker drives the transforming Thunderhawk through four areas, dodging V.E.N.O.M. tanks while completing tasks in order, such as assembling a four-part security key so a scanner can lead him to a captured agent.",
    "developer": "Gremlin Graphics Software",
    "launchbox": "7616",
    "publisher": "Byte Back",
@@ -196144,6 +196193,7 @@
    "contentIds": [
     "sha256-tape-v1:94a2cd108d477f307af10d39676c94c2abda0cf2d0aa59d32690cb443205a3e7"
    ],
+   "description": "Lone Rider never leaves the saddle in this side-scrolling western, riding both ways across prairie and towns, shooting bandits, jumping obstacles and ducking incoming fire, and losing points for hitting townsfolk.",
    "developer": "Dave Thomas",
    "diskMachine": {
     "sha256-tape-v1:94a2cd108d477f307af10d39676c94c2abda0cf2d0aa59d32690cb443205a3e7": {
@@ -196534,6 +196584,7 @@
    "contentIds": [
     "sha256-disk-v1:81e6167ef022b92b8266dde69487d80d45a5c5b1c8ee33a79d20bffbd150b577"
    ],
+   "description": "To break an energy embargo, steer a ship against gravity past falling meteors into one of four cosmic tunnels, fly through in a third-person view, then land on each asteroid to gather its energy bars, with every move draining fuel.",
    "developer": "Jay Ford",
    "diskMachine": {
     "sha256-disk-v1:81e6167ef022b92b8266dde69487d80d45a5c5b1c8ee33a79d20bffbd150b577": {
@@ -197856,6 +197907,7 @@
    "contentIds": [
     "sha256-tape-v1:7d678898f582b18e19dfba9558c6307b2887af46c8003798776e6d390920907d"
    ],
+   "description": "Barnaby picks blocks from five chutes and arranges them on a springboard before sending them to the building site, stacking a stable tower tall enough to climb to the exit ladder; time per level shrinks, though an instructor mode removes the clock.",
    "diskMachine": {
     "sha256-tape-v1:7d678898f582b18e19dfba9558c6307b2887af46c8003798776e6d390920907d": {
      "model": "c64ntsc"
@@ -197894,6 +197946,7 @@
     "sha256-disk-v1:67233c6247b92c0b735046136e4bf9fff1fe1b0acf2d7ef3862579654099b690",
     "sha256-disk-v1:e8b16cb28b86d6aa11c4cb05acb08a7c61ac58d64a2b9876fa1cf43de0f0f774"
    ],
+   "description": "Illustrated Level 9 text adventure in three parts that retells Malory's Lancelot: beat the Black Knight, join the Round Table, and finally seek the Holy Grail, with companions such as Sir Bors who can be given orders through the parser.",
    "diskSets": {
     "sha256-disk-v1:e8b16cb28b86d6aa11c4cb05acb08a7c61ac58d64a2b9876fa1cf43de0f0f774": {
      "setDisks": [
@@ -197925,6 +197978,7 @@
    "contentIds": [
     "sha256-disk-v1:747465960c912cab5f3f0ff2adbf6ac8cd915335c52578af47453b9f507c9931"
    ],
+   "description": "Defuse every bomb the Alienators planted across 30 levels of Jupiter Headquarters, running girders and climbing ladders and ropes; each stage has its own hazards, and some bombs reshape the level when collected, so their order matters.",
    "diskMachine": {
     "sha256-disk-v1:747465960c912cab5f3f0ff2adbf6ac8cd915335c52578af47453b9f507c9931": {
      "model": "c64ntsc"
@@ -197962,6 +198016,7 @@
    "contentIds": [
     "sha256-tape-v1:445602f9dcae77e4925b58fe01c95d226ceee1ee8f7e7b04dd79410c7f628518"
    ],
+   "description": "Domark's conversion of Atari's isometric Return of the Jedi coin-op. Leia races a speeder bike through Endor's forests, Chewbacca pilots a stolen AT-ST, and the Millennium Falcon flies against TIE fighters and into the second Death Star.",
    "sourceGroups": [
     "ghostware:Return of the Jedi (Europe).T64"
    ],
@@ -197980,6 +198035,7 @@
    "contentIds": [
     "sha256-tape-v1:4976e85225d5f8ca86f1de2079c46c81a977ea5670b3057ea43e52fe92d76078"
    ],
+   "description": "A hidden passage in a London flat leads to Pirate's Isle in this Scott Adams two-word text adventure, where you build a seaworthy ship and win over a pirate and his parrot to recover Long John Silver's two lost treasures.",
    "diskMachine": {
     "sha256-tape-v1:4976e85225d5f8ca86f1de2079c46c81a977ea5670b3057ea43e52fe92d76078": {
      "model": "c64ntsc"
@@ -197994,6 +198050,7 @@
    "contentIds": [
     "sha256-tape-v1:7018b538a6a68900a5f56c02fa36f163d3af19ee41767f910b5cd4f982aeba3b"
    ],
+   "description": "Pilot an attack shuttle through an isometric scrolling enemy fortress, judging altitude by its shadow and an altimeter to slip through wall gaps and force fields, shooting fuel tanks to stay airborne before dogfighting in open space.",
    "sourceGroups": [
     "collection:Zaxxon.zip"
    ],
@@ -198030,6 +198087,7 @@
    "contentIds": [
     "sha256-tape-v1:e994577a1af4fe90bde9eb9eb15e06c0d294df1fd2d7e3531490a83bd4f6ac13"
    ],
+   "description": "Guide a crosshair to shield a baby from eagles, spiders and worms while popping the balloons drifting across the screen; every creature that reaches the infant drains milk, and the game ends when milk or ammunition runs out.",
    "sourceGroups": [
     "ghostware:Baby Blues (Europe).T64"
    ],
@@ -198039,6 +198097,7 @@
    "contentIds": [
     "sha256-disk-v1:833e10d81a41316f49674c31592a7e7784eb6c8980f897cad521cf83faead500"
    ],
+   "description": "To lift a plague from your village, descend into the catacombs to find a sorcerer's potion formula and its ingredients, playing as the fighter Duke or the cunning Witch in an illustrated text adventure where some creatures talk and others must be fought.",
    "sourceGroups": [
     "ghostware:Catacombs, The (Europe).D64"
    ],
@@ -198076,6 +198135,7 @@
    "contentIds": [
     "sha256-tape-v1:ec7c347c4f6cbeced38276e8b128ef6641effad2f1f86a4497b0f714289b255b"
    ],
+   "description": "Moonboots the Lunar Explorer, stranded in Metropolis, must find and refuel his spaceship in this flick-screen platformer, turning into Zoid the Droid, Super Spy or the Mad Monk when carrying the right objects to reach areas closed to him.",
    "sourceGroups": [
     "ghostware:Metropolis (Alpha Omega Software + The Power House) (Europe).T64"
    ],
@@ -198113,6 +198173,7 @@
     "sha256-disk-v1:0d508d58edde82e51ab46d3f400b40c9fbd3811a7ffe4d96644e973007bad3c9",
     "sha256-disk-v1:ddd502c4f5a32038e14ffea66eabd54eca91ae8d892c4df3f68b85175d6d8aff"
    ],
+   "description": "Ralph the dog watches over his sleepwalking master Lee, bridging gaps, fending off enemies and keeping him from falling into water so that he never wakes up, with dream bonus stages between the main levels.",
    "diskSets": {
     "sha256-disk-v1:0d508d58edde82e51ab46d3f400b40c9fbd3811a7ffe4d96644e973007bad3c9": {
      "setDisks": [
@@ -198130,6 +198191,7 @@
    "contentIds": [
     "sha256-tape-v1:ee9c11e99d755b57efcd2393b6f7326c98b696494bfe3cd7ff4b2dbe2d6e8c37"
    ],
+   "description": "A grounded alien cruiser disguised as public toilets on Cleethorpes pier needs protecting: hover overhead stunning the people and dogs who come for the fleet's battle plans, now resembling toilet paper, while avoiding jets and an RSPCA helicopter.",
    "sourceGroups": [
     "ghostware:Kami-Kaze (Europe).T64"
    ],
@@ -198139,6 +198201,7 @@
    "contentIds": [
     "sha256-disk-v1:48cb27d035bcf47610e1897685be371f3b9040bf9949289c012e7922d20c1d4f"
    ],
+   "description": "Drug captured scientists and deliver them to the supercomputer The Big One, each unlocking one letter of its code, in a multi-directional scrolling overhead shooter where you can dive beneath surface layers or leave the ship on foot.",
    "sourceGroups": [
     "ghostware:Parallax (Ocean) (Europe).D64"
    ],
@@ -198172,6 +198235,7 @@
     "sha256-disk-v1:af1c2f8766e60939d55501b2573a04afedf81534d53ee984805e483cb5f6428a",
     "sha256-disk-v1:d13cce3b98fc6600f67d8aed9b436e2e3118468e0397d4815630c52000037a75"
    ],
+   "description": "Level 9's final text adventure, with pictures. Detective Alan Chance, killed when an undercover drugs operation was betrayed, returns as a ghost at his own funeral and has three nights to expose the traitor, clear his name and save his partner Sarah.",
    "diskSets": {
     "sha256-disk-v1:d13cce3b98fc6600f67d8aed9b436e2e3118468e0397d4815630c52000037a75": {
      "setDisks": [
@@ -198205,6 +198269,7 @@
     "sha256-disk-v1:47592006e458d39399899638a610c3912db9bb13d2be4ad02f1718aa97640559",
     "sha256-disk-v1:606fc6d4b9379e8044ad92cf93abb5d39003a17b0737d726898f92ff40ce551e"
    ],
+   "description": "Roll up a character at the innkeeper's, buy weapons and armor, then explore the temple's monster-filled dungeon levels room by room in a top-down view, with the manual's room descriptions filling in what the sparse graphics show.",
    "diskMachine": {
     "sha256-disk-v1:0fc66c2db18d6340ebccf4cc88550dcfb5768cbd7d8d0a9beb1a1ab1e2d62c36": {
      "model": "c64ntsc"
@@ -198253,6 +198318,7 @@
    "contentIds": [
     "sha256-disk-v1:bd390c311ef40eb25942ee493ceeef5047b8ddbdd4f50700d93927a7c83b2b60"
    ],
+   "description": "Illustrated and scored with music, this text adventure begins after Ereth, the evil Lord Death, has turned Carus's beloved royal family to stone, and a wandering traveler vows to find five scattered magic gems that will break the spell.",
    "sourceGroups": [
     "ghostware:Crystals of Carus, The (Europe).D64"
    ],
@@ -198290,6 +198356,7 @@
    "contentIds": [
     "sha256-tape-v1:f0c48b45f6e7f9ab223a735a31c830943dcfc3eb9260e781fbcefb3a076f1f39"
    ],
+   "description": "Rule a barony in feudal England from 1156 in yearly turns, setting taxes and tolls, paying scutage to the king and managing your army, with a joust where you aim your lance before the year's battles, revolts and harvest are shown.",
    "sourceGroups": [
     "ghostware:Evil Crown (Europe).T64"
    ],
@@ -198336,6 +198403,7 @@
    "contentIds": [
     "sha256-disk-v1:71d1f23fd8ae6f99427e1caa9b35329476263246ecac9bcb742e346a469fdcf2"
    ],
+   "description": "International Rescue takes on four missions with two-member teams you switch between: freeing miners from a flooding mine, saving a crippled nuclear submarine, breaking into a bank for documents, and stopping a madman in his lair.",
    "sourceGroups": [
     "ghostware:Thunderbirds (Grandslam Entertainment Ltd.) (Europe).D64"
    ],
@@ -198372,6 +198440,7 @@
    "contentIds": [
     "sha256-disk-v1:3381be72570a12c7bd8f14297e884e88d52df9fb818f516463037e5e1d9b0f49"
    ],
+   "description": "As a policeman, fight through city streets, a park and a bridge to the prison itself to free a warden held by escaped convicts; rescuing hostages earns weapons like a tear gas gun, but shooting one costs every weapon you hold.",
    "sourceGroups": [
     "collection:Jail Break.zip"
    ],
@@ -198431,6 +198500,7 @@
    "contentIds": [
     "sha256-prg-v1:7ad8c152e343542c3046efeff4f29b81b18973a37c60690528b6dc036d61597b"
    ],
+   "description": "Chasing the ape Bongo, who set his tent alight, a safari hunter climbs four isometric single-screen stages in the manner of Donkey Kong, dodging coconuts and other animal attacks with no weapon but his jumps.",
    "sourceGroups": [
     "collection:Congo Bongo.zip"
    ],
@@ -198449,6 +198519,7 @@
    "contentIds": [
     "sha256-tape-v1:919c226d18535dbc30d3453f11d96cc817627897967799d795cdd390972de311"
    ],
+   "description": "Domark's James Bond racing game, which began as Elite's Aquablast: Bond drives an armed speedboat along hazard-filled waterways, recalling the boat chase of the 1973 film.",
    "sourceGroups": [
     "ghostware:Live and Let Die (Europe).T64"
    ],
@@ -198467,6 +198538,7 @@
    "contentIds": [
     "sha256-tape-v1:3f33e23cec0643da70c3ef5f931eac13e55586b7955ebdfe93ea8ee50d9cf29d"
    ],
+   "description": "Home version of Irem's Moon Patrol: a Luna City patrol buggy rolls across the scrolling lunar surface, jumping craters and mines, blasting boulders ahead and shooting down attacking UFOs, checkpoint by checkpoint.",
    "sourceGroups": [
     "collection:Moon Petrol.zip"
    ],
@@ -198476,6 +198548,7 @@
    "contentIds": [
     "sha256-disk-v1:a6e9c125a88b7191d0a633c4a9b14eceff46ecc35658bbbaa8b0ca5ec44e9a9a"
    ],
+   "description": "Crash-landed on the hostile planet Zarp in 2554, Earth's last agent must find the data to defuse a planet-killing bomb in this illustrated text adventure, with no obvious way off the planet afterward.",
    "sourceGroups": [
     "ghostware:Orion Quest, The (Europe).D64"
    ],
@@ -198485,6 +198558,7 @@
    "contentIds": [
     "sha256-tape-v1:80e24886ad53f386cdeef8a291092d3892d49fe9b743fd46a2625b16156b9a52"
    ],
+   "description": "Sequel to The Dungeons: roll attributes, choose fighter or magician, buy gear from a dwarf, then grope through unlit rooms past a fire-breathing dragon and other monsters to find a scroll whose riddle is the way out, entering one-letter commands.",
    "sourceGroups": [
     "ghostware:Dark Dungeons, The (Europe).T64"
    ],
@@ -198494,6 +198568,7 @@
    "contentIds": [
     "sha256-tape-v1:2598fc3ade706dd808ed3b16b74d5b8b305f38be6e1bdaa95d9c523e3491b668"
    ],
+   "description": "Chameleon restores balance across five side-scrolling levels themed on fire, water, earth and air, finding hidden exits and triggering power points at the right time of day while switching among four missile types against elemental demons.",
    "sourceGroups": [
     "ghostware:Chameleon (Europe).T64"
    ],
@@ -198503,6 +198578,7 @@
    "contentIds": [
     "sha256-tape-v1:080f10ec52f361a582217b73bc9c674d4c38e16f31fe71d021c7f7fc4642e687"
    ],
+   "description": "Xain, the Soldier of Light, frees five invaded planets in any order, from desert to frozen worlds, running and gunning through each with collectable weapons before a short space shooter stage, then assaults a final fortress planet.",
    "diskMachine": {
     "sha256-tape-v1:080f10ec52f361a582217b73bc9c674d4c38e16f31fe71d021c7f7fc4642e687": {
      "model": "c64ntsc"
@@ -198517,6 +198593,7 @@
    "contentIds": [
     "sha256-disk-v1:a76996be6c8e00175e9ebd421df4ff84cdbdb4685f4bb97c4aefa3377746a564"
    ],
+   "description": "A behind-the-skier 3D winter game with Downhill, Slalom, Giant Slalom and Ski Jump events, played in training or competition for up to five players, with penalty points for missed gates, leaving the course or hitting trees and spectators.",
    "diskMachine": {
     "sha256-disk-v1:a76996be6c8e00175e9ebd421df4ff84cdbdb4685f4bb97c4aefa3377746a564": {
      "model": "c64ntsc"
@@ -198540,6 +198617,7 @@
    "contentIds": [
     "sha256-disk-v1:ed7649ba8618621f1e34ac44e2e08ab29e09d3f9918e9be6489532c43b5bac19"
    ],
+   "description": "Rod Pike's three-part illustrated text adventure: as Dr Frankenstein you hunt the creature that killed your sister, and in the final part you become the monster itself, waking without memory and slowly learning.",
    "sourceGroups": [
     "ghostware:Frankenstein (CRL) (Europe).D64"
    ],
@@ -198576,6 +198654,7 @@
    "contentIds": [
     "sha256-tape-v1:735ca01665a7a13a81bf831720bad53fcd5edbdc7949dbcdb78d0b63567a8b30"
    ],
+   "description": "In a city wrecked by nuclear disaster, Geitor battles with sword and shield through a Trojan-style fighting game toward the Townsman headquarters, facing sword warriors, fireball-throwing mutants and a fierce female gang while hunting five nuclear tanks.",
    "sourceGroups": [
     "ghostware:Metropolis (Topo Soft) (Spain).T64"
    ],
@@ -198585,6 +198664,7 @@
    "contentIds": [
     "sha256-tape-v1:9314eb7123c3f78f66399270f67862c0feea87a3fdb1d6d87a9f4d178c8f70e3"
    ],
+   "description": "Fanatics have armed the Doomsday device, leaving 25 minutes to fly to its building and destroy it in this cockpit-view 3D shooter, dodging laser beams and flak, refuelling midway and watching the scanner and damage gauges.",
    "sourceGroups": [
     "ghostware:Omega Run, The (Europe).T64"
    ],
@@ -198594,6 +198674,7 @@
    "contentIds": [
     "sha256-tape-v1:ed64d612e273acf94fcb178d80a1b98d4cd8af2e818db2d78a2bef56c44c8a3c"
    ],
+   "description": "A single-table pinball game with two sets of flippers at the bottom and four bumpers on each side; hitting the gap bumpers that spell SAGITTARIAN across the top turns them into bonus lights, while a running bonus grows by 50 at a time.",
    "sourceGroups": [
     "ghostware:Pinball Wizard (Europe).T64"
    ],
@@ -198603,6 +198684,7 @@
    "contentIds": [
     "sha256-tape-v1:917ede71958da2ee27fc5c5fd36f400bcf0d1dee3a8c59f023c51127a145250e"
    ],
+   "description": "The first half of Scott Adams's two-part adventure: stranded on a tropical island menaced by storms and a volcano, explore beaches, jungle and caves with two-word commands; finishing reveals the password for Part II.",
    "diskMachine": {
     "sha256-tape-v1:917ede71958da2ee27fc5c5fd36f400bcf0d1dee3a8c59f023c51127a145250e": {
      "model": "c64ntsc"
@@ -198626,6 +198708,7 @@
    "contentIds": [
     "sha256-disk-v1:b99fbfb9df61ee791bdb665372b09e45c847f8158b63e9e268f31f7ba064038d"
    ],
+   "description": "Scott Adams's notoriously hard island adventure: washed up on a remote shore under threat of a volcano and violent weather, you dig, build equipment and cross water with terse verb-noun commands to learn why you are there.",
    "sourceGroups": [
     "ghostware:Savage Island (Europe).D64"
    ],
@@ -198635,6 +198718,7 @@
    "contentIds": [
     "sha256-tape-v1:97ada4d261ea8e4219a2c8e99a75d296684eee1f8cfbb4b8d1b563849c86e0fd"
    ],
+   "description": "Hover an inertia-heavy craft over an isometric grid of rising squares, boosting upward to line up precisely on energy spheres and ferrying them to a transformer that beams the power back to an energy-starved Earth.",
    "sourceGroups": [
     "ghostware:Pile-Up (Ariolasoft + Reaktor Software) (Europe).T64"
    ],
@@ -198644,6 +198728,7 @@
    "contentIds": [
     "sha256-disk-v1:1d9e178e1514a6a2317750b4fbe48c9b876f05f49f5b97e3c4e19710ce7843e1"
    ],
+   "description": "Stuart Smith's role-playing adventure from the Age of Adventure pack. Ali Baba crosses a maze-like city and wilderness of Arabian tales to rescue a princess; up to 17 players can join in hot-seat co-operative play, and the quest can even be finished peacefully.",
    "diskMachine": {
     "sha256-disk-v1:1d9e178e1514a6a2317750b4fbe48c9b876f05f49f5b97e3c4e19710ce7843e1": {
      "model": "c64ntsc"
@@ -198658,6 +198743,7 @@
    "contentIds": [
     "sha256-tape-v1:e44d22dc246114608b586633d357cc226e8a8fa6532bec752b810ba4eb743d6b"
    ],
+   "description": "Pac-Man seen from inside the maze: wander first-person 3D corridors eating pills while ghosts may wait around any corner, with an overhead map of the layout beside the view.",
    "diskMachine": {
     "sha256-tape-v1:e44d22dc246114608b586633d357cc226e8a8fa6532bec752b810ba4eb743d6b": {
      "model": "c64ntsc"
@@ -198672,6 +198758,7 @@
    "contentIds": [
     "sha256-disk-v1:b77728e9acb9c9e95fd205dea1dd5ede11a97b54579a9047f40d99420590dc0b"
    ],
+   "description": "A Centipede-style shooter: a droid near the bottom fires upward at a segmented creature that winds down through the barriers, while spiders and other pests roam in for bonus points.",
    "sourceGroups": [
     "ghostware:Exterminator (Audiogenic Software Ltd.) (Europe).D64"
    ],
@@ -198681,6 +198768,7 @@
    "contentIds": [
     "sha256-tape-v1:dae631e90b5ddb1e94c1d06027aa4617b3e8795a544fc7f696b57e56cd5e0a76"
    ],
+   "description": "International Rescue answers a call from Egyptologists trapped in a tomb: load up to 40 tons of equipment into Thunderbird 2, then steer through block-filled mazes where Thunderbird 1 and 2 can each shift only certain colored blocks, minding fuel.",
    "sourceGroups": [
     "ghostware:Thunderbirds (Firebird) (Europe).T64"
    ],
@@ -198690,6 +198778,7 @@
    "contentIds": [
     "sha256-tape-v1:d608880a0f5352ce6b32defb4afd3b8edad3711267dd82f65920843f5e27e6bf"
    ],
+   "description": "Checkers played with a light pen: move pieces diagonally on the 8x8 board, capture by jumping, and crown pieces that reach the far side as kings able to move in both directions.",
    "sourceGroups": [
     "ghostware:Draughts (Stack Computer Services Ltd.) (Europe).T64"
    ],
@@ -198743,6 +198832,7 @@
    "contentIds": [
     "sha256-tape-v1:b260c184bcde4ae18cd1a536de226d52eeb2b40ed33ae4106cc7df8f703085b3"
    ],
+   "description": "An early real-time strategy game: direct your landed army with a cursor across an alien planet, protect your vital bombs, detonate at least two beside the enemy weather control station, then evacuate fast.",
    "sourceGroups": [
     "ghostware:Invasion (Europe).T64"
    ],
@@ -198752,6 +198842,7 @@
    "contentIds": [
     "sha256-tape-v1:e94e189966510e388becb5211af503c5bf676e3490c0617bb5d35a621f45c952"
    ],
+   "description": "Patrol a fast 3D arena in a probe vehicle shooting saucers and homing missiles; after enough kills, run a stargate barrage of oncoming spheres to warp to the next of eight planets.",
    "sourceGroups": [
     "ghostware:Encounter (Novagen Software) (Europe).T64"
    ],
@@ -198761,6 +198852,7 @@
    "contentIds": [
     "sha256-tape-v1:51300f3a1a0d47b9381e86cd8947114b6e670dfe2a7c76200d70d5005c0ba888"
    ],
+   "description": "As Amity's Chief Brody, explore 150-plus underwater screens shooting fish and recovering the four pieces of the weapon that can kill the shark, while deciding when to close beaches against the wishes of a cost-conscious Mayor.",
    "sourceGroups": [
     "ghostware:Jaws (Europe).T64"
    ],
@@ -198788,6 +198880,7 @@
    "contentIds": [
     "sha256-tape-v1:da99257e7830315380ce1f943a75a78e803efa8700e6b11c9beb322e3e0b8e1f"
    ],
+   "description": "An overhead racer: hold fire to accelerate up the scrolling road, weaving through traffic to score 20,000 inside the minute and earn more time; a crash leaves the car smoking until you pull into the pit lane for repairs.",
    "diskMachine": {
     "sha256-tape-v1:da99257e7830315380ce1f943a75a78e803efa8700e6b11c9beb322e3e0b8e1f": {
      "model": "c64ntsc"
@@ -198811,6 +198904,7 @@
    "contentIds": [
     "sha256-tape-v1:b9d5f13ead7dd32dd73bd9fc186f0c63e9ed7c450c3bd402b9eddd47d4d659e4"
    ],
+   "description": "A sheriff defends his town over five waves of outlaws raiding the saloon and bank, shooting in eight directions as they ride in, throw dynamite and fire from windows, with an undertaker clearing bodies and a quick-draw duel after each wave.",
    "sourceGroups": [
     "ghostware:Highnoon (Europe).T64"
    ],
@@ -198829,6 +198923,7 @@
    "contentIds": [
     "sha256-tape-v1:f17f0098d42c6b983564498120e4e9c414248a92ca1cc8fe55a6b6fe26ce9281"
    ],
+   "description": "Darrian defends human colonies from the Xenites in a vertically scrolling shooter where his craft switches between ground tank and jet, each needed for different targets, collecting upgrades from destroyed enemies.",
    "sourceGroups": [
     "ghostware:Xenon (CP Verlag - Game On) (Europe).T64"
    ],
@@ -198865,6 +198960,7 @@
    "contentIds": [
     "sha256-tape-v1:2c5e8206b1d387cc6a75c7b98f136823ac5d1e9a336e014a29dcbac4affc0ce9"
    ],
+   "description": "Recover the twelve Signs of the Zodiac from demon-guarded corridors lined with a lethal force field, 400 of them in all, shooting only while on the move, before a final battle with the demon Jemon.",
    "sourceGroups": [
     "ghostware:Zodiac (Incentive Software) (Europe).T64"
    ],
@@ -198892,6 +198988,7 @@
    "contentIds": [
     "sha256-disk-v1:e1cf91e247570ac79842549d77c85a21a60f5295ccf99ada3e41cffe97bcbc40"
    ],
+   "description": "Concluding Level 9's Silicon Dreams trilogy, this text adventure explores the domed cities of Eden, a society run on fines and robots, where you must get home before dark on a decimal clock and note building coordinates that change each game.",
    "sourceGroups": [
     "ghostware:Worm in Paradise (Europe).D64"
    ],
@@ -198910,6 +199007,7 @@
    "contentIds": [
     "sha256-tape-v1:384a00b1a718c1eaa142a913c5597a16bba9d1d30bc58b9bba29cd2292cd9a8d"
    ],
+   "description": "Concluding half of Scott Adams' Savage Island text adventure, unlocked with the password earned in Part I. The player wakes in a small metal room behind a force field and must search glowing corridors for the clue that finally explains the island's secret.",
    "diskMachine": {
     "sha256-tape-v1:384a00b1a718c1eaa142a913c5597a16bba9d1d30bc58b9bba29cd2292cd9a8d": {
      "model": "c64ntsc"
@@ -198933,6 +199031,7 @@
    "contentIds": [
     "sha256-tape-v1:0c085dee3c6cc0c3407de8e50e960b3716e433f9818a27641e502d9606706ff6"
    ],
+   "description": "A Donkey Kong-style single-screen climber: run up diagonal stepped platforms, jumping the barrels hurled by a giant ape, to rescue the maidens held at the top, one per screen.",
    "sourceGroups": [
     "ghostware:Krazy Kong (Europe).T64"
    ],
@@ -198942,6 +199041,7 @@
    "contentIds": [
     "sha256-tape-v1:6c62fe956405e8fd0947dd36ac83d0f6b839c4dd346b5dd93b773e3558a0a553"
    ],
+   "description": "Defend an outpost's last Neutronium deposits by driving a combat vehicle along the surface, weaving between rows of rocks while shooting alien craft overhead and the automated mining vehicles still prowling for ore.",
    "sourceGroups": [
     "ghostware:War Machine (Pocket Money Software) (Europe).T64"
    ],
@@ -198951,6 +199051,7 @@
    "contentIds": [
     "sha256-disk-v1:05f9654526e160b42ce736432cb09f74581c0d68af65d825169282b3de71c710"
    ],
+   "description": "A version of Defender: fly a fast ship back and forth above a planet surface, destroying waves of alien raiders.",
    "diskMachine": {
     "sha256-disk-v1:05f9654526e160b42ce736432cb09f74581c0d68af65d825169282b3de71c710": {
      "model": "c64ntsc"
@@ -198971,6 +199072,7 @@
    "contentIds": [
     "sha256-tape-v1:1e8c23b375c9e05e8cf429134d668d5555e90dd0678e5a786cb40152b782473c"
    ],
+   "description": "Mario and Luigi clear the sewer pipes of crabs, turtles and fighter flies by bumping the platform beneath each one to flip it, then kicking it away, with coins to collect and a competitive two-player mode.",
    "sourceGroups": [
     "collection:Mario Bros.zip"
    ],
@@ -199028,6 +199130,7 @@
     "sha256-disk-v1:a2bae8b261511bfaa6fd489e1c5a8dc9221bab463121a87dced5fd5780a19bc5",
     "sha256-disk-v1:b2f06f25c191a4e6a9de900cf1991ee7523211f509c807fc48a6ee2bbba0997d"
    ],
+   "description": "Infocom's science fiction text adventure: a lowly deck-scrubbing ensign escapes his exploding ship to the deserted planet Resida, explores its abandoned research complex with the robot Floyd, and works out what happened to its people.",
    "diskMachine": {
     "sha256-disk-v1:a2bae8b261511bfaa6fd489e1c5a8dc9221bab463121a87dced5fd5780a19bc5": {
      "model": "c64ntsc"
@@ -199054,6 +199157,7 @@
     "sha256-disk-v1:50980b276bdf50e224f52efe7a63c2a3daa1a646ecfb7669e0e0590facad6acd",
     "sha256-disk-v1:566110e8080d177d91a7dfdf5171c9a72ee1a0e9234fa9273695d102ff20793a"
    ],
+   "description": "Based on the TV game show, this trivia contest lets you answer questions or take a dare, with toss-up and physical challenges and a final obstacle course.",
    "diskMachine": {
     "sha256-disk-v1:50980b276bdf50e224f52efe7a63c2a3daa1a646ecfb7669e0e0590facad6acd": {
      "model": "c64ntsc"
@@ -199079,6 +199183,7 @@
    "contentIds": [
     "sha256-tape-v1:6511a8fb6448a83b4aa87be8a31771335ee75c3fd16b518fa36e8989c28d752e"
    ],
+   "description": "Hunt the battleship Bismarck in a torpedo plane, working separate pilot, engineer, navigator and gunner panels to take off, plan patrol areas and line up the decisive torpedo run.",
    "diskMachine": {
     "sha256-tape-v1:6511a8fb6448a83b4aa87be8a31771335ee75c3fd16b518fa36e8989c28d752e": {
      "model": "c64ntsc"
@@ -199116,6 +199221,7 @@
    "contentIds": [
     "sha256-tape-v1:d7b83f75d14cae0d26374f27fc227df59dc3286527c9fee0f846dbbb70fc27a9"
    ],
+   "description": "A side-view boxing game: win three bouts for the European title, then three more for the world crown, with adjustable stamina, a two-player fight and an opponent editor; one knockdown, when the head-hit gauge fills, decides each bout.",
    "sourceGroups": [
     "ghostware:Knockout (Europe).T64"
    ],
@@ -199197,6 +199303,7 @@
     "sha256-disk-v1:45b89db96b83a198b8c9e200511b19d3aa39a11f9220298f82fc982e09114f03",
     "sha256-disk-v1:aeeab10dd80d721dfffe5f0aa5823e6316e369fd841cd16e96a7cc99a207b431"
    ],
+   "description": "Second part of Mike Doran's Ormus Saga role-playing trilogy, Guild of Death. In January 1228, two years after Lord Marox and the Ormus Cult were defeated, Beryland faces Armageddon unless the hero completes nine tasks set by the God Servants within about a year.",
    "diskMachine": {
     "sha256-disk-v1:054e7a25ac9b7f72027e2bdfb49a6c38f71455b6064484b6f646b164a048bd4c": {
      "model": "c64ntsc"
@@ -199242,6 +199349,7 @@
    "contentIds": [
     "sha256-disk-v1:9e919b8bdc3afc32734f2d8df10af4d9fe917ef67c1c57e47e8f028a63a230ba"
    ],
+   "description": "The final Time and Magik adventure from Level 9: Myglar, keeper of the Red Moon crystal, has turned its power on the magicians of Baskalos and must be stopped, using 18 spells cast with three-letter codes found along the way.",
    "sourceGroups": [
     "ghostware:Price of Magik (Europe).D64"
    ],
@@ -199277,6 +199385,7 @@
    "contentIds": [
     "sha256-disk-v1:03963488adac389f906bd86d23556cb0a9da22ba56368f646b5ab2c550ba6754"
    ],
+   "description": "Take one of 32 European national sides through qualifying and on to the European Championship finals, picking the squad, formation and style of play, then watching matches unfold on a full-pitch view with key events reported in text.",
    "sourceGroups": [
     "ghostware:European Champions (Challenge Software) (Europe).D64"
    ],
@@ -199286,6 +199395,7 @@
    "contentIds": [
     "sha256-tape-v1:27d2f0c678e7ea949617046922756141278306d7f048337711bc455fd079e76a"
    ],
+   "description": "Activision's jungle platformer: Pitfall Harry has 20 minutes to grab treasure, swinging on vines over tar pits and quicksand, leaping crocodiles and rolling logs, and taking underground tunnels to cover ground faster.",
    "diskMachine": {
     "sha256-tape-v1:27d2f0c678e7ea949617046922756141278306d7f048337711bc455fd079e76a": {
      "model": "c64ntsc"
@@ -199318,6 +199428,7 @@
    "contentIds": [
     "sha256-tape-v1:3217631d840d139cade7ebeaa8267f5729081433569185b6a56a5ee6d3f6fba2"
    ],
+   "description": "A circus event game: put tigers through their routine, turn somersaults and corkscrews on the trapeze, cross the tightrope with handstands, and do stunts on horseback, separately or in an international competition.",
    "diskMachine": {
     "sha256-tape-v1:3217631d840d139cade7ebeaa8267f5729081433569185b6a56a5ee6d3f6fba2": {
      "model": "c64ntsc"
@@ -199332,6 +199443,7 @@
    "contentIds": [
     "sha256-tape-v1:6a7c5d8f3f69a00bc7ee83ee0a72f7b0c9ae5cca1ba0d8333c0ab6c0dcd1ad7f"
    ],
+   "description": "Tennis for up to four players on grass, clay and hard courts with their own bounce, offering men's five-set and women's three-set singles, mixed doubles, and computer-only matches.",
    "sourceGroups": [
     "ghostware:International Tennis (Zeppelin Games) (Europe).T64"
    ],
@@ -199341,6 +199453,7 @@
    "contentIds": [
     "sha256-tape-v1:2dc540fae87dbd5705c902baa3b452f70516987702d4f052b31ed1e9f620f42c"
    ],
+   "description": "Simon Pick's budget drum machine for Firebird, built on sampled kick, snare, tom, hi-hat and cymbal sounds. Beats are built as bar patterns, chained into songs, or tapped out live on the keyboard.",
    "sourceGroups": [
     "ghostware:Micro Rhythm (Europe).tap"
    ],
@@ -199350,6 +199463,7 @@
    "contentIds": [
     "sha256-tape-v1:7e56567db0f625a3b12c3dd494a74e0c79e6bfed4794741bcee2d4e73ca59550"
    ],
+   "description": "An arcade adventure from Stevenson's novel: Jim Hawkins boards ship and reaches Treasure Island, then explores a maze of flick screens, using a limited stock of cutlasses on pirates in his way as he hunts down Long John Silver.",
    "sourceGroups": [
     "ghostware:Treasure Island (Mr. Micro Ltd.) (Europe).T64"
    ],
@@ -199359,6 +199473,7 @@
    "contentIds": [
     "sha256-disk-v1:f7e4f9979a6d5bb67d2f6c7a84ef1410b378c9d7ad8ff4398d55bf6b368d023b"
    ],
+   "description": "A hex-based turn-based wargame refighting Gettysburg, Gaines Mill, Stones River, Chickamauga and Chattanooga for either side, modeling limited command and fog of war, with a scenario editor.",
    "sourceGroups": [
     "ghostware:Decisive Battles of the American Civil War Vol.2 (Australia).D64"
    ],
@@ -199377,6 +199492,7 @@
    "contentIds": [
     "sha256-tape-v1:fd92264a5747c0c72b9f57d082a08bb0e4bb5b84167da17f476f30d5e672a85f"
    ],
+   "description": "Steer a creature around two mazes, switching between them with the fire button, to carry eight bone-shaped treasures to the maze centres while avoiding roaming creatures; yellow bones let you kill most of them, though survivors may carry treasure off again.",
    "sourceGroups": [
     "ghostware:Grabber (Europe).T64"
    ],
@@ -199386,6 +199502,7 @@
    "contentIds": [
     "sha256-tape-v1:a78dc5a642cf484b0087a8efeebb0479de9dd1aea87b6539e8fc5c39cd098d58"
    ],
+   "description": "A fixed-screen shooter where your ship travels around all four edges of the screen, firing inward at swarms of abstract shapes that circle in patterns, over 24 levels.",
    "sourceGroups": [
     "ghostware:Roundabout (Europe).T64"
    ],
@@ -199395,6 +199512,7 @@
    "contentIds": [
     "sha256-disk-v1:60c726d27a956abbfa3b85f8bc8d702b1bd1085bff08e3ceb0b90e474a59ca59"
    ],
+   "description": "Statistics-driven baseball simulation from Sublogic in which the player manages a club: set lineups, choose pitchers, make substitutions and call plays, against a friend or the computer, or let the computer handle both sides. Rosters cover the 1985 major-league season plus classic teams.",
    "diskMachine": {
     "sha256-disk-v1:60c726d27a956abbfa3b85f8bc8d702b1bd1085bff08e3ceb0b90e474a59ca59": {
      "model": "c64ntsc"
@@ -199423,6 +199541,7 @@
    "contentIds": [
     "sha256-disk-v1:412b735b6c4b41507c4055c28b15760aefb70899cd4bb60d005dc87544759459"
    ],
+   "description": "A tank battle for up to three players, two on joysticks and one on the keyboard, fought round by round with random power-ups and coins to spend on lasting upgrades in a shop; a lone player gets target practice rounds instead.",
    "sourceGroups": [
     "ghostware:Combat Zone (Magic Bytes) (Europe).D64"
    ],
@@ -199441,6 +199560,7 @@
    "contentIds": [
     "sha256-tape-v1:357ec87584a243306c7c84c3fcb1a3a35600b5d065f5c2f99e8d621086f79d74"
    ],
+   "description": "Sador the reptile man searches nine regions of Haven for magic left by the defeated sorcerer High Vanish, each find giving a cryptic clue to the next, while shooting monsters in a flick-screen overhead maze.",
    "sourceGroups": [
     "ghostware:Lands of Havoc, The (Europe).T64"
    ],
@@ -199459,6 +199579,7 @@
    "contentIds": [
     "sha256-disk-v1:2433aec226ec9af7735e3697c6d92b1dc4efddeb1c6a5fd034cdfccbf92530e7"
    ],
+   "description": "Scarab must escape a pyramid by pushing pairs of matching stones into line so they vanish, around teleporters, ice and traps, in a 100-level logic mode or a timed arcade mode with random boards; a level editor is included.",
    "sourceGroups": [
     "ghostware:Curse of RA (Europe).D64"
    ],
@@ -199477,6 +199598,7 @@
    "contentIds": [
     "sha256-tape-v1:c103ecb5d404e01db45468ddf7b53d680385cf7bd264d13f56426805d85c54d7"
    ],
+   "description": "Guard six cities on the planet Eetalamer from falling missiles by placing a crosshair where your limited shots will explode into expanding fireballs, picking off planes and satellites for bonus points.",
    "sourceGroups": [
     "ghostware:Missile Command (Interceptor Software) (Europe).T64"
    ],
@@ -199486,6 +199608,7 @@
    "contentIds": [
     "sha256-tape-v1:733234e94ca28ad292f391f1ad5d853f8cc47f1694b877c2dfc0c1d7c3f4d583"
    ],
+   "description": "An astronaut floats out to catch a stray satellite, shooting or avoiding asteroids and rival spacemen, then holds fire to tow it back into the ship; each level brings faster hazards.",
    "sourceGroups": [
     "ghostware:Space Walk (Mastertronic) (Europe).T64"
    ],
@@ -199495,6 +199618,7 @@
    "contentIds": [
     "sha256-disk-v1:9a054dbfd4aafc445b473890d5ca094fb10eba60697f9b927d7156800c40eed7"
    ],
+   "description": "A madman threatens to wipe out the five biggest cities on Earth with nuclear weapons, and you have until June 9th to stop him: a verb-noun adventure that hops between London, Paris, Rome, San Juan and Miami, with a water-skiing contest and a missile-shooting sequence.",
    "diskMachine": {
     "sha256-disk-v1:9a054dbfd4aafc445b473890d5ca094fb10eba60697f9b927d7156800c40eed7": {
      "model": "c64ntsc"
@@ -199509,6 +199633,7 @@
    "contentIds": [
     "sha256-disk-v1:83e3f6b4598d09a1e219be5a9d00f8e8345cafb7ba98f552cd9637e66296a5a6"
    ],
+   "description": "Set to the High Noon film theme, this western shooter has a lone lawman holding off gangs who ride into town, hurl dynamite and hide in windows, ending at the outlaws' cave; every wave closes with a showdown to see who draws first.",
    "sourceGroups": [
     "collection:Highnoon.zip"
    ],
@@ -199555,6 +199680,7 @@
    "contentIds": [
     "sha256-tape-v1:bf684367452b133f362a471430a3905a8fc516901e285327f51fcd75c900908b"
    ],
+   "description": "Orion's stars are breaking formation, and only chemicals from alien-held mining colonies can restore their balance; walk across the colonies in side view, blasting the occupiers.",
    "sourceGroups": [
     "ghostware:Orion (Rack It) (Europe).T64"
    ],
@@ -199564,6 +199690,7 @@
    "contentIds": [
     "sha256-tape-v1:a11658e2bc9965cead24b08099d697bfcfdcba9eeefed2a4307fca9262260be6"
    ],
+   "description": "A Bomberman-style maze battle for up to four players using a four-joystick adapter, with range, bomb count, speed, kicking and remote-detonation power-ups across eight arenas such as a dark Night Shift and a closing-in Under Pressure.",
    "sourceGroups": [
     "ghostware:Bomb Mania (Protovision) (Europe) (Unl).T64"
    ],
@@ -199582,6 +199709,7 @@
    "contentIds": [
     "sha256-tape-v1:6ecf0664484b39edd72e83a4fbdf430d80281b18c0731b7f9cc109d91e96f9c7"
    ],
+   "description": "A Missile Command clone: move a crosshair to burst your limited missiles in front of falling nuclear tracers to protect six cities, shooting passing planes for bonuses, with a selectable wind speed.",
    "sourceGroups": [
     "ghostware:Armageddon (Ocean) (Europe).T64"
    ],
@@ -199614,6 +199742,7 @@
    "contentIds": [
     "sha256-disk-v1:1a12d93f0775c6c10f903a205a2673c70f8a50d70ee7bffbad93b526d5d63758"
    ],
+   "description": "Cosmi baseball game in which Steve Garvey and Jose Canseco, the only real players, always lead opposing sides. Teams win on points rather than runs: grand slams and homers score big, conceding a run costs 300, and with the bases loaded one of the stars bats with seven strikes.",
    "diskMachine": {
     "sha256-disk-v1:1a12d93f0775c6c10f903a205a2673c70f8a50d70ee7bffbad93b526d5d63758": {
      "model": "c64ntsc"
@@ -199628,6 +199757,7 @@
    "contentIds": [
     "sha256-tape-v1:fe318989c859c7571277ec066a4e29584edc781258a2b37c15589bd13497d76e"
    ],
+   "description": "Guide a lander down onto Jupiter's surface with vertical and side thrusters, keeping descent speed low and fuel in reserve; narrower pads score x5 or x10 and each safe landing tops up fuel for another try.",
    "diskMachine": {
     "sha256-tape-v1:fe318989c859c7571277ec066a4e29584edc781258a2b37c15589bd13497d76e": {
      "model": "c64ntsc"
@@ -199692,6 +199822,7 @@
    "contentIds": [
     "sha256-disk-v1:adb4f5c981356914b2802e32260644f1743ca6eb4a879418f738737804c1a400"
    ],
+   "description": "Rebuild a given shape, such as a giant letter A, from a limited stock of eight block types that can be rotated and placed, racing a time limit; two players can cooperate, taking turns on one puzzle.",
    "sourceGroups": [
     "ghostware:Lettrix v1.0 (Germany).D64"
    ],
@@ -199715,6 +199846,7 @@
    "contentIds": [
     "sha256-tape-v1:9705415f6bb9d2aa1c8bb26a871ab9bc3210957b06c8a44ee9b22dbff61641c1"
    ],
+   "description": "A side-scrolling martial arts game in which a ninja fights his way through guards with fists, a dagger and shuriken, gathering scattered idols that restore strength; collecting all of them wins.",
    "sourceGroups": [
     "ghostware:Ninja (Mastertronic) (Europe).T64"
    ],
@@ -199724,6 +199856,7 @@
    "contentIds": [
     "sha256-disk-v1:81df0028809b9720958e0e9278a8c35b0a85b913434e48916bc95e0d7c0d18b7"
    ],
+   "description": "Steer a craft through the 20 deadly levels of André Thelman's maze, jumping holes, shooting robots and solving switch puzzles to find the right teleporter; turning around flips the entire level.",
    "sourceGroups": [
     "ghostware:Snare (Thalamus) (Europe).D64"
    ],
@@ -199733,6 +199866,7 @@
    "contentIds": [
     "sha256-disk-v1:4757886a31c450cd315fbef7d76849ee1ae97a2df2b30f094b25c02f5999abed"
    ],
+   "description": "Fly a small plane leftward over enemy planes, troops and missile launchers, shoot down the plane carrying dynamite, then crash into a castle gate to free hostages and ferry them home two at a time in a replacement plane.",
    "sourceGroups": [
     "ghostware:Kamikaze (Europe).D64"
    ],
@@ -199751,6 +199885,7 @@
    "contentIds": [
     "sha256-disk-v1:6620661976299e08ba2a8394cccc590e804936ac1f9d2299ce9f1e38266d5cc9"
    ],
+   "description": "Victorious after Troy's fall, Odysseus heads home to Ithaca, where rumours say his throne, wife Penelope and son Telemachus are in danger, in a two-part text adventure of surviving the voyage and then reclaiming the kingdom.",
    "diskMachine": {
     "sha256-disk-v1:6620661976299e08ba2a8394cccc590e804936ac1f9d2299ce9f1e38266d5cc9": {
      "model": "c64ntsc"
@@ -199766,6 +199901,7 @@
     "sha256-disk-v1:31e85ea8a441eec777c6acb4c9208426ba7ef6493c892d26645ad9341069a90e",
     "sha256-disk-v1:48bcb3e72a1f1298adc2a647746faa7334d0546f075487ad3871d0ce026e5682"
    ],
+   "description": "The villain Phobos has built 15 planets based on common fears such as spiders, snakes and dentists; fly to each, blast across its surface and through its caverns to rescue the Galactic Emperor, alone or with two players at once.",
    "diskSets": {
     "sha256-disk-v1:31e85ea8a441eec777c6acb4c9208426ba7ef6493c892d26645ad9341069a90e": {
      "setDisks": [
@@ -199806,6 +199942,7 @@
    "contentIds": [
     "sha256-disk-v1:fb78c80304805f2ebc2574c178cec1ca45ea24d7dd5b84d26861ae13bdc5e368"
    ],
+   "description": "Based on the darts quiz show for two players: throw at category segments to earn questions, compete on a standard board for the right to answer, then try the red-and-black bonus board without hitting the same red twice.",
    "sourceGroups": [
     "ghostware:Bullseye (Europe).D64"
    ],
@@ -199815,6 +199952,7 @@
    "contentIds": [
     "sha256-disk-v1:04d61a820f1a025bfec28d4ffb773e7c63d8f1f21036c2cc2e437f527f25dc1c"
    ],
+   "description": "Manage an English county cricket side through the championship, choosing the team, bowlers and field placings and buying players from scouts, with matches followed on a running scorecard rather than played.",
    "sourceGroups": [
     "ghostware:Cricket Captain (D+H Games) (Europe).D64"
    ],
@@ -199856,6 +199994,7 @@
    "contentIds": [
     "sha256-tape-v1:ec0b1a9be5513d984dbea6eea8238cdc36fb0fd9db0f208794a51300833d37db"
    ],
+   "description": "River Software text adventure: a bounty hunter armed with a pulsar is beamed to Bodholm Downs on the planet Karakata and must kill a set number of Viroids before he can return home and collect his fee.",
    "sourceGroups": [
     "ghostware:Bounty Hunter (River Software) (Europe).T64"
    ],
@@ -199865,6 +200004,7 @@
    "contentIds": [
     "sha256-disk-v1:392ff5758056ef807e6ef2ec93648a1edfc22e469ecc4d6adecafd4e534aa6f0"
    ],
+   "description": "Judge Dredd takes on six crime missions in Mega-City One in a scrolling side-view game, switching between walking, which lets him shoot and arrest, and the faster Lawmaster bike, before the crime rate climbs too high.",
    "sourceGroups": [
     "ghostware:Judge Dredd (Virgin Mastertronic) (Europe).D64"
    ],
@@ -199874,6 +200014,7 @@
    "contentIds": [
     "sha256-disk-v1:665b38849ebb70507b4d4d7e5d7fb6024df96eac7a6325915b25e01a718e3d8a"
    ],
+   "description": "Text-only edition of Level 9's revised trilogy: Lords of Time sends the player through history for nine treasures, Red Moon hunts a stolen magic crystal, and The Price of Magik confronts the mad magician Myglar.",
    "sourceGroups": [
     "ghostware:Time and Magik - Text Version (Europe).D64"
    ],
@@ -199884,6 +200025,7 @@
     "sha256-disk-v1:8ef6aa4e71cb96d40895e5dd53f1b65f724920af0aa266494426fbadb1d55511",
     "sha256-disk-v1:922449e7c41d5acda5550a17133926e1f445f19b9b2879a93f9745b591a70519"
    ],
+   "description": "Sublogic's combat flight simulator: fly an F-16 from land or an F/A-18 off a carrier, practise in free flight, dogfight MiGs or strike land and sea targets with a chosen load of missiles and bombs.",
    "diskMachine": {
     "sha256-disk-v1:8ef6aa4e71cb96d40895e5dd53f1b65f724920af0aa266494426fbadb1d55511": {
      "model": "c64ntsc"
@@ -199909,6 +200051,7 @@
    "contentIds": [
     "sha256-tape-v1:528c22c8bd56d5139c9652c1367039af4c3b692dc78f80fa29f301da68860816"
    ],
+   "description": "Recover seven pieces of your father's crown from the Ice Queen's palace by rotating hexagonal rooms to link their exits, burning creatures with a firestick and solving object puzzles on a text screen as a candle burns down.",
    "diskMachine": {
     "sha256-tape-v1:528c22c8bd56d5139c9652c1367039af4c3b692dc78f80fa29f301da68860816": {
      "model": "c64ntsc"
@@ -199923,6 +200066,7 @@
    "contentIds": [
     "sha256-disk-v1:1cc80fa565d5df343c016c90902a0b20ffadf3c7b6fb2e447bd282c8503d8581"
    ],
+   "description": "Potsworth the dog and his Midnight Patrol friends cross five platform levels of the Dream Zone to recover the sleep potion stolen by the Nightmare Prince, pushing crates onto switches and using each character's own ability.",
    "sourceGroups": [
     "ghostware:Potsworth (Europe).D64"
    ],
@@ -199932,6 +200076,7 @@
    "contentIds": [
     "sha256-disk-v1:ae38dd4cdb55fd6f2f15c8b410524fdea44021960f6901f8f3773dcfef9aa8cb"
    ],
+   "description": "A former soldier clears his name and rescues his kidnapped brother and niece from terrorists by gathering evidence in Last Ninja-style isometric screens, then racing an armed car between stages past bombers and police.",
    "diskMachine": {
     "sha256-disk-v1:ae38dd4cdb55fd6f2f15c8b410524fdea44021960f6901f8f3773dcfef9aa8cb": {
      "model": "c64ntsc"
@@ -199946,6 +200091,7 @@
    "contentIds": [
     "sha256-tape-v1:e9f8ccb8bb3b63da4dd4a473cefa77e61bb45ff623d6466d545d616251410183"
    ],
+   "description": "Play three pawns against three on a 3x3 board, aiming to reach the far row or leave the computer without a move; the program learns from every loss and soon becomes very hard to beat.",
    "diskMachine": {
     "sha256-tape-v1:e9f8ccb8bb3b63da4dd4a473cefa77e61bb45ff623d6466d545d616251410183": {
      "model": "c64ntsc"
@@ -199969,6 +200115,7 @@
    "contentIds": [
     "sha256-disk-v1:992acc53b452128d5921ef8e560fcc53cd5321e37fa6d4ee7cd6e5e6d5c56cb1"
    ],
+   "description": "A soldier with an extending bionic arm swings from fixed points and climbs between levels instead of jumping, pulling enemies in as he storms a fortress to destroy the launch computer of a doomsday weapon.",
    "diskMachine": {
     "sha256-disk-v1:992acc53b452128d5921ef8e560fcc53cd5321e37fa6d4ee7cd6e5e6d5c56cb1": {
      "model": "c64ntsc"
@@ -200006,6 +200153,7 @@
    "contentIds": [
     "sha256-disk-v1:308b57495677106d56f44a3dd0215cad92577e1db3bf050c03da171109621316"
    ],
+   "description": "A text-based bridge game for one player, who handles both the north and south hands through the bidding and then tries to take the contracted tricks.",
    "sourceGroups": [
     "ghostware:Contract Bridge (Alligata Software) (Europe).D64"
    ],
@@ -200061,6 +200209,7 @@
    "contentIds": [
     "sha256-tape-v1:2bb5696e907b54b228fe3dbc789a4d05c9d5dfb32f8485a6a692719f8aaa9712"
    ],
+   "description": "Treasure hunters vanish in the desert searching for the buried tomb of the pharaoh Rak-Tuman. In this typed-command text adventure you follow a map across the sands to the pyramid, then face its puzzles, traps and creatures.",
    "sourceGroups": [
     "ghostware:Pyramid, The (Atlas Adventure Software) (Europe).T64"
    ],
@@ -200072,6 +200221,7 @@
     "sha256-disk-v1:89f0ff5966099e0b97369a24e6064a252b9244f16a5ec4ea83a5733b534a69c2",
     "sha256-disk-v1:e23aecee6d342d80b3fe24dd728782a45cb5e1bf08d3344ac7a1d77092c2a4d1"
    ],
+   "description": "Sequel to Barbarian in which either the barbarian or the princess he rescued hunts the sorcerer Drax through four dungeon levels, using one-on-one sword combat against monsters that each call for different attacks.",
    "diskSets": {
     "sha256-disk-v1:e23aecee6d342d80b3fe24dd728782a45cb5e1bf08d3344ac7a1d77092c2a4d1": {
      "setDisks": [
@@ -200089,6 +200239,7 @@
    "contentIds": [
     "sha256-tape-v1:2004ce3a4add7a7e2684b9953606ec0eb47c68697762532c2f10238b3079393a"
    ],
+   "description": "Version of the classic BASIC Super Star Trek: command the Enterprise across a galaxy of quadrants, hunting Klingon warships with phasers and photon torpedoes before the stardates run out, docking at starbases to repair and resupply.",
    "diskMachine": {
     "sha256-tape-v1:2004ce3a4add7a7e2684b9953606ec0eb47c68697762532c2f10238b3079393a": {
      "model": "c64ntsc"
@@ -200112,6 +200263,7 @@
    "contentIds": [
     "sha256-tape-v1:96626c45b50a8cf1fd811c514c58319c3297bb1254707186ce442ecac73d3c6b"
    ],
+   "description": "A version of Joseph Weizenbaum's ELIZA conversation program: the computer plays a psychotherapist, picking out key words in whatever the user types and turning statements back into questions.",
    "diskMachine": {
     "sha256-tape-v1:96626c45b50a8cf1fd811c514c58319c3297bb1254707186ce442ecac73d3c6b": {
      "model": "c64ntsc"
@@ -200126,6 +200278,7 @@
    "contentIds": [
     "sha256-tape-v1:ad4258de9b787e1c1fda7f82e99280b901723cfef1079b75b626c0618e3bd326"
    ],
+   "description": "Audiogenic's cricket game endorsed by Graham Gooch. In simulation mode the player makes the captain's decisions while the computer plays the match; in arcade mode one or two players bat and bowl directly, over limited-overs or two-innings games.",
    "sourceGroups": [
     "collection:Graham Gooch Cricket.zip"
    ],
@@ -200181,6 +200334,7 @@
    "contentIds": [
     "sha256-disk-v1:7de8e96a7696b36930ec3d208e1e0a5ef5fa0b2d483d18df9e813e9d513b350b"
    ],
+   "description": "Konami's table tennis conversion: rally against the computer across nine skill levels, playing to 10 points with a two-point lead. Scoring rewards long rallies and wide winning margins.",
    "sourceGroups": [
     "ghostware:Ping-Pong (Imagine + Konami) (Europe).D64"
    ],
@@ -200204,6 +200358,7 @@
    "contentIds": [
     "sha256-disk-v1:fd63947fad46eb94f9c6eeedb41d071c1a6543659777f8ac81f87b478799f286"
    ],
+   "description": "Educational detective game for kids. Ghostly happenings at the Cable family's old mansion in Granite Point and a missing Siamese cat must be explained by driving the SnoopMobile around town, questioning eight suspects and gathering clues.",
    "diskMachine": {
     "sha256-disk-v1:fd63947fad46eb94f9c6eeedb41d071c1a6543659777f8ac81f87b478799f286": {
      "model": "c64ntsc"
@@ -200218,6 +200373,7 @@
    "contentIds": [
     "sha256-disk-v1:bd016bd34f8d050f0aa1f5b073bf4ea5e8dd8a5bb295428106d58985fec927d4"
    ],
+   "description": "Ultima-style fantasy role-playing game set in Beryland in 1227, where the Ormus Cult and its leader Lord Marox have taken power. The hero roams a scrolling overland map, visits cities and hires troops, who are needed to capture or defend a city.",
    "diskMachine": {
     "sha256-disk-v1:bd016bd34f8d050f0aa1f5b073bf4ea5e8dd8a5bb295428106d58985fec927d4": {
      "model": "c64ntsc"
@@ -200264,6 +200420,7 @@
    "contentIds": [
     "sha256-disk-v1:b86b23207e769af069427ed68c9e2da84f51065bb3f6ddd138af7fceaa110adb"
    ],
+   "description": "Text adventure that starts by an abandoned cottage in an old forest; find the castle said to house goblins guarding a hoard, recover the treasure and escape, scoring up to 160 points. The parser handles full sentences.",
    "sourceGroups": [
     "ghostware:Goblin Towers (Europe).D64"
    ],
@@ -200342,6 +200499,7 @@
    "contentIds": [
     "sha256-disk-v1:49a0516eb41bf439fda733b17fa3e44ab344a817674757b08e576ef792d7590e"
    ],
+   "description": "Capcom's action platformer where the soldier cannot jump: instead his extendable bionic arm latches onto ledges to swing and climb, and also drags enemies in, on the way to the enemy fortress and its doomsday launch computer.",
    "sourceGroups": [
     "collection:Bionic Commando.zip"
    ],
@@ -200351,6 +200509,7 @@
    "contentIds": [
     "sha256-tape-v1:293fe7b43e8c36e954db781c3b89edf86abbac98eb9f3ae66943bca82fbd9157"
    ],
+   "description": "Alligata's vertically flick-screen commando shooter across eight occupied zones. A rifle and a handful of grenades share one fire button (tap or hold), and captured comrades being marched away can be freed.",
    "sourceGroups": [
     "ghostware:Who Dares Wins (Alligata Software) (Europe).T64"
    ],
@@ -200385,6 +200544,7 @@
     "sha256-disk-v1:312c45675eadbfcb1878fbf75b7613b3c37bc835ad33d059016f2289eb7dfecb",
     "sha256-disk-v1:38a3d40d2942565ba99f97149a15c15758494f67303ff9579cfaf9e318cab4f3"
    ],
+   "description": "Ozark Softscape's exploration game: sail from Spain to the New World in 1492 (or to a randomly generated continent), meet native peoples, found missions and forts, and bring back gold to win promotions from the Queen.",
    "diskMachine": {
     "sha256-disk-v1:312c45675eadbfcb1878fbf75b7613b3c37bc835ad33d059016f2289eb7dfecb": {
      "model": "c64ntsc"
@@ -200424,6 +200584,7 @@
    "contentIds": [
     "sha256-tape-v1:4b3de54dc24c62795bca4900a95bc1f29faff580670ccc91c64b63c9088bb2b7"
    ],
+   "description": "Melbourne House's Judge Dredd: pick crime reports such as arson or murder off the Mega-City map, then enter each location for a platform shoot-out with the perps, backed by a synth-rock soundtrack.",
    "sourceGroups": [
     "ghostware:Judge Dredd (Melbourne House) (Europe).T64"
    ],
@@ -200515,6 +200676,7 @@
    "contentIds": [
     "sha256-disk-v1:7661183bf8a36b62d29886a59e7d925be6e917f790d291e6a44d3da9e15da9a6"
    ],
+   "description": "Starbyte's platform game about becoming king by winning challenges in six countries in any order, each with its own mini-game, from jumping a knight's horse over hurdles in England to riding a flying carpet in Arabia.",
    "sourceGroups": [
     "ghostware:Crown (Starbyte Software) (Germany).D64"
    ],
@@ -200525,6 +200687,7 @@
     "sha256-disk-v1:64ad7d05c878a77a63872630b1739186767dc60e32c3e9890a8db2d3e46efc64",
     "sha256-disk-v1:73bba92a87d0247aa5c6f3273c504ca711608daaa73fc9c38837ff6a14736a6e"
    ],
+   "description": "Sports compilation with ten-pin bowling, air hockey, darts and ping pong. Each event offers computer opponents at several skill levels as well as two-player matches, using timing-based aim and power controls.",
    "diskMachine": {
     "sha256-disk-v1:64ad7d05c878a77a63872630b1739186767dc60e32c3e9890a8db2d3e46efc64": {
      "model": "c64ntsc"
@@ -200559,6 +200722,7 @@
    "contentIds": [
     "sha256-disk-v1:8ca7917a66f4d64253113db8fb6fe1101829879d1641150cf99d5f4c24647ae8"
    ],
+   "description": "Hewson maze game starring Flippo, who must turn every tile of a maze to the target colour by walking over it. Some tiles flip back or only change from certain directions, and enemies, holes and power-ups complicate each level.",
    "sourceGroups": [
     "ghostware:Maze Mania (Europe).D64"
    ],
@@ -200577,6 +200741,7 @@
    "contentIds": [
     "sha256-disk-v1:469f5e2daf070a60ed5bd41d84eb632c8d32c6efba3a05b1ba3c592036315928"
    ],
+   "description": "Arcade conversion in which a commando dashes left and right at the foot of the screen dodging fire while steering a crosshair to gun down soldiers, tanks and helicopters and level the scenery across five stages. Two players can join in.",
    "diskMachine": {
     "sha256-disk-v1:469f5e2daf070a60ed5bd41d84eb632c8d32c6efba3a05b1ba3c592036315928": {
      "model": "c64ntsc"
@@ -200591,6 +200756,7 @@
    "contentIds": [
     "sha256-disk-v1:bc5f24de3ba477a088e1f0012380a4991c5a30b5266f33e50a6d8e87fa477631"
    ],
+   "description": "Bond takes the wheel of a modified, armed speedboat in this 1988 Domark racer, loosely based on the 1973 film's river chase and adapted from an Elite game first planned as Aquablast.",
    "sourceGroups": [
     "collection:Live And Let Die.zip"
    ],
@@ -200600,6 +200766,7 @@
    "contentIds": [
     "sha256-tape-v1:6ea9d4d6c439ee55ce12efa501529d80d3c386a728ccdaf84b817390bb8b80c5"
    ],
+   "description": "Domark's computer edition of the trivia board game using the Genus question set: players move around the wheel-shaped board answering questions in six categories, aiming to win a wedge in each before the final question at the hub.",
    "sourceGroups": [
     "ghostware:Trivial Pursuit - Commodore Genus Edition (Europe).tap"
    ],
@@ -200665,6 +200832,7 @@
    "contentIds": [
     "sha256-tape-v1:84f4142fef0060f110e555c6d0fb4febd6355d375f657cd6264fae4dc0c64cf6"
    ],
+   "description": "The first Speedball: a brutal future sport on a compact court with five players a side, no fouls and a goal at each end. Bribe the referee or boost your squad between matches in a knockout cup or a two-player game.",
    "diskMachine": {
     "sha256-tape-v1:84f4142fef0060f110e555c6d0fb4febd6355d375f657cd6264fae4dc0c64cf6": {
      "model": "c64ntsc"
@@ -200714,6 +200882,7 @@
    "contentIds": [
     "sha256-tape-v1:8863d44440fadf615c4ffcc9bc7c1cd768a4ae32e11cb1e3517dc278f23fc1f8"
    ],
+   "description": "Vertically scrolling shooter from Sega's arcade game. Fly the Sonic Boom jet through six stages of planes, tanks, trains and gun emplacements, picking up weapon upgrades and beating each end boss within the time limit.",
    "diskMachine": {
     "sha256-tape-v1:8863d44440fadf615c4ffcc9bc7c1cd768a4ae32e11cb1e3517dc278f23fc1f8": {
      "model": "c64ntsc"
@@ -200751,6 +200920,7 @@
    "contentIds": [
     "sha256-tape-v1:503e238505b4ee9382c1d952972d35b8f6527972fa7e6c2f346b2d4781bd9997"
    ],
+   "description": "A park ranger, male or female, cleans litter from a lake on foot or by dinghy while avoiding turtles and snakes, saving swimmers, chasing off food-stealing ants and log rolling for bonus points.",
    "sourceGroups": [
     "collection:Park Petrol.zip"
    ],
@@ -200760,6 +200930,7 @@
    "contentIds": [
     "sha256-disk-v1:ea90cfb0118389c98391f81ad74698d91ed3e5b96252d524ea0eff43f0c7509d"
    ],
+   "description": "Epyx toy-car playground based on Mattel's Hot Wheels: build or pick a car, paint it and cruise around town, stopping at the car wash, gas station or oil change for small mini-games, or entering events like the demolition derby.",
    "diskMachine": {
     "sha256-disk-v1:ea90cfb0118389c98391f81ad74698d91ed3e5b96252d524ea0eff43f0c7509d": {
      "model": "c64ntsc"
@@ -200775,6 +200946,7 @@
     "sha256-disk-v1:3f9cb67828dddad0363da26f39331577db5e9326e547409901d603e7bbf073fc",
     "sha256-disk-v1:c2aad88ed1c73eedc6e9e959e5bb4ba3624e68edd9b8933ec1fee9621a662691"
    ],
+   "description": "Level 9 adventure with pictures in which Grindleguts the orc wakes after a night's drinking strapped to a horse for a joust and sets out to get even with his friends. Other characters keep their own schedules in real time, and the story later turns to science fiction.",
    "diskSets": {
     "sha256-disk-v1:3f9cb67828dddad0363da26f39331577db5e9326e547409901d603e7bbf073fc": {
      "setDisks": [
@@ -200804,6 +200976,7 @@
     "sha256-disk-v1:b33756c2d041681bcf26ff88402759cad684f24401f31e0b4f8da6ac2161e132",
     "sha256-disk-v1:ce5133156393c8c510b854cb6cde0f0896c512b868375a6bb11333b04ece8b8b"
    ],
+   "description": "Datasoft illustrated adventure set in the Old West. Retired Texas Ranger Kip Starr crosses deserts, mines and ghost towns to save a friend from hanging, with commands typed or picked from an on-screen menu by joystick.",
    "diskMachine": {
     "sha256-disk-v1:9896252a630e6a5fd60e65bb32bd38277812bad25468062f31bd99334066fae0": {
      "model": "c64ntsc"
@@ -200839,6 +201012,7 @@
    "contentIds": [
     "sha256-disk-v1:e2e816bd2be8848112ee4dc60a21e2192998d74be341763e056e4ce8e012385c"
    ],
+   "description": "Software Projects' home take on the Dragon's Lair laserdisc game: Dirk the Daring battles through a run of deadly screens inside Singe the dragon's castle on his way to rescue Princess Daphne.",
    "sourceGroups": [
     "collection:Dragon's Lair I.zip"
    ],
@@ -200871,6 +201045,7 @@
    "contentIds": [
     "sha256-disk-v1:abb21f7fdf5a36c7ab57a147f874dd574b03d5f9840ee1659c90de1a65452165"
    ],
+   "description": "Stuart Smith's Greek-myth role-playing game, reissued in Electronic Arts' Age of Adventure. Players take one or more heroes on quests, each rated for strength, dexterity and speed, with training in sword, dagger and defence.",
    "diskMachine": {
     "sha256-disk-v1:abb21f7fdf5a36c7ab57a147f874dd574b03d5f9840ee1659c90de1a65452165": {
      "model": "c64ntsc"
@@ -200899,6 +201074,7 @@
    "contentIds": [
     "sha256-tape-v1:b04abdcfea1056ad3846476fa13cd0b5c6f7ae8d6015b2ad640ff461141cbfd1"
    ],
+   "description": "Domark's version of the Empire Strikes Back arcade game. Luke's snowspeeder hunts Imperial probe droids, then fights AT-AT and AT-ST walkers on Hoth, before Han Solo takes the Millennium Falcon past TIE fighters and through an asteroid field.",
    "sourceGroups": [
     "ghostware:Empire Strikes Back, The (Europe).T64"
    ],
@@ -200926,6 +201102,7 @@
    "contentIds": [
     "sha256-tape-v1:9aa08d984531d2336796e93ff2bb8a98be7c7caeb8921fd8bb8c4e86eb5a722b"
    ],
+   "description": "Scott Adams' second adventure. A secret passage in a London flat leads to Pirate's Isle, where you must build a ship, win over a pirate and his parrot, and bring Long John Silver's two treasures home using two-word commands.",
    "diskMachine": {
     "sha256-tape-v1:9aa08d984531d2336796e93ff2bb8a98be7c7caeb8921fd8bb8c4e86eb5a722b": {
      "model": "c64ntsc"
@@ -200940,6 +201117,7 @@
    "contentIds": [
     "sha256-tape-v1:f6300acf5e530725e8f489a983e73030dd1be70f6bfc5b32db0f7488318f9cfa"
    ],
+   "description": "Imagic shooter where you fly through Star Quadrant Jupiter dodging solar hazards, swoop down onto passing moons to pick up stranded miners, then use the accelerator rings to blast back into space once six are aboard.",
    "diskMachine": {
     "sha256-tape-v1:f6300acf5e530725e8f489a983e73030dd1be70f6bfc5b32db0f7488318f9cfa": {
      "model": "c64ntsc"
@@ -200963,6 +201141,7 @@
    "contentIds": [
     "sha256-disk-v1:d5d88aad00cd4142d65a06512073a02d96207972e9289bcef236c72fc77f9601"
    ],
+   "description": "Martech helicopter shooter in pseudo-3D. Fly a heavily armed SuperCobra over varied terrain by day and night, downing a quota of enemy aircraft on each level to advance, with smart bombs for tight spots.",
    "sourceGroups": [
     "ghostware:Hellfire (Europe).D64"
    ],
@@ -200972,6 +201151,7 @@
    "contentIds": [
     "sha256-tape-v1:feab02294d09e2ee0bf04f15f293f490c7e0feca0ebf7c80e983f982c3aafbc7"
    ],
+   "description": "Computer version of Kalah, the mancala board game: players sow seeds from their six pits around the board, aiming to gather the most in their own store, with captures and extra turns for well-placed final seeds.",
    "sourceGroups": [
     "ghostware:Kalah (Europe).T64"
    ],
@@ -200999,6 +201179,7 @@
    "contentIds": [
     "sha256-tape-v1:cbcbe6782b142679a73743b17cff41b6ea4e7c759218367f93b8776d29115c97"
    ],
+   "description": "Firebird action game loosely inspired by The Jewel of the Nile. Free three captured travellers and arm them with their weapons (grenades, a pistol, an umbrella), then position them on each screen before guards attack while you control one directly.",
    "sourceGroups": [
     "ghostware:Mystery of the Nile, The (Europe).T64"
    ],
@@ -201045,6 +201226,7 @@
    "contentIds": [
     "sha256-disk-v1:139097dcecaa7c0fb79b9775679ee1e3a1b31f25af0feffe4d779a5ed0661581"
    ],
+   "description": "Magic Bytes game known in English as The Paranoia Complex. A citizen of a city run by a dictatorial computer hunts rebel terrorists, recovers disks from their bodies for cash and promotions, and must pass loyalty quizzes or become the hunted.",
    "sourceGroups": [
     "ghostware:Cyber World (Europe).D64"
    ],
@@ -201081,6 +201263,7 @@
    "contentIds": [
     "sha256-disk-v1:c7b0b1247b62fcbb66dd1dc9c744ec8424ee08d289a12b254065d541c06fb267"
    ],
+   "description": "Based on the Choose Your Own Adventure book, Escape has you flee the totalitarian state of Dorado in 2035 through a street maze, driving and flying sections, accompanied by three companions, one of them a traitor.",
    "diskMachine": {
     "sha256-disk-v1:c7b0b1247b62fcbb66dd1dc9c744ec8424ee08d289a12b254065d541c06fb267": {
      "model": "c64ntsc"
@@ -201095,6 +201278,7 @@
    "contentIds": [
     "sha256-tape-v1:9bce0eb1ef9c7ff396df85c776fd1c346984b1f6221f10a1564662472530a673"
    ],
+   "description": "Synapse platform game set inside a sealed pharaoh's tomb. Explore the chambers grabbing treasure while the pharaoh and his guardian mummy roam the passages hunting intruders.",
    "diskMachine": {
     "sha256-tape-v1:9bce0eb1ef9c7ff396df85c776fd1c346984b1f6221f10a1564662472530a673": {
      "model": "c64ntsc"
@@ -201173,6 +201357,7 @@
    "contentIds": [
     "sha256-tape-v1:bacc5db5dfa2f5869f4e9b8cdc200848025ba0984509b0830a3916b7155607bc"
    ],
+   "description": "Two-program World Cup package. One part holds every past tournament result plus a timed multiple-choice quiz; the other is a management game where you pick a squad, follow matches as text highlights and play heading, shooting and penalty mini-games.",
    "sourceGroups": [
     "ghostware:World Cup Soccer (Macmillan Software) (Europe).T64"
    ],
@@ -201228,6 +201413,7 @@
    "contentIds": [
     "sha256-tape-v1:f5aac1bed4fbf1a294c4b8226773fdfdb4c47be046cd532a743cb11729811146"
    ],
+   "description": "Scott Adams' first adventure, in its text-only form. Recover 13 treasures from an enchanted land of forests, swamps, caves and a volcano, dealing with a dragon, bees and Paul Bunyan's ox using two-word commands.",
    "diskMachine": {
     "sha256-tape-v1:f5aac1bed4fbf1a294c4b8226773fdfdb4c47be046cd532a743cb11729811146": {
      "model": "c64ntsc"
@@ -201256,6 +201442,7 @@
    "contentIds": [
     "sha256-tape-v1:3bf1a58b9987fc99730f3efe623c7ba6d6ca4abbddd442285e06e6803cd1c9f5"
    ],
+   "description": "Fantasy Software shooter set inside a pyramid of 120 chambers spread over fifteen levels. Each room holds its own alien species; shoot enough to drop a crystal, catch it once it turns blue and use it to open the exit you choose.",
    "sourceGroups": [
     "ghostware:Pyramid, The (Fantasy Software Ltd.) (Europe).T64"
    ],
@@ -201311,6 +201498,7 @@
    "contentIds": [
     "sha256-disk-v1:5d8cdcae5a33b14a1b0e592f7c6a9c4436e13c6cbebc5acbe1e1c237cbdf8d4f"
    ],
+   "description": "Elite's conversion of SNK's Ikari Warriors: one or two commandos fight up a vertically scrolling battlefield of jungle, rivers and ruins, picking up grenades, machine guns and rocket launchers along the way.",
    "sourceGroups": [
     "ghostware:Ikari Warriors (Elite) (Europe).D64"
    ],
@@ -201406,6 +201594,7 @@
    "contentIds": [
     "sha256-disk-v1:2abce8444ce52c6c761e82bd230bba7ae411f84fbc4ab95367cd4af8a181d448"
    ],
+   "description": "Pilot a supply ship with real momentum down into the Caverns of Eriban, delivering cargo to underground mining depots. Land gently beside each tower whose light shows red, refuel at the surface and avoid touching the cave walls.",
    "sourceGroups": [
     "ghostware:Caverns of Eriban, The (Europe).D64"
    ],
@@ -201415,6 +201604,7 @@
    "contentIds": [
     "sha256-tape-v1:1a08e8fe851431e28f4ffa914277cfe87fe41e0f7b0dbcb35e4abd44b584be71"
    ],
+   "description": "Platform game from Italy's Idea Software. One of the planet's two moons holds back an evil serpent with its magic, but an eclipse by the other is about to free it, so the hero fights and jumps through the land collecting items and solving puzzles.",
    "sourceGroups": [
     "ghostware:MoonShadow (Idea Software) (Europe).T64"
    ],
@@ -201424,6 +201614,7 @@
    "contentIds": [
     "sha256-tape-v1:b0912a5402da8976f2769b58aaeb465eb6e1119f7b92a579b0bda72f9db7b000"
    ],
+   "description": "Ocean beat-'em-up based on the Schwarzenegger film. As Soviet cop Ivan Danko you punch and head-butt your way through four scrolling levels after drug lord Viktor Rosta, sometimes grabbing a pistol with six shots.",
    "sourceGroups": [
     "collection:Red Heat.zip"
    ],
@@ -201433,6 +201624,7 @@
    "contentIds": [
     "sha256-tape-v1:4b19052c262b1ddc23c28b5b72c0ff4eb75169cc7ac8d4c4e9223b2a82cae71d"
    ],
+   "description": "Horizontally scrolling shoot-'em-up in the vein of Delta. Fly a Hunter Killer fighter through waves of aliens to win back the Radius, a vital hyperspace route seized by invaders.",
    "sourceGroups": [
     "ghostware:Radius (Players Software) (Europe).T64"
    ],
@@ -201483,6 +201675,7 @@
    "contentIds": [
     "sha256-tape-v1:ebea3d7fa6db7506790c1301ae307451160a388b97a65ef37d49ae59972f91f4"
    ],
+   "description": "The original Speedball, a violent future sport played five-a-side on a compact court where anything goes. Bribe the referee or power up your players before matches, then play a knockout cup or a two-player game.",
    "sourceGroups": [
     "ghostware:Speedball (Europe).T64"
    ],
@@ -201506,6 +201699,7 @@
    "contentIds": [
     "sha256-tape-v1:d8a4bedb9948412dc1993ec1a80623d8954c72e80a8dac2f09c9dcc3a5455f3d"
    ],
+   "description": "Aardvark text adventure: a tractor beam drags your spaceship into a space station, and you must explore it, find the right items and avoid lethal hazards to get away again.",
    "sourceGroups": [
     "ghostware:Derelict (Aardvark Software) (Europe).T64"
    ],
@@ -201529,6 +201723,7 @@
    "contentIds": [
     "sha256-tape-v1:c036f531030bca70e11c8e1178514f0d6b766a26710c7e940e37de4456cb9614"
    ],
+   "description": "Police management strategy set in the fictional British town of Middletown. Assign officers and units to four stations across the map, cover three shifts a day and react to crimes and events, with a traffic-light mini-game each week.",
    "sourceGroups": [
     "ghostware:Force, The (Argus Press Software) (Europe).T64"
    ],
@@ -201538,6 +201733,7 @@
    "contentIds": [
     "sha256-tape-v1:656b58d809d8728d2c0ad897ad33ab6c7241d40c4351065dbecbe7d5cfbeff44"
    ],
+   "description": "Ocean's isometric prison-camp adventure. A captured POW follows the daily routine of roll calls, meals and exercise, slipping away to gather keys, uniforms and tools for an escape while avoiding guards and solitary confinement.",
    "sourceGroups": [
     "collection:Great Escape.zip"
    ],
@@ -201597,6 +201793,7 @@
    "contentIds": [
     "sha256-tape-v1:8260ff64ad38513bbf3e9565cc296f89bb1067b73c2b87cdfd4ad70f027c9ad1"
    ],
+   "description": "Codemasters puzzle game: tilt a top-down maze to roll a ball into the hole without touching walls, opening gates with timed button presses. Energy is limited and the ball grows larger as you progress.",
    "sourceGroups": [
     "ghostware:Tilt (Codemasters) (Europe).T64"
    ],
@@ -201606,6 +201803,7 @@
    "contentIds": [
     "sha256-disk-v1:875a96448ff09391399f8519fdef1ba57a51d310b7339a59c2b577f93ad590b1"
    ],
+   "description": "System 3 shoot-'em-up that opens with a vertically scrolling stage before switching to horizontal scrolling, with speed-ups, extra cannons and other power-ups to collect and a large boss at the end of each level.",
    "sourceGroups": [
     "ghostware:Dominator (Europe).D64"
    ],
@@ -201688,6 +201886,7 @@
    "contentIds": [
     "sha256-tape-v1:f5ad1e1d912c20323f615424e40cfdf28bc956bdc6a843685fe2561c4ac5d208"
    ],
+   "description": "Sega's isometric climbing game. A safari hunter chases the ape Bongo, who set fire to his tent, across four single-screen stages, jumping past coconuts and other animal attacks with no way to fight back.",
    "sourceGroups": [
     "ghostware:Congo Bongo (1983) (Europe).T64"
    ],
@@ -201698,6 +201897,7 @@
    "contentIds": [
     "sha256-tape-v1:fba86e65d6cd464f3c3829c9b2ce851d29c0a09322acbae109999d7d66dda934"
    ],
+   "description": "Magic Disk 64 version of Mastermind, the code-breaking puzzle: deduce a hidden combination of colours by reading the hints given after each guess.",
    "sourceGroups": [
     "ghostware:Mastermind (CP Verlag - Magic Disk 64) (Europe).T64"
    ],
@@ -201739,6 +201939,7 @@
    "contentIds": [
     "sha256-tape-v1:b86d261363066aa0a3f407e03dcdb3695b4acc7f45da70b3f53b81cde3cbdfa2"
    ],
+   "description": "Isometric shooter after Sega's arcade game. Steer a shuttle through an enemy fortress, judging altitude from its shadow and an altimeter to slip through wall gaps and under force barriers while shooting fuel tanks and gun turrets.",
    "sourceGroups": [
     "ghostware:Zaxxon (US Gold + SEGA) (Europe).T64"
    ],
@@ -201748,6 +201949,7 @@
    "contentIds": [
     "sha256-disk-v1:18a6688772346bf7a482a2e1c2d2b92b9721eb81037a29172042dfffb11fabce"
    ],
+   "description": "Alligata shooter seen from a battleship's gun position. Swing a sight through 360 degrees and up into the sky to shoot down waves of attacking aircraft, using radar to spot raids before the damaged ship sinks.",
    "sourceGroups": [
     "ghostware:Battle Stations (Europe).D64"
    ],
@@ -201798,6 +202000,7 @@
     "sha256-disk-v1:498a49e499599f1842f80fddbd5e1f878e32da74a922d78f7bbc5e85d620237d",
     "sha256-disk-v1:c6fb988887a2c5ce7b5bbacd07a2d215b581f1a860090d097826ab97828731f3"
    ],
+   "description": "Illustrated adventure blending Greek myths, in which you direct both Jason and Hercules through a three-part labyrinth full of traps and monsters to reach the Golden Fleece at its centre.",
    "diskMachine": {
     "sha256-disk-v1:498a49e499599f1842f80fddbd5e1f878e32da74a922d78f7bbc5e85d620237d": {
      "model": "c64ntsc"
@@ -201823,6 +202026,7 @@
    "contentIds": [
     "sha256-disk-v1:d3c56cfeea225f48c269bc940b2a8a1a0c905dd96ceebc320d2bcc90e0649455"
    ],
+   "description": "The action game of the third Indiana Jones film. Whip and fist-fight through four levels (Colorado caves, a circus train, a Zeppelin and Castle Grunwald) to collect the Cross of Coronado, the shield and the Grail diary.",
    "sourceGroups": [
     "ghostware:Indiana Jones and the Last Crusade (Europe).D64"
    ],
@@ -201832,6 +202036,7 @@
    "contentIds": [
     "sha256-disk-v1:8835da1ccbc0102c601262c6221d2b1d0ef539699aa8ec4e839b1ea342776c80"
    ],
+   "description": "Missile Command-style shooter from the Magic Disk 64 magazine: guard your cities from incoming missiles by steering a crosshair and detonating defensive blasts in their path.",
    "sourceGroups": [
     "ghostware:Missile Command (CP Verlag - Magic Disk 64) (Europe).D64"
    ],
@@ -201841,6 +202046,7 @@
    "contentIds": [
     "sha256-disk-v1:f1a752fa4bc71a763f20bf72a1755fb2ffee84cf023ae0d9af90d813cd994677"
    ],
+   "description": "Ice hockey game with exhibition, season and playoff modes. Play is seen from the side, cuts to a close shot camera when anyone shoots on goal, and rough fouls can turn into a fistfight that decides who sits in the penalty box.",
    "diskMachine": {
     "sha256-disk-v1:f1a752fa4bc71a763f20bf72a1755fb2ffee84cf023ae0d9af90d813cd994677": {
      "model": "c64ntsc"
@@ -201869,6 +202075,7 @@
    "contentIds": [
     "sha256-tape-v1:7bc0735e93164db711dd4c96a62b405af32984495f3894188825acdadea7fe39"
    ],
+   "description": "Artillery simulation from the War of 1812. Command a single field gun at an unfinished stockade, picking ammunition, fuse length and elevation for each shot to break advancing infantry, cavalry and enemy howitzer crews.",
    "diskMachine": {
     "sha256-tape-v1:7bc0735e93164db711dd4c96a62b405af32984495f3894188825acdadea7fe39": {
      "model": "c64ntsc"
@@ -201919,6 +202126,7 @@
    "contentIds": [
     "sha256-tape-v1:b54bc97330490f00fa9ebbbc4cf9e3d737d5c4096bb7daa1652d571bc9fcd1ce"
    ],
+   "description": "County cricket management game. Pick a side from your squad, choose bowlers and field placings, and follow matches on a running scorecard; players are rated out of ten and scouts report on the opposition.",
    "sourceGroups": [
     "ghostware:Cricket Captain (Hi-Tec Software) (Europe).T64"
    ],
@@ -201937,6 +202145,7 @@
    "contentIds": [
     "sha256-tape-v1:a3cf329536214e6f99d066d48e3cdde165da63ba073abbe7ca696b0927e21452"
    ],
+   "description": "Two wizards settle a long rivalry. As Learic you roam the countryside gathering 24 herbs to brew 12 spells, including fireballs, invisibility and teleport, then track rival Leanoric by compass and duel him.",
    "sourceGroups": [
     "ghostware:Feud - Battle of the Wizards (Europe).T64"
    ],
@@ -201946,6 +202155,7 @@
    "contentIds": [
     "sha256-tape-v1:e20f4714f964b1f1474cf55f18acb7df027cde1c54ca45737a5fb294e91d918e"
    ],
+   "description": "Plate-spinning game: keep a plate twirling on each of eight poles before the timer ends, re-spinning the ones that slow down. Plate colours score differently, and tossing a plate in the air changes its colour.",
    "sourceGroups": [
     "ghostware:Chinese Juggler, The (Europe).T64"
    ],
@@ -201964,6 +202174,7 @@
    "contentIds": [
     "sha256-disk-v1:9474d1bf677c21e86d7774ed5e7897fb439b31abeecb660b969436525dab6e58"
    ],
+   "description": "Maths game featuring the Wizard of Id comic characters. Spook flees the dungeon by sliding blocks to form correct sums before the jailer Turnkey catches him, with harder problems on higher floors.",
    "diskMachine": {
     "sha256-disk-v1:9474d1bf677c21e86d7774ed5e7897fb439b31abeecb660b969436525dab6e58": {
      "model": "c64ntsc"
@@ -201984,6 +202195,7 @@
    "contentIds": [
     "sha256-disk-v1:5addc46c9c92832e88f328e763d4a115299e67cf53cfef878b7a5fb358950d83"
    ],
+   "description": "Illustrated adventure in the kingdom of Balema. As a royal advisor you must steer the strong but dim champion Gorn to a dragon, buying supplies, solving riddles and managing water and money; the parser accepts multi-part commands.",
    "sourceGroups": [
     "ghostware:Quest, The (Penguin Software) (Europe).D64"
    ],
@@ -202104,6 +202316,7 @@
    "contentIds": [
     "sha256-tape-v1:cda84cb6d34d8d8ae4596a478ae03e4dc1a3209d1386767cff96c7c7d63ea865"
    ],
+   "description": "Graphical dungeon crawl in the Rogue style. Descend randomly generated levels full of traps, treasure and monsters to recover the stolen Sword of Fargoal from the depths and escape with it.",
    "diskMachine": {
     "sha256-tape-v1:cda84cb6d34d8d8ae4596a478ae03e4dc1a3209d1386767cff96c7c7d63ea865": {
      "model": "c64ntsc"
@@ -202127,6 +202340,7 @@
    "contentIds": [
     "sha256-disk-v1:81324cc4ea2c5e904651b3e22d1803da77e88512ea7e464e71fe5c7742159329"
    ],
+   "description": "Mirrorsoft shooter in which a star fighter navigates the narrow walkways of the Matrix of Zog hunting eight crystals, facing ramps, traps, vanishing barriers and seven kinds of alien. Brain Teaser and Zapper modes set the style of play.",
    "sourceGroups": [
     "ghostware:Zig Zag (Europe).D64"
    ],
@@ -202191,6 +202405,7 @@
    "contentIds": [
     "sha256-tape-v1:69e15630fb8f37c92ff655d5d5c3856acc0e047addf43ad5a10206499c3fda16"
    ],
+   "description": "Vertically scrolling shooter set after alien Saurans have devastated Earth. The last surviving pilot flies a VelosCraft over their territory, gunning down ships and bombing ground targets, with a huge installation closing every stage.",
    "sourceGroups": [
     "ghostware:Aftermath (Alpha Omega Software) (Europe).T64"
    ],
@@ -202226,6 +202441,7 @@
    "contentIds": [
     "sha256-disk-v1:11f14dd4649adf01ca720da41cc210281ba95bfa827aa432006c77003863cbbb"
    ],
+   "description": "Conversion of the arcade beat-'em-up. Twin brothers Billy and Jimmy Lee fight through gang-ruled city streets with punches, kicks and grabbed weapons to rescue Marian from the Black Warriors.",
    "sourceGroups": [
     "ghostware:Double Dragon (Europe).D64"
    ],
@@ -202235,6 +202451,7 @@
    "contentIds": [
     "sha256-tape-v1:9b7e5b8199aa4747b2e553305fb7abc0254829a6855e3c1399a540236b3fa456"
    ],
+   "description": "Pilot a star fighter through the narrow corridors of the Matrix of Zog to collect its eight crystals, avoiding traps and disappearing barriers while seven types of alien, from homers to corkscrews, attack.",
    "sourceGroups": [
     "ghostware:Zig-Zag (Europe).T64"
    ],
@@ -202244,6 +202461,7 @@
    "contentIds": [
     "sha256-tape-v1:bb416ca01e3e141ba095e106c41513d207a331c4ae78cd66ebeee46af784ba45"
    ],
+   "description": "Hewson shoot-'em-up on a horizontally split screen, with two robot-controlled craft (a second player or the computer) clearing 24 side-scrolling levels of aliens and delivering collected droids to earn screen-clearing devastators.",
    "sourceGroups": [
     "ghostware:Eagles (Hewson Consultants Ltd.) (Europe).T64"
    ],
@@ -202253,6 +202471,7 @@
    "contentIds": [
     "sha256-tape-v1:6c5657e38d53223354b9d760260da25a67d32e3fc8f99dcf8329876ba3d27e1b"
    ],
+   "description": "Anco snooker game for one or two players viewed from above the table. Choose the target ball, set spin and power, and nominate a colour after potting a red, across three difficulty levels; an edit mode lets you arrange the balls.",
    "sourceGroups": [
     "ghostware:Tournament Snooker (Europe).T64"
    ],
@@ -202290,6 +202509,7 @@
    "contentIds": [
     "sha256-tape-v1:d43d295e2651e524d9a6495ebda6e56f55d2bdf3f02abea09db1fea42a9f0bc8"
    ],
+   "description": "Bubble Bus take on Centipede: a small droid near the bottom of a field of barriers shoots upward at a segmented creature that winds down the screen, losing a segment with each hit. Barriers take several shots to clear.",
    "sourceGroups": [
     "ghostware:Exterminator (Bubble Bus) (Europe).T64"
    ],
@@ -202317,6 +202537,7 @@
    "contentIds": [
     "sha256-disk-v1:763928c9b90a7d1bd431b9f8b7c7f44f7a9b11a5a41dba23be8dba765ff69c35"
    ],
+   "description": "SSI strategy game of rival lords on a 6x6 field. Over 21 turns each player builds new castles or reinforces existing ones; a stronger castle captures a weaker neighbour, equal strengths lead to a siege, and whoever holds more territory at the end wins.",
    "diskMachine": {
     "sha256-disk-v1:763928c9b90a7d1bd431b9f8b7c7f44f7a9b11a5a41dba23be8dba765ff69c35": {
      "model": "c64ntsc"
@@ -202381,6 +202602,7 @@
    "contentIds": [
     "sha256-disk-v1:ebe5572c223fe8a51367b87dc17e2916e3a1d6e01190b9ec8bc6132d7c5e9f8c"
    ],
+   "description": "Choplifter-style rescue game over eight horizontally scrolling levels. Find a set number of stranded men within the time limit, hover low to winch each one aboard, and shoot or dodge attackers, with smart bombs to clear the screen.",
    "sourceGroups": [
     "ghostware:Gun Runner (Alpha Omega Software) (Europe).D64"
    ],
@@ -202399,6 +202621,7 @@
    "contentIds": [
     "sha256-tape-v1:fe4979749801a22e5c2e6c8ca426c59e3b1877b183abe4db002468992c0fe4dd"
    ],
+   "description": "ShareData's Mastermind: crack a secret colour code by trial and deduction, using the clues returned after every guess to narrow down the answer.",
    "diskMachine": {
     "sha256-tape-v1:fe4979749801a22e5c2e6c8ca426c59e3b1877b183abe4db002468992c0fe4dd": {
      "model": "c64ntsc"
@@ -202440,6 +202663,7 @@
    "contentIds": [
     "sha256-tape-v1:19a00c43304f8301c6a39312edcc6663ff983c1135ee39c8831d64b9f20d862f"
    ],
+   "description": "Data East's arcade shooter: an exiled pilot is sent on a suicide mission. The ship rotates and the play area scrolls in every direction, with smart bombs on board and weapon tokens dropped by destroyed enemies.",
    "diskMachine": {
     "sha256-tape-v1:19a00c43304f8301c6a39312edcc6663ff983c1135ee39c8831d64b9f20d862f": {
      "model": "c64ntsc"
@@ -202463,6 +202687,7 @@
    "contentIds": [
     "sha256-tape-v1:0000ead2f38d1ce912ab25d05744386f45bd4a36a00c074418c2b15d57f5adff"
    ],
+   "description": "Konami's arcade shooter: convicts have broken out and taken the warden hostage. A cop pushes through streets, a park and a bridge to the prison, freeing hostages to gain weapons such as a tear gas gun, but loses them if a hostage is shot.",
    "diskMachine": {
     "sha256-tape-v1:0000ead2f38d1ce912ab25d05744386f45bd4a36a00c074418c2b15d57f5adff": {
      "model": "c64ntsc"
@@ -202477,6 +202702,7 @@
    "contentIds": [
     "sha256-tape-v1:19763f21a8cd06987d7d6de17a1811bb34f84715133a9f29192adc9c587e3278"
    ],
+   "description": "Comic text adventure that opens with you being run over by a pink panther in a pink car. God then sends you after his lost golden eggcup, and both score and turn count track your progress.",
    "sourceGroups": [
     "ghostware:Quest for the Golden Eggcup, The (Europe).T64"
    ],
@@ -202486,6 +202712,7 @@
    "contentIds": [
     "sha256-disk-v1:c14c5fe0c0ee110cf246427893d7a13f69aea071624b3c0bf41fc9c128c8dcc6"
    ],
+   "description": "Conversion of Sega's jet combat arcade game: fly an F-14 at speed from behind the plane, shooting down enemy fighters with cannon and a limited stock of homing missiles while dodging incoming fire.",
    "diskMachine": {
     "sha256-disk-v1:c14c5fe0c0ee110cf246427893d7a13f69aea071624b3c0bf41fc9c128c8dcc6": {
      "model": "c64ntsc"
@@ -202518,6 +202745,7 @@
    "contentIds": [
     "sha256-disk-v1:c3abe214a902f54b9f74cfe3c9af381289e5df3ce69fc929f357c24a56881422"
    ],
+   "description": "A knight on a flying horse battles dragons across six stages, first jousting dragon eggs and the hatchlings that emerge, then flying through scrolling catacombs past spiders.",
    "diskMachine": {
     "sha256-disk-v1:c3abe214a902f54b9f74cfe3c9af381289e5df3ce69fc929f357c24a56881422": {
      "model": "c64ntsc"
@@ -202532,6 +202760,7 @@
    "contentIds": [
     "sha256-tape-v1:2fccc5781a0ff01637b198c7e09a528e9875ae17d57d74589f0ea0e8a97ee930"
    ],
+   "description": "Puzzle game from Genias: slide the tiles of a maze, 15-puzzle style, to open a route for a rolling ball, collecting cans and avoiding magnets, holes and stop signs before the bonus runs out. Two players can cooperate.",
    "sourceGroups": [
     "ghostware:Tilt (Genias + LinEL) (Europe).T64"
    ],
@@ -202569,6 +202798,7 @@
    "contentIds": [
     "sha256-disk-v1:df5921425241ea8098c9d431a0f066a39a8daa276791fdd383db93ddb0b7aaf2"
    ],
+   "description": "MicroProse's first-person dogfighting game. Fly an F6F Hellcat through fourteen Pacific War scenarios, from Pearl Harbor and Midway to Leyte Gulf and Okinawa, against Japanese fighters and bombers by day and night.",
    "diskMachine": {
     "sha256-disk-v1:df5921425241ea8098c9d431a0f066a39a8daa276791fdd383db93ddb0b7aaf2": {
      "model": "c64ntsc"
@@ -202601,6 +202831,7 @@
    "contentIds": [
     "sha256-disk-v1:d7c57122fc659aa882785f73dbd6d6008504abdc91c4cd8bd8664115e71c2752"
    ],
+   "description": "Electronic Arts' unusual take on Dots and Boxes. Up to four worms crawl over a grid of diagonal dots, leaving coloured trails to claim territory; each worm can be steered, trained to repeat a pattern, or left to the computer.",
    "diskMachine": {
     "sha256-disk-v1:d7c57122fc659aa882785f73dbd6d6008504abdc91c4cd8bd8664115e71c2752": {
      "model": "c64ntsc"
@@ -202633,6 +202864,7 @@
    "contentIds": [
     "sha256-disk-v1:056727b9258609569d4672b56686934def1984a446e5ced0de72bf69862b3927"
    ],
+   "description": "Comic Viking games: pick one of four barbarians and compete in violent events such as beer drinking, cat throwing, tug of war, rock rolling and tower jumping.",
    "sourceGroups": [
     "collection:Blood and Guts.zip"
    ],
@@ -202642,6 +202874,7 @@
    "contentIds": [
     "sha256-tape-v1:f510ed7712a64cc661baf075ed1b653cdc6045b893af4fe7b99ae63a3aff1f56"
    ],
+   "description": "Parker Brothers' James Bond game. Drive a multi-purpose vehicle over land and sea, jumping hazards and firing at enemies through scrolling missions loosely based on four Bond films, from Diamonds Are Forever to For Your Eyes Only.",
    "diskMachine": {
     "sha256-tape-v1:f510ed7712a64cc661baf075ed1b653cdc6045b893af4fe7b99ae63a3aff1f56": {
      "model": "c64ntsc"
@@ -202656,6 +202889,7 @@
    "contentIds": [
     "sha256-tape-v1:5f04925a9eb4c436d13cd25b0ae29e1f856fc057b5cf43182c66303328251691"
    ],
+   "description": "Ocean shooter starring a flying professor caught between two parallel universes. Return the objects swapped between the mirror worlds to their proper places while shooting aliens, ending with a large boss creature.",
    "sourceGroups": [
     "ghostware:Double Take (Europe).T64"
    ],
@@ -202748,6 +202982,7 @@
    "contentIds": [
     "sha256-tape-v1:69f95e1dc7d3651f2334c6382c933174d9878127936a8b7e9ebeec69f7548581"
    ],
+   "description": "Computer version of the Monopoly board game: roll dice around the board, buy streets and utilities, build houses and hotels, and collect rent until rivals go bankrupt.",
    "sourceGroups": [
     "ghostware:Monopoly (Europe).T64"
    ],
@@ -202757,6 +202992,7 @@
    "contentIds": [
     "sha256-tape-v1:58d12716ce8743be34d93429e6c89b9409a260026adb1d1b65a0092c0b168297"
    ],
+   "description": "Namco's Pac-Man sequel: eat keys to unlock doors around the maze and devour the food behind them while avoiding the ghosts. Super pellets make Pac-Man grow huge and immune to them for a while.",
    "sourceGroups": [
     "ghostware:Super Pac-Man (Europe).T64"
    ],
@@ -202796,6 +203032,7 @@
    "contentIds": [
     "sha256-tape-v1:0d7ddbca0e489617ed331c5d87432f2848d26dbb0d51b9dd315abe407e9cddcb"
    ],
+   "description": "Single-screen shooter where your ship can travel around all four edges of the screen, firing inward at swarms of abstract shapes circling the middle. There are 24 levels before it loops.",
    "diskMachine": {
     "sha256-tape-v1:0d7ddbca0e489617ed331c5d87432f2848d26dbb0d51b9dd315abe407e9cddcb": {
      "model": "c64ntsc"
@@ -202810,6 +203047,7 @@
    "contentIds": [
     "sha256-disk-v1:53457a30608d3ebcf136bc974f664b4d7a09ac4f4a7142a286f338b255bc84f6"
    ],
+   "description": "Activision cycling game for up to eight players taking turns to ride stages of the Tour de France against the clock, with practice and competition modes covering the whole race, selected stages or a single stage.",
    "diskMachine": {
     "sha256-disk-v1:53457a30608d3ebcf136bc974f664b4d7a09ac4f4a7142a286f338b255bc84f6": {
      "model": "c64ntsc"
@@ -202824,6 +203062,7 @@
    "contentIds": [
     "sha256-tape-v1:1f30faca0186a951bfdec6a4486d1b6927501231500398ab1c298aa936002566"
    ],
+   "description": "The first Magic Knight game. Sent by a king to find a gift for his daughter, the knight explores the castle of Spriteland and its scrolling mazes, combining items and trading them for more valuable ones.",
    "sourceGroups": [
     "ghostware:Finders Keepers (Europe).T64"
    ],
@@ -202842,6 +203081,7 @@
    "contentIds": [
     "sha256-prg-v1:04cdce49a3529190bfbb77f373ba46c565e67adae6b3b28bcb0c81398907e91b"
    ],
+   "description": "Ocean shoot-'em-up with multi-directional scrolling over a layered landscape. Hunt down scientists, sedate them and deliver them to the master computer to unlock its code, buying better weapons and shields along the way.",
    "sourceGroups": [
     "collection:Parallax.zip"
    ],
@@ -202851,6 +203091,7 @@
    "contentIds": [
     "sha256-disk-v1:90dfca6df11cd64169d558b05b51e7e64eb6439c4b9b5775e0862f02dad35f7d"
    ],
+   "description": "Tynesoft circus events: train tigers, swing through trapeze stunts, walk the tightrope with handstands and flips, and ride a horse doing tricks, either separately or in an international competition.",
    "sourceGroups": [
     "ghostware:Circus Games (Tynesoft) (Europe).D64"
    ],
@@ -202860,6 +203101,7 @@
    "contentIds": [
     "sha256-tape-v1:ae29ab09987b9d2abdabae608c03ad5ed7ae33d73e70e8178dcdac7d5312988f"
    ],
+   "description": "Arcade adventure in which you search seven levels of the Ice Queen's palace of hexagonal rooms for the pieces of your dead father's crown, using objects to solve puzzles, to end her eternal darkness.",
    "sourceGroups": [
     "ghostware:Ice Palace (Creative Sparks) (Europe).T64"
    ],
@@ -202869,6 +203111,7 @@
    "contentIds": [
     "sha256-tape-v1:6c14a7840c779928adb9bc5b694778924f97f855ed08240de2fa4d2f47405f3e"
    ],
+   "description": "Coleco's game of the 1983 film WarGames. Defend six regions of the United States from missiles, bombers and submarines by assigning missiles, planes, subs and occasional satellites, each with its own range and speed.",
    "diskMachine": {
     "sha256-tape-v1:6c14a7840c779928adb9bc5b694778924f97f855ed08240de2fa4d2f47405f3e": {
      "model": "c64ntsc"
@@ -202919,6 +203162,7 @@
    "contentIds": [
     "sha256-disk-v1:4414bd93f36b147a6501794436b0861ac344d75cd562930d7ae1ee0b83b408b0"
    ],
+   "description": "Learning Company educational game that teaches children aged about 8 to 12 to plot points on a grid through geometry problems presented with playful graphics.",
    "diskMachine": {
     "sha256-disk-v1:4414bd93f36b147a6501794436b0861ac344d75cd562930d7ae1ee0b83b408b0": {
      "model": "c64ntsc"
@@ -202974,6 +203218,7 @@
    "contentIds": [
     "sha256-tape-v1:3e302b9c3cd8c5ee75042061b61fa0b7a56fdb54830f8eb679d3e4b09421adff"
    ],
+   "description": "Geoff Crammond's expanded Formula 3 simulation. Besides Brands Hatch and Silverstone it adds four more tracks, among them Donington Park and the Nurburgring, plus computer-driven rivals, adjustable wings and an assisted mode for digital joysticks.",
    "sourceGroups": [
     "ghostware:Revs+ (Europe).T64"
    ],
@@ -202983,6 +203228,7 @@
    "contentIds": [
     "sha256-tape-v1:d7eb5697260965e106d3a28a3cd60ccbc8bf3d9cba08add96a12c9b7b6a16e93"
    ],
+   "description": "Centipede-style shooter: a craft at the foot of the screen fires up at a centipede snaking down through a field of mushrooms, splitting it in two with every hit until it is wiped out.",
    "diskMachine": {
     "sha256-tape-v1:d7eb5697260965e106d3a28a3cd60ccbc8bf3d9cba08add96a12c9b7b6a16e93": {
      "model": "c64ntsc"
@@ -202997,6 +203243,7 @@
    "contentIds": [
     "sha256-disk-v1:c089582882c1f1cc75155afe5ac2aa6f63b117d36a71d8de4a03ba528feff1d5"
    ],
+   "description": "Origin's adaptation of the Steve Jackson Games tabletop wargame. On a hex map, one side commands infantry, tanks and howitzers against a single giant cybernetic supertank, the Ogre, in turn-based play.",
    "diskMachine": {
     "sha256-disk-v1:c089582882c1f1cc75155afe5ac2aa6f63b117d36a71d8de4a03ba528feff1d5": {
      "model": "c64ntsc"
@@ -203011,6 +203258,7 @@
    "contentIds": [
     "sha256-disk-v1:ec3bd5286de70da3aa0be3a0788ceb2cf6041e318c10fc58473771a06162da1f"
    ],
+   "description": "Konami's shooter, known in Europe as Salamander. The planet-eating alien Zelos threatens your world; fly through stages that alternate between horizontal and vertical scrolling, powering up your ship and beating a guardian at the end of each.",
    "diskMachine": {
     "sha256-disk-v1:ec3bd5286de70da3aa0be3a0788ceb2cf6041e318c10fc58473771a06162da1f": {
      "model": "c64ntsc"
@@ -203025,6 +203273,7 @@
    "contentIds": [
     "sha256-tape-v1:0e1b0bacd38311d37451ddaf523ef92a3006add1a7ce247b51eff782614ac9f2"
    ],
+   "description": "Leisure Genius version of Mastermind, the code-breaking game in which you work out a concealed sequence of colours from the scoring clues given for each attempt.",
    "sourceGroups": [
     "ghostware:Mastermind (Leisure Genius) (Europe).T64"
    ],
@@ -203034,6 +203283,7 @@
    "contentIds": [
     "sha256-tape-v1:9c012d28fa258184d765df087d9796501be246dfc252706a081c65ffda3b2a45"
    ],
+   "description": "Hewson maze puzzler in which Flippo walks over tiles to turn every one to the required colour, coping with tiles that flip back or only change from one direction, plus enemies, holes and power-ups.",
    "sourceGroups": [
     "ghostware:Mazemania (Europe).T64"
    ],
@@ -203068,6 +203318,7 @@
     "sha256-disk-v1:84428dffdca6e21201e341ce9de98ddea2b1c3a1f51fa358d782df43839ce07d",
     "sha256-disk-v1:b01e66e11140740b88a5029f46c04c56d009661db504c69712e1de697ffb9e57"
    ],
+   "description": "Version of the TV game show. Two families try to guess the most popular survey answers to questions put to 100 people, scoring points for each matching answer over several rounds.",
    "diskMachine": {
     "sha256-disk-v1:84428dffdca6e21201e341ce9de98ddea2b1c3a1f51fa358d782df43839ce07d": {
      "model": "c64ntsc"
@@ -203116,6 +203367,7 @@
    "contentIds": [
     "sha256-disk-v1:af9022341aa245d1e9ed3fd07c6bb8c2b465e490171ee6e714ad8fc7a719c603"
    ],
+   "description": "Epyx flight and strategy game set in World War II. Crew a torpedo bomber, switching between pilot, navigator, engineer and gunner stations, and search the sea for the battleship Bismarck to sink it.",
    "diskMachine": {
     "sha256-disk-v1:af9022341aa245d1e9ed3fd07c6bb8c2b465e490171ee6e714ad8fc7a719c603": {
      "model": "c64ntsc"
@@ -203157,6 +203409,7 @@
    "contentIds": [
     "sha256-tape-v1:6bb645874a6b9621eb7eabfbfa51a6ea2307b595304f1a6da36e90177793f113"
    ],
+   "description": "Vertically scrolling helicopter shooter: fly a Soviet Mi-28 Havoc or an AH-64 Apache through seven war zones, each ending in a huge enemy gunship. Shooting friendly aircraft turns them hostile.",
    "sourceGroups": [
     "ghostware:Havoc (Players Premier) (Europe).T64"
    ],
@@ -203175,6 +203428,7 @@
    "contentIds": [
     "sha256-disk-v1:8890d1942329e38d8abcf1e4460a76266918f7f697762771208560161cff64a0"
    ],
+   "description": "Platform game about Tommy the tomcat, who used a wizard's magic book and crystal ball to leave the Dream Islands. The ball shattered, so he must gather its pieces and magic potions across several worlds to get home.",
    "sourceGroups": [
     "ghostware:It's Magic (Europe) (Unl).D64"
    ],
@@ -203184,6 +203438,7 @@
    "contentIds": [
     "sha256-tape-v1:7c0d5ad34105cd4d6070a17b057f14f6e1725e2c6d14647bf713f061bd2870d1"
    ],
+   "description": "Interceptor Micros underwater shooter. Serving with the Aquanaut Patrol, you steer an armed craft through the Caves of Shallic, scrolling in all directions as you destroy enemy vessels and weapons and slip past rockets and gates that switch on and off.",
    "sourceGroups": [
     "ghostware:Aquanaut (Interceptor Software) (Europe).T64"
    ],
@@ -203207,6 +203462,7 @@
    "contentIds": [
     "sha256-disk-v1:0131272eb5d5ef898dd3e82388869e0217211758f039b54cc632f5091b5e4ba0"
    ],
+   "description": "SSG wargame recreating six late Civil War battles, from the Wilderness and Cold Harbor to Atlanta and Nashville. Turn-based hex play stresses limited command and fog of war, and an editor allows new scenarios.",
    "sourceGroups": [
     "ghostware:Decisive Battles of the American Civil War Vol.3 (Australia).D64"
    ],
@@ -203253,6 +203509,7 @@
    "contentIds": [
     "sha256-tape-v1:41ee77e12cb270a45b840ce3032dc7c7cd397938d0922b45f307a0a326b468f9"
    ],
+   "description": "Martech arcade adventure. Jane has been kidnapped by Usanga, chief of the Wamabo, and Tarzan must roam the jungle fighting enemies to recover the seven gemstones stolen from the tribe's shrine.",
    "sourceGroups": [
     "collection:Tarzan.zip"
    ],
@@ -203271,6 +203528,7 @@
    "contentIds": [
     "sha256-tape-v1:d636807dcde77d2659d8709b193a2a333e8d87479ae680ac53504f227879d631"
    ],
+   "description": "Wicked Software's computer draughts: pieces move diagonally across the 8x8 board, captures are made by jumping, and a piece reaching the far row is crowned a king.",
    "sourceGroups": [
     "ghostware:Draughts (Wicked Software) (Europe).T64"
    ],
@@ -203307,6 +203565,7 @@
    "contentIds": [
     "sha256-disk-v1:435c0926a3a4278f30467ade5b2a9365bef2e898dce08d347c4309c5df8a94d3"
    ],
+   "description": "Gravity-based exploration game. Solar Jetman pilots a jetpod down from the mothership on twelve worlds, towing parts of the lost golden warpship and other useful items back against strong gravitational pull.",
    "diskMachine": {
     "sha256-disk-v1:435c0926a3a4278f30467ade5b2a9365bef2e898dce08d347c4309c5df8a94d3": {
      "model": "c64ntsc"
@@ -203366,6 +203625,7 @@
    "contentIds": [
     "sha256-disk-v1:5cd9eef188d49178831e9b3337f1c0cd9c14e233aa21b8f435060a2119257e6a"
    ],
+   "description": "First-person dogfighting in a Grumman F6F Hellcat across fourteen Pacific War scenarios, from Pearl Harbor and Midway to Okinawa, against bombers, scouts and agile Zeros. Five kills earn ace status, and the cockpit offers a rear-view mirror for spotting pursuers.",
    "diskMachine": {
     "sha256-disk-v1:5cd9eef188d49178831e9b3337f1c0cd9c14e233aa21b8f435060a2119257e6a": {
      "model": "c64ntsc"
@@ -203417,6 +203677,7 @@
    "contentIds": [
     "sha256-disk-v1:e13e069cd5152118ab4f7a5b6d60e8b075dbb23811f610dcb517fa6fae1cb405"
    ],
+   "description": "Infocom's sequel to Enchanter: Belboz, head of the Circle of Enchanters, has fallen under an evil influence and vanished, and the newly promoted apprentice must find him. A text adventure built on spellcasting, now with magic potions to drink as part of the puzzles.",
    "diskMachine": {
     "sha256-disk-v1:e13e069cd5152118ab4f7a5b6d60e8b075dbb23811f610dcb517fa6fae1cb405": {
      "model": "c64ntsc"
@@ -203440,6 +203701,7 @@
    "contentIds": [
     "sha256-disk-v1:47fdff8ca0b997f11286fc03b8556bfec4007b15336044f7ac34a66127ccd0c2"
    ],
+   "description": "Movie tie-in where terrorists have seized a high-rise to steal $600 million and John McClane must free his trapped wife. Unlike the PC original this C64 version is a side-scroller; explore the tower for useful gear and fight gunmen, who chase you off-screen.",
    "diskMachine": {
     "sha256-disk-v1:47fdff8ca0b997f11286fc03b8556bfec4007b15336044f7ac34a66127ccd0c2": {
      "model": "c64ntsc"
@@ -203481,6 +203743,7 @@
    "contentIds": [
     "sha256-tape-v1:8908486f6755b403dd120cfe54f2f082c3c25d5a2da90e2dff245151703f8fcb"
    ],
+   "description": "Expanded edition of Geoff Crammond's Formula 3 simulator Revs. Four extra tracks, Donington Park, Oulton Park, Snetterton and the Nurburgring, join Brands Hatch and Silverstone, front and rear wings can be tuned per circuit, and an assisted mode helps players without an analog joystick.",
    "sourceGroups": [
     "collection:Revs+.zip"
    ],
@@ -203504,6 +203767,7 @@
    "contentIds": [
     "sha256-disk-v1:dabb6424cd5803e5e68b4434c6a98d16d3db103bbaeda4d3d838ab4e080266f8"
    ],
+   "description": "A Pac-Man-like maze chase in which you drive a garbage truck, picking up every scrap of trash and hauling it to the city dump while dodging bird-like pests. Six trash-can power-ups per maze let you turn the tables, and the maze wraps around on all sides.",
    "diskMachine": {
     "sha256-disk-v1:dabb6424cd5803e5e68b4434c6a98d16d3db103bbaeda4d3d838ab4e080266f8": {
      "model": "c64ntsc"
@@ -203536,6 +203800,7 @@
    "contentIds": [
     "sha256-disk-v1:7802d6b0f7a23ef74e8e1ad234851501bb97dbc6867715914f0ca46faf2eb834"
    ],
+   "description": "Single-screen maze in a lost valley: find the hidden axe and use it to smash the blue door on the far side while a dinosaur hunts you. Carrying the axe slows you down, so you may need to drop it when the beast closes in; higher skill levels add more dinosaurs.",
    "sourceGroups": [
     "ghostware:Escape (Argus Press Software + Quicksilva) (Europe).D64"
    ],
@@ -203554,6 +203819,7 @@
    "contentIds": [
     "sha256-tape-v1:27eb271289492c56e0419fa589766286f6d24156aeaa3cfba257143a19e8e0cc"
    ],
+   "description": "The long-lost space station Discovery has turned up with its defenses switched on. Fly over it in a top-down shooter, and enter its twelve hatches to win mini-games, variants of Breakout, Centipede, Amidar, solitaire and a sliding puzzle, that build the circuit board to shut the defenses down.",
    "sourceGroups": [
     "ghostware:Discovery (Europe).T64"
    ],
@@ -203609,6 +203875,7 @@
    "contentIds": [
     "sha256-tape-v1:2337383a19370677d128065cf0e2f1f27d41799d66cb88153a47150e810837e6"
    ],
+   "description": "Single-screen shooter spanning 256 waves of bomb-dropping aliens. Your weapon overheats if fired too long and fuel drains as you move, so you grab fireballs during asteroid storms and dock with the mothership for refuelling; up to four players take turns.",
    "sourceGroups": [
     "ghostware:Ad Infinitum (Europe).T64"
    ],
@@ -203632,6 +203899,7 @@
    "contentIds": [
     "sha256-tape-v1:16749911341af663089bbc603c8d440b9e31bfc626ac3b110d303405bca1e1e8"
    ],
+   "description": "Scott Adams text adventure set in an abandoned Old West mining town. Hunt down thirteen treasures for the dry-goods store by exploring the saloon, jail, mine and Boot Hill, cracking a safe, making gunpowder and heeding ghostly voices, all through two-word commands.",
    "diskMachine": {
     "sha256-tape-v1:16749911341af663089bbc603c8d440b9e31bfc626ac3b110d303405bca1e1e8": {
      "model": "c64ntsc"
@@ -203702,6 +203970,7 @@
    "contentIds": [
     "sha256-disk-v1:f538c1c93f8dd1a622a9bb1b441a15d7698783cd846c3d195c692649db00d40d"
    ],
+   "description": "Typing tutor starring characters from Brant Parker and Johnny Hart's Wizard of Id. As the Wiz you type words fast enough to shrink the Evil Spirit in your vat before it turns into a dragon, then keep pace with Bung the Jester as he hops across a paragraph on a pogo stick.",
    "diskMachine": {
     "sha256-disk-v1:f538c1c93f8dd1a622a9bb1b441a15d7698783cd846c3d195c692649db00d40d": {
      "model": "c64ntsc"
@@ -203725,6 +203994,7 @@
    "contentIds": [
     "sha256-disk-v1:b502acc21b6bf5701be64987e2e6b7df46949c50235d9bf2d670c08aa3f8f5ec"
    ],
+   "description": "A rogue computer has cut Earth's power, sending nuclear-powered Flexible Robot Caterpillars on the rampage. From an overhead scrolling view you pilot a tank through three levels, blasting off each caterpillar's tail to recover the fuel rod in its head and feed all eight into the reactor.",
    "sourceGroups": [
     "ghostware:Lifeforce (CRL) (Europe).D64"
    ],
@@ -203745,6 +204015,7 @@
     "sha256-disk-v1:40a3ae0e5218fb5b596b422b3f88afaf3e2aaeae3d4c328fb7f0b6838d0e8497",
     "sha256-disk-v1:9e9cf778da5a6947d6145bcbe0628c8936f7aaee6a5d868b7356ff7a2ea4738b"
    ],
+   "description": "SSI role-playing game set on the island of Ymros, where the sorceress Siriadne has stolen the crystal that keeps the land in eternal spring. Build a party from five races, including elves, dwarves and trolls, as warriors or wizards, shop in menu-driven towns and fight turn-based dungeon battles.",
    "diskMachine": {
     "sha256-disk-v1:3ad26cdb1e8093604eb0dde105b406516ad36dd6030b00b0ba0de929b9056033": {
      "model": "c64ntsc"
@@ -203775,6 +204046,7 @@
    "contentIds": [
     "sha256-tape-v1:3d4eca20441f69541424080c73d1baf19e9d00fa16060a996c8c10ba02a5ec57"
    ],
+   "description": "Computer version of the board game: drop counters into a seven-column upright grid, trying to line up four of your colour in any direction. Play another person or the computer at one of four skill levels.",
    "sourceGroups": [
     "ghostware:Connect 4 (Europe).T64"
    ],
@@ -203816,6 +204088,7 @@
    "contentIds": [
     "sha256-tape-v1:7da5d14ffd7dbfc604fdc30f74274a91c1dcf0ad4efd917e27167183b7ae54ad"
    ],
+   "description": "Steer a trampoline along the ground and bounce higher with the fire button to pick fruit from the treetops. A vulture perches in the branches and carries you off if you touch it, and missing the trampoline also costs a life.",
    "sourceGroups": [
     "ghostware:Fruity (Europe).T64"
    ],
@@ -203854,6 +204127,7 @@
    "contentIds": [
     "sha256-tape-v1:20ee7b2fe990a7a09411eb3e8fdc7725633cbb1fe7f8cbda9c62f1cf7b991d74"
    ],
+   "description": "Uncle Silas sleepwalks through his ramshackle house, full of cables, tacks and dynamite. Find him in the flick-screen rooms and steer him back to bed before the clock runs out, taking the hazards yourself so he never wakes.",
    "sourceGroups": [
     "ghostware:Sleepwalker (Zeppelin Games) (Europe).T64"
    ],
@@ -203863,6 +204137,7 @@
    "contentIds": [
     "sha256-disk-v1:0ce86fd1beadc1ba6ca8f929a7ef9b9aa2144b1d275b443192bcf81af631e788"
    ],
+   "description": "Vertically scrolling arcade shooter in which a US pilot flies the Sonic Boom jet through six levels of planes, tanks, trains and gun turrets. Each stage ends in a timed boss fight, and destroyed waves drop weapon upgrades.",
    "diskMachine": {
     "sha256-disk-v1:0ce86fd1beadc1ba6ca8f929a7ef9b9aa2144b1d275b443192bcf81af631e788": {
      "model": "c64ntsc"
@@ -203877,6 +204152,7 @@
    "contentIds": [
     "sha256-tape-v1:21776f60b3762790a8421e84ef31179a864bbdf5e384b9db61f7276a03295a2c"
    ],
+   "description": "Synapse sequel to Dimension X: fly a space jet in first person through a 10-by-5 grid of fifty sectors, wiping out Gorganitor squadrons. Radar tracks enemies outside your view while energy, time and shields steadily run down.",
    "diskMachine": {
     "sha256-tape-v1:21776f60b3762790a8421e84ef31179a864bbdf5e384b9db61f7276a03295a2c": {
      "model": "c64ntsc"
@@ -203891,6 +204167,7 @@
    "contentIds": [
     "sha256-tape-v1:b9813f4f67511072ac73d04313403997cc44fd32943e7600313f008e61c775fa"
    ],
+   "description": "Isometric adventure in which Isvar is trapped inside the mysterious castle of Avars and must find a way out. Objects have their own weight and physical behaviour, limiting what can be carried together, and trolls drain energy that food and wine restore.",
    "sourceGroups": [
     "ghostware:Fairlight - A Prelude (Europe).T64"
    ],
@@ -203909,6 +204186,7 @@
    "contentIds": [
     "sha256-tape-v1:74051f1b2d50d9bb20632cb73f4e7a83c51116fc64f749abbafd7871c182d4de"
    ],
+   "description": "Breakout without a paddle: you steer an automatically bouncing ball left and right to clear blocks. Coloured blocks break only when the ball matches their colour, skulls and roaming enemies kill on contact, and there are 40 levels, two-player play and a level editor.",
    "sourceGroups": [
     "ghostware:Gotcha! (Europe).T64"
    ],
@@ -203950,6 +204228,7 @@
    "contentIds": [
     "sha256-tape-v1:be1ee36676ce31a340d82aff1efd071014dfbf4c89c803cd2b86910d8a992a06"
    ],
+   "description": "Konami's top-down jeep shooter for one or two players. Rescue prisoners of war from enemy camps and drive them to a landing zone for airlift, using a forward-firing machine gun and grenades that can be upgraded to rockets.",
    "sourceGroups": [
     "ghostware:Jackal (Europe).T64"
    ],
@@ -203982,6 +204261,7 @@
    "contentIds": [
     "sha256-tape-v1:d9696c6b12614ae1ebfa1fa18d815ecc502202268d2cdf1f1db9db0cb5459faa"
    ],
+   "description": "An undercover cop fights through the levels of a bank robbers' warehouse to reach and destroy its central power electrode. His machine gun overheats with heavy use, and some levels end with a plasma computer whose rotating vent must be shot.",
    "sourceGroups": [
     "ghostware:Rapid Fire (Europe).T64"
    ],
@@ -204018,6 +204298,7 @@
    "contentIds": [
     "sha256-tape-v1:2744facbc03b1a9181208a38b518f6fd6a8357019fb51020cc144b73083267c8"
    ],
+   "description": "Vertically scrolling commando shooter for one or two players, fighting on foot through jungle, rivers and ruins. Grenades, rocket launchers and machine guns can be picked up along the way.",
    "diskMachine": {
     "sha256-tape-v1:2744facbc03b1a9181208a38b518f6fd6a8357019fb51020cc144b73083267c8": {
      "model": "c64ntsc"
@@ -204047,6 +204328,7 @@
     "sha256-disk-v1:05514ab7484d8cbbaec34f4b8a01d13f10d946110c7f279f86831a0a3575371e",
     "sha256-disk-v1:744e5ab6ea881eb6324c96bf09e93b7d4e912a949327e28677cd8fe8d48df0a8"
    ],
+   "description": "System 3 action game in the Last Ninja mould: a former soldier, framed by police, must rescue his scientist brother and niece from terrorists. Gather evidence across isometric flick-screen stages, then drive an armed car between them past traffic, bombing helicopters and police checks.",
    "diskSets": {
     "sha256-disk-v1:05514ab7484d8cbbaec34f4b8a01d13f10d946110c7f279f86831a0a3575371e": {
      "setDisks": [
@@ -204064,6 +204346,7 @@
    "contentIds": [
     "sha256-tape-v1:f1a3843ca7f79a4a2abf1a7c016434ea6e249ff4d9b3d96fc41ece06e50d3649"
    ],
+   "description": "Second Scott Adams adventure: a secret passage in a London flat leads to Pirate's Isle, where you must build a seaworthy ship, win over a pirate and his parrot, and bring two of Long John Silver's treasures back home. Played with two-word commands.",
    "diskMachine": {
     "sha256-tape-v1:f1a3843ca7f79a4a2abf1a7c016434ea6e249ff4d9b3d96fc41ece06e50d3649": {
      "model": "c64ntsc"
@@ -204078,6 +204361,7 @@
    "contentIds": [
     "sha256-disk-v1:5b71453b0bea487f257dd6b40db23747da467bfa58a6de59a48ee2df29ca86d1"
    ],
+   "description": "Illustrated text adventure with music: as a mysterious Stranger from a world of flying men and thinking machines, free the four enchanted heroes of Karn and recover the realm's treasures. Characters cannot be talked with, but they can be given orders.",
    "sourceGroups": [
     "ghostware:Heroes of Karn, The (Europe).D64"
    ],
@@ -204087,6 +204371,7 @@
    "contentIds": [
     "sha256-tape-v1:03301dab809f3d25ef7a55e4424723fd7fb0e07d0b3f0daa0d5d72a78f907895"
    ],
+   "description": "Plain singles tennis under standard rules: move with the joystick, press fire to toss and serve, and hold the button while pushing a direction to aim and power each swing. A flashing line marks where to stand for the serve, and you can pick shirt colours and the computer's skill.",
    "diskMachine": {
     "sha256-tape-v1:03301dab809f3d25ef7a55e4424723fd7fb0e07d0b3f0daa0d5d72a78f907895": {
      "model": "c64ntsc"
@@ -204110,6 +204395,7 @@
    "contentIds": [
     "sha256-tape-v1:741851bc8e741299686d8fce5d2094a9163045585e00bcbe687e6e07f3a4078d"
    ],
+   "description": "SAS crosshair shooter at an embassy held by terrorists. People pass behind the windows, and you shoot only those wearing the colour you are told belongs to the gunmen, reloading after six shots; hits earn promotion, while hitting a hostage costs a rank.",
    "sourceGroups": [
     "ghostware:Who Dares Wins (Dk'Tronics Ltd.) (Europe).T64"
    ],
@@ -204119,6 +204405,7 @@
    "contentIds": [
     "sha256-disk-v1:8bd9e08798460541a2cbbe08118b9fe33bf20d2728fff8baee6f8bc4878b376e"
    ],
+   "description": "Oil business strategy for up to four companies, human or computer, buying and selling oilfields worldwide with goals from market leadership to total domination. Dirty tricks such as torching rival rigs are available, and short action scenes cover drilling, pipe-laying and firefighting.",
    "sourceGroups": [
     "ghostware:Black Gold (Europe).D64"
    ],
@@ -204128,6 +204415,7 @@
    "contentIds": [
     "sha256-tape-v1:8d6df68e561f469d5ba7863e06b3211ee421efa2aeca22251feff43d18772452"
    ],
+   "description": "Vertically scrolling shooter against space pirates who have founded eight colonies. Each level is flown twice: first to destroy the reactor at its end, then again in darkness to wreck as many buildings as possible, with marked structures giving bonus points or extra lives.",
    "sourceGroups": [
     "ghostware:Fire Track (Europe).T64"
    ],
@@ -204187,6 +204475,7 @@
    "contentIds": [
     "sha256-tape-v1:4491a6d1c3d70aa68ccff5a5d123ef3aa7b55e4b08c1194ba1bc0fd47dd34f57"
    ],
+   "description": "Mario and Luigi clear the sewers of crabs, turtles and fighter flies by bumping the platform beneath each creature to flip it, then kicking it away. Played alone or by two at once.",
    "sourceGroups": [
     "ghostware:Mario Bros. (Europe).T64"
    ],
@@ -204205,6 +204494,7 @@
    "contentIds": [
     "sha256-tape-v1:56286eb612dee86e2e842447e9995bd576577eb9dcab86203b1a1a3fc24965ae"
    ],
+   "description": "Top-down action soccer with a ten-team league. Besides the usual passing, shooting and tackling there is a curling cross, control switches to your goalkeeper once the opposition enters the box, and the pitch colour can be changed mid-match.",
    "sourceGroups": [
     "ghostware:Super Cup Football (Europe).T64"
    ],
@@ -204223,6 +204513,7 @@
    "contentIds": [
     "sha256-disk-v1:8b55ca8aeee1e62043f831c52f62b4e024e41ad90de20f8aaa1d1a619e43b703"
    ],
+   "description": "Text adventure set in a supposedly haunted mansion in Transylvania belonging to Graf Von Schwarzherzen. Carrying an amulet that changes colour near black magic, you hunt for a stone said to turn lead into gold, plus the notebook that explains how to use it.",
    "sourceGroups": [
     "ghostware:Magic Stone (Europe).D64"
    ],
@@ -204250,6 +204541,7 @@
    "contentIds": [
     "sha256-tape-v1:4913617e5fcd2b29f856f40e9c076816fa423c86626efbb2ba04f30c511a7131"
    ],
+   "description": "Synapse's conversion of Sega's isometric arcade shooter. Fly an attack shuttle through a walled fortress, open space and back, using its ground shadow and an altimeter to judge height when slipping through gaps and force fields; shoot fuel tanks to keep flying.",
    "diskMachine": {
     "sha256-tape-v1:4913617e5fcd2b29f856f40e9c076816fa423c86626efbb2ba04f30c511a7131": {
      "model": "c64ntsc"
@@ -204352,6 +204644,7 @@
    "contentIds": [
     "sha256-tape-v1:e8231d270dc5ffc90a5f166bc5b5362c5021b77cf0c0fd5606176bdb3d153cb5"
    ],
+   "description": "As Egor, Baron Frankenstein's assistant, you have thirty minutes before the great electrical storm to gather corpses and equipment for his experiment. Flick-screen platforming where touching creatures fills a fear meter, and losing a life drops whatever item you carry.",
    "sourceGroups": [
     "ghostware:Frankenstein (Zeppelin Games) (Europe).T64"
    ],
@@ -204407,6 +204700,7 @@
     "sha256-tape-v1:4a11d4c8d6c5a7a28cbf595472da5ac3902cfae930c9b0fe5fef7b8663ff40ac",
     "sha256-tape-v1:c5b7c736ee0b1e826a164a2a9223a29cd25d783eaab7cd6904ce33ffaa3541ad"
    ],
+   "description": "Question pack for Trivial Pursuit aimed at those who grew up after the Second World War, with 1960s and 70s nostalgia. New categories include Broadcasting, Nightly News, Publishing, Stage and Screen, Life and Times, and RPM.",
    "diskSets": {
     "sha256-tape-v1:4a11d4c8d6c5a7a28cbf595472da5ac3902cfae930c9b0fe5fef7b8663ff40ac": {
      "setDisks": [
@@ -204424,6 +204718,7 @@
    "contentIds": [
     "sha256-disk-v1:562cf965d2337862b36c0adf21e7beb792746d01ead45a7e1b20bbc1d91e0ef1"
    ],
+   "description": "Four-level arcade adventure following the film: armed with his whip and fists, Indy gathers a shield, his father's diary and the Cross of Coronado on the way to the Grail. Stages cover Colorado caves, a circus train, a Zeppelin and Castle Grunwald, each with several routes.",
    "sourceGroups": [
     "collection:Indiana Jones and the Last Crusade.zip"
    ],
@@ -204451,6 +204746,7 @@
    "contentIds": [
     "sha256-tape-v1:030257b41c80975e7a0aea71b3be18a3f39f16a358ff1323b92a2b0e2fce0456"
    ],
+   "description": "A rooster guards the henhouse so at least one egg survives to hatch. Peck away snakes, rats, raccoons and porcupines that climb ladders to the two rows of nests, eat feed to keep up energy, and visit the hen in the back room so she lays more eggs.",
    "diskMachine": {
     "sha256-tape-v1:030257b41c80975e7a0aea71b3be18a3f39f16a358ff1323b92a2b0e2fce0456": {
      "model": "c64ntsc"
@@ -204465,6 +204761,7 @@
    "contentIds": [
     "sha256-disk-v1:804898a249f85180b51be0ce5f06ca6909ce54dd4d73212be2ee4df227397c72"
    ],
+   "description": "Randy Glover's platform classic: defuse every bomb on 30 distinct screens of Jupiter Headquarters, climbing girders, ladders and ropes past robots, homing bullets and falling hazards. Collecting some bombs reshapes the level, and up to four players alternate turns.",
    "sourceGroups": [
     "collection:Jumpman.zip"
    ],
@@ -204528,6 +204825,7 @@
    "contentIds": [
     "sha256-tape-v1:317d0d47f55f9987e601eb0eb845e5865d2c09863c3692413bf35b7c1ed669eb"
    ],
+   "description": "Five ancient prison ships full of mutated convicts have reached orbit and the inmates are eating through the hulls. Switch between five transforming Supertronic craft to seal the holes and kill escapees, letting idle craft recharge in solar mode.",
    "sourceGroups": [
     "ghostware:Diamond (Europe).T64"
    ],
@@ -204547,6 +204845,7 @@
     "sha256-disk-v1:378f3582327d44a769c0cb6446a8b7fef32ea9d4bb8a93813d9f9d4e51b24888",
     "sha256-disk-v1:5ca2dab59223bb7c430e860fd2e65e4417248952a9277aec514004c88256a39e"
    ],
+   "description": "Infocom's adaptation of Douglas Adams's comedy, co-written with Steve Meretzky. Arthur Dent wakes with a hangover as his house, then the Earth, is demolished, and escapes with Ford Prefect; survival depends on careful observation, talking to people and consulting the Guide.",
    "diskMachine": {
     "sha256-disk-v1:378f3582327d44a769c0cb6446a8b7fef32ea9d4bb8a93813d9f9d4e51b24888": {
      "model": "c64ntsc"
@@ -204586,6 +204885,7 @@
    "contentIds": [
     "sha256-tape-v1:a18a1c369f5c4677490b5385f4b988b6340624ba9593f5c5f010b5ae9e0ef05a"
    ],
+   "description": "Geoff Crammond's Formula 3 simulator, an early racing game with realistic handling physics. Brands Hatch and Silverstone are reproduced in detail, and the driving foreshadows his later Formula One Grand Prix.",
    "sourceGroups": [
     "ghostware:Revs (Europe).T64"
    ],
@@ -204598,6 +204898,7 @@
     "sha256-disk-v1:4c150c18fd86f37fcf929a3ae1bfe7ebe979471932d0e2a7c884809746ebdd8c",
     "sha256-disk-v1:b0e5f94e596465d29158e834d00f35bbe2f1c89d3444cae094aa08e88b8736d0"
    ],
+   "description": "Windham Classics adaptation of Stevenson's novel, written in the second person and closely following the plot as Jim Hawkins. Other characters double as a hint system, answering questions about almost anything, and the parser handles pronouns and chained commands.",
    "diskMachine": {
     "sha256-disk-v1:20dfbb7ca5c87f8420593a9080ee6863541ad0b3adaf026a694d18dcca330f2f": {
      "model": "c64ntsc"
@@ -204642,6 +204943,7 @@
    "contentIds": [
     "sha256-tape-v1:20fafe8834867fc81f47b3cfb6b62f738eaf765b9d6a6e8a95304597ca1fa200"
    ],
+   "description": "Split-screen helicopter duel for one or two players set at an army flight school. Ferry supplies singly to your home pad, refuelling and rearming there, and shoot the rival chopper with a limited-ammo cannon; enough supplies become a bomb to drop on the enemy base.",
    "sourceGroups": [
     "ghostware:Protector (Mastertronic) (Europe).T64"
    ],
@@ -204651,6 +204953,7 @@
    "contentIds": [
     "sha256-tape-v1:c68801b28569422e6ca6a2b39c907809babe8617c50ed49be88ec9303e945a38"
    ],
+   "description": "Football management game built around the World Cup: pick one of 32 national sides, train a 20-man squad and set tactics and style of play. Matches are reported in text, with substitutions and tactical changes possible during play and at half-time.",
    "sourceGroups": [
     "ghostware:International Football (Europe).T64"
    ],
@@ -204660,6 +204963,7 @@
    "contentIds": [
     "sha256-tape-v1:fbe2d007f92241b5412704c4ef88d8e0f0125d4231aa508e4cd378a02548d9e0"
    ],
+   "description": "Four stages of climbing as Jack goes after the giant's treasure: up the beanstalk and a series of brick walls past worms, spiders and birds, then up the fireplace to the golden goose, and finally up the giant himself to the money bag on his table.",
    "sourceGroups": [
     "ghostware:Jack and the Beanstalk (Thor Computer Software) (Europe).T64"
    ],
@@ -204696,6 +205000,7 @@
    "contentIds": [
     "sha256-tape-v1:04870ddc8f953247e202dff399640bf3fdb57228f4e4cd19717807692d962e53"
    ],
+   "description": "Light-gun shooting gallery made for the Magnum Light Phaser: hone your aim at a target range, on the plains against bandit cut-outs and in a saloon shoot-out. Unused ammunition earns a bonus once each stage is done.",
    "sourceGroups": [
     "ghostware:Gunslinger (Virgin Mastertronic) (Europe).T64"
    ],
@@ -204705,6 +205010,7 @@
    "contentIds": [
     "sha256-disk-v1:1d4dfc9394457deea58e849888a7c78d792a665b8917e7e7b5895febbaf6ce1f"
    ],
+   "description": "Light-hearted American Civil War strategy based on the Belgian comic Les Tuniques Bleues. Move Union or Confederate armies across a map of the States, then fight real-time side-view battles with infantry, cavalry and cannon, plus fort raids and train robberies.",
    "sourceGroups": [
     "ghostware:North & South! (Europe).D64"
    ],
@@ -204714,6 +205020,7 @@
    "contentIds": [
     "sha256-tape-v1:a03545041186afcd1bf39567eca5799f1a1f3a97212e7d1e128dab3970b6a573"
    ],
+   "description": "Platformer based on the British children's TV cartoon: as Bangers you gather three kinds of fruit for your mum's pie, shooting or avoiding creatures and steering clear of dangerous flowers across several levels.",
    "sourceGroups": [
     "ghostware:Bangers & Mash (Europe).T64"
    ],
@@ -204741,6 +205048,7 @@
    "contentIds": [
     "sha256-tape-v1:45395867f99d94bb6d96204dbbedd5bcd0849f352055ea704d1ee34fe763259c"
    ],
+   "description": "Scott Adams's first adventure, here with pictures: roam an enchanted land of forests, swamps, caves and a volcano to find thirteen treasures and store them safely. Hazards include quicksand, bees and a dragon, and commands are one or two words.",
    "diskMachine": {
     "sha256-tape-v1:45395867f99d94bb6d96204dbbedd5bcd0849f352055ea704d1ee34fe763259c": {
      "model": "c64ntsc"
@@ -204755,6 +205063,7 @@
    "contentIds": [
     "sha256-disk-v1:d0aba98ad1814002395678b33300d74ab62c0b69eed551c2f586940ae1ca31b7"
    ],
+   "description": "Real-time space strategy in which the dictator of the Epsilon Galaxy fights alien empires for barren planets in buffer dimensions. Terraform worlds into farming, mining, energy or city planets, tax citizens, and build and equip armies and cruisers to invade.",
    "sourceGroups": [
     "ghostware:Overlord (Virgin Mastertronic) (Europe).D64"
    ],
@@ -204819,6 +205128,7 @@
    "contentIds": [
     "sha256-disk-v1:754c49693837bc4b37cf17a7657958109c710b17ccf65eea272eefafb9794b25"
    ],
+   "description": "Adaptation of the Stallone film with level designs unique to the C64. Tough cop Cobra fights through city, countryside and factory, starting with fists and picking up knives, grenades and guns, sparing civilians and escorting model Ingrid to the exit.",
    "sourceGroups": [
     "ghostware:Cobra (Europe).D64"
    ],
@@ -204878,6 +205188,7 @@
    "contentIds": [
     "sha256-disk-v1:72f48a813478d5d44f66d0c9d71e587f695dd19dc6e234f56a7d9aced3e1faef"
    ],
+   "description": "Go on a small 9x9 board against the computer or another person, with a short tutorial for newcomers. Difficulty is set through handicap stones placed before play begins.",
    "sourceGroups": [
     "ghostware:microgo1 (Europe).D64"
    ],
@@ -204887,6 +205198,7 @@
    "contentIds": [
     "sha256-disk-v1:1ab4824a8fb0f74bf142c7ff8c7d9902c4a3eeb90d91bdcfb8e928f27918b6cb"
    ],
+   "description": "Accolade card collection offering poker (draw, seven-card stud and hold'em), hearts and blackjack. Choose opponents from a cast of caricatured world leaders such as Gorbachev, Reagan and Thatcher, and play until one player holds all the money.",
    "diskMachine": {
     "sha256-disk-v1:1ab4824a8fb0f74bf142c7ff8c7d9902c4a3eeb90d91bdcfb8e928f27918b6cb": {
      "model": "c64ntsc"
@@ -204919,6 +205231,7 @@
    "contentIds": [
     "sha256-disk-v1:5f8902a95d1f1dd5c8ff7ade56138b66bf6971691b99e81ab38097751fc8fa4d"
    ],
+   "description": "Career simulation taking a golfer from amateur to world number one. Juggle a bank balance, loans and sponsors, divide practice hours among shot types, choose major or minor tournaments, hire caddies, coaches and hotels, and even bet on rivals at the bookies.",
    "sourceGroups": [
     "ghostware:Championship Golf (Europe).D64"
    ],
@@ -204928,6 +205241,7 @@
    "contentIds": [
     "sha256-tape-v1:4d3291dd222dfe3f6f2b4e8ffd459154a75a3fcca2f1934bb7065fb2fde9e684"
    ],
+   "description": "Konami's top-down jeep shooter for one or two players. Rescue prisoners of war from enemy camps and drive them to a landing zone for airlift, using a forward-firing machine gun and grenades that can be upgraded to rockets.",
    "sourceGroups": [
     "collection:Jackal.zip"
    ],
@@ -204974,6 +205288,7 @@
    "contentIds": [
     "sha256-tape-v1:5336d27f4a5338fbb0977836a7d0ccc358281f9c6b0466ad9b05f0d36239867b"
    ],
+   "description": "Asteroids-style shooter: flying a Federation ship assigned to clear the space lanes, rotate, thrust and fire to sweep asteroids, alien craft and shooting stars from three sectors per planet between Pluto and Mercury, then slip through a sliding gap into the waiting Factory Ship.",
    "sourceGroups": [
     "ghostware:Master Blaster (Zeppelin Games) (Europe).T64"
    ],
@@ -205033,6 +205348,7 @@
    "contentIds": [
     "sha256-disk-v1:6d1c964a2a81d575cf97376c73ecfc95f3909a56cb874fcb7cd98e25d204a747"
    ],
+   "description": "A private eye searches ten tower blocks for a millionaire's kidnapped daughter, riding lifts, direction-switching escalators and rubbish chutes while gunmen burst from doors. Bullets and lost fist-fights cost money from a $500 budget, while kills and rescues earn it back.",
    "sourceGroups": [
     "ghostware:Gumshoe (Europe).D64"
    ],
@@ -205060,6 +205376,7 @@
    "contentIds": [
     "sha256-tape-v1:4ad4bff01f1be5a8ee2aa15370d14e2087dcf746bef7dea71d15a57fadfda826"
    ],
+   "description": "Graham Relph's exploration game whose world is said to hold four billion locations. Fly over the terrain from above until a beacon points toward one of nine missing objects, then land and continue on foot in a panoramic view, occasionally shooting robot bugs.",
    "sourceGroups": [
     "ghostware:Explorer (Europe).T64"
    ],
@@ -205070,6 +205387,7 @@
     "sha256-disk-v1:02afff8afcec570160ef15127d2c895ba3bc7ec577eaba4b2dcc2102ea048203",
     "sha256-disk-v1:d18225fd84ae3fc872eb23b24ade485d2a5b48d30aa7a3494756d79ab44f03c7"
    ],
+   "description": "SSI's second Dragonlance action game, following Heroes of the Lance and preceding Shadow Sorcerer in the Weiss and Hickman story. The heroes travel in side-scrolling view, one character at a time, each with different abilities.",
    "diskMachine": {
     "sha256-disk-v1:02afff8afcec570160ef15127d2c895ba3bc7ec577eaba4b2dcc2102ea048203": {
      "model": "c64ntsc"
@@ -205104,6 +205422,7 @@
    "contentIds": [
     "sha256-tape-v1:149162aa0ac9a8ac45793b300dbf69ba7a398976c648eebf3821e2222fa2d80c"
    ],
+   "description": "Computer version of the Bob Holness quiz show. Pick a hexagon marked with the first letter of its answer, buzz in and type a reply to claim it, aiming to link a path across the board; two players each get their own buzzer key.",
    "sourceGroups": [
     "ghostware:Blockbusters (Macsen Software) (Europe).TAP"
    ],
@@ -205156,6 +205475,7 @@
     "sha256-disk-v1:14e8e1b8faa337f26282219d4234eeb4afbbcbbc64961f532e62dfba71fd22f9",
     "sha256-disk-v1:cd443994202cb40b5e14ea8445443f270f35a6c9496c9d164608c8f0e9d87a9e"
    ],
+   "description": "Version of the TV game show: guess how many of 100 polled people answered yes to a question, and your opponent calls higher or lower. Winning a question gives control of a row of cards to play High-Low, leading to a Big Bucks round where winnings are bet.",
    "diskMachine": {
     "sha256-disk-v1:14e8e1b8faa337f26282219d4234eeb4afbbcbbc64961f532e62dfba71fd22f9": {
      "model": "c64ntsc"
@@ -205195,6 +205515,7 @@
    "contentIds": [
     "sha256-tape-v1:5a5e45e352604f331e5aa9a04467b2c49842398388664095a54a7dcd77a09453"
    ],
+   "description": "Imagine's action football for a single player or a tournament of up to eight. Each side controls only the man nearest the ball, so play is about positioning him, beating tackles and getting shots past the keeper before the clock runs out.",
    "sourceGroups": [
     "ghostware:Super Soccer (Imagine) (Europe).T64"
    ],
@@ -205218,6 +205539,7 @@
    "contentIds": [
     "sha256-disk-v1:91dd6ceca163dbb053560349a5576e06d888758988adcfb58d3c1e8e07414368"
    ],
+   "description": "Ocean's conversion of the Nintendo arcade game. As Mario, climb girders and ladders, leap barrels and dodge fireballs to reach the captive Pauline at the top of Donkey Kong's construction site, using hammers to smash obstacles for a short time.",
    "sourceGroups": [
     "ghostware:Donkey Kong (Ocean) (Europe).D64"
    ],
@@ -205227,6 +205549,7 @@
    "contentIds": [
     "sha256-disk-v1:6fd39f2255869d45559ca601e7c05c60c5306752c3f082b8288d4a1d188a7bc5"
    ],
+   "description": "An astronaut drifts through space to recover a runaway satellite, shooting or dodging asteroids and hostile spacemen, then holds the fire button to tow it back to the ship. Each new level brings faster enemies.",
    "diskMachine": {
     "sha256-disk-v1:6fd39f2255869d45559ca601e7c05c60c5306752c3f082b8288d4a1d188a7bc5": {
      "model": "c64ntsc"
@@ -205250,6 +205573,7 @@
    "contentIds": [
     "sha256-tape-v1:092c88f61f19f8206afc7f2db029c5933924987917daa9eb726e9821fb4fb544"
    ],
+   "description": "Magic Knight's second adventure: a botched spell has frozen eight people, including the wizard Gimbal, in time, and the Knight must free them. Its Windimation menus let you examine, use and give objects, and you must manage his strength as well as the rescued characters.",
    "sourceGroups": [
     "ghostware:Spellbound (MAD) (Europe).T64"
    ],
@@ -205259,6 +205583,7 @@
    "contentIds": [
     "sha256-tape-v1:0d973f24885ced11c1795cecb49b8eda789154357555f4d0d2dd4feae617e32d"
    ],
+   "description": "World conquest for two to four players in the spirit of Risk. Armies start scattered across a world map; reinforce territories, then attack neighbouring regions, with a brief animated battle deciding each clash, until one player holds every territory.",
    "sourceGroups": [
     "ghostware:Armageddon (Visions Software Factory) (Europe).T64"
    ],
@@ -205282,6 +205607,7 @@
    "contentIds": [
     "sha256-disk-v1:1e564d6ef68c98b82089a1f1533f9f2e57b63b47f2e090caca85427cce19fc19"
    ],
+   "description": "HesWare's version of the faster, tougher Zaxxon sequel. Fly an isometric spacecraft through an asteroid fortress, a narrow tunnel full of fighters and mines, and a second fortress, then shoot three fire-breathing dragons in the mouth to complete the cycle.",
    "diskMachine": {
     "sha256-disk-v1:1e564d6ef68c98b82089a1f1533f9f2e57b63b47f2e090caca85427cce19fc19": {
      "model": "c64ntsc"
@@ -205346,6 +205672,7 @@
    "contentIds": [
     "sha256-disk-v1:5dc0aacfaa995492a624e5d1819e6213f36805952d07c002849555c9c2265dbe"
    ],
+   "description": "Melbourne House graphic adventure in which you enter a vampire's castle to save a young woman. Scenes are described in text and illustrated, some with animated characters, and the parser accepts several actions in one line; music plays throughout.",
    "sourceGroups": [
     "ghostware:Castle of Terror (Melbourne House) (Europe).D64"
    ],
@@ -205355,6 +205682,7 @@
    "contentIds": [
     "sha256-disk-v1:4b8e4ccf66ae9d57557bd866130657fe2a79705da40226832e19efc2ef0675a7"
    ],
+   "description": "On the polluted planet Tantris, a hopping heat probe called the Leg throws its Ball to soak up the heat of smog flames and feed it to three precious plants. Shoot wildlife, use chalk to shield against acid rain, and build the pass counter to reach the next jungle.",
    "sourceGroups": [
     "ghostware:Heatseeker (Europe).D64"
    ],
@@ -205364,6 +205692,7 @@
    "contentIds": [
     "sha256-tape-v1:ee360bf8597989b2ee2bdeab3fa272bb05a05543cfafcc07b624f2d94f4ab06d"
    ],
+   "description": "Aliens are poisoning the seas and turning marine life into monsters. Pilot an advanced submarine through a constantly scrolling side-on shooter, torpedoing mutated creatures before your damage gauge fills.",
    "sourceGroups": [
     "ghostware:Aquanaut (Alpha Omega Software) (Europe).T64"
    ],
@@ -205428,6 +205757,7 @@
    "contentIds": [
     "sha256-tape-v1:2cc6ad43b252cad8dc44cd0f69f3fbea3ed19512553588ae6bd9980e86abda59"
    ],
+   "description": "Illustrated text adventure set on an orbiting cemetery staffed by robots, whose chief Arch-mandroid has begun building weapons to attack a disarmed Earth. You are a special forces agent smuggled aboard in a coffin to stop him.",
    "sourceGroups": [
     "ghostware:Necris-Dome, The (Europe).T64"
    ],
@@ -205437,6 +205767,7 @@
    "contentIds": [
     "sha256-tape-v1:5bdcba34f7c1c44b054059637b35512a65a9d7f61f8348551034aa391afa2d23"
    ],
+   "description": "Golf on a single 18-hole course: choose club, strength and direction while allowing for the wind, with a close-up window near the green for lining up putts. Includes a practice mode and two-player play.",
    "sourceGroups": [
     "ghostware:3D Golf (Europe).T64"
    ],
@@ -205479,6 +205810,7 @@
     "sha256-disk-v1:0e8560398d5757a3b60cf78c156d019f11034d5321a42c733c2c1af6c236e91c",
     "sha256-disk-v1:9820f4cbac09cbc51beb1b2a28faf498c6f793aa55b97d2f4bd8922fce5dbc0d"
    ],
+   "description": "System 3 action game in the Last Ninja mould: a former soldier, framed by police, must rescue his scientist brother and niece from terrorists. Gather evidence across isometric flick-screen stages, then drive an armed car between them past traffic, bombing helicopters and police checks.",
    "diskSets": {
     "sha256-disk-v1:0e8560398d5757a3b60cf78c156d019f11034d5321a42c733c2c1af6c236e91c": {
      "setDisks": [
@@ -205513,6 +205845,7 @@
    "contentIds": [
     "sha256-tape-v1:105a6a53b9f336bc8640721bf29ddace697fba7403d06c7ecd28789fa4e78663"
    ],
+   "description": "Arena game for two, against a friend or a robot: each player catches the erratically moving ball with a suction gun and fires it at the bricks on their own side, aiming to clear them first. Getting hit by the ball knocks you down and hands over possession.",
    "sourceGroups": [
     "ghostware:Hot Shot (Europe).T64"
    ],
@@ -205522,6 +205855,7 @@
    "contentIds": [
     "sha256-tape-v1:872192ae3708f5004fdad81bb3ae97e22195682481d162925c4762cb4c59eeac"
    ],
+   "description": "Dino Dini's top-down football game where the ball runs free of the players' feet, making control a skill to master. Practise without opponents, then play an eight-team league whose players vary in pace, stamina, accuracy and aggression, under one of a dozen referees.",
    "sourceGroups": [
     "ghostware:Kick Off (Anco) (Europe).T64"
    ],
@@ -205531,6 +205865,7 @@
    "contentIds": [
     "sha256-tape-v1:2e6002cdd5d1844ebc99b8426af71ebd54cd735c35cfecf4ca1f729370625de5"
    ],
+   "description": "Fly through Star Quadrant Jupiter dodging solar flares and space debris, then dive down to passing moons to pick up stranded miners. Skim the surface past towers and alien destroyers, carry up to six miners, and lift off through accelerator rings.",
    "diskMachine": {
     "sha256-tape-v1:2e6002cdd5d1844ebc99b8426af71ebd54cd735c35cfecf4ca1f729370625de5": {
      "model": "c64ntsc"
@@ -205545,6 +205880,7 @@
    "contentIds": [
     "sha256-tape-v1:95c2ea165d54aab0d92df8e2fecb890415e92135095893ca715bfcc47571a11b"
    ],
+   "description": "Isometric shooter in the Zaxxon mould, set in 2024: a madman has seized decommissioned cruise missiles, and you remotely fly an unmanned interceptor through walled passages, shooting missiles and tanks while watching your fuel.",
    "sourceGroups": [
     "ghostware:Havoc (Dynavision Productions) (Europe).T64"
    ],
@@ -205618,6 +205954,7 @@
    "contentIds": [
     "sha256-disk-v1:cd8dd980f5580cd437fe75940903dd33815cb195d0d699fbadd9b85f851fe7aa"
    ],
+   "description": "Eighty mazes in which you move a small control block to deflect a constantly bouncing ball, smashing blocks or guiding it to an exit. Skulls cost lives, teleporters swap positions and some floor tiles harden into walls; holding space slows the action.",
    "sourceGroups": [
     "ghostware:Titan (Europe).D64"
    ],
@@ -205627,6 +205964,7 @@
    "contentIds": [
     "sha256-disk-v1:4a3b5e417ba9667c6c4f7dd1db854e1ca6acd4f06314d508cca204bca27c3ec2"
    ],
+   "description": "Agent in Moscow sent to back up a colleague caught stealing Soviet spacecraft plans from KGB headquarters. Scroll through platform levels shooting KGB men, searching doors for money, documents and keys, and riding lifts down.",
    "sourceGroups": [
     "ghostware:Special Agent (Firebird) (Europe).D64"
    ],
@@ -205654,6 +205992,7 @@
    "contentIds": [
     "sha256-disk-v1:b98c25c71a4cf0c7f5f417d42ee0e7f0558b210e42d78578a8cdf26785df72e2"
    ],
+   "description": "Spin-off of Carrier Command: drive a single Mauler assault tank, dropped in by stealth helicopter, through 3D missions such as a railway ambush, an escort and an attack on a hideout by a river. Choose weapons to match each briefing.",
    "sourceGroups": [
     "ghostware:Battle Command (Ocean) (Europe).D64"
    ],
@@ -205695,6 +206034,7 @@
    "contentIds": [
     "sha256-tape-v1:4443bbc4e718cc4d35a38fda2aea600a566c7b49da52c6c4bcad1a58fb5719da"
    ],
+   "description": "Sierra's Targ-inspired shooter set on a grid of city blocks. Your craft moves and fires along the streets, stopping only at junctions, while aliens attack from the edges; ammunition is limited, so you must cross a reload marker when running low.",
    "diskMachine": {
     "sha256-tape-v1:4443bbc4e718cc4d35a38fda2aea600a566c7b49da52c6c4bcad1a58fb5719da": {
      "model": "c64ntsc"
@@ -205735,6 +206075,7 @@
    "contentIds": [
     "sha256-disk-v1:ba1768afe63d2c1f0878baf753af468ae7381bec27ec790ccb43151a24b2d1aa"
    ],
+   "description": "Falling-block puzzle in three dimensions: rotate pieces on every axis to drop them into a pit seen from above and complete layers. The pit size and piece sets can be changed.",
    "diskMachine": {
     "sha256-disk-v1:ba1768afe63d2c1f0878baf753af468ae7381bec27ec790ccb43151a24b2d1aa": {
      "model": "c64ntsc"
@@ -205758,6 +206099,7 @@
    "contentIds": [
     "sha256-tape-v1:fb669b014287ed2826cf3f7747b7e16f03b66eb35b479de0c3931fccb9444999"
    ],
+   "description": "Polish maze game crossing Bomberman with Pac-Man: collect every star on the board while Frix monsters roam. Bombs found in the maze kill enemies and break walls, some of which need several blasts, but blowing up a star costs a life. 123 levels.",
    "sourceGroups": [
     "ghostware:Bomb Mania (LK Avalon) (Poland) (Unl).T64"
    ],
@@ -205767,6 +206109,7 @@
    "contentIds": [
     "sha256-disk-v1:c371e84693bbea00e2ee9f0eed1ca009b8016c1b8e85f724af6430fd48e0c2ee"
    ],
+   "description": "Futuristic real-time strategy: lead a corporate mining operation on an asteroid heading for a collision with a moon and meet your crystal quota before impact. Buy and program survey craft, diggers, trucks and combat robots, solar or fusion powered, and fight a rival company run by the computer or a second player.",
    "diskMachine": {
     "sha256-disk-v1:c371e84693bbea00e2ee9f0eed1ca009b8016c1b8e85f724af6430fd48e0c2ee": {
      "model": "c64ntsc"
@@ -205790,6 +206133,7 @@
    "contentIds": [
     "sha256-disk-v1:def093ac79d02588733394b88919559c18134bb1f8cb7eafa67bcaaed20d5951"
    ],
+   "description": "subLOGIC's American football game, with complete squads of invented players. Call plays from quick menus, then switch to action mode to control the players, against the computer or a friend.",
    "diskMachine": {
     "sha256-disk-v1:def093ac79d02588733394b88919559c18134bb1f8cb7eafa67bcaaed20d5951": {
      "model": "c64ntsc"
@@ -205804,6 +206148,7 @@
    "contentIds": [
     "sha256-disk-v1:992185b2e33c43c2382281a8361da7742b3235b79237f163ec925c7bfe19aa6c"
    ],
+   "description": "Shaggy, Fred, Daphne and Velma are held in an evil genius's castle, and Scooby must rescue them. Platform and ladder brawler through four levels of ghosts, bats, skulls and Ghoulfish, with Scooby Snacks giving extra lives.",
    "sourceGroups": [
     "ghostware:Scooby Doo (Europe).D64"
    ],
@@ -205822,6 +206167,7 @@
    "contentIds": [
     "sha256-tape-v1:2cc07927b8011c903467299d25bee53e3c2ec1ae135b70f1c87e1b8de65907a3"
    ],
+   "description": "Caveman Larry's bride-to-be, the chief's daughter, has been carried off by cannibals. Jump and crouch through flick-screen caves past creatures and arrow-firing cavemen, grabbing each screen's key to progress.",
    "diskMachine": {
     "sha256-tape-v1:2cc07927b8011c903467299d25bee53e3c2ec1ae135b70f1c87e1b8de65907a3": {
      "model": "c64ntsc"
@@ -205859,6 +206205,7 @@
    "contentIds": [
     "sha256-tape-v1:7d70cd580982603f7ad26582ccd3f74466a5a45ffa75cf0066e7696cfef362b9"
    ],
+   "description": "Henrik Wening's take on Galaga: shoot formations of swooping aliens whose behaviour depends on their colour, some needing several hits, while large ships fire beams that narrow your space. Challenge stages give bonuses for kills.",
    "sourceGroups": [
     "ghostware:Galaxy (Kingsoft) (Europe).T64"
    ],
@@ -205877,6 +206224,7 @@
    "contentIds": [
     "sha256-disk-v1:ea4b1045794fed528d5b1602a9283ead7c4c61a802b2c05fabe5dffebd29339a"
    ],
+   "description": "Light-beam puzzle in the style of Deflektor: across 50 levels, rotate mirrors to steer a beam from start to finish, hitting enemies on the way. Barriers, switches and locked areas complicate the route, there is a time limit, and reflecting the beam back on itself causes overload.",
    "sourceGroups": [
     "ghostware:Mindbender (Gremlin Graphics Software Ltd.) (Europe).D64"
    ],
@@ -205886,6 +206234,7 @@
    "contentIds": [
     "sha256-tape-v1:6f6ad8ce9f46801a184ce97b0be4a563a81e5c99aadf7454e3ed5da5590a8697"
    ],
+   "description": "Table football for two players, each working eleven figures on four rods. Control one rod at a time and spin it to strike the ball; teams change ends after four goals and play on until four more are scored.",
    "sourceGroups": [
     "ghostware:Kick Off (Bubble Bus) (Europe).T64"
    ],
@@ -206008,6 +206357,7 @@
    "contentIds": [
     "sha256-disk-v1:ae9bc42c3969bf444443e54328071c8a40d8316019a4ff8b7d57bab9b74dad78"
    ],
+   "description": "Second World War submarine simulation commanding the British T-class boat Beowolf against German and Italian shipping. A periscope view and gauges fill most of the screen, beside switchable engine room, torpedo, map, damage and log displays; missions range from sinking ships to landing agents.",
    "sourceGroups": [
     "ghostware:Dawn Patrol (Europe).D64"
    ],
@@ -206049,6 +206399,7 @@
    "contentIds": [
     "sha256-disk-v1:fe2eaae46dcf8333af943b62faf9adc4c97f23c586fad639d2e2ca332e737fa2"
    ],
+   "description": "Conversion of Capcom's first Street Fighter: as Ryu, fight two opponents each in Japan, the USA, England, China and Thailand, ending with Sagat. Special moves include the fireball, dragon punch and hurricane kick, with plank-breaking bonus rounds.",
    "diskMachine": {
     "sha256-disk-v1:fe2eaae46dcf8333af943b62faf9adc4c97f23c586fad639d2e2ca332e737fa2": {
      "model": "c64ntsc"
@@ -206077,6 +206428,7 @@
    "contentIds": [
     "sha256-tape-v1:05f91ccfe7ce104b9533eecdfe96bc391db6a7121b05dc70b133fedf745f2c93"
    ],
+   "description": "Three-reel fruit machine simulation with skill-stop holds, nudges and a gamble option on wins, plus a number feature grid and a high-score table.",
    "sourceGroups": [
     "ghostware:Las Vegas (Anirog Software) (Europe).T64"
    ],
@@ -206086,6 +206438,7 @@
    "contentIds": [
     "sha256-disk-v1:2ecb09cfc8fbc7768d2d99d41a2e6c1052cbfd0f5700dc677fee3c81157c8b9d"
    ],
+   "description": "Infocom's first mystery: industrialist Marshall Robner lies dead in his locked library, apparently a suicide. You have twelve hours to search his Connecticut estate, gather evidence, have Sergeant Duffy run lab tests and question family and staff, who follow their own schedules.",
    "diskMachine": {
     "sha256-disk-v1:2ecb09cfc8fbc7768d2d99d41a2e6c1052cbfd0f5700dc677fee3c81157c8b9d": {
      "model": "c64ntsc"
@@ -206100,6 +206453,7 @@
    "contentIds": [
     "sha256-disk-v1:1b91d180d3511b6ad89085ac74a61b283b9ba9984249093f8e10d083835d10d9"
    ],
+   "description": "Atarisoft's conversion of the Nintendo arcade game. As Mario, climb girders and ladders, leap barrels and dodge fireballs to reach the captive Pauline at the top of Donkey Kong's construction site, using hammers to smash obstacles for a short time.",
    "diskMachine": {
     "sha256-disk-v1:1b91d180d3511b6ad89085ac74a61b283b9ba9984249093f8e10d083835d10d9": {
      "model": "c64ntsc"
@@ -206183,6 +206537,7 @@
    "contentIds": [
     "sha256-tape-v1:3b31e0d9b3dd4f34d4a7d63666e60396af681e460394f5a7b0624a5fa5be54d3"
    ],
+   "description": "Konami's scrolling action game: escaped convicts hold the prison warden hostage, and a police officer fights through city streets, a park and a bridge to the jail. Freeing hostages earns extra weapons, including tear gas, but shooting one costs you all your arms.",
    "sourceGroups": [
     "ghostware:Jailbreak (Europe).T64"
    ],
@@ -206192,6 +206547,7 @@
    "contentIds": [
     "sha256-disk-v1:c2585d965d7bd47b89d860e4df469bba4b534f8fc8d662c622a030e1c1aa8f09"
    ],
+   "description": "Yacht racing on eight courses against computer opponents, steering and trimming the sail and centreboard while the boats are drawn in 3D wireframe. An overhead map traces everyone's course, and you can also race a fast motorboat or play against friends.",
    "diskMachine": {
     "sha256-disk-v1:c2585d965d7bd47b89d860e4df469bba4b534f8fc8d662c622a030e1c1aa8f09": {
      "model": "c64ntsc"
@@ -206206,6 +206562,7 @@
    "contentIds": [
     "sha256-disk-v1:618bace8117d1d6a49ac18a0f0b4a6d93182269732c48179a4963a5bec569d05"
    ],
+   "description": "Adaptation of the Stallone film with level designs unique to the C64. Tough cop Cobra fights through city, countryside and factory, starting with fists and picking up knives, grenades and guns, sparing civilians and escorting model Ingrid to the exit.",
    "sourceGroups": [
     "collection:Cobra.zip"
    ],
@@ -206215,6 +206572,7 @@
    "contentIds": [
     "sha256-tape-v1:9003409bb723e0031645f738a65c102550fcc1d1797e316f89be65f3f516a976"
    ],
+   "description": "Caveman Ugh climbs mountain paths with a single spear to steal pterodactyl eggs before the ice age. Pterry the pterodactyl drops rocks and a tyrannosaurus prowls the trails, and Ugh must put the spear down to carry an egg home.",
    "sourceGroups": [
     "ghostware:Ugh! (Softek) (Europe).T64"
    ],
@@ -206233,6 +206591,7 @@
    "contentIds": [
     "sha256-tape-v1:38aee64a3b579d83a340212e012c08f546d1d0cdb92eb1d9375a02c95ac517dd"
    ],
+   "description": "Infocom science fiction: a lowly deck-scrubbing ensign escapes his exploding Stellar Patrol ship and crash-lands on Resida, an apparently deserted planet with a vast research complex. Explore labs and transit systems, repair machinery and befriend the robot Floyd.",
    "sourceGroups": [
     "ghostware:Planetfall (Europe).T64"
    ],
@@ -206242,6 +206601,7 @@
    "contentIds": [
     "sha256-tape-v1:c890aef5330b31ded37af270da939229590980f2fc8a801f27e23a60f5dcaace"
    ],
+   "description": "Early Commodore cartridge game: fight gravity with vertical and side thrusters to set a lander down on one of three platforms on Jupiter. Narrower pads multiply the score by 5 or 10 instead of 2, and each safe touchdown refuels part of the tank.",
    "diskMachine": {
     "sha256-tape-v1:c890aef5330b31ded37af270da939229590980f2fc8a801f27e23a60f5dcaace": {
      "model": "c64ntsc"
@@ -206305,6 +206665,7 @@
    "contentIds": [
     "sha256-tape-v1:0c6f9db7cfc6e2a60925ed5153ed0aa34953b4bba2e4324c2fd6139fb70f45eb"
    ],
+   "description": "Vertically scrolling shooter against space pirates who have founded eight colonies. Each level is flown twice: first to destroy the reactor at its end, then again in darkness to wreck as many buildings as possible, with marked structures giving bonus points or extra lives.",
    "sourceGroups": [
     "collection:Fire Track.zip"
    ],
@@ -206323,6 +206684,7 @@
    "contentIds": [
     "sha256-tape-v1:f1f263754b73aebc5bc8ba757b0f335d479aa6cf1a9fc86a444ecd1bf9db10cf"
    ],
+   "description": "Rockford tunnels through caves collecting enough diamonds to open the exit, while boulders fall whenever the earth below them is dug away, crushing enemies or Rockford himself. Sixteen caves and five difficulty settings change diamond quotas and time limits.",
    "diskMachine": {
     "sha256-tape-v1:f1f263754b73aebc5bc8ba757b0f335d479aa6cf1a9fc86a444ecd1bf9db10cf": {
      "model": "c64ntsc"
@@ -206355,6 +206717,7 @@
    "contentIds": [
     "sha256-disk-v1:6669fa725d2efc3ad53f16f5339344e0428a579f4a35b402ff9b6083fd30893b"
    ],
+   "description": "Top-down maze shooter in the vein of Berzerk: recover the twelve Signs of the Zodiac from demons across 400 corridors whose walls are electrified, then face their master Jemon. You can only shoot while moving.",
    "sourceGroups": [
     "ghostware:Zodiac (Anirog Software) (Europe).D64"
    ],
@@ -206364,6 +206727,7 @@
    "contentIds": [
     "sha256-disk-v1:c467b7ce1f8d4826e881ec13901e184bbf812de4b8fbea5f9e6e54f96061bc12"
    ],
+   "description": "A firefighter scales sixteen burning skyscrapers to reach a girl trapped on the top floor, spraying flames in windows and rescuing others on the way. Dodge falling objects and fireballs, and find power-ups such as a three-way spray, temporary invincibility and a speed boost.",
    "sourceGroups": [
     "ghostware:FireTrap (Europe).D64"
    ],
@@ -206373,6 +206737,7 @@
    "contentIds": [
     "sha256-tape-v1:46c7e64f7147e972e8f75a7c80e71001074f5e47344291ede14660a25ecad477"
    ],
+   "description": "Vertically scrolling shooter in which a Los Angeles police officer, backed by two reserves, walks the streets gunning down fire-bombing street gangs and rooftop gun turrets. Each intersection brings a gang showdown and a hostage taker to shoot without hitting his captive.",
    "sourceGroups": [
     "ghostware:SWAT (Europe).T64"
    ],
@@ -206391,6 +206756,7 @@
    "contentIds": [
     "sha256-disk-v1:1529c562d9df80665b74646b0ff777afa92220fa131ace5ea393218b5aa0c5b6"
    ],
+   "description": "Light-hearted American Civil War strategy based on the Belgian comic Les Tuniques Bleues. Move Union or Confederate armies across a map of the States, then fight real-time side-view battles with infantry, cavalry and cannon, plus fort raids and train robberies.",
    "sourceGroups": [
     "ghostware:North & South (France).D64"
    ],
@@ -206409,6 +206775,7 @@
    "contentIds": [
     "sha256-tape-v1:ad75e27c5a32271b166608b11f560b76f2646ffcb6ff8b6803a1ed8358a8bb69"
    ],
+   "description": "The last merchant in an eight-planet system plagued by pirates buys goods from wine merchants, jewellers and sawmills, sells them elsewhere and arms his ship. Shops keep hours, you must eat, drink and rest, and flights between planets are shown from the cockpit.",
    "sourceGroups": [
     "ghostware:Star Trader (Europe).T64"
    ],
@@ -206418,6 +206785,7 @@
    "contentIds": [
     "sha256-disk-v1:bcc1f3915c299a635ebd5354893db002756a4e3d110f00d85466af8af9f00da3"
    ],
+   "description": "A knight battles evil through a string of different challenges: a ball duel against a winged demon, a sword duel with a barbarian, a stormy flight past Storm Birds, a descent through a rock shaft and a platform trek through catacombs to destroy the Sacred Skull.",
    "sourceGroups": [
     "ghostware:Storm Warrior (Front Runner) (Europe).D64"
    ],
@@ -206473,6 +206841,7 @@
    "contentIds": [
     "sha256-disk-v1:d4a3f00732f747d56c448d8dc27531ba9bf6cdd93fee8a5b7cf0be51a62dfbc0"
    ],
+   "description": "Parker Brothers' James Bond game: drive a multi-purpose vehicle that jumps and fires on land and water through horizontally scrolling missions, each loosely based on a different film, from Moonraker to For Your Eyes Only.",
    "sourceGroups": [
     "collection:James Bond.zip"
    ],
@@ -206482,6 +206851,7 @@
    "contentIds": [
     "sha256-tape-v1:f0b46e0e53a518556a9e5d72d4b9d602c89254d8789a4854f0acc7258d437fc7"
    ],
+   "description": "Jetpack hero races an 80-minute limit to assemble four parts of a weapon against the Alien Syndicate's leader. Fly through levels of ledges, spikes and lava, collecting extra guns and ammunition; you can fire in any direction but only shoot sideways while moving.",
    "sourceGroups": [
     "ghostware:War Machine (Players Software) (Europe).T64"
    ],
@@ -206500,6 +206870,7 @@
    "contentIds": [
     "sha256-disk-v1:8fe102d46d7c03a58c45be9d1ae3f32470713b1e90a7b74b1e206f4895b3f3dd"
    ],
+   "description": "Idea's top-down football game, a version of Dribbling featuring leading European national teams. Play single matches or a full season with three-, six- or nine-minute games, setting mentality, marking and the line-up beforehand.",
    "sourceGroups": [
     "ghostware:European Champions (Idea Software) (Europe).D64"
    ],
@@ -206509,6 +206880,7 @@
    "contentIds": [
     "sha256-tape-v1:84f3ac7e2ef0fa13eb3ca1f2da1bf12afbc5116b7318ef9eb6dfc8f465f64c35"
    ],
+   "description": "US Gold's release of the faster, tougher Zaxxon sequel. Fly an isometric spacecraft through an asteroid fortress, a narrow tunnel full of fighters and mines, and a second fortress, then shoot three fire-breathing dragons in the mouth to complete the cycle.",
    "sourceGroups": [
     "ghostware:Super Zaxxon (US Gold+SEGA) (Europe).T64"
    ],
@@ -206521,6 +206893,7 @@
     "sha256-disk-v1:9517735924a167f07fa56b841402d73dc13c98ee1458b73b464d9727aedec38b",
     "sha256-disk-v1:be17d8e278b665b2bd6b41e9fd318d5bb27f4e85e729c4cac5411b6a2e3b92ae"
    ],
+   "description": "Thomas M. Disch's text adventure: you wake in a Manhattan hotel with no memory, no money and no clothes, wanted for murder in Texas. Some 4,000 locations recreate the city and subway, shops keep real hours, and you must work, eat and sleep while unravelling your past.",
    "diskMachine": {
     "sha256-disk-v1:0aaca048ae6b43f65207ed320b1c66412319a1a49ad2cf2302991f48a812248e": {
      "model": "c64ntsc"
@@ -206565,6 +206938,7 @@
    "contentIds": [
     "sha256-tape-v1:779c89a15b3deb382a320b09a0ebe026c7cf064267e78f9ac000d4aced089dc7"
    ],
+   "description": "Text adventure in which an office worker wakes in a prison cell after a strange phone call. Rebels hold a machine that can control people's minds, and since you are immune, you must break out, find the device and stop them.",
    "sourceGroups": [
     "ghostware:Mindbender (Gilsoft) (Europe).T64"
    ],
@@ -206601,6 +206975,7 @@
    "contentIds": [
     "sha256-tape-v1:beb50a4b44d67ac21f9039cd60bb541fa4ece8cdc1d727aa6f93f33a13573fc5"
    ],
+   "description": "Platform adventure on a world with two moons: the magic one keeps an evil serpent imprisoned, but the other is about to eclipse it. Fight, jump, collect items and solve puzzles to prevent the snake's release.",
    "sourceGroups": [
     "ghostware:Moonshadow (Ocean) (Europe).T64"
    ],
@@ -206610,6 +206985,7 @@
    "contentIds": [
     "sha256-tape-v1:de18b88ea967e05059504b2562f5b9dd606cde01dcbf9b0b6d9c8220ed0bc895"
    ],
+   "description": "Missile Command clone: defend six bases along the ground by firing limited ammunition from a central launcher at incoming missiles. If the launcher is hit you cannot fire for the rest of the wave.",
    "sourceGroups": [
     "ghostware:Aftermath (Alternative Software) (Europe).T64"
    ],
@@ -206619,6 +206995,7 @@
    "contentIds": [
     "sha256-tape-v1:77681e2af9aa6464e965b9bab6a4e72347cf98ff33a1c3254dc1799d7e79825b"
    ],
+   "description": "Robots are setting your city's buildings ablaze. In each overhead building, spray flames with an extinguisher that overheats and wears out, and lay a limited number of firebreaks to slow the spread. A bonus path-building screen follows each cleared building.",
    "sourceGroups": [
     "ghostware:Wildfire (Supersoft) (Europe).T64"
    ],
@@ -206637,6 +207014,7 @@
    "contentIds": [
     "sha256-disk-v1:1d43df86a2fcd0152c8f6b303e8134da941605b5d9ffc87f8eb5168d0e8bbdc8"
    ],
+   "description": "SSI's turn-based simulation of First World War air combat over France and Germany, with up to twenty aircraft in a dogfight. Scenarios such as Voss's Last Fight and Bloody April take place on a three-dimensional grid of squares and altitude levels, with clouds and wind.",
    "diskMachine": {
     "sha256-disk-v1:1d43df86a2fcd0152c8f6b303e8134da941605b5d9ffc87f8eb5168d0e8bbdc8": {
      "model": "c64ntsc"
@@ -206660,6 +207038,7 @@
    "contentIds": [
     "sha256-tape-v1:6ce9cccba9607ed2a6213670c91f47755d91c4aca11f97fde4fae373c9b1cdae"
    ],
+   "description": "Play a dustman in this forced-perspective arcade game: carry each house's bin to the lorry, empty it and return it before the bonus timer runs out. Stay off lawns, and avoid maniac drivers, cyclists and barking dogs; three warnings and you are sacked.",
    "sourceGroups": [
     "ghostware:Trashman (New Generation Software) (Europe).T64"
    ],
@@ -206669,6 +207048,7 @@
    "contentIds": [
     "sha256-tape-v1:70450b4a4156fb0f698924004a49d3f55a1134121e6a0d49158cb0cf5d58fea9"
    ],
+   "description": "Illustrated text adventure: the Colourful King has lost his mind, and with it the secret of where the crown jewels and the Ring of Power are hidden. Gather the treasures, then find the ring to become king, using two-word commands.",
    "sourceGroups": [
     "ghostware:Ring of Power, The (Europe).T64"
    ],
