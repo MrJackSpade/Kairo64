@@ -18,7 +18,8 @@
 // and how long the app would run it flat out (C64Machine::loading: the autostart, a moving tape,
 // a disk load).
 // <keys> is a list of "frame:row:column" presses (comma separated) in the keyboard matrix, each
-// held for five frames; a row of "j" is a joystick control instead, held as long. <model> is a
+// held for five frames; a row of "j" is a joystick control instead, held as long. A frame written
+// "+frame" counts from the end of the load (none is pressed if the load never ends). <model> is a
 // VICE model name ("" for the default). With <state> "state", it saves the machine halfway between
 // the end of the load and the end of the run, notes the frame after, and at the end loads the
 // state and checks that the same frame follows. With "state@<seconds>" it saves at that guest
@@ -106,6 +107,8 @@ void write_bmp(const std::string &path, const uint8_t *rgba, uint32_t width, uin
 
 struct Press {
     long frame;
+    // Whether frame counts from the end of the load.
+    bool after_load;
     // -1 for a joystick control, which column then names.
     int row;
     int column;
@@ -123,8 +126,9 @@ std::vector<Press> parse_keys(const std::string &text) {
             std::exit(2);
         }
         const std::string row = item.substr(first + 1, second - first - 1);
-        presses.push_back({std::stol(item.substr(0, first)), row == "j" ? -1 : std::stoi(row),
-                           std::stoi(item.substr(second + 1))});
+        const bool after_load = item[0] == '+';
+        presses.push_back({std::stol(item.substr(after_load ? 1 : 0, first - (after_load ? 1 : 0))), after_load,
+                           row == "j" ? -1 : std::stoi(row), std::stoi(item.substr(second + 1))});
     }
     return presses;
 }
@@ -230,6 +234,8 @@ int main(int argc, char **argv) {
         };
         bool booting = machine->autostarting();
         double loaded = 0;
+        // The frame the load ended on, for presses timed from it; -1 while it runs.
+        long loaded_frame = booting ? -1 : 0;
         // Guest time the app runs flat out (C64Machine::loading), and when that last ended.
         double loading = 0, loading_ended = 0;
         std::vector<uint64_t> pictures;
@@ -239,8 +245,10 @@ int main(int argc, char **argv) {
         int lowest_played = 32767, highest_played = -32768;
         while (elapsed < seconds) {
             for (const auto &press : presses) {
+                if (press.after_load && loaded_frame < 0) continue;
+                const long at = press.frame + (press.after_load ? loaded_frame : 0);
                 for (bool down : {true, false}) {
-                    if (frames != press.frame + (down ? 0 : 5)) continue;
+                    if (frames != at + (down ? 0 : 5)) continue;
                     if (press.row < 0) machine->joystick(press.column, down);
                     else machine->key(press.row, press.column, down);
                 }
@@ -256,6 +264,7 @@ int main(int argc, char **argv) {
             if (booting && !machine->autostarting()) {
                 booting = false;
                 loaded = elapsed;
+                loaded_frame = frames + 1;
                 std::printf("run %d: load over after %ld frames (%.1f s)\n", run, frames, elapsed);
                 uint32_t width, height;
                 const uint8_t *rgba = machine->frame(width, height);

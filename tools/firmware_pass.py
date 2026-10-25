@@ -13,10 +13,14 @@ firmware a setup needs, until one runs it:
   own         the player's KERNAL, BASIC and character ROMs and the virtual drive
   own+1541    the player's ROMs and an emulated 1541
 
-A boot fails when the machine stops (a JAM), the load has not finished, the text screen shows a
-BASIC error ("?FILE NOT FOUND ERROR", "?LOAD ERROR" and the rest), or BASIC's READY. as its last
-line with no sound since the load, or the screen is blank (one colour inside the border), still
-and silent. A boot that
+After the load the pass presses fire, Space and fire again (5, 10 and 15 s on), as a player
+leaves a title or an intro: a game that waits there and fails once it starts (Gobots on the Open
+ROMs stops at "BRK AT $EA8A") then fails here too. A boot fails when the machine stops (a JAM),
+the load has not finished, the text screen shows a BASIC error ("?FILE NOT FOUND ERROR",
+"?LOAD ERROR" and the rest) or the Open ROMs' "BRK AT", or BASIC's READY. as its last line with no
+sound since the load, or the display window stays blank (one colour inside the border, one
+picture), with sound or without (Prince of Persia's music plays over a black screen on the Open
+ROMs). A boot that
 passes those runs for certain when it makes a sound or its picture changes after the load; one
 that shows a single still picture in silence is doubtful (a title waiting for a key, or a game
 stuck), so the next setups are tried too and the first that runs for certain wins; with none, the
@@ -58,12 +62,15 @@ SYSTEMS = ["open", "open+1541", "own", "own+1541"]
 # What a setup asks of the game's settings (C64Catalog's system and drive options).
 SETTINGS = {"open": {}, "open+1541": {"drive": "1541"}, "own": {"system": "own"},
             "own+1541": {"system": "own", "drive": "1541"}}
-BASIC_ERROR = re.compile(r"\?[A-Z ]+ ERROR")
+BASIC_ERROR = re.compile(r"\?[A-Z ]+ ERROR|BRK AT \$[0-9A-F]{4}")
+# What the pass presses after the load (boot_test's <keys>, timed from the load's end): fire on the
+# joystick (control 4), Space (keyboard matrix row 7, column 4), fire.
+PRESSES = "+250:j:4,+500:7:4,+750:j:4"
 # How far the sound must move after the load for a game to count as making a sound.
 SOUND_RANGE = 2000
 # The pass's version: results from an older one are booted again. 2: the core that loads tapes on
 # the Open ROMs and starts a 1541 game after a virtual-drive one, and the picture checks.
-PASS = 3
+PASS = 4
 # Failures pass 3 judges anew: pass 2 failed a game whose screen showed READY. anywhere (a game
 # written in BASIC shows it above what it prints after RUN) and counted text on one background
 # colour as a blank screen.
@@ -144,7 +151,7 @@ def boot(system, path, model, seconds, work):
         old.unlink()
     result = subprocess.run(["pwsh", "-NoProfile", "-File", str(ROOT / "shared/tools/run-limited.ps1"),
                              str(BOOT_TEST), str(ROOT / "bios"), str(work), str(path),
-                             str(seconds), system, "1", "", model],
+                             str(seconds), system, "1", PRESSES, model],
                             capture_output=True, text=True, encoding="utf-8", errors="replace")
     lines = result.stdout.splitlines() + result.stderr.splitlines()
 
@@ -181,6 +188,8 @@ def boot(system, path, model, seconds, work):
     sound = played >= SOUND_RANGE
     if basic_idle(screen) and not sound:
         return outcome(False, "back at BASIC's READY. without a sound", played, pictures, colours)
+    if pictures <= 1 and colours <= 1:
+        return outcome(False, "a blank display window" + (" with a sound" if sound else ""), played, pictures, colours)
     if sound or pictures > 1:
         return outcome(True, "runs", played, pictures, colours)
     if colours <= 1:
@@ -238,17 +247,17 @@ def main():
             path = extract(root, archive, member, work)
             seconds = seconds_for(member or archive)
             record = {"pass": PASS, "model": model, "seconds": seconds, "boots": {}}
-            # An older pass's outcomes stand, except failures for the reasons a later pass judges
-            # anew (RECHECK), a run pass 1 judged without the picture checks, and pass 1's tapes,
-            # which pass 2's core loads on the Open ROMs. A setup's outcome is reused when it
-            # booted with as much time as it is given now.
+            # An older pass's failures stand, except for the reasons a later pass judges anew
+            # (RECHECK) and pass 1's tapes, which pass 2's core loads on the Open ROMs; its runs are
+            # booted again, as pass 4's presses after the load can fail a game an older pass ran.
+            # A setup's outcome is reused when it booted with as much time as it is given now.
             previous = results.get(content_id, {})
             earlier_pass = previous.get("pass", 1)
             earlier = previous.get("boots", {}) if previous.get("seconds", args.seconds) >= seconds else {}
             booted_now = []
             for system in SYSTEMS:
                 old = earlier.get(system)
-                if old is not None and not (old["ok"] and earlier_pass == 1) and old["why"] not in RECHECK                         and not (path.suffix == ".tap" and earlier_pass == 1):
+                if old is not None and (not old["ok"] or earlier_pass == PASS) and old["why"] not in RECHECK                         and not (path.suffix == ".tap" and earlier_pass == 1):
                     outcome = record["boots"][system] = dict(old, fromPass=old.get("fromPass", earlier_pass))
                     if outcome["ok"] and not outcome["doubtful"]:
                         break
