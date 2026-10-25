@@ -1,4 +1,97 @@
 {
  "adultArtwork": {},
- "excluded": {}
+ "excluded": {
+  "c64:125353": {
+   "reason": "Adult-content review",
+   "title": "Blue Angel 69"
+  },
+  "c64:136678": {
+   "reason": "Adult-content review",
+   "title": "Adult Poker"
+  },
+  "c64:136758": {
+   "reason": "Adult-content review",
+   "title": "Aghamix"
+  },
+  "c64:137225": {
+   "reason": "Adult-content review",
+   "title": "Animated Strip Poker"
+  },
+  "c64:138445": {
+   "reason": "Adult-content review",
+   "title": "Bite of the Sorority Vampires"
+  },
+  "c64:144157": {
+   "reason": "Adult-content review",
+   "title": "Cover Girl Poker"
+  },
+  "c64:147400": {
+   "reason": "Adult-content review",
+   "title": "Dr. Ruth's Computer Game of Good Sex"
+  },
+  "c64:150352": {
+   "reason": "Adult-content review",
+   "title": "The Farmer's Daughter"
+  },
+  "c64:152463": {
+   "reason": "Adult-content review",
+   "title": "GirlTRIS"
+  },
+  "c64:155276": {
+   "reason": "Adult-content review",
+   "title": "Hollywood Poker Pro"
+  },
+  "c64:157295": {
+   "reason": "Adult-content review",
+   "title": "Jolly Jack's Run Ashore"
+  },
+  "c64:157582": {
+   "reason": "Adult-content review",
+   "title": "Adults Only"
+  },
+  "c64:158621": {
+   "reason": "Adult-content review",
+   "title": "Leather Goddesses of Phobos"
+  },
+  "c64:159987": {
+   "reason": "Adult-content review",
+   "title": "Strip Poker: A Sizzling Game of Chance"
+  },
+  "c64:171610": {
+   "reason": "Adult-content review",
+   "title": "Love Bytes"
+  },
+  "c64:171611": {
+   "reason": "Adult-content review",
+   "title": "The Lovegame"
+  },
+  "c64:171762": {
+   "reason": "Adult-content review",
+   "title": "Manganoid"
+  },
+  "c64:175748": {
+   "reason": "Adult-content review",
+   "title": "Sex Vixens from Space"
+  },
+  "c64:180781": {
+   "reason": "Adult-content review",
+   "title": "Strip Darts: Knockout Tournament"
+  },
+  "c64:180825": {
+   "reason": "Adult-content review",
+   "title": "Strip Tavla"
+  },
+  "c64:180826": {
+   "reason": "Adult-content review",
+   "title": "Stroker"
+  },
+  "c64:180827": {
+   "reason": "Adult-content review",
+   "title": "Stud's Challenge"
+  },
+  "c64:6408": {
+   "reason": "Adult-content review",
+   "title": "Samantha Fox Strip Poker"
+  }
+ }
 }

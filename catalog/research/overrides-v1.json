@@ -1,0 +1,74 @@
+{
+ "games": {
+  "c64:125353": {
+   "adult": true
+  },
+  "c64:136678": {
+   "adult": true
+  },
+  "c64:136758": {
+   "adult": true
+  },
+  "c64:137225": {
+   "adult": true
+  },
+  "c64:138445": {
+   "adult": true
+  },
+  "c64:144157": {
+   "adult": true
+  },
+  "c64:147400": {
+   "adult": true
+  },
+  "c64:150352": {
+   "adult": true
+  },
+  "c64:152463": {
+   "adult": true
+  },
+  "c64:155276": {
+   "adult": true
+  },
+  "c64:157295": {
+   "adult": true
+  },
+  "c64:157582": {
+   "adult": true
+  },
+  "c64:158621": {
+   "adult": true
+  },
+  "c64:159987": {
+   "adult": true
+  },
+  "c64:171610": {
+   "adult": true
+  },
+  "c64:171611": {
+   "adult": true
+  },
+  "c64:171762": {
+   "adult": true
+  },
+  "c64:175748": {
+   "adult": true
+  },
+  "c64:180781": {
+   "adult": true
+  },
+  "c64:180825": {
+   "adult": true
+  },
+  "c64:180826": {
+   "adult": true
+  },
+  "c64:180827": {
+   "adult": true
+  },
+  "c64:6408": {
+   "adult": true
+  }
+ },
+ "schemaVersion": 1
+}
