@@ -223,26 +223,28 @@ object C64Keys {
         else defaults().filterNot { it.input.startsWith("virtual:ls") || it.input.startsWith("virtual:rs") }
 
     /**
-     * C64 games read the joystick and a few keys: the D-pad and left stick are the joystick, A
-     * and X fire, B is Space, Y is RUN/STOP, Start is F1 (many games' start), Select is F3, L1 is
-     * Return, R1 is F7, L2 is RESTORE and R2 is F5; the right stick moves the 1351 mouse.
+     * C64 games read the joystick and a few keys: the D-pad is the joystick and the cursor keys
+     * (up and left are Shift with CRSR down and right, as on the C64), the left stick is the
+     * joystick, A and B are Return and Space, X and L1 fire, Y is RUN/STOP, Start is F1 (many
+     * games' start), Select is F3, R1 is F7, L2 is RESTORE and R2 is F5; the right stick moves
+     * the 1351 mouse.
      */
     fun defaults() = listOf(
-        ControllerBinding("virtual:a", joystick = "button1"),
-        ControllerBinding("virtual:x", joystick = "button1"),
+        ControllerBinding("virtual:a", listOf(RETURN)),
         ControllerBinding("virtual:b", listOf(SPACE)),
+        ControllerBinding("virtual:x", joystick = "button1"),
         ControllerBinding("virtual:y", listOf(RUN_STOP)),
-        ControllerBinding("virtual:l1", listOf(RETURN)),
+        ControllerBinding("virtual:l1", joystick = "button1"),
         ControllerBinding("virtual:r1", listOf(F7)),
         ControllerBinding("virtual:l2", listOf(RESTORE)),
         ControllerBinding("virtual:r2", listOf(F5)),
         ControllerBinding("virtual:start", listOf(F1)),
         ControllerBinding("virtual:select", listOf(F3)),
         ControllerBinding("virtual:menu", action = "menu"),
-        ControllerBinding("virtual:up", joystick = "up"),
-        ControllerBinding("virtual:down", joystick = "down"),
-        ControllerBinding("virtual:left", joystick = "left"),
-        ControllerBinding("virtual:right", joystick = "right"),
+        ControllerBinding("virtual:up", listOf(LEFT_SHIFT, CURSOR_DOWN), joystick = "up"),
+        ControllerBinding("virtual:down", listOf(CURSOR_DOWN), joystick = "down"),
+        ControllerBinding("virtual:left", listOf(LEFT_SHIFT, CURSOR_RIGHT), joystick = "left"),
+        ControllerBinding("virtual:right", listOf(CURSOR_RIGHT), joystick = "right"),
         ControllerBinding("virtual:lsup", joystick = "up"),
         ControllerBinding("virtual:lsdown", joystick = "down"),
         ControllerBinding("virtual:lsleft", joystick = "left"),
