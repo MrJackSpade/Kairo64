@@ -77,7 +77,8 @@ object C64Keys {
         modifiers = setOf(LEFT_SHIFT, RIGHT_SHIFT, CONTROL, COMMODORE),
         shiftCodes = setOf(LEFT_SHIFT, RIGHT_SHIFT),
         capsCode = null,
-        chordShiftCode = LEFT_SHIFT
+        // Right Shift, on no joystick line, as the D-pad's up and left chord it (defaults()).
+        chordShiftCode = RIGHT_SHIFT
     )
 
     /** The C64's own arrangement: digits with ← and + − £ above, @ * ↑ by P, : ; = by L. */
@@ -244,9 +245,13 @@ object C64Keys {
         ControllerBinding("virtual:start", listOf(F1)),
         ControllerBinding("virtual:select", listOf(F3)),
         ControllerBinding("virtual:menu", action = "menu"),
-        ControllerBinding("virtual:up", listOf(LEFT_SHIFT, CURSOR_DOWN), joystick = "up"),
+        // Right Shift: the joystick in port 2 and the keyboard share the CIA's port A, and Left
+        // Shift sits on CRSR down's row (PB7), so joystick up (PA0) with both keys held pulled PA1,
+        // joystick down, low too; every game saw up as up and down. Right Shift (PA6, PB4) is on
+        // no joystick line.
+        ControllerBinding("virtual:up", listOf(RIGHT_SHIFT, CURSOR_DOWN), joystick = "up"),
         ControllerBinding("virtual:down", listOf(CURSOR_DOWN), joystick = "down"),
-        ControllerBinding("virtual:left", listOf(LEFT_SHIFT, CURSOR_RIGHT), joystick = "left"),
+        ControllerBinding("virtual:left", listOf(RIGHT_SHIFT, CURSOR_RIGHT), joystick = "left"),
         ControllerBinding("virtual:right", listOf(CURSOR_RIGHT), joystick = "right"),
         ControllerBinding("virtual:lsup", joystick = "up"),
         ControllerBinding("virtual:lsdown", joystick = "down"),
