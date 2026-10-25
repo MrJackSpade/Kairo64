@@ -40007,24 +40007,13 @@
    ],
    "boxArtUrl": "https://images.launchbox-app.com/08718774-f796-4bb4-8a57-839293ef259f.jpg",
    "contentIds": [
-    "sha256-tape-v1:eb6be310f2aa94be8dda42ee2c087b1b1fcc63c9ca6de2a5a1725177b26ff1a4",
-    "sha256-tape-v1:f6936e96593a7c9c27deea8a2a708a0966c7e6f42f218a6dc0fa644b46d20452"
+    "sha256-tape-v1:eb6be310f2aa94be8dda42ee2c087b1b1fcc63c9ca6de2a5a1725177b26ff1a4"
    ],
    "description": "Rapid Intercept Seek and Kill: aliens descend on Christon 3, a planet of weapons laboratories, and a passing pilot is the only defence. A Defender-style shooter that scrolls in both directions as you sweep the landscape clear of attackers.",
    "developer": "Christopher West",
    "diskMachine": {
     "sha256-tape-v1:eb6be310f2aa94be8dda42ee2c087b1b1fcc63c9ca6de2a5a1725177b26ff1a4": {
      "drive": "1541"
-    },
-    "sha256-tape-v1:f6936e96593a7c9c27deea8a2a708a0966c7e6f42f218a6dc0fa644b46d20452": {
-     "system": "own"
-    }
-   },
-   "diskSets": {
-    "sha256-tape-v1:eb6be310f2aa94be8dda42ee2c087b1b1fcc63c9ca6de2a5a1725177b26ff1a4": {
-     "setDisks": [
-      "sha256-tape-v1:f6936e96593a7c9c27deea8a2a708a0966c7e6f42f218a6dc0fa644b46d20452"
-     ]
     }
    },
    "launchbox": "142837",
@@ -40032,8 +40021,7 @@
    "publisher": "The Edge",
    "screenshotUrl": "https://images.launchbox-app.com/a2099587-1ed8-4998-bde9-7c938f5ee398.png",
    "sourceGroups": [
-    "collection:RISK.zip",
-    "ghostware:Risk (ArtGame) (Hungary) (Unl).T64"
+    "collection:RISK.zip"
    ],
    "title": "R.I.S.K.",
    "year": 1987
@@ -102184,29 +102172,15 @@
    ],
    "boxArtUrl": "https://images.launchbox-app.com/736db707-ed95-4a03-8f96-68a37dc446c0.jpg",
    "contentIds": [
-    "sha256-disk-v1:713715ddedfcf0ccb04482cd2cb8925e83a87e9fc467f5a514ec0d1f2c8672ec",
-    "sha256-tape-v1:0bf3b9aa9f46dd3c1c986210ad61b2fb677be1e5acfe9aff05869ee426262fef"
+    "sha256-disk-v1:713715ddedfcf0ccb04482cd2cb8925e83a87e9fc467f5a514ec0d1f2c8672ec"
    ],
    "description": "Earth is under attack by the Terrilon, and one ship stands against them in this side-on shooter. The landscape scrolls steadily as you blast waves of aliens across a series of stages; any collision costs a life.",
    "developer": "Mark McKee",
-   "diskMachine": {
-    "sha256-tape-v1:0bf3b9aa9f46dd3c1c986210ad61b2fb677be1e5acfe9aff05869ee426262fef": {
-     "system": "own"
-    }
-   },
-   "diskSets": {
-    "sha256-disk-v1:713715ddedfcf0ccb04482cd2cb8925e83a87e9fc467f5a514ec0d1f2c8672ec": {
-     "setDisks": [
-      "sha256-tape-v1:0bf3b9aa9f46dd3c1c986210ad61b2fb677be1e5acfe9aff05869ee426262fef"
-     ]
-    }
-   },
    "launchbox": "166114",
    "mobygames": 70152,
    "publisher": "Channel 8 Software",
    "screenshotUrl": "https://images.launchbox-app.com/c565ac7b-b5f3-484c-a572-00b4ff69fff7.png",
    "sourceGroups": [
-    "ghostware:Timezone (CP Verlag - Magic Disk 64) (Europe).T64",
     "ghostware:Timezone (Channel 8 Software) (Europe).D64"
    ],
    "title": "TimeZone: The Challenge Remains",
@@ -106754,8 +106728,7 @@
    "contentIds": [
     "sha256-disk-v1:592a9c61c7165514517f2480af139cbb5fce81af191720a5a74f687b8f973d12",
     "sha256-disk-v1:6575043d93198317f936602bfe252fec5aa26cd65b3125ebf082f68c1645fd4f",
-    "sha256-disk-v1:fa122f14c25540ec45d39e819963e05d31252c6fa269a44822927e1eb43da088",
-    "sha256-tape-v1:c99803deef9d96bce084bc606f46dca9abdb29d6d123a542121c97993316334b"
+    "sha256-disk-v1:fa122f14c25540ec45d39e819963e05d31252c6fa269a44822927e1eb43da088"
    ],
    "description": "Solid Snake infiltrates Outer Heaven, a fortified nation led by a secretive war hero, to stop Metal Gear, a nuclear-armed walking tank. A top-down stealth action game where avoiding guards matters as much as fighting.",
    "developer": "Unlimited Software",
@@ -106774,8 +106747,7 @@
     "sha256-disk-v1:6575043d93198317f936602bfe252fec5aa26cd65b3125ebf082f68c1645fd4f": {
      "setDisks": [
       "sha256-disk-v1:592a9c61c7165514517f2480af139cbb5fce81af191720a5a74f687b8f973d12",
-      "sha256-disk-v1:fa122f14c25540ec45d39e819963e05d31252c6fa269a44822927e1eb43da088",
-      "sha256-tape-v1:c99803deef9d96bce084bc606f46dca9abdb29d6d123a542121c97993316334b"
+      "sha256-disk-v1:fa122f14c25540ec45d39e819963e05d31252c6fa269a44822927e1eb43da088"
      ]
     }
    },
@@ -106784,7 +106756,6 @@
    "publisher": "Ultra Software",
    "screenshotUrl": "https://images.launchbox-app.com/b1cfe672-5306-4580-9bec-720b80e9f19d.png",
    "sourceGroups": [
-    "ghostware:Intruder (CP Verlag - Game On) (Europe).T64",
     "ghostware:Metal Gear (USA) (Disk 1 Side A).D64",
     "ghostware:Metal Gear (USA) (Disk 1 Side B).D64",
     "ghostware:Metal Gear (USA) (Disk 2).D64"
@@ -157677,44 +157648,11 @@
   },
   "c64:206654": {
    "boxArtUrl": "https://images.launchbox-app.com/4f1a85ac-2677-48e7-a526-5d9c841052ec.jpg",
-   "contentIds": [
-    "sha256-tape-v1:4976e85225d5f8ca86f1de2079c46c81a977ea5670b3057ea43e52fe92d76078",
-    "sha256-tape-v1:9aa08d984531d2336796e93ff2bb8a98be7c7caeb8921fd8bb8c4e86eb5a722b",
-    "sha256-tape-v1:f1a3843ca7f79a4a2abf1a7c016434ea6e249ff4d9b3d96fc41ece06e50d3649"
-   ],
-   "description": "Second Scott Adams adventure: a secret passage in a London flat leads to Pirate's Isle, where you must build a seaworthy ship, win over a pirate and his parrot, and bring two of Long John Silver's treasures back home. Played with two-word commands.",
    "developer": "Barbara H. Schulak",
-   "diskMachine": {
-    "sha256-tape-v1:4976e85225d5f8ca86f1de2079c46c81a977ea5670b3057ea43e52fe92d76078": {
-     "model": "c64ntsc",
-     "system": "own"
-    },
-    "sha256-tape-v1:9aa08d984531d2336796e93ff2bb8a98be7c7caeb8921fd8bb8c4e86eb5a722b": {
-     "model": "c64ntsc",
-     "system": "own"
-    },
-    "sha256-tape-v1:f1a3843ca7f79a4a2abf1a7c016434ea6e249ff4d9b3d96fc41ece06e50d3649": {
-     "model": "c64ntsc",
-     "system": "own"
-    }
-   },
-   "diskSets": {
-    "sha256-tape-v1:9aa08d984531d2336796e93ff2bb8a98be7c7caeb8921fd8bb8c4e86eb5a722b": {
-     "setDisks": [
-      "sha256-tape-v1:4976e85225d5f8ca86f1de2079c46c81a977ea5670b3057ea43e52fe92d76078",
-      "sha256-tape-v1:f1a3843ca7f79a4a2abf1a7c016434ea6e249ff4d9b3d96fc41ece06e50d3649"
-     ]
-    }
-   },
    "launchbox": "206654",
    "mobygames": 9819,
    "publisher": "Street Games",
    "screenshotUrl": "https://images.launchbox-app.com/d989169c-0fa0-4d49-b384-daa09ab2b3df.png",
-   "sourceGroups": [
-    "ghostware:Pirate Adventure (Adventure International) (USA).T64",
-    "ghostware:Pirate Adventure (Commodore) (USA).T64",
-    "ghostware:Pirate Adventure (Sharedata, Inc. + Green Valley Publishing, Inc.) (USA).T64"
-   ],
    "title": "Pirate Cove",
    "year": 1986
   },
@@ -212015,6 +211953,20 @@
    ],
    "title": "Lancelot - Graphic Version"
   },
+  "c64:local-02446ec72e": {
+   "contentIds": [
+    "sha256-tape-v1:0bf3b9aa9f46dd3c1c986210ad61b2fb677be1e5acfe9aff05869ee426262fef"
+   ],
+   "diskMachine": {
+    "sha256-tape-v1:0bf3b9aa9f46dd3c1c986210ad61b2fb677be1e5acfe9aff05869ee426262fef": {
+     "system": "own"
+    }
+   },
+   "sourceGroups": [
+    "ghostware:Timezone (CP Verlag - Magic Disk 64) (Europe).T64"
+   ],
+   "title": "Timezone"
+  },
   "c64:local-0253bc072a": {
    "contentIds": [
     "sha256-disk-v1:d246449aeef6ec5a968a38748ef69066880018337674672f872452c133e6a35b"
@@ -212055,6 +212007,22 @@
     "collection:Cave Raid.zip"
    ],
    "title": "Cave Raid"
+  },
+  "c64:local-02e64d6e47": {
+   "contentIds": [
+    "sha256-tape-v1:4976e85225d5f8ca86f1de2079c46c81a977ea5670b3057ea43e52fe92d76078"
+   ],
+   "description": "A hidden passage in a London flat leads to Pirate's Isle in this Scott Adams two-word text adventure, where you build a seaworthy ship and win over a pirate and his parrot to recover Long John Silver's two lost treasures.",
+   "diskMachine": {
+    "sha256-tape-v1:4976e85225d5f8ca86f1de2079c46c81a977ea5670b3057ea43e52fe92d76078": {
+     "model": "c64ntsc",
+     "system": "own"
+    }
+   },
+   "sourceGroups": [
+    "ghostware:Pirate Adventure (Sharedata, Inc. + Green Valley Publishing, Inc.) (USA).T64"
+   ],
+   "title": "Pirate Adventure"
   },
   "c64:local-0363b0e715": {
    "contentIds": [
@@ -214532,6 +214500,22 @@
    ],
    "title": "Orion"
   },
+  "c64:local-47368d523a": {
+   "contentIds": [
+    "sha256-tape-v1:9aa08d984531d2336796e93ff2bb8a98be7c7caeb8921fd8bb8c4e86eb5a722b"
+   ],
+   "description": "Scott Adams' second adventure. A secret passage in a London flat leads to Pirate's Isle, where you must build a ship, win over a pirate and his parrot, and bring Long John Silver's two treasures home using two-word commands.",
+   "diskMachine": {
+    "sha256-tape-v1:9aa08d984531d2336796e93ff2bb8a98be7c7caeb8921fd8bb8c4e86eb5a722b": {
+     "model": "c64ntsc",
+     "system": "own"
+    }
+   },
+   "sourceGroups": [
+    "ghostware:Pirate Adventure (Commodore) (USA).T64"
+   ],
+   "title": "Pirate Adventure"
+  },
   "c64:local-48192ea41c": {
    "contentIds": [
     "sha256-tape-v1:dbf9105fa137415584b595623aa9339f2d113da2acb0e32812e9985dfefc0301"
@@ -216901,6 +216885,22 @@
    ],
    "title": "Inferno"
   },
+  "c64:local-999656c9c7": {
+   "contentIds": [
+    "sha256-tape-v1:f1a3843ca7f79a4a2abf1a7c016434ea6e249ff4d9b3d96fc41ece06e50d3649"
+   ],
+   "description": "Second Scott Adams adventure: a secret passage in a London flat leads to Pirate's Isle, where you must build a seaworthy ship, win over a pirate and his parrot, and bring two of Long John Silver's treasures back home. Played with two-word commands.",
+   "diskMachine": {
+    "sha256-tape-v1:f1a3843ca7f79a4a2abf1a7c016434ea6e249ff4d9b3d96fc41ece06e50d3649": {
+     "model": "c64ntsc",
+     "system": "own"
+    }
+   },
+   "sourceGroups": [
+    "ghostware:Pirate Adventure (Adventure International) (USA).T64"
+   ],
+   "title": "Pirate Adventure"
+  },
   "c64:local-99ee4f8162": {
    "contentIds": [
     "sha256-disk-v1:5b71453b0bea487f257dd6b40db23747da467bfa58a6de59a48ee2df29ca86d1"
@@ -218523,6 +218523,15 @@
    ],
    "title": "Hospital Adventure"
   },
+  "c64:local-c7bad4a175": {
+   "contentIds": [
+    "sha256-tape-v1:c99803deef9d96bce084bc606f46dca9abdb29d6d123a542121c97993316334b"
+   ],
+   "sourceGroups": [
+    "ghostware:Intruder (CP Verlag - Game On) (Europe).T64"
+   ],
+   "title": "Intruder"
+  },
   "c64:local-c7ce039719": {
    "contentIds": [
     "sha256-disk-v1:5781b1723eb82f7f617eefd80e4d2b1c8e51ec771f7bbad5630698cfd61d1b02",
@@ -219023,6 +219032,20 @@
     "ghostware:Eagles (SSI) (USA).D64"
    ],
    "title": "Eagles"
+  },
+  "c64:local-d8a4900b4c": {
+   "contentIds": [
+    "sha256-tape-v1:f6936e96593a7c9c27deea8a2a708a0966c7e6f42f218a6dc0fa644b46d20452"
+   ],
+   "diskMachine": {
+    "sha256-tape-v1:f6936e96593a7c9c27deea8a2a708a0966c7e6f42f218a6dc0fa644b46d20452": {
+     "system": "own"
+    }
+   },
+   "sourceGroups": [
+    "ghostware:Risk (ArtGame) (Hungary) (Unl).T64"
+   ],
+   "title": "Risk"
   },
   "c64:local-d8f492a36a": {
    "contentIds": [
