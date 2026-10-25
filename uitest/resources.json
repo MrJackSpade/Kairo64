@@ -1,0 +1,11 @@
+{
+ "schemaVersion": 1,
+ "files": {
+  "bios/C64_Basic.bin": "C:\\Users\\Service Account\\Kairo\\Kairo64\\bios\\C64_Basic.bin",
+  "bios/C64_Chargen.bin": "C:\\Users\\Service Account\\Kairo\\Kairo64\\bios\\C64_Chargen.bin",
+  "bios/C64_Drive-1541.bin": "C:\\Users\\Service Account\\Kairo\\Kairo64\\bios\\C64_Drive-1541.bin",
+  "bios/C64_Kernal.bin": "C:\\Users\\Service Account\\Kairo\\Kairo64\\bios\\C64_Kernal.bin",
+  "games/Deflektor (Europe).D64": "C:\\Users\\Service Account\\Downloads\\C64RomCollectionByGhostware\\Deflektor (Europe).D64",
+  "games/Klax (Europe).D64": "C:\\Users\\Service Account\\Downloads\\C64RomCollectionByGhostware\\Klax (Europe).D64"
+ }
+}
