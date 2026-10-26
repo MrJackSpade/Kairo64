@@ -40,7 +40,6 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
         C64Keys.joystick.zip(C64Keys.joystickLabels), "The joystick in the game's port (Game settings › Controls).",
         ControllerGuestSpec.STANDARD_ACTIONS, C64Keys.layout)
     override val bindingsCodec = C64Keys.bindings
-    override fun defaultBindings(layout: ControllerLayout) = C64Keys.defaults(layout)
     override val artworkDownloadsEnabled: Boolean get() = resources.getBoolean(R.bool.catalog_art_download_enabled)
 
     /** Disk, tape, program and cartridge images, which VICE's autostart starts (c64_machine.h). */

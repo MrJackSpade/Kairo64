@@ -77,7 +77,7 @@ object C64Keys {
         modifiers = setOf(LEFT_SHIFT, RIGHT_SHIFT, CONTROL, COMMODORE),
         shiftCodes = setOf(LEFT_SHIFT, RIGHT_SHIFT),
         capsCode = null,
-        // Right Shift, on no joystick line, as the D-pad's up and left chord it (defaults()).
+        // Right Shift, on no joystick line, as the D-pad's up and left chord it (catalog/system-v1.json).
         chordShiftCode = RIGHT_SHIFT
     )
 
@@ -219,47 +219,7 @@ object C64Keys {
     val joystick = JoystickInputRouter.DEFAULT_CONTROLS
     val joystickLabels = listOf("Up", "Down", "Left", "Right", "Fire", "Fire 2 (unused)")
 
-    val bindings = ControllerBindingsCodec(::defaults, { it in bindableCodes }, joystick,
+    val bindings = ControllerBindingsCodec({ it in bindableCodes }, joystick,
         setOf("menu", "pause", "restart", "exit", "fastForward"))
 
-    fun defaults(layout: ControllerLayout): List<ControllerBinding> =
-        if (layout == ControllerLayout.WITH_STICKS) defaults()
-        else defaults().filterNot { it.input.startsWith("virtual:ls") || it.input.startsWith("virtual:rs") }
-
-    /**
-     * C64 games read the joystick and a few keys: the D-pad is the joystick and the cursor keys
-     * (up and left are Shift with CRSR down and right, as on the C64), the left stick is the
-     * joystick, A and B are Return and Space, X and L1 fire, Y is RUN/STOP, Start is F1 (many
-     * games' start), Select is F3, R1 is F7, L2 is RESTORE and R2 is F5; the right stick moves
-     * the 1351 mouse.
-     */
-    fun defaults() = listOf(
-        ControllerBinding("virtual:a", listOf(RETURN)),
-        ControllerBinding("virtual:b", listOf(SPACE)),
-        ControllerBinding("virtual:x", joystick = "button1"),
-        ControllerBinding("virtual:y", listOf(RUN_STOP)),
-        ControllerBinding("virtual:l1", joystick = "button1"),
-        ControllerBinding("virtual:r1", listOf(F7)),
-        ControllerBinding("virtual:l2", listOf(RESTORE)),
-        ControllerBinding("virtual:r2", listOf(F5)),
-        ControllerBinding("virtual:start", listOf(F1)),
-        ControllerBinding("virtual:select", listOf(F3)),
-        ControllerBinding("virtual:menu", action = "menu"),
-        // Right Shift: the joystick in port 2 and the keyboard share the CIA's port A, and Left
-        // Shift sits on CRSR down's row (PB7), so joystick up (PA0) with both keys held pulled PA1,
-        // joystick down, low too; every game saw up as up and down. Right Shift (PA6, PB4) is on
-        // no joystick line.
-        ControllerBinding("virtual:up", listOf(RIGHT_SHIFT, CURSOR_DOWN), joystick = "up"),
-        ControllerBinding("virtual:down", listOf(CURSOR_DOWN), joystick = "down"),
-        ControllerBinding("virtual:left", listOf(RIGHT_SHIFT, CURSOR_RIGHT), joystick = "left"),
-        ControllerBinding("virtual:right", listOf(CURSOR_RIGHT), joystick = "right"),
-        ControllerBinding("virtual:lsup", joystick = "up"),
-        ControllerBinding("virtual:lsdown", joystick = "down"),
-        ControllerBinding("virtual:lsleft", joystick = "left"),
-        ControllerBinding("virtual:lsright", joystick = "right"),
-        ControllerBinding("virtual:rsup", mouse = "moveUp"),
-        ControllerBinding("virtual:rsdown", mouse = "moveDown"),
-        ControllerBinding("virtual:rsleft", mouse = "moveLeft"),
-        ControllerBinding("virtual:rsright", mouse = "moveRight")
-    )
 }
