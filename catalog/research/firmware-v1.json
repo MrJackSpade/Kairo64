@@ -12568,7 +12568,8 @@
    "why": "firmware_pass.py: on the Open ROMs and the virtual drive: The C64 stopped:    Main CPU: JAM at $E536   ; on own: runs"
   },
   "sha256-tape-v1:d055b8293c7277a32b0aab46ccc90d0af4868964b2e6e47e3eac0d15e2f8d349": {
-   "fails": "firmware_pass.py: fails on every setup; on the Open ROMs: BASIC says ?NOT IMPLEMENTED ERROR"
+   "system": "own",
+   "why": "decided by hand: on the RG DS on the player's firmware it loads to its title (Press 'S' to start & 'I' Instructions); the host pass's Space press ends it at ?ILLEGAL QUANTITY ERROR"
   },
   "sha256-tape-v1:d0580c7bbf06b72b6f6358b40cd3ecd3dd1ee4fbe72323a3c9dfd0b707e67ce6": {
    "system": "own",

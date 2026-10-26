@@ -38943,6 +38943,11 @@
     "sha256-tape-v1:d055b8293c7277a32b0aab46ccc90d0af4868964b2e6e47e3eac0d15e2f8d349"
    ],
    "description": "Run a large company as its chief executive, choosing which projects to pursue and growing the business.",
+   "diskMachine": {
+    "sha256-tape-v1:d055b8293c7277a32b0aab46ccc90d0af4868964b2e6e47e3eac0d15e2f8d349": {
+     "system": "own"
+    }
+   },
    "launchbox": "141128",
    "publisher": "Challenge Software",
    "screenshotUrl": "https://images.launchbox-app.com/bb634eb9-9116-493a-990d-6f242b52876c.png",
