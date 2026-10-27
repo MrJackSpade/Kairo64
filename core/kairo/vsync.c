@@ -191,6 +191,7 @@ void vsync_do_end_of_line(void)
 {
     sound_flush();
     KairoC64_BusLine();
+    KairoC64_RasterLine();
 }
 
 /* Every frame is drawn. */

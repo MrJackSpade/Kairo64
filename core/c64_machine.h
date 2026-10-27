@@ -12,6 +12,7 @@
 #include <cstdint>
 #include <memory>
 #include <string>
+#include <vector>
 
 namespace kairo64 {
 
@@ -68,6 +69,9 @@ public:
     // program runs, which for a game with its own loader (most tapes, many disks) is when the
     // loader takes over, long before the game is in.
     bool autostarting() const;
+    // The raster lines the game's enabled raster interrupts waited on since the last call
+    // (KairoC64_RasterIrqLines): a line of 263 or later exists only on a PAL C64.
+    std::vector<unsigned> raster_irq_lines();
     // Whether the datasette's tape is moving under its motor.
     bool tape_moving() const;
     // Whether drive 8 is loading: the serial bus has moved within the last second of guest time,

@@ -248,6 +248,15 @@ std::unique_ptr<C64Machine> C64Machine::create(const Config &config, std::string
 }
 
 bool C64Machine::autostarting() const { return KairoC64_Autostarting(); }
+std::vector<unsigned> C64Machine::raster_irq_lines()
+{
+    uint8_t bits[64];
+    KairoC64_RasterIrqLines(bits);
+    std::vector<unsigned> lines;
+    for (unsigned line = 0; line < 512; ++line)
+        if (bits[line / 8] & (1 << (line % 8))) lines.push_back(line);
+    return lines;
+}
 
 bool C64Machine::tape_moving() const { return KairoC64_TapeMoving(); }
 

@@ -153,6 +153,8 @@ list(REMOVE_ITEM VICE_LIBRARY_archdep "${VICE}/arch/shared/archdep_exit.c"
     "${VICE}/arch/shared/archdep_user_config_path.c" "${VICE}/arch/shared/archdep_user_state_path.c")
 list(APPEND VICE_LIBRARY_archdep "${KAIRO}/archdep_exit.c" "${KAIRO}/archdep_default_logger.c"
     "${KAIRO}/archdep_user_paths.c")
+# The VIC-II's state the host reads (KairoC64_RasterIrqLine), with the C64 library's VIC-II headers.
+list(APPEND VICE_LIBRARY_c64sc "${KAIRO}/vicii.c")
 # The sound device that hands VICE's sound to the host (the vice-kairo-sound local change lists it).
 list(APPEND VICE_LIBRARY_sounddrv "${KAIRO}/soundkairo.c")
 # sound.c lists Windows' waveout device on Windows, which configure's SOUND_DRIVERS adds there (the

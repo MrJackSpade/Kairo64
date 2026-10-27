@@ -2018,7 +2018,7 @@
    "developer": "Mike Lorenzen",
    "diskMachine": {
     "sha256-disk-v1:8b4164725390e6bf79c0b824ff58372b5094f3f51367f359c5234667d2169a13": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -3318,7 +3318,7 @@
    "developer": "Reflections Interactive",
    "diskMachine": {
     "sha256-disk-v1:d9b8d68e299be1141903de214e79d7839cf84c7ebbe1185dd5eb2f0662c37f6a": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -6278,7 +6278,7 @@
    "developer": "Vincent Gillebert",
    "diskMachine": {
     "sha256-disk-v1:f5faa26fd55fa25ae9c989f01ecda9418afb57740b753caf92b5f70dd326e519": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -6540,7 +6540,7 @@
    "developer": "Georg Rottensteiner",
    "diskMachine": {
     "sha256-tape-v1:2b2b5f512f10fdcf1b0c7ebaa66019d99e48bdac028503c0251e0af8eb5df28a": {
-     "model": "c64ntsc"
+     "model": "c64"
     }
    },
    "launchbox": "125550",
@@ -6871,7 +6871,7 @@
    "developer": "Silicon Beach Software",
    "diskMachine": {
     "sha256-disk-v1:abe559af570b47644bb732deb599e5e73578d739c9b560e0d08a7da5555fa542": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     },
     "sha256-disk-v1:fff3e0c87d6cb7d07175e578e13facf2eef27836f7759b0debd49ae0df7b1fff": {
@@ -7231,7 +7231,7 @@
    "developer": "Cameron Kaiser",
    "diskMachine": {
     "sha256-tape-v1:3e523d65a985959bcc96a439a50dcb50af8685549c9762b2b1767715c0ed14b1": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -7586,7 +7586,7 @@
    "diskMachine": {
     "sha256-disk-v1:44c309b887d570f422549fa0207ba6908f55afca4cc437b4473e36d18fa1770c": {
      "drive": "1541",
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -8958,7 +8958,7 @@
    "diskMachine": {
     "sha256-disk-v1:00fe00ac08aa7789634518b2a3940c99f456d2e2a111b110371c086994ed92a1": {
      "drive": "1541",
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -9173,7 +9173,7 @@
    "developer": "Paul Koller",
    "diskMachine": {
     "sha256-tape-v1:eac01d1930657540eb3d55a22dabc529b8eda439cfbfda19e7439df3116db9f6": {
-     "model": "c64ntsc"
+     "model": "c64"
     }
    },
    "launchbox": "125961",
@@ -10699,7 +10699,7 @@
    "developer": "Tim Colton",
    "diskMachine": {
     "sha256-tape-v1:44259d2c9a8739240865479317306ecd3784d7cedd714d144a8e3450baf19150": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -14643,7 +14643,7 @@
    "developer": "Starsoft Development Laboratories, Inc.",
    "diskMachine": {
     "sha256-disk-v1:8533625efa402effcaaeaae22ad6e3ed2a4be600c9fe427c596b9b643c95c80e": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     },
     "sha256-disk-v1:f9d0cae49f8032b6b1ba2f5d20e4d7453a76a0e655d6368196b38fc3418411c9": {
@@ -15331,7 +15331,7 @@
    "developer": "Creative Software Designs",
    "diskMachine": {
     "sha256-disk-v1:6277c58ebcbe1131e50da2798e52546bb24686a34f8378464dee6492d4de9c6c": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -17954,7 +17954,7 @@
    "developer": "Westwood Associates",
    "diskMachine": {
     "sha256-disk-v1:24afa273402cbff0895e14d4faba5116e2077fcc940abbb46f1d46df01461da4": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -18009,7 +18009,7 @@
      "model": "c64ntsc"
     },
     "sha256-disk-v1:7e4e6507b68ed39e9dd5552f6d666be2b5a4f541ca3a2fe33be8da7dc971c881": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     },
     "sha256-disk-v1:c73b1630ac54669c862dae070f558d762e479637e868937ccb657b23fb2ad612": {
@@ -19964,7 +19964,7 @@
    "developer": "M&P Software",
    "diskMachine": {
     "sha256-disk-v1:a2f1139ae079497dd2a3882f60fc4cb17f73fa6ae05762c4fb805d8140e65f35": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -21048,7 +21048,7 @@
    "diskMachine": {
     "sha256-disk-v1:caf1be925310a7668da53c89294b538cd41dac987b9207afc1aebfeab53a29ff": {
      "drive": "1541",
-     "model": "c64ntsc"
+     "model": "c64"
     }
    },
    "launchbox": "137283",
@@ -23259,7 +23259,7 @@
    "developer": "Luca Balducci",
    "diskMachine": {
     "sha256-disk-v1:7e349fb265cb75068acad6d64a1cbbf77d3757d2bf7523728224c281b4d44b54": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -23861,7 +23861,7 @@
    "developer": "Tom Snyder Productions",
    "diskMachine": {
     "sha256-tape-v1:7ea2ad119492e83b8ccd6bc17150dc0a9eb532eaf7a33019d6e10051f5ef5814": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -23906,7 +23906,7 @@
    "developer": "A. Eddy Goldfarb and Associates",
    "diskMachine": {
     "sha256-disk-v1:fa8976604ac6073cb3e163bfcbb871014626d570cbee391b19feb6a295e26ca7": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -26536,7 +26536,7 @@
    "developer": "Interphase Technologies",
    "diskMachine": {
     "sha256-tape-v1:60687f5faa36213edcb97c7a3a3f4d5467eba58c4cd64d37456c8dc120a7aeaa": {
-     "model": "c64ntsc"
+     "model": "c64"
     }
    },
    "launchbox": "138831",
@@ -26765,7 +26765,7 @@
    "developer": "Arts of Darkness",
    "diskMachine": {
     "sha256-disk-v1:583d7d4338f892809d1bc9b77b3970b35967d02bdf905955254c6c52e4ae4a1d": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -29689,7 +29689,7 @@
    "developer": "Hi Tech Expressions",
    "diskMachine": {
     "sha256-disk-v1:50de82ffca912889bbbd1042daad93fa4d7203b35da45398725de16f871248af": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -30901,7 +30901,7 @@
    "developer": "Mirror Images Software",
    "diskMachine": {
     "sha256-tape-v1:6d9e652ad904c3de841260382811e3651da41916c0d4be528656afddc69239a3": {
-     "model": "c64ntsc"
+     "model": "c64"
     }
    },
    "launchbox": "139820",
@@ -35859,7 +35859,7 @@
    "developer": "John A. Fitzpatrick",
    "diskMachine": {
     "sha256-tape-v1:aff906af563c008245635a7d55f929e7f26215b9784aa34cac15a19026171fd5": {
-     "model": "c64ntsc"
+     "model": "c64"
     }
    },
    "launchbox": "140517",
@@ -36764,7 +36764,7 @@
    "developer": "A.N.A.L.O.G. Software",
    "diskMachine": {
     "sha256-tape-v1:571aa55ecf0ce8f8d168b558f2f634bd61ce3c7a250d854f55223f3efe1bd2c5": {
-     "model": "c64ntsc"
+     "model": "c64"
     }
    },
    "launchbox": "140662",
@@ -37374,7 +37374,7 @@
    "description": "Own five racehorses and campaign them through 20-week seasons, starting with £5000 and aiming to win the Derby at each season's end.",
    "diskMachine": {
     "sha256-tape-v1:4b8d4c9e9b6424f96ecbb202e1a9e36144bffaea6ce201df40b66ff5584b35b1": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -37890,7 +37890,7 @@
    "developer": "The Dovetail Group",
    "diskMachine": {
     "sha256-tape-v1:f868b8b54334aba1249578c0a5ad8f3373a99167efe38ac3cac16a340079a4b9": {
-     "model": "c64ntsc"
+     "model": "c64"
     }
    },
    "launchbox": "140802",
@@ -38092,7 +38092,7 @@
    "developer": "Park Place Productions",
    "diskMachine": {
     "sha256-disk-v1:65dbbd2b7b00c7ec7c0bef6d08c6a82b75b778c7afb2b6c72e1f2519c1ffe702": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     },
     "sha256-disk-v1:a934db0d74046dfe6176f7337a857a91d9c5785d4e8ee5f6e34cbb94b4d025ad": {
@@ -41863,7 +41863,7 @@
    "description": "A Head On-style driving game: speed around collecting dots while avoiding collisions.",
    "diskMachine": {
     "sha256-disk-v1:ef1e5dbdc64f63689df43a7cb384132cdbae0bce08e46c3b3d93994cf25dd31d": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -45923,7 +45923,7 @@
    "developer": "Gordon",
    "diskMachine": {
     "sha256-tape-v1:bf0c09d613e5f5688df49339fd01c63ed600e507f064d7e24020d40be16d3833": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -47530,7 +47530,7 @@
    "developer": "Spotlight Software",
    "diskMachine": {
     "sha256-disk-v1:0a440c573aff98bcf8bf66f26c47cf8b227649afd5a5804ee064d7d5277bb4cd": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     },
     "sha256-disk-v1:4a8e9ebcde6db3585e09b5064d84fc54d4cc7b77aee19ed163aee3eb6dcde16c": {
@@ -47838,7 +47838,7 @@
    "developer": "Norm Sailer",
    "diskMachine": {
     "sha256-disk-v1:32972b7ea680bfa1b8d4fb9b412c402769b396183e9ff00504352866f5007852": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     },
     "sha256-disk-v1:5cc2e0b3b8086d2884c6f3b3ab03552b840ebca86db9e7e6957610582dfe2031": {
@@ -49907,7 +49907,7 @@
    "developer": "IDSI",
    "diskMachine": {
     "sha256-tape-v1:e1d252914ddfe3089fabac66f039376ae653c64bd5a495cd14cae42bff39823d": {
-     "model": "c64ntsc"
+     "model": "c64"
     }
    },
    "launchbox": "146503",
@@ -52302,7 +52302,7 @@
     },
     "sha256-disk-v1:ae257838369c38c629bc09ddf35eb5c87bf1d53e963844204483e06ca2ab6647": {
      "drive": "1541",
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     },
     "sha256-disk-v1:d9b7fd79c9e453df8e431441f615139769f3d7309ef3f0424d2364efc5793430": {
@@ -52886,7 +52886,7 @@
    "developer": "Unlimited Software",
    "diskMachine": {
     "sha256-disk-v1:8612204c849406cae67af78e4f6a326ed6abfc0feca0fbe1d9bb5569a06eed47": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -52921,7 +52921,7 @@
    "developer": "Quicksilver Software",
    "diskMachine": {
     "sha256-disk-v1:09750abd27411cab845037b166e475a86a4dd427d9f295310ceb2a25c38d708f": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -60815,7 +60815,7 @@
    "developer": "Mindspan Technologies",
    "diskMachine": {
     "sha256-disk-v1:f1a752fa4bc71a763f20bf72a1755fb2ffee84cf023ae0d9af90d813cd994677": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -63154,7 +63154,7 @@
    "developer": "Peter Liepa",
    "diskMachine": {
     "sha256-disk-v1:4f3440e76716e3b8dc053b2bd61dfb4a67b6765771b1434a20b80a5c10c594d3": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -63219,7 +63219,7 @@
    "developer": "Strategic Simulations",
    "diskMachine": {
     "sha256-disk-v1:cede579359bb4b2b76a17cfb6370df0637b113eb30e7df92b0e814adcf50507c": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -65722,7 +65722,7 @@
    "developer": "Hi-Tech Expressions",
    "diskMachine": {
     "sha256-disk-v1:39e34c1a34652bb498ff4e0da09870933079e8ca5ff740cba99cfac9275af3b6": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     },
     "sha256-tape-v1:a1d1a5ad2d89e414f2367ee49c1caf3c96a95fb5e2d43c82a8a62b658579a6a9": {
@@ -65769,7 +65769,7 @@
    "developer": "Robert Bobbio",
    "diskMachine": {
     "sha256-tape-v1:18080ff4c0796eb12868fa47ab885efcf7cd0cdff4186295eb789a006639ad58": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -66496,7 +66496,7 @@
    "developer": "The Assembly Line",
    "diskMachine": {
     "sha256-disk-v1:ebff3df70b498f3604109196c927761f14962f2d607321582c826c1416ab9ff2": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -67132,7 +67132,7 @@
    "developer": "Brian Niessen",
    "diskMachine": {
     "sha256-tape-v1:9101212dfc30b209bfc97099ea5c53d8a53c1822d3054d531d98347b238a6814": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -71960,7 +71960,7 @@
    "developer": "Artech Digital Entertainment",
    "diskMachine": {
     "sha256-disk-v1:784d694d1b6ff75d16052ee0c00df18135a87f1497ede893485835ef20e9d07b": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -76266,7 +76266,7 @@
      "model": "c64ntsc"
     },
     "sha256-disk-v1:73bba92a87d0247aa5c6f3273c504ca711608daaa73fc9c38837ff6a14736a6e": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -76620,7 +76620,7 @@
    "developer": "Med Systems Software",
    "diskMachine": {
     "sha256-disk-v1:832fd708af5cb4e6685ebe3d5ffba5526e1c8cdfdeb870087cb0dfebe263705b": {
-     "model": "c64ntsc"
+     "model": "c64"
     }
    },
    "launchbox": "156541",
@@ -76731,7 +76731,7 @@
    "developer": "XL.C.US Software",
    "diskMachine": {
     "sha256-disk-v1:57dd56e99cca097480fee85be67de9d0f858533e7968c7ce143ea54e51f9804f": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -77049,7 +77049,7 @@
    "developer": "Kinemation",
    "diskMachine": {
     "sha256-disk-v1:37100fd3980acbd77fc4d737b061749ea123fff582fc96292959dd1fbb7a7bb3": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     },
     "sha256-disk-v1:a9b0828a2e26c2552977e79cc879931e33aaa33cc68e3adea8e6303035dcb7a6": {
@@ -80616,7 +80616,7 @@
    "developer": "Alpha Flight",
    "diskMachine": {
     "sha256-disk-v1:ca14208a714a4c79ea2a4b3433d92cac6937568c244cc1591703bf55206c9863": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -81554,7 +81554,7 @@
    "developer": "Addictive Games",
    "diskMachine": {
     "sha256-disk-v1:55675212c72909f084f60d36be7d83dcc329878f1f4c4b1bcfa9e24d6dd74f70": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -88095,7 +88095,7 @@
    "developer": "Realtime Games Software",
    "diskMachine": {
     "sha256-tape-v1:bd3458f53f51989a45555cef595606811eb663868a33a4f26355399748b9acb1": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -90248,7 +90248,7 @@
      "model": "c64ntsc"
     },
     "sha256-disk-v1:fc2a3db6e91223e8e4336e5f3b8d5f4053afe1aeb2596785c4fab620e1a1cb77": {
-     "model": "c64ntsc"
+     "model": "c64"
     }
    },
    "diskSets": {
@@ -90554,7 +90554,7 @@
    "developer": "Duncan Scott",
    "diskMachine": {
     "sha256-tape-v1:b8ccb23128bed93c06a1e800c62556ebe3ac649a3aace6982db50cfd143259c4": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -93423,7 +93423,7 @@
    "developer": "HAL Laboratory",
    "diskMachine": {
     "sha256-disk-v1:513b4c7961e16ee167703b4c11474f782e014d2ceddaf70d089e7c055fa538e5": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -96982,7 +96982,7 @@
    "developer": "Sublogic",
    "diskMachine": {
     "sha256-disk-v1:8c287eb63e57a569f507bc229072d5cf99a0cafba86bddd1c6b1abdc758fac6b": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -97274,7 +97274,7 @@
    "developer": "Sierra On-Line",
    "diskMachine": {
     "sha256-disk-v1:e71c901a9ba1d92bb3b5b7aec7b40f2d34aaa8fe979b6b5e031c7ede249a0a28": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -99527,7 +99527,7 @@
    "developer": "The Mojon Twins",
    "diskMachine": {
     "sha256-tape-v1:f970aaea4c790f6bd65c323610403176bc91b094ddcbae7c4ae963657f4d8e9a": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -102414,7 +102414,7 @@
    "developer": "Søren Grønbech",
    "diskMachine": {
     "sha256-tape-v1:3e76cf87f247d801ad2bc1beabce3a5845bad4c113b5c47fc553c5f83c5881ae": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -103081,7 +103081,7 @@
    "developer": "Ogdon Micro Design",
    "diskMachine": {
     "sha256-disk-v1:8b444638f077dee1e84fe6a31b45f35253dcfb333df9beddcfa6a7da4df648fd": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     },
     "sha256-disk-v1:9aeea56c96fe2a9eecdee011bb22ec2d3f72263e28e81a384845189268191fec": {
@@ -104688,7 +104688,7 @@
    "developer": "Xonox",
    "diskMachine": {
     "sha256-tape-v1:1b34e656f137e315d4986bcf6b67ff642948bfce844638a5f4eccb84dfbbc6ca": {
-     "model": "c64ntsc"
+     "model": "c64"
     }
    },
    "launchbox": "167048",
@@ -108235,7 +108235,7 @@
    "developer": "Jaron Lanier",
    "diskMachine": {
     "sha256-tape-v1:3829df220f11e537fa30e35698c6c13c2f0aa48e02616154cd4e242eab2d50c3": {
-     "model": "c64ntsc"
+     "model": "c64"
     }
    },
    "launchbox": "169692",
@@ -108542,7 +108542,7 @@
      "model": "c64ntsc"
     },
     "sha256-disk-v1:5206831189f39eae6709a40291cf4d08a1b77edf86c3c3b4a9aa6b5f6bfc2369": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -110170,7 +110170,7 @@
    "developer": "Michael Grandt",
    "diskMachine": {
     "sha256-tape-v1:95f4c473eb49102e4da7c3d966b0719711e0ee6d7ff4bc70ec46fa24f1019b05": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -111098,7 +111098,7 @@
      "model": "c64ntsc"
     },
     "sha256-disk-v1:ea07937bc0b2937f78e6e03ae38f16093606c87e08cbc3f4c008bccb5c8fc3f3": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -117586,7 +117586,7 @@
    "developer": "General Masters Corporation",
    "diskMachine": {
     "sha256-disk-v1:621de2477464ab0d34587c5c64a83491ed7ca570aaac07021522a85cba38652b": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -118334,7 +118334,7 @@
      "model": "c64ntsc"
     },
     "sha256-disk-v1:9bdb265255fa87ca7837434b78b5d659689c38b195784ff7392108f8ca5f298e": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     },
     "sha256-disk-v1:f4ea6648131fcf4080d15e9a0210177a572cd7f7f0e14aeaf695c2f429cae622": {
@@ -119470,7 +119470,7 @@
    "developer": "Kevin Bentley",
    "diskMachine": {
     "sha256-disk-v1:084447b4a06d77867fc3cfe4b885db7c7bca226d14c9ed23214b7850206d80ca": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -119715,7 +119715,7 @@
    "diskMachine": {
     "sha256-disk-v1:ca6cc85c50146f26681e82e830433423ac6d810575b53a606e6f22bbb2f7929e": {
      "drive": "1541",
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -121168,7 +121168,7 @@
    "developer": "Brøderbund Software",
    "diskMachine": {
     "sha256-disk-v1:621cd0d78aede4af1b7931ef4ab3d8f70339fa6fa9af5e874149ece9036ba217": {
-     "model": "c64ntsc"
+     "model": "c64"
     }
    },
    "launchbox": "173114",
@@ -125274,7 +125274,7 @@
    "developer": "Turbo Software",
    "diskMachine": {
     "sha256-tape-v1:0a49f334afbb384a4477166bad59011e6aa8fc8b72607ff628d589aed44e6a28": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -125995,7 +125995,7 @@
    "developer": "Michael F.C. Crick",
    "diskMachine": {
     "sha256-disk-v1:e399aacec8aaf5811e77b7e1d67e7a9324a634f9980227d04f7018266192cead": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -132282,7 +132282,7 @@
    "developer": "Jay McIntosh",
    "diskMachine": {
     "sha256-tape-v1:07762f109b78d8c6479c3b05f23c557495101ef83df06bc644fb4de78cc58aff": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -132413,7 +132413,7 @@
    "developer": "Enrico Kub",
    "diskMachine": {
     "sha256-disk-v1:1c7c17b271a9f98d5c35dd7f596b5607b01107d45ded9faae555c653115ac6db": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -133635,7 +133635,7 @@
    "developer": "Neosoft Inc.",
    "diskMachine": {
     "sha256-disk-v1:d603cbe7a1044c761e7092450439c0df7ff1e94312fdfa0fe2b34a3f5a97ac67": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -134019,7 +134019,7 @@
    "developer": "Jan Böttcher",
    "diskMachine": {
     "sha256-disk-v1:30ea90be60d201e6bf1aefdcc49e222861a534412887e1772179b0a18c5bd1ca": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -134833,7 +134833,7 @@
    "developer": "Yelloboy",
    "diskMachine": {
     "sha256-tape-v1:1207b15219f04df6785e2b8e0127d186284fff531244f1a17b03f9cb311eb30a": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -135908,7 +135908,7 @@
    "developer": "Peter J. Glaze",
    "diskMachine": {
     "sha256-tape-v1:e68bd8c14c3bb62abd214dfb0fd7b2aedafb3a9821dc37641d3f20ace8612814": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -142490,7 +142490,7 @@
    "developer": "Thomas B. Levine",
    "diskMachine": {
     "sha256-disk-v1:f1b4c852990ed9101e549e209d9f208fac0978101337401a86632a0467af9abe": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -144895,7 +144895,7 @@
    "developer": "Phillip Hess",
    "diskMachine": {
     "sha256-disk-v1:bcfd6a656885f3f64e2bd3926389f3dd65a1d2026db55be9b8b0fa54b50dbf83": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -150486,7 +150486,7 @@
    "developer": "Fair Man Software",
    "diskMachine": {
     "sha256-disk-v1:2cc9eaa1d46ca46308dc58bb8d994bb3c972c396aec34e0e234ff8e4c953dfe9": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -150603,7 +150603,7 @@
    "developer": "John Rhoads",
    "diskMachine": {
     "sha256-disk-v1:0711c5f0d3fe10c48a27785a237c5349e1a2fcd5da7f0ad6ad5e18c3255be475": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -154119,7 +154119,7 @@
    "developer": "Chris Yates",
    "diskMachine": {
     "sha256-tape-v1:8f22d045ac2e7a82bb6088233a5d81cb191cc828471ae9c7d37050978186acd7": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -154139,7 +154139,7 @@
    "developer": "Chris Yates",
    "diskMachine": {
     "sha256-tape-v1:444b539f8dfa4e83f7cad25a8e8d977b0346b9e8f00126a0a795d02533213fa4": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -160374,7 +160374,7 @@
    "developer": "Quest Software",
    "diskMachine": {
     "sha256-disk-v1:0380d6db7d6662123a4f6edaac34fc0111cc9f659d67ad5bb34504d069327fc9": {
-     "model": "c64ntsc"
+     "model": "c64"
     },
     "sha256-disk-v1:3dece244512748275ce53385836a8e7f17656dc56299ec65ba71a33455eb494c": {
      "model": "c64ntsc"
@@ -162408,7 +162408,7 @@
    "developer": "Quicksilver Software",
    "diskMachine": {
     "sha256-disk-v1:ac4c3c60597455282c644065cf0ce16385e8d60dcf4020d68738565d70bc1572": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -170254,7 +170254,7 @@
    "developer": "Sega Enterprises",
    "diskMachine": {
     "sha256-tape-v1:103552817bdeb8efc6ef2c89bb7d0870e5d802c8dadc0237610dddf7cd199092": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -171438,7 +171438,11 @@
    "developer": "Tiertex",
    "diskMachine": {
     "sha256-disk-v1:cde02e36ddb847d89e1ae5cb90a0f80a9ed75287b53fb486ddb62f36ed7f13af": {
-     "model": "c64ntsc"
+     "model": "c64",
+     "system": "own"
+    },
+    "sha256-tape-v1:bbe8b0992a41889f54a33a95d71d3afff2ed96402661406a6c488b1fe144cd38": {
+     "system": "own"
     }
    },
    "diskSets": {
@@ -172659,7 +172663,7 @@
    "developer": "Commodore Business Machines",
    "diskMachine": {
     "sha256-tape-v1:b6e05ba8f39caa4f902704edb14ecd24246cfd96357d0414a363902d85d20ad0": {
-     "model": "c64ntsc"
+     "model": "c64"
     }
    },
    "launchbox": "29824",
@@ -173914,7 +173918,7 @@
      "model": "c64ntsc"
     },
     "sha256-disk-v1:0ee0c93fd0724a9f903ea1c1a3fe54a25312fdfc1e389527dfdf2f2c76078086": {
-     "model": "c64ntsc"
+     "model": "c64"
     },
     "sha256-disk-v1:17ffee6dd52b771a4075ea706b461e0370aa3bc33decbc05c94ea741941fb667": {
      "model": "c64ntsc"
@@ -175243,7 +175247,7 @@
    "developer": "Al Lowe",
    "diskMachine": {
     "sha256-disk-v1:2c04b8c85e05424b60c99266e82aa54574f8a1b0c34a299bb0a90d265d89cc85": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -175318,7 +175322,7 @@
    "developer": "Adventure International (UK)",
    "diskMachine": {
     "sha256-disk-v1:b28c10499e0c473b99c3dd78938bdb7db97ff3bf9a6759e4a6d3fbcaa8e40a52": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -176780,7 +176784,7 @@
    "developer": "Origin Systems",
    "diskMachine": {
     "sha256-disk-v1:70cf6ad3fec9047aefc04c1f0d23ce6da0c4465fd716a0aec9142d81dfd2af47": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -207945,7 +207949,7 @@
      "model": "c64ntsc"
     },
     "sha256-disk-v1:ef1194601f16bca903eaf14834e601548ed88ec4e3d5654eb98f91294a5c1a3b": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -211237,7 +211241,7 @@
    "developer": "Commodore Business Machines",
    "diskMachine": {
     "sha256-disk-v1:d400aa48bf91a403d2a7579b24a49c260817a5800734e8e376f490f4960d8f69": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -211815,7 +211819,7 @@
    "developer": "Beam Software",
    "diskMachine": {
     "sha256-disk-v1:46e75201f7893ce0a034d9b9e837919f96e05c549dd6d9f70f4ed7427dc772f3": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     },
     "sha256-disk-v1:b2f18242fe2ebb4a92814228a563a4883b9e4457ffd332c6c2bda2f5a1fd419a": {
@@ -212021,7 +212025,7 @@
    "developer": "Sublogic",
    "diskMachine": {
     "sha256-disk-v1:5a64a176aef2be02e80c0a4847811b97b7162df56a7f7f590e5bd9540ad8b3e9": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -213709,7 +213713,7 @@
    ],
    "diskMachine": {
     "sha256-disk-v1:e9cf5245cebb37ebaf1d9948cc75804c3a9b9d468c75ba170c51847197faa069": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -214833,7 +214837,7 @@
    ],
    "diskMachine": {
     "sha256-disk-v1:0dbcf80aacbed06bec6e0b05c7c3bce64854feca3e00ea230f322dce2db35707": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -215219,7 +215223,7 @@
    "description": "A light-cycle duel by Charles Deenen (1989): race one other player or the computer around the arena, leaving a wall behind you and using turbo bursts to cut the opponent off.",
    "diskMachine": {
     "sha256-tape-v1:278794a0b341fc4dbb7136b1879d00db15aa9413efd363c143b977a245a7ac63": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -218381,7 +218385,7 @@
    "description": "Plasma-eating invaders are draining a far-off planet of its air and water, so its council reawakens Robox, a steel-suited combat robot. Shoot your way through the planet's tunnels against a time limit per level: touching enemies or walls costs energy, any trap ends the game at once, and bonus rounds between stages upgrade your gear.",
    "diskMachine": {
     "sha256-tape-v1:f132870cd0355c60a3fefd46f12608494f3aa759a88fb23ae356567dede69734": {
-     "model": "c64ntsc"
+     "model": "c64"
     }
    },
    "sourceGroups": [
@@ -220152,7 +220156,7 @@
    "diskMachine": {
     "sha256-tape-v1:2bbaa40c83219cce20f4eccf78a852194be4e050e2ae557cf9e120ea333b5f10": {
      "drive": "1541",
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -220793,7 +220797,7 @@
    ],
    "diskMachine": {
     "sha256-disk-v1:9b272f7f8dbe9161c158936413239b8578e92cb1ee9ab042cbf256ffe3e8e816": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },
@@ -231396,7 +231400,7 @@
    "description": "Choplifter-style rescue game over eight horizontally scrolling levels. Find a set number of stranded men within the time limit, hover low to winch each one aboard, and shoot or dodge attackers, with smart bombs to clear the screen.",
    "diskMachine": {
     "sha256-disk-v1:014563aee4bfd42c37655a370485c98d28c734e38f66053cdb30e2e763837b02": {
-     "model": "c64ntsc",
+     "model": "c64",
      "system": "own"
     }
    },

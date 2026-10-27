@@ -142,11 +142,11 @@ def basic_idle(screen):
     return bool(rows) and rows[-1] == "READY."
 
 
-def boot(system, path, model, seconds, work):
+def boot(system, path, model, seconds, work, keep_output=None):
     """The outcome of one boot: {"ok": bool, "doubtful": whether it ran only on a still, silent
     picture, "why": text, "range": int, "pictures": distinct pictures after the load, "colours": the
     last picture's, "frame": whether it ran to the end and wrote its last frame}. The frame is
-    kept as work/frame-<system>.bmp."""
+    kept as work/frame-<system>.bmp; with keep_output, boot_test's report is written there too."""
     for old in list(work.glob("*.bmp")) + list(work.glob("*.txt")):
         old.unlink()
     result = subprocess.run(["pwsh", "-NoProfile", "-File", str(ROOT / "shared/tools/run-limited.ps1"),
@@ -154,6 +154,8 @@ def boot(system, path, model, seconds, work):
                              str(seconds), system, "1", PRESSES, model],
                             capture_output=True, text=True, encoding="utf-8", errors="replace")
     lines = result.stdout.splitlines() + result.stderr.splitlines()
+    if keep_output is not None:
+        keep_output.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
     # How long the app would run the load flat out (the autostart, a moving tape, a disk load),
     # and whether that was still going at the end: a game the app would fast-forward in play.
@@ -305,6 +307,11 @@ def main():
     def own(entry):
         """Whether an entry is this tool's, which each run replaces; others were decided by hand."""
         return (entry.get("why") or entry.get("fails") or "").startswith("firmware_pass.py:")
+
+    def model_of(content_id):
+        """The model the model pass (tools/model_pass.py) decided, which each run here keeps."""
+        entry = listed["games"].get(content_id, {})
+        return {key: entry[key] for key in ("model", "modelWhy") if key in entry}
     counts = {}
     for content_id, record in sorted((key, value) for key, value in results.items() if key in media):
         boots = record["boots"]
@@ -314,16 +321,21 @@ def main():
         entry = listed["games"].get(content_id)
         if entry is not None and not own(entry):
             continue  # decided by hand
+        model = model_of(content_id)
         if chosen == "open":
-            listed["games"].pop(content_id, None)
+            if model:
+                listed["games"][content_id] = model
+            else:
+                listed["games"].pop(content_id, None)
             continue
         failure = boots["open"]["why"]
         if chosen is None:
-            listed["games"][content_id] = {"fails": f"firmware_pass.py: fails on every setup; on the Open ROMs: {failure}"}
+            listed["games"][content_id] = {"fails": f"firmware_pass.py: fails on every setup; on the Open ROMs: {failure}",
+                                           **model}
         else:
             listed["games"][content_id] = dict(SETTINGS[chosen], why=(
                 f"firmware_pass.py: on the Open ROMs and the virtual drive: {failure}; on {chosen}: "
-                f"{boots[chosen]['why']}"))
+                f"{boots[chosen]['why']}"), **model)
     listed["games"] = dict(sorted(listed["games"].items()))
     LIST.write_text(json.dumps(listed, indent=1, sort_keys=True) + "\n", encoding="utf-8")
     print(f"{len(results)} games booted; runs on: {counts}; {len(listed['games'])} listed")

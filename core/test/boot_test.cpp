@@ -239,6 +239,9 @@ int main(int argc, char **argv) {
         // Guest time the app runs flat out (C64Machine::loading), and when that last ended.
         double loading = 0, loading_ended = 0;
         std::vector<uint64_t> pictures;
+        // The raster lines the game's enabled raster interrupts waited on after the load: a line of
+        // 263 or later exists only on a PAL C64 (Kairo64#14).
+        std::vector<unsigned> raster_lines;
         bool was_loading = machine->loading();
         uint64_t samples = 0;
         int64_t loudest = 0;
@@ -257,6 +260,10 @@ int main(int argc, char **argv) {
                 std::fprintf(stderr, "run %d: stopped after %ld frames: %s\n", run, frames, error.c_str());
                 return 1;
             }
+            // Every line a raster interrupt waited on during the frame; those of the load are dropped.
+            for (unsigned line : machine->raster_irq_lines())
+                if (!booting && std::find(raster_lines.begin(), raster_lines.end(), line) == raster_lines.end())
+                    raster_lines.push_back(line);
             const bool now_loading = machine->loading();
             if (now_loading) loading += machine->frame_seconds();
             if (was_loading && !now_loading) loading_ended = elapsed;
@@ -380,6 +387,10 @@ int main(int argc, char **argv) {
         std::printf("run %d: pictures after load: %zu distinct of %zu seconds; the last has %d colours, %d in "
                     "its display window\n", run, distinct.size(), pictures.size(), colours(rgba, width, height),
                     window_colours(rgba, width, height));
+        // PAL-only: an interrupt on a line an NTSC C64 never draws (263 or later).
+        const unsigned highest = raster_lines.empty() ? 0 : *std::max_element(raster_lines.begin(), raster_lines.end());
+        std::printf("run %d: raster interrupts after load: %zu lines, highest %u%s\n", run, raster_lines.size(), highest,
+                    raster_lines.empty() ? "" : highest >= 263 ? ", PAL only" : ", within NTSC");
         // The text screen at the end, where BASIC's messages ("?FILE NOT FOUND", "READY.") show.
         std::ofstream(config.home + "/screen-" + std::to_string(run) + ".txt", std::ios::binary) << machine->screen_text();
         std::printf("run %d: %ld frames (%.4f s each), %ux%u, %llu sound frames at %d Hz, peak %lld, range after load %d, "

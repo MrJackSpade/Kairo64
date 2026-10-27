@@ -47,8 +47,9 @@ MACHINE_OPTIONS = {
 _NTSC = re.compile(r"\((?:USA|Japan|Canada|USA, Canada)\)")
 
 # Games that need the player's firmware, the 1541 or another program than their media's first
-# (tools/firmware_pass.py): {content ID: {"system": "own", "drive": "1541", "program": "NAME",
-# "why": ...}}; a game listed as failing everywhere keeps the defaults.
+# (tools/firmware_pass.py, "why"), or another model than their name's region gives them
+# (tools/model_pass.py, "model" and "modelWhy"): {content ID: {"system": "own", "drive": "1541",
+# "program": "NAME", "model": "c64", ...}}; a game listed as failing everywhere keeps the defaults.
 _FIRMWARE = json.loads((ROOT / "catalog/research/firmware-v1.json").read_text(encoding="utf-8"))["games"]
 
 # The launch fields a disk's record may carry (shared app_catalog): the program autostart loads
@@ -56,13 +57,19 @@ _FIRMWARE = json.loads((ROOT / "catalog/research/firmware-v1.json").read_text(en
 LAUNCH_FIELDS = {"program": r"[ !#-~]{1,16}"}
 
 
+def region_model(name):
+    """The model a release's name gives it: an NTSC C64 for a USA, Japanese or Canadian release
+    (No-Intro's regions), else the default PAL C64."""
+    return "c64ntsc" if _NTSC.search(name) else "c64"
+
+
 def MACHINE(name, set_name, content_id):
     """The settings a release asks for: an NTSC C64 for a USA or Japanese release, which is timed
-    for one (every other release starts on the default PAL C64), and the firmware, drive and start
-    program firmware-v1.json found it needs."""
-    settings = {"model": "c64ntsc"} if _NTSC.search(name) else {}
+    for one (every other release starts on the default PAL C64), and the firmware, drive, start
+    program and model firmware-v1.json found it needs (a model there overrides its region's)."""
+    settings = {"model": "c64ntsc"} if region_model(name) == "c64ntsc" else {}
     needs = _FIRMWARE.get(content_id, {})
-    settings.update({option: needs[option] for option in ("system", "drive") if option in needs})
+    settings.update({option: needs[option] for option in ("system", "drive", "model") if option in needs})
     if "program" in needs:
         settings["launch"] = {"program": needs["program"]}
     return settings

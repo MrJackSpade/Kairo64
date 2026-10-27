@@ -78,6 +78,15 @@ void KairoC64_Key(int row, int column, bool down);
 void KairoC64_Restore(bool down);
 /* A control of the joystick in port 1 or 2: up, down, left, right, fire. */
 void KairoC64_Joystick(int port, int control, bool down);
+
+/* At the end of every raster line (kairo/vsync.c): notes the line an enabled raster interrupt
+ * waits on (kairo/vicii.c). */
+void KairoC64_RasterLine(void);
+/* The raster lines enabled raster interrupts waited on since the last call, one bit per line
+ * (line n is bit n % 8 of byte n / 8), and forgets them. A PAL C64 draws lines 0 to 311 and an
+ * NTSC one 0 to 262 (an early NTSC one to 261): a game that interrupts on line 263 or later was
+ * written for PAL. */
+void KairoC64_RasterIrqLines(uint8_t lines[64]);
 /* The 1351 mouse: motion in C64 pixels and button 1 (left) or 2 (right). */
 void KairoC64_MouseMove(int dx, int dy);
 void KairoC64_MouseButton(int button, bool down);
