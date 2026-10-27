@@ -39,12 +39,13 @@ object C64Catalog : LayeredGameCatalog.Schema {
     const val OWN_ROMS = "own"
 
     /**
-     * The KERNAL, BASIC and character ROMs: the MEGA65 Open ROMs, which come with the app, or the
-     * player's Commodore ROMs, which games that call the KERNAL's insides need.
+     * The KERNAL, BASIC and character ROMs: the player's Commodore ROMs once they have imported
+     * them, else the MEGA65 Open ROMs, which come with the app (games that call the KERNAL's
+     * insides need the player's).
      */
     val system = MachineOption("system", "System", listOf(
         ChoiceOption(OPEN_ROMS, "Free C64 firmware"),
-        ChoiceOption(OWN_ROMS, "Your C64 firmware")), OPEN_ROMS)
+        ChoiceOption(OWN_ROMS, "Your C64 firmware")), OPEN_ROMS, ownFirmware = OWN_ROMS)
 
     const val TRUE_DRIVE = "1541"
     const val VIRTUAL_DRIVE = "virtual"

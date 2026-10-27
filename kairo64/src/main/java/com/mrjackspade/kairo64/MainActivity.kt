@@ -1,5 +1,6 @@
 package com.mrjackspade.kairo64
 
+import com.mrjackspade.kairo.frontend.MachineOption
 import com.mrjackspade.kairo.frontend.CatalogGame
 import com.mrjackspade.kairo.frontend.ControllerGuestSpec
 import com.mrjackspade.kairo.frontend.ControllerLayout
@@ -66,6 +67,10 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
 
     private val firmwareDirectory by lazy { File(filesDir, "firmware") }
     override val firmwareSets by lazy { listOf("C64 firmware" to C64Firmware.set(firmwareDirectory)) }
+    override fun ownFirmwareInstalled(option: MachineOption, values: Map<String, String>): Boolean {
+        check(option.id == C64Catalog.system.id) { "${option.id} has no firmware of the player's" }
+        return C64Firmware.system.all(firmwareSets.single().second::installed)
+    }
 
     override fun startGame(entry: DiskImageEntry, game: CatalogGame, cancelled: AtomicBoolean,
                            progress: (String) -> Unit) {
