@@ -36,7 +36,7 @@ Kairo64 builds VICE's `x64sc` sources, as VICE's own makefiles list them for a b
 
 ## Notices in the app
 
-`tools/notices.py` writes the app's `THIRD_PARTY_NOTICES.txt` (About → Licenses) from the license files and source notices above: VICE's license statement and GPL text, the notices of the files under other terms, the Open ROMs and zlib. `tools/notices.py --check` fails when the file is out of date.
+`shared/tools/notices.py .` writes the app's `THIRD_PARTY_NOTICES.txt` (About → Licenses) from `tools/notices_sources.py`, which lists the license files and source notices above: VICE's license statement and GPL text, the notices of the files under other terms, the Open ROMs and zlib. `tools/notices.py --check` fails when the file is out of date.
 
 ## Libraries VICE needs
 

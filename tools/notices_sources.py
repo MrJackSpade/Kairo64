@@ -1,18 +1,8 @@
-#!/usr/bin/env python3
-"""Writes kairo64/src/main/assets/THIRD_PARTY_NOTICES.txt from the license files and notices in
-third_party/: VICE, the code it carries under other terms, the MEGA65 Open ROMs and zlib. The
-shared frontend's own notices (its Java libraries, font, NDK runtime and AndroidX) follow these in
-About -> Licenses. Run it again after an import.
+"""Kairo64's third-party notices: the sources shared/tools/notices.py writes kairo64/src/main/assets/THIRD_PARTY_NOTICES.txt from.
+Run it again after an import."""
+from notices import excerpt, text
 
-Usage: notices.py [--check]   (--check fails when the file is out of date)
-"""
-import sys
-from pathlib import Path
-
-ROOT = Path(__file__).resolve().parents[1]
-THIRD_PARTY = ROOT / 'third_party'
-OUT = ROOT / 'kairo64/src/main/assets/THIRD_PARTY_NOTICES.txt'
-RULE = '=' * 72
+OUT = 'kairo64/src/main/assets/THIRD_PARTY_NOTICES.txt'
 
 HEADER = '''Kairo64 third-party notices
 These notices apply to the emulator code, system software and libraries in this package. Kairo64
@@ -40,19 +30,6 @@ third_party/open-roms of Kairo64's source. Their license statement, which covers
 BASIC files from Microsoft too, and the GNU LGPL version 3 text follow; the LGPL builds on the GNU
 GPL version 3, whose text is above.'''
 
-
-def text(path):
-    return (THIRD_PARTY / path).read_text(encoding='utf-8', errors='strict').replace('\r\n', '\n').strip('\n')
-
-
-def excerpt(path, first, last):
-    """The lines of a source file from the one containing `first` through the next containing `last`."""
-    lines = text(path).split('\n')
-    start = next(i for i, line in enumerate(lines) if first in line)
-    end = next(i for i in range(start, len(lines)) if last in lines[i])
-    return '\n'.join(lines[start:end + 1])
-
-
 # (title, source, [text]) in the order shown.
 SECTIONS = [
     ('VICE 3.10', 'https://vice-emu.sourceforge.io/, third_party/vice',
@@ -73,23 +50,3 @@ SECTIONS = [
      [OPEN_ROMS_TERMS, text('open-roms/LICENSE'), text('open-roms/COPYING.LESSER')]),
     ('zlib 1.3.2', 'https://zlib.net/, third_party/zlib', [text('zlib/LICENSE')]),
 ]
-
-
-def section(title, source, texts):
-    return '\n\n'.join([f'{RULE}\n{title}\nSource: {source}\n{RULE}'] + texts)
-
-
-def main():
-    content = HEADER + '\n\n' + '\n\n'.join(section(*s) for s in SECTIONS) + '\n'
-    if sys.argv[1:] == ['--check']:
-        # Git may check the file out with CRLF line endings.
-        if OUT.read_text(encoding='utf-8').replace('\r\n', '\n') != content:
-            raise SystemExit(f'{OUT.relative_to(ROOT)} is out of date: run tools/notices.py')
-        return
-    OUT.parent.mkdir(parents=True, exist_ok=True)
-    OUT.write_text(content, encoding='utf-8', newline='\n')
-    print(f'wrote {OUT.relative_to(ROOT)}')
-
-
-if __name__ == '__main__':
-    main()

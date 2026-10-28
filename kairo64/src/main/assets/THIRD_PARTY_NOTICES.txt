@@ -1159,12 +1159,11 @@ third_party/open-roms of Kairo64's source. Their license statement, which covers
 BASIC files from Microsoft too, and the GNU LGPL version 3 text follow; the LGPL builds on the GNU
 GPL version 3, whose text is above.
 
-  
 The following copyright notices apply to the entirety of this package,
 including each source file, unless otherwise noted in each file or directory.
 
     Copyright Paul Gardner-Stephen, 2019.
-    Copyright Roman Standzikowski (FeralChild64), 2019-2021. 
+    Copyright Roman Standzikowski (FeralChild64), 2019-2021.
 
     This program is free software: you can redistribute it and/or modify
     it under the terms of the GNU Lesser General Public License as published by
