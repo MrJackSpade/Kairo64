@@ -98,6 +98,20 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
         mediaStarted(listOf(entry.takeIf(::isDisk)))
     }
 
+    // BASIC's READY. prompt: nothing autostarts, and a disk game's disk waits in drive 8.
+    override val commandLine = true
+
+    override fun startAtPrompt(entry: DiskImageEntry, game: CatalogGame, cancelled: AtomicBoolean,
+                               progress: (String) -> Unit) {
+        val home = prepareHome(progress)
+        // With nothing in the start slot (c64_core.cpp), VICE autostarts nothing.
+        check(bridge.start(firmwareDirectory.absolutePath, home.absolutePath, listOf("", ""), optionValues(game))) {
+            "Another machine is still running"
+        }
+        awaitRunning()
+        insertMedia(listOf(entry.takeIf(::isDisk)), cancelled, progress)
+    }
+
     /**
      * The core's home (c64_core.cpp): "openroms", the Open ROMs from assets/openroms
      * (ShippedAssets), and "vice", VICE's own files.
