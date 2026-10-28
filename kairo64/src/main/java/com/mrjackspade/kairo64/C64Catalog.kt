@@ -15,9 +15,7 @@ import org.json.JSONArray
  */
 object C64Catalog : LayeredGameCatalog.Schema {
     override val platform = "c64"
-    override val updateUrl = "https://raw.githubusercontent.com/MrJackSpade/Kairo64/main/catalog/core-v3.json"
-    override val metadataUrl = "https://raw.githubusercontent.com/MrJackSpade/Kairo64/main/catalog/core-v3.meta.json"
-    override val coreVersion = 3
+    override val catalogUrl = "https://raw.githubusercontent.com/MrJackSpade/Kairo64/main/catalog/"
     override val selfHostedArt = "/MrJackSpade/Kairo64/main/catalog/artwork/art/catalog/"
     override val contentId = Regex("sha256-(?:disk|tape|prg|cart)-v1:[0-9a-f]{64}")
     override val mediaExtensions =
