@@ -118,6 +118,11 @@ bool KairoC64_Autostarting(void)
     return autostart_in_progress() != 0;
 }
 
+bool KairoC64_WaitsForLine(void)
+{
+    return autostart_in_progress() == 0 && mem_ram[0xcc] == 0 && mem_ram[0xc6] == 0;
+}
+
 void KairoC64_BusLine(void)
 {
     if (iecbus.cpu_bus != bus_cpu || iecbus.drv_bus[8] != bus_drive) {

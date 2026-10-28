@@ -83,7 +83,13 @@ object C64Catalog : LayeredGameCatalog.Schema {
     /** The program [game] starts: its own, or "" for its media's first. */
     fun program(game: CatalogGame) = program.value(game)
 
-    override val settings: List<CatalogSetting> = options.map(CatalogSetting::Choice) + program
+    const val COMMANDS = "commands"
+
+    /** The lines typed at BASIC's READY. prompt to start the game, such as `SYS 49152` after a load. */
+    val startupCommands = CatalogSetting.Lines(LAUNCH, COMMANDS, UiText.res(FrontendR.string.kairo_startup_commands),
+        UiText.res(FrontendR.string.kairo_startup_commands_hint), Regex("[ -~]{1,80}"), 8) { _, _ -> emptyList() }
+
+    override val settings: List<CatalogSetting> = options.map(CatalogSetting::Choice) + program + startupCommands
     override val fields = CatalogSetting.fields(settings)
 
     override fun validMedia(role: String, contentId: String) = false

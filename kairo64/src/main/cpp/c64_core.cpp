@@ -2,6 +2,7 @@
 // (shared/frontend/src/main/cpp/kairo/machine_core.h).
 
 #include <array>
+#include <cctype>
 #include <memory>
 #include <string>
 #include <vector>
@@ -49,6 +50,58 @@ public:
         for (int control = 0; control < kairo64::kJoystickControls; ++control) machine_->joystick(control, false);
         machine_->mouse_button(1, false);
         machine_->mouse_button(2, false);
+    }
+
+    // The startup commands go in when the screen editor waits for a line (startup_typer.h), as
+    // the C64's keys type them: key codes are row * 8 + column + 1 in the keyboard matrix (C64Keys).
+    kairo::Prompt prompt() override { return machine_->waits_for_line() ? kairo::Prompt::Line : kairo::Prompt::None; }
+
+    bool typed_key(char c, int &code, bool &shift) override {
+        static const std::string letters = "abcdefghijklmnopqrstuvwxyz";
+        // Each letter's matrix place: A is row 1 column 2, B row 3 column 4, and so on.
+        static const int letter_codes[26] = {11, 29, 21, 19, 15, 22, 27, 30, 34, 35, 38, 43, 37,
+                                             40, 39, 42, 63, 18, 14, 23, 31, 32, 10, 24, 26, 13};
+        static const std::string digits = "1234567890", shifted_digits = "!\"#$%&'()";
+        static const int digit_codes[10] = {57, 60, 9, 12, 17, 20, 25, 28, 33, 36};
+        shift = false;
+        const char lower = static_cast<char>(std::tolower(static_cast<unsigned char>(c)));
+        if (auto at = letters.find(lower); at != std::string::npos) { code = letter_codes[at]; return true; }
+        if (auto at = digits.find(c); at != std::string::npos) { code = digit_codes[at]; return true; }
+        if (auto at = shifted_digits.find(c); at != std::string::npos) { code = digit_codes[at]; shift = true; return true; }
+        switch (c) {
+        case ' ': code = 61; return true;
+        case '+': code = 41; return true;
+        case '-': code = 44; return true;
+        case '.': code = 45; return true;
+        case ':': code = 46; return true;
+        case '@': code = 47; return true;
+        case ',': code = 48; return true;
+        case '*': code = 50; return true;
+        case ';': code = 51; return true;
+        case '=': code = 54; return true;
+        case '^': code = 55; return true;
+        case '/': code = 56; return true;
+        case '_': code = 58; return true;
+        case '[': code = 46; shift = true; return true;
+        case ']': code = 51; shift = true; return true;
+        case '>': code = 45; shift = true; return true;
+        case '<': code = 48; shift = true; return true;
+        case '?': code = 56; shift = true; return true;
+        default: return false;
+        }
+    }
+
+    int special_key(kairo::SpecialKey key) override {
+        switch (key) {
+        case kairo::SpecialKey::Return: return 2;
+        case kairo::SpecialKey::Shift: return 16;
+        case kairo::SpecialKey::Ctrl: return 59;
+        case kairo::SpecialKey::F1: return 5;
+        case kairo::SpecialKey::F3: return 6;
+        case kairo::SpecialKey::F5: return 7;
+        // F2 and F4 are Shift with F1 and F3: a single key cannot type them.
+        default: return -1;
+        }
     }
 
     void key(int code, bool down) override {

@@ -13,6 +13,7 @@ import com.mrjackspade.kairo.frontend.MachineFirstRun
 import com.mrjackspade.kairo.frontend.MachineOption
 import com.mrjackspade.kairo.frontend.NativeMachine
 import com.mrjackspade.kairo.frontend.ShippedAssets
+import com.mrjackspade.kairo.frontend.StartupCommands
 import com.mrjackspade.kairo.frontend.UiText
 import com.mrjackspade.kairo.frontend.text
 import com.mrjackspade.kairo.frontend.R as FrontendR
@@ -91,6 +92,7 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
         }
         val start = images.prepare(entry, cancelled, progress).absolutePath
         options[C64Catalog.PROGRAM] = C64Catalog.program(game)
+        options += StartupCommands.setting(C64Catalog.startupCommands.value(game, options))
         // In the core's order (c64_core.cpp): the game to start, then drive 8's disk.
         check(bridge.start(firmwareDirectory.absolutePath, home.absolutePath,
             listOf(start, if (isDisk(entry)) start else ""), options)) { "Another machine is still running" }

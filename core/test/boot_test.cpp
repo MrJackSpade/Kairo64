@@ -2,6 +2,8 @@
 //
 // Usage: boot_test <firmware folder> <work folder> <game> <seconds> [system [runs [keys [model [state [program]]]]]]
 //
+// A <game> of "" runs the machine alone, at BASIC's READY. prompt.
+//
 // <system> picks the ROMs and the drive, as a game's System and Drive settings do: "own" (the
 // default) is the player's firmware in <firmware folder> (kernal, basic and chargen, as the retro
 // firmware sets name them), "open" the MEGA65 Open ROMs the app ships (third_party/open-roms);
@@ -203,7 +205,7 @@ int main(int argc, char **argv) {
             return 2;
         }
     }
-    if (!std::ifstream(config.start, std::ios::binary)) {
+    if (!config.start.empty() && !std::ifstream(config.start, std::ios::binary)) {
         std::fprintf(stderr, "run 0: could not start: cannot open %s\n", config.start.c_str());
         return 1;
     }
@@ -328,6 +330,8 @@ int main(int argc, char **argv) {
         std::printf("run %d: %.1f s of guest time in %.1f s (%.1fx real time)\n", run, elapsed, wall, elapsed / wall);
         std::printf("run %d: loading (autostart, tape or disk) for %.1f s of guest time, %s\n", run, loading,
                     was_loading ? "still at the end" : ("last ending at " + std::to_string(loading_ended) + " s").c_str());
+        std::printf("run %d: the screen editor %s a line at the end\n", run,
+                    machine->waits_for_line() ? "waits for" : "does not wait for");
         if (state) {
             if (after_save.empty()) {
                 std::fprintf(stderr, "run %d: no state saved: the game was still loading at the end\n", run);
