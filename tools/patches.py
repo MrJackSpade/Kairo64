@@ -1,16 +1,8 @@
-#!/usr/bin/env python3
-"""Applies Kairo64's local changes to the third-party snapshots in third_party/.
+"""Kairo64's local changes to the third-party snapshots in third_party/, which
+shared/tools/local_patches.py applies and checks. docs/source-import.md describes each change."""
 
-Usage: local_patches.py [--check]
-
-Each change replaces text that must occur exactly once in its file. A change already applied is
-skipped, so the script can run on a fresh import or on the committed tree; --check fails unless
-every change is applied. docs/source-import.md describes each change.
-"""
-import sys
-from pathlib import Path
-
-ROOT = Path(__file__).resolve().parents[1] / 'third_party'
+# VICE's sources are ASCII and Latin-1; Latin-1 keeps every byte as it is.
+ENCODING = 'latin-1'
 
 # VICE's sound devices are a fixed table in sound.c. Kairo64's device (core/kairo/soundkairo.c)
 # hands the mixed sound to the host; it comes first, so it is the default.
@@ -171,30 +163,3 @@ PATCHES = {
     'vice-tape-load-names-device': VICE_TAPE_LOAD_NAMES_DEVICE,
     'vice-kairo-sound': VICE_KAIRO_SOUND,
 }
-
-
-def main():
-    check = sys.argv[1:] == ['--check']
-    missing = []
-    for name, changes in PATCHES.items():
-        for rel, old, new in changes:
-            path = ROOT / rel
-            # VICE's sources are ASCII and Latin-1; Latin-1 keeps every byte as it is.
-            with open(path, encoding='latin-1', newline='') as f:
-                text = f.read()
-            if text.count(new) == 1:
-                continue
-            if check:
-                missing.append(f'{name}: {rel}')
-                continue
-            if text.count(old) != 1:
-                raise SystemExit(f'patch {name}: {rel} does not contain the text to replace exactly once')
-            with open(path, 'w', encoding='latin-1', newline='') as f:
-                f.write(text.replace(old, new))
-            print(f'applied {name} to {rel}')
-    if missing:
-        raise SystemExit('not applied: ' + ', '.join(missing))
-
-
-if __name__ == '__main__':
-    main()
