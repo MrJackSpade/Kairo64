@@ -29,7 +29,7 @@ public:
 
     bool run_frame() override { return machine_->run_frame(error_); }
     // Flat out for as long as a load physically runs (C64Machine::loading).
-    bool booting() override { return machine_->loading(); }
+    bool loading() override { return machine_->loading(); }
     std::string error() override { return error_; }
     // The emulator's reason, which save_state and load_state leave in error_.
     std::string state_error() override { return error_; }
