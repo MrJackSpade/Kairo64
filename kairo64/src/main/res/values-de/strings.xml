@@ -7,41 +7,20 @@
     <string name="credits">%1$s verwendet die %3$s-Emulation von %2$s und die freie %5$s-Firmware des %4$s-Projekts. Quellcode und Herkunft: github.com/%6$s.</string>
     <!-- EN: Choose a games folder to find disk, tape, program and cartridge images and the ZIP and 7z archives holding them -->
     <string name="library_empty">Wählen Sie einen Spieleordner, um Disketten-, Kassetten-, Programm- und Modulabbilder und die ZIP- und 7z-Archive mit ihnen zu finden</string>
-    <!-- EN: Folder access expired. Select the games folder again. -->
-    <string name="library_expired">Der Ordnerzugriff ist abgelaufen. Wählen Sie den Spieleordner erneut aus.</string>
-    <!-- EN: Choose a games folder -->
-    <string name="folder_title">Spieleordner auswählen</string>
     <!-- %1$s is the machine's name, C64; %2$s the app's name, Kairo64. -->
     <!-- EN: Select the folder containing your %1$s games. %2$s will scan its disk, tape, program and cartridge images and the ZIP and 7z archives holding them. -->
     <string name="folder_description">Wählen Sie den Ordner mit Ihren %1$s-Spielen. %2$s durchsucht seine Disketten-, Kassetten-, Programm- und Modulabbilder und die ZIP- und 7z-Archive mit ihnen.</string>
-    <!-- EN: Choose games folder… -->
-    <string name="folder_button">Spieleordner auswählen…</string>
-    <!-- EN: SAVE STATES -->
-    <string name="saves_group">SPEICHERSTÄNDE</string>
     <!-- EN: The joystick in the game\'s port (Game settings › Controls). -->
     <string name="joystick_help">Der Joystick am Port des Spiels (Spieleinstellungen › Steuerung).</string>
-    <!-- EN: Fire -->
-    <string name="joystick_fire">Feuer</string>
-    <!-- EN: Fire 2 (unused) -->
-    <string name="joystick_fire_2">Feuer 2 (unbenutzt)</string>
-    <!-- EN: Symbols -->
-    <string name="keyboard_symbols">Symbole</string>
     <!-- EN: Disk -->
     <string name="disk">Diskette</string>
     <!-- EN: Tape -->
     <string name="tape">Kassette</string>
-    <!-- EN: Program -->
-    <string name="program">Programm</string>
-    <!-- EN: Cartridge -->
-    <string name="cartridge">Modul</string>
     <!-- EN: Drive 8 -->
     <string name="drive_8">Laufwerk 8</string>
     <!-- %1$s is the machine's name, C64. -->
     <!-- EN: %1$s firmware -->
     <string name="firmware_set">%1$s-Firmware</string>
-    <!-- A firmware file's description: %1$s is its file name; %2$s what it does. -->
-    <!-- EN: %1$s · %2$s -->
-    <string name="firmware_part">%1$s · %2$s</string>
     <!-- EN: Character set -->
     <string name="firmware_character_set">Zeichensatz</string>
     <!-- %1$s is the drive's name, 1541. -->
@@ -66,8 +45,6 @@
     <!-- %1$s is a C64 model, such as C64 (PAL). -->
     <!-- EN: Early %1$s -->
     <string name="model_early">Früher %1$s</string>
-    <!-- EN: System -->
-    <string name="option_system">System</string>
     <!-- %1$s is the machine's name, C64. -->
     <!-- EN: Free %1$s firmware -->
     <string name="system_free">Freie %1$s-Firmware</string>

@@ -25,10 +25,10 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
     override val identity = Identity("KAIRO64", 0xff006BFD.toInt(), "Kairo64", "C64", "kairo64",
         LibraryStrings("KAIRO64", "Kairo64"),
         UiText.res(R.string.credits, "Kairo64", "VICE", "Commodore 64", "MEGA65", "C64", "MrJackSpade/Kairo64"),
-        UiText.res(R.string.library_empty), UiText.res(R.string.library_expired),
-        MachineFirstRun.Folder(UiText.res(R.string.folder_title), UiText.res(R.string.folder_description, "C64", "Kairo64"),
-            UiText.res(R.string.folder_button)),
-        UiText.res(R.string.saves_group), "MrJackSpade/Kairo64")
+        UiText.res(R.string.library_empty), UiText.res(FrontendR.string.kairo_library_expired),
+        MachineFirstRun.Folder(UiText.res(FrontendR.string.kairo_folder_title), UiText.res(R.string.folder_description, "C64", "Kairo64"),
+            UiText.res(FrontendR.string.kairo_folder_button)),
+        UiText.res(FrontendR.string.kairo_saves_group), "MrJackSpade/Kairo64")
     // The VIC-II's picture with its normal borders is 384 x 272 (PAL); mouse motion is counted in
     // C64 pixels of its 320 x 200 screen.
     override val machine = Machine(320, 200, 4.0 / 3.0, "state.vsf")
@@ -51,7 +51,7 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
             listOf("prg", "p00").associateWith { "prg" } +
             mapOf("crt" to "cart"),
         labels = mapOf("disk" to UiText.res(R.string.disk), "tape" to UiText.res(R.string.tape),
-            "prg" to UiText.res(R.string.program), "cart" to UiText.res(R.string.cartridge)),
+            "prg" to UiText.res(FrontendR.string.kairo_program), "cart" to UiText.res(FrontendR.string.kairo_cartridge)),
         maxBytes = mapOf("disk" to 2L * 1024 * 1024, "tape" to 64L * 1024 * 1024, "prg" to 64L * 1024,
             "cart" to 16L * 1024 * 1024),
         guestName = "C64")

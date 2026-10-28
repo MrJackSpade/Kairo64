@@ -5,28 +5,17 @@
          %4$s the free firmware's project, MEGA65; %5$s the machine's short name, C64; %6$s its GitHub repository. -->
     <string name="credits">%1$s uses %2$s\'s %3$s emulation and the %4$s project\'s free %5$s firmware. Source and provenance: github.com/%6$s.</string>
     <string name="library_empty">Choose a games folder to find disk, tape, program and cartridge images and the ZIP and 7z archives holding them</string>
-    <string name="library_expired">Folder access expired. Select the games folder again.</string>
-    <string name="folder_title">Choose a games folder</string>
     <!-- %1$s is the machine's name, C64; %2$s the app's name, Kairo64. -->
     <string name="folder_description">Select the folder containing your %1$s games. %2$s will scan its disk, tape, program and cartridge images and the ZIP and 7z archives holding them.</string>
-    <string name="folder_button">Choose games folder…</string>
-    <string name="saves_group">SAVE STATES</string>
 
     <string name="joystick_help">The joystick in the game\'s port (Game settings › Controls).</string>
-    <string name="joystick_fire">Fire</string>
-    <string name="joystick_fire_2">Fire 2 (unused)</string>
-    <string name="keyboard_symbols">Symbols</string>
 
     <string name="disk">Disk</string>
     <string name="tape">Tape</string>
-    <string name="program">Program</string>
-    <string name="cartridge">Cartridge</string>
     <string name="drive_8">Drive 8</string>
 
     <!-- %1$s is the machine's name, C64. -->
     <string name="firmware_set">%1$s firmware</string>
-    <!-- A firmware file's description: %1$s is its file name; %2$s what it does. -->
-    <string name="firmware_part">%1$s · %2$s</string>
     <string name="firmware_character_set">Character set</string>
     <!-- %1$s is the drive's name, 1541. -->
     <string name="firmware_drive">%1$s drive firmware</string>
@@ -44,7 +33,6 @@
     <string name="option_model">Model</string>
     <!-- %1$s is a C64 model, such as C64 (PAL). -->
     <string name="model_early">Early %1$s</string>
-    <string name="option_system">System</string>
     <!-- %1$s is the machine's name, C64. -->
     <string name="system_free">Free %1$s firmware</string>
     <string name="system_own">Your %1$s firmware</string>

@@ -7,41 +7,20 @@
     <string name="credits">%1$s menggunakan emulasi %3$s dari %2$s dan firmware %5$s gratis dari proyek %4$s. Sumber dan asal-usul: github.com/%6$s.</string>
     <!-- EN: Choose a games folder to find disk, tape, program and cartridge images and the ZIP and 7z archives holding them -->
     <string name="library_empty">Pilih folder game untuk menemukan image disk, kaset, program, dan cartridge serta arsip ZIP dan 7z yang berisi image tersebut</string>
-    <!-- EN: Folder access expired. Select the games folder again. -->
-    <string name="library_expired">Akses folder kedaluwarsa. Pilih folder game lagi.</string>
-    <!-- EN: Choose a games folder -->
-    <string name="folder_title">Pilih folder game</string>
     <!-- %1$s is the machine's name, C64; %2$s the app's name, Kairo64. -->
     <!-- EN: Select the folder containing your %1$s games. %2$s will scan its disk, tape, program and cartridge images and the ZIP and 7z archives holding them. -->
     <string name="folder_description">Pilih folder yang berisi game %1$s Anda. %2$s akan memindai image disk, kaset, program, dan cartridge di dalamnya serta arsip ZIP dan 7z yang berisi image tersebut.</string>
-    <!-- EN: Choose games folder… -->
-    <string name="folder_button">Pilih folder game…</string>
-    <!-- EN: SAVE STATES -->
-    <string name="saves_group">STATUS TERSIMPAN</string>
     <!-- EN: The joystick in the game\'s port (Game settings › Controls). -->
     <string name="joystick_help">Joystick di port game (Setelan game › Kontrol).</string>
-    <!-- EN: Fire -->
-    <string name="joystick_fire">Tembak</string>
-    <!-- EN: Fire 2 (unused) -->
-    <string name="joystick_fire_2">Tembak 2 (tidak digunakan)</string>
-    <!-- EN: Symbols -->
-    <string name="keyboard_symbols">Simbol</string>
     <!-- EN: Disk -->
     <string name="disk">Disk</string>
     <!-- EN: Tape -->
     <string name="tape">Kaset</string>
-    <!-- EN: Program -->
-    <string name="program">Program</string>
-    <!-- EN: Cartridge -->
-    <string name="cartridge">Cartridge</string>
     <!-- EN: Drive 8 -->
     <string name="drive_8">Drive 8</string>
     <!-- %1$s is the machine's name, C64. -->
     <!-- EN: %1$s firmware -->
     <string name="firmware_set">Firmware %1$s</string>
-    <!-- A firmware file's description: %1$s is its file name; %2$s what it does. -->
-    <!-- EN: %1$s · %2$s -->
-    <string name="firmware_part">%1$s · %2$s</string>
     <!-- EN: Character set -->
     <string name="firmware_character_set">Set karakter</string>
     <!-- %1$s is the drive's name, 1541. -->
@@ -66,8 +45,6 @@
     <!-- %1$s is a C64 model, such as C64 (PAL). -->
     <!-- EN: Early %1$s -->
     <string name="model_early">%1$s awal</string>
-    <!-- EN: System -->
-    <string name="option_system">Sistem</string>
     <!-- %1$s is the machine's name, C64. -->
     <!-- EN: Free %1$s firmware -->
     <string name="system_free">Firmware %1$s gratis</string>

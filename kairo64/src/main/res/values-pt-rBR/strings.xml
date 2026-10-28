@@ -7,41 +7,20 @@
     <string name="credits">%1$s usa a emulação do %3$s do %2$s e o firmware livre do %5$s do projeto %4$s. Código-fonte e procedência: github.com/%6$s.</string>
     <!-- EN: Choose a games folder to find disk, tape, program and cartridge images and the ZIP and 7z archives holding them -->
     <string name="library_empty">Escolha uma pasta de jogos para encontrar imagens de disco, fita, programa e cartucho e os arquivos ZIP e 7z que as contêm</string>
-    <!-- EN: Folder access expired. Select the games folder again. -->
-    <string name="library_expired">O acesso à pasta expirou. Selecione a pasta de jogos de novo.</string>
-    <!-- EN: Choose a games folder -->
-    <string name="folder_title">Escolha uma pasta de jogos</string>
     <!-- %1$s is the machine's name, C64; %2$s the app's name, Kairo64. -->
     <!-- EN: Select the folder containing your %1$s games. %2$s will scan its disk, tape, program and cartridge images and the ZIP and 7z archives holding them. -->
     <string name="folder_description">Selecione a pasta com seus jogos de %1$s. O %2$s vai verificar as imagens de disco, fita, programa e cartucho dela e os arquivos ZIP e 7z que as contêm.</string>
-    <!-- EN: Choose games folder… -->
-    <string name="folder_button">Escolher pasta de jogos…</string>
-    <!-- EN: SAVE STATES -->
-    <string name="saves_group">ESTADOS SALVOS</string>
     <!-- EN: The joystick in the game\'s port (Game settings › Controls). -->
     <string name="joystick_help">O joystick na porta do jogo (Configurações do jogo › Controles).</string>
-    <!-- EN: Fire -->
-    <string name="joystick_fire">Disparo</string>
-    <!-- EN: Fire 2 (unused) -->
-    <string name="joystick_fire_2">Disparo 2 (sem uso)</string>
-    <!-- EN: Symbols -->
-    <string name="keyboard_symbols">Símbolos</string>
     <!-- EN: Disk -->
     <string name="disk">Disco</string>
     <!-- EN: Tape -->
     <string name="tape">Fita</string>
-    <!-- EN: Program -->
-    <string name="program">Programa</string>
-    <!-- EN: Cartridge -->
-    <string name="cartridge">Cartucho</string>
     <!-- EN: Drive 8 -->
     <string name="drive_8">Unidade 8</string>
     <!-- %1$s is the machine's name, C64. -->
     <!-- EN: %1$s firmware -->
     <string name="firmware_set">Firmware do %1$s</string>
-    <!-- A firmware file's description: %1$s is its file name; %2$s what it does. -->
-    <!-- EN: %1$s · %2$s -->
-    <string name="firmware_part">%1$s · %2$s</string>
     <!-- EN: Character set -->
     <string name="firmware_character_set">Conjunto de caracteres</string>
     <!-- %1$s is the drive's name, 1541. -->
@@ -66,8 +45,6 @@
     <!-- %1$s is a C64 model, such as C64 (PAL). -->
     <!-- EN: Early %1$s -->
     <string name="model_early">%1$s inicial</string>
-    <!-- EN: System -->
-    <string name="option_system">Sistema</string>
     <!-- %1$s is the machine's name, C64. -->
     <!-- EN: Free %1$s firmware -->
     <string name="system_free">Firmware livre do %1$s</string>

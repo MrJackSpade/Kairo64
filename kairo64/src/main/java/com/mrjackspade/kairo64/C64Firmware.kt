@@ -1,5 +1,6 @@
 package com.mrjackspade.kairo64
 
+import com.mrjackspade.kairo.frontend.R as FrontendR
 import com.mrjackspade.kairo.frontend.FirmwareSet
 import com.mrjackspade.kairo.frontend.UiText
 import java.io.File
@@ -13,7 +14,7 @@ import java.io.File
  */
 object C64Firmware {
     /** A part's description: its file [name], and what it is. */
-    private fun description(name: String, what: UiText) = UiText.res(R.string.firmware_part, name, what)
+    private fun description(name: String, what: UiText) = UiText.res(FrontendR.string.kairo_firmware_part, name, what)
 
     val kernal = FirmwareSet.Part("kernal.bin", UiText.fixed("KERNAL"),
         description("kernal.bin", UiText.res(R.string.firmware_kernal_description, "C64")),

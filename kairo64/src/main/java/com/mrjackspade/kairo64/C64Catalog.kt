@@ -1,5 +1,6 @@
 package com.mrjackspade.kairo64
 
+import com.mrjackspade.kairo.frontend.R as FrontendR
 import com.mrjackspade.kairo.frontend.CatalogGame
 import com.mrjackspade.kairo.frontend.CatalogSetting
 import com.mrjackspade.kairo.frontend.ChoiceOption
@@ -42,7 +43,7 @@ object C64Catalog : LayeredGameCatalog.Schema {
      * them, else the MEGA65 Open ROMs, which come with the app (games that call the KERNAL's
      * insides need the player's).
      */
-    val system = MachineOption("system", UiText.res(R.string.option_system), listOf(
+    val system = MachineOption("system", UiText.res(FrontendR.string.kairo_option_system), listOf(
         ChoiceOption(OPEN_ROMS, UiText.res(R.string.system_free, "C64")),
         ChoiceOption(OWN_ROMS, UiText.res(R.string.system_own, "C64"))), OPEN_ROMS, ownFirmware = OWN_ROMS)
 

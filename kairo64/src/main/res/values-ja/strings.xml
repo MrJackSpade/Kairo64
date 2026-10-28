@@ -7,41 +7,20 @@
     <string name="credits">%1$s は %2$s の %3$s エミュレーションと、%4$s プロジェクトのフリーな %5$s ファームウェアを使用しています。ソースと出典: github.com/%6$s</string>
     <!-- EN: Choose a games folder to find disk, tape, program and cartridge images and the ZIP and 7z archives holding them -->
     <string name="library_empty">ゲームフォルダを選択して、ディスク・テープ・プログラム・カートリッジのイメージとそれを含む ZIP・7z アーカイブを探します</string>
-    <!-- EN: Folder access expired. Select the games folder again. -->
-    <string name="library_expired">フォルダへのアクセス期限が切れました。ゲームフォルダを選択し直してください。</string>
-    <!-- EN: Choose a games folder -->
-    <string name="folder_title">ゲームフォルダを選択</string>
     <!-- %1$s is the machine's name, C64; %2$s the app's name, Kairo64. -->
     <!-- EN: Select the folder containing your %1$s games. %2$s will scan its disk, tape, program and cartridge images and the ZIP and 7z archives holding them. -->
     <string name="folder_description">%1$s のゲームが入っているフォルダを選択してください。%2$s がディスク・テープ・プログラム・カートリッジのイメージとそれを含む ZIP・7z アーカイブをスキャンします。</string>
-    <!-- EN: Choose games folder… -->
-    <string name="folder_button">ゲームフォルダを選択…</string>
-    <!-- EN: SAVE STATES -->
-    <string name="saves_group">ステートセーブ</string>
     <!-- EN: The joystick in the game\'s port (Game settings › Controls). -->
     <string name="joystick_help">ゲームのポートのジョイスティック（ゲーム設定 › 操作）。</string>
-    <!-- EN: Fire -->
-    <string name="joystick_fire">ファイア</string>
-    <!-- EN: Fire 2 (unused) -->
-    <string name="joystick_fire_2">ファイア2（未使用）</string>
-    <!-- EN: Symbols -->
-    <string name="keyboard_symbols">記号</string>
     <!-- EN: Disk -->
     <string name="disk">ディスク</string>
     <!-- EN: Tape -->
     <string name="tape">テープ</string>
-    <!-- EN: Program -->
-    <string name="program">プログラム</string>
-    <!-- EN: Cartridge -->
-    <string name="cartridge">カートリッジ</string>
     <!-- EN: Drive 8 -->
     <string name="drive_8">ドライブ8</string>
     <!-- %1$s is the machine's name, C64. -->
     <!-- EN: %1$s firmware -->
     <string name="firmware_set">%1$s ファームウェア</string>
-    <!-- A firmware file's description: %1$s is its file name; %2$s what it does. -->
-    <!-- EN: %1$s · %2$s -->
-    <string name="firmware_part">%1$s · %2$s</string>
     <!-- EN: Character set -->
     <string name="firmware_character_set">キャラクタセット</string>
     <!-- %1$s is the drive's name, 1541. -->
@@ -66,8 +45,6 @@
     <!-- %1$s is a C64 model, such as C64 (PAL). -->
     <!-- EN: Early %1$s -->
     <string name="model_early">初期型 %1$s</string>
-    <!-- EN: System -->
-    <string name="option_system">システム</string>
     <!-- %1$s is the machine's name, C64. -->
     <!-- EN: Free %1$s firmware -->
     <string name="system_free">フリーの %1$s ファームウェア</string>

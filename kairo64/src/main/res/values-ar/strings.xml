@@ -7,41 +7,20 @@
     <string name="credits">يستخدم %1$s محاكاة %3$s من %2$s والبرامج الثابتة المجانية لـ %5$s من مشروع %4$s. المصدر والمنشأ: github.com/%6$s.</string>
     <!-- EN: Choose a games folder to find disk, tape, program and cartridge images and the ZIP and 7z archives holding them -->
     <string name="library_empty">اختر مجلد ألعاب للعثور على صور الأقراص والأشرطة والبرامج والخراطيش وأرشيفات ZIP و7z التي تحتويها</string>
-    <!-- EN: Folder access expired. Select the games folder again. -->
-    <string name="library_expired">انتهت صلاحية الوصول إلى المجلد. اختر مجلد الألعاب مرة أخرى.</string>
-    <!-- EN: Choose a games folder -->
-    <string name="folder_title">اختر مجلد ألعاب</string>
     <!-- %1$s is the machine's name, C64; %2$s the app's name, Kairo64. -->
     <!-- EN: Select the folder containing your %1$s games. %2$s will scan its disk, tape, program and cartridge images and the ZIP and 7z archives holding them. -->
     <string name="folder_description">اختر المجلد الذي يحتوي على ألعاب %1$s. سيفحص %2$s صور الأقراص والأشرطة والبرامج والخراطيش فيه وأرشيفات ZIP و7z التي تحتويها.</string>
-    <!-- EN: Choose games folder… -->
-    <string name="folder_button">اختيار مجلد الألعاب…</string>
-    <!-- EN: SAVE STATES -->
-    <string name="saves_group">الحالات المحفوظة</string>
     <!-- EN: The joystick in the game\'s port (Game settings › Controls). -->
     <string name="joystick_help">عصا الألعاب في منفذ اللعبة (إعدادات اللعبة › التحكم).</string>
-    <!-- EN: Fire -->
-    <string name="joystick_fire">إطلاق</string>
-    <!-- EN: Fire 2 (unused) -->
-    <string name="joystick_fire_2">إطلاق 2 (غير مستخدم)</string>
-    <!-- EN: Symbols -->
-    <string name="keyboard_symbols">الرموز</string>
     <!-- EN: Disk -->
     <string name="disk">القرص</string>
     <!-- EN: Tape -->
     <string name="tape">الشريط</string>
-    <!-- EN: Program -->
-    <string name="program">البرنامج</string>
-    <!-- EN: Cartridge -->
-    <string name="cartridge">الخرطوشة</string>
     <!-- EN: Drive 8 -->
     <string name="drive_8">المحرك 8</string>
     <!-- %1$s is the machine's name, C64. -->
     <!-- EN: %1$s firmware -->
     <string name="firmware_set">البرامج الثابتة لـ %1$s</string>
-    <!-- A firmware file's description: %1$s is its file name; %2$s what it does. -->
-    <!-- EN: %1$s · %2$s -->
-    <string name="firmware_part">%1$s · %2$s</string>
     <!-- EN: Character set -->
     <string name="firmware_character_set">مجموعة الأحرف</string>
     <!-- %1$s is the drive's name, 1541. -->
@@ -66,8 +45,6 @@
     <!-- %1$s is a C64 model, such as C64 (PAL). -->
     <!-- EN: Early %1$s -->
     <string name="model_early">%1$s المبكر</string>
-    <!-- EN: System -->
-    <string name="option_system">النظام</string>
     <!-- %1$s is the machine's name, C64. -->
     <!-- EN: Free %1$s firmware -->
     <string name="system_free">البرامج الثابتة المجانية لـ %1$s</string>
