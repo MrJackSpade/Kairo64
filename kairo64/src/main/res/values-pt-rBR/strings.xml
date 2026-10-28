@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Portuguese (Brazil) (pt-rBR): the translation of values/strings.xml. Each EN comment is the English a string translates; update it with the translation. Check with shared/tools/translations.py check. -->
+<resources>
+    <!-- %1$s is the app's name, Kairo64; %2$s the emulator it runs, VICE; %3$s the machine, Commodore 64;
+         %4$s the free firmware's project, MEGA65; %5$s the machine's short name, C64; %6$s its GitHub repository. -->
+    <!-- EN: %1$s uses %2$s\'s %3$s emulation and the %4$s project\'s free %5$s firmware. Source and provenance: github.com/%6$s. -->
+    <string name="credits">%1$s uses %2$s\'s %3$s emulation and the %4$s project\'s free %5$s firmware. Source and provenance: github.com/%6$s.</string>
+    <!-- EN: Choose a games folder to find disk, tape, program and cartridge images and the ZIP and 7z archives holding them -->
+    <string name="library_empty">Choose a games folder to find disk, tape, program and cartridge images and the ZIP and 7z archives holding them</string>
+    <!-- EN: Folder access expired. Select the games folder again. -->
+    <string name="library_expired">Folder access expired. Select the games folder again.</string>
+    <!-- EN: Choose a games folder -->
+    <string name="folder_title">Choose a games folder</string>
+    <!-- %1$s is the machine's name, C64; %2$s the app's name, Kairo64. -->
+    <!-- EN: Select the folder containing your %1$s games. %2$s will scan its disk, tape, program and cartridge images and the ZIP and 7z archives holding them. -->
+    <string name="folder_description">Select the folder containing your %1$s games. %2$s will scan its disk, tape, program and cartridge images and the ZIP and 7z archives holding them.</string>
+    <!-- EN: Choose games folder… -->
+    <string name="folder_button">Choose games folder…</string>
+    <!-- EN: SAVE STATES -->
+    <string name="saves_group">SAVE STATES</string>
+    <!-- EN: The joystick in the game\'s port (Game settings › Controls). -->
+    <string name="joystick_help">The joystick in the game\'s port (Game settings › Controls).</string>
+    <!-- EN: Fire -->
+    <string name="joystick_fire">Fire</string>
+    <!-- EN: Fire 2 (unused) -->
+    <string name="joystick_fire_2">Fire 2 (unused)</string>
+    <!-- EN: Symbols -->
+    <string name="keyboard_symbols">Symbols</string>
+    <!-- EN: Disk -->
+    <string name="disk">Disk</string>
+    <!-- EN: Tape -->
+    <string name="tape">Tape</string>
+    <!-- EN: Program -->
+    <string name="program">Program</string>
+    <!-- EN: Cartridge -->
+    <string name="cartridge">Cartridge</string>
+    <!-- EN: Drive 8 -->
+    <string name="drive_8">Drive 8</string>
+    <!-- %1$s is the machine's name, C64. -->
+    <!-- EN: %1$s firmware -->
+    <string name="firmware_set">%1$s firmware</string>
+    <!-- A firmware file's description: %1$s is its file name; %2$s what it does. -->
+    <!-- EN: %1$s · %2$s -->
+    <string name="firmware_part">%1$s · %2$s</string>
+    <!-- EN: Character set -->
+    <string name="firmware_character_set">Character set</string>
+    <!-- %1$s is the drive's name, 1541. -->
+    <!-- EN: %1$s drive firmware -->
+    <string name="firmware_drive">%1$s drive firmware</string>
+    <!-- %1$s is the machine's name, C64. -->
+    <!-- EN: the %1$s\'s operating system -->
+    <string name="firmware_kernal_description">the %1$s\'s operating system</string>
+    <!-- EN: the %1$s\'s character set -->
+    <string name="firmware_chargen_description">the %1$s\'s character set</string>
+    <!-- %1$s is the drive's name, 1541. -->
+    <!-- EN: the %1$s disk drive\'s DOS -->
+    <string name="firmware_dos_description">the %1$s disk drive\'s DOS</string>
+    <!-- %1$s is the machine's name, C64; %2$s the firmware files still missing. -->
+    <!-- EN: This game starts on your %1$s firmware: import %2$s in Menu › Machine -->
+    <string name="own_firmware_missing">This game starts on your %1$s firmware: import %2$s in Menu › Machine</string>
+    <!-- %1$s is the drive's name, 1541; %2$s its firmware file, such as 1541 drive firmware. -->
+    <!-- EN: This game runs on the %1$s drive: import the %2$s in Menu › Machine -->
+    <string name="drive_firmware_missing">This game runs on the %1$s drive: import the %2$s in Menu › Machine</string>
+    <!-- EN: Preparing the emulator -->
+    <string name="preparing_emulator">Preparing the emulator</string>
+    <!-- EN: the emulator could not read or write the state -->
+    <string name="state_error_io">the emulator could not read or write the state</string>
+    <!-- EN: the emulator refused the disk image -->
+    <string name="state_error_refused">the emulator refused the disk image</string>
+    <!-- %1$d is the emulator's error code. -->
+    <!-- EN: code %1$d -->
+    <string name="state_error_code">code %1$d</string>
+    <!-- EN: Model -->
+    <string name="option_model">Model</string>
+    <!-- %1$s is a C64 model, such as C64 (PAL). -->
+    <!-- EN: Early %1$s -->
+    <string name="model_early">Early %1$s</string>
+    <!-- EN: System -->
+    <string name="option_system">System</string>
+    <!-- %1$s is the machine's name, C64. -->
+    <!-- EN: Free %1$s firmware -->
+    <string name="system_free">Free %1$s firmware</string>
+    <!-- EN: Your %1$s firmware -->
+    <string name="system_own">Your %1$s firmware</string>
+    <!-- EN: Drive -->
+    <string name="option_drive">Drive</string>
+    <!-- EN: Virtual drive -->
+    <string name="drive_virtual">Virtual drive</string>
+    <!-- EN: Controls -->
+    <string name="option_ports">Controls</string>
+    <!-- %1$d is a control port's number. -->
+    <!-- EN: Joystick in port %1$d -->
+    <string name="ports_joystick">Joystick in port %1$d</string>
+    <!-- EN: Mouse in port 1, joystick in port 2 -->
+    <string name="ports_mouse">Mouse in port 1, joystick in port 2</string>
+    <!-- EN: Start program -->
+    <string name="start_program">Start program</string>
+    <!-- EN: Name on the disk or tape -->
+    <string name="start_program_hint">Name on the disk or tape</string>
+    <!-- EN: First program -->
+    <string name="start_program_first">First program</string>
+</resources>
