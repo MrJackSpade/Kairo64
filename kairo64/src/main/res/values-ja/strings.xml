@@ -63,13 +63,6 @@
     <string name="drive_firmware_missing">このゲームは %1$s ドライブで動作します。メニュー › マシン で %2$s をインポートしてください</string>
     <!-- EN: Preparing the emulator -->
     <string name="preparing_emulator">エミュレーターを準備しています</string>
-    <!-- EN: the emulator could not read or write the state -->
-    <string name="state_error_io">エミュレーターがステートを読み書きできませんでした</string>
-    <!-- EN: the emulator refused the disk image -->
-    <string name="state_error_refused">エミュレーターがディスクイメージを拒否しました</string>
-    <!-- %1$d is the emulator's error code. -->
-    <!-- EN: code %1$d -->
-    <string name="state_error_code">コード %1$d</string>
     <!-- EN: Model -->
     <string name="option_model">モデル</string>
     <!-- %1$s is a C64 model, such as C64 (PAL). -->

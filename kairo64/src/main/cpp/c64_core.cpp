@@ -18,8 +18,6 @@ static_assert(kairo64::kDrive8 == 0);
 // MainActivity.machine.stateFile.
 constexpr const char *kStateFile = "/state.vsf";
 // MainActivity.stateError reads these.
-constexpr int kStateFailed = 2;
-constexpr int kMediaRefused = 3;
 // C64Keys numbers a key by its place in the matrix, row × 8 + column + 1 (1 to 64), and RESTORE 65.
 constexpr int kRestore = 65;
 constexpr int kKeyCodes = kRestore + 1;
@@ -32,6 +30,8 @@ public:
     // Flat out for as long as a load physically runs (C64Machine::loading).
     bool booting() override { return machine_->loading(); }
     std::string error() override { return error_; }
+    // The emulator's reason, which save_state and load_state leave in error_.
+    std::string state_error() override { return error_; }
     // What is loading, for tests and diagnostics: "load=autostart", "tape", "disk" or "none".
     std::string details() override {
         return std::string("load=") + (machine_->autostarting() ? "autostart"
@@ -71,16 +71,16 @@ public:
     void reset() override { machine_->reset(); }
 
     int save_state(const std::string &directory) override {
-        return machine_->save_state(directory + kStateFile, error_) ? 0 : kStateFailed;
+        return machine_->save_state(directory + kStateFile, error_) ? 0 : kFailed;
     }
 
     int load_state(const std::string &directory) override {
-        return machine_->load_state(directory + kStateFile, error_) ? 0 : kStateFailed;
+        return machine_->load_state(directory + kStateFile, error_) ? 0 : kFailed;
     }
 
     int media(int slot, const std::string &path) override {
         if (slot < 0 || slot >= kairo64::kDrives) return kUnsupported;
-        return machine_->insert(kairo64::Drive(slot), path, error_) ? 0 : kMediaRefused;
+        return machine_->insert(kairo64::Drive(slot), path, error_) ? 0 : kFailed;
     }
 
     std::vector<std::string> media_paths() override {

@@ -63,13 +63,6 @@
     <string name="drive_firmware_missing">تعمل هذه اللعبة على محرك %1$s: استورد %2$s من القائمة › الجهاز</string>
     <!-- EN: Preparing the emulator -->
     <string name="preparing_emulator">جارٍ تجهيز المحاكي</string>
-    <!-- EN: the emulator could not read or write the state -->
-    <string name="state_error_io">تعذّر على المحاكي قراءة الحالة أو كتابتها</string>
-    <!-- EN: the emulator refused the disk image -->
-    <string name="state_error_refused">رفض المحاكي صورة القرص</string>
-    <!-- %1$d is the emulator's error code. -->
-    <!-- EN: code %1$d -->
-    <string name="state_error_code">الرمز %1$d</string>
     <!-- EN: Model -->
     <string name="option_model">الطراز</string>
     <!-- %1$s is a C64 model, such as C64 (PAL). -->

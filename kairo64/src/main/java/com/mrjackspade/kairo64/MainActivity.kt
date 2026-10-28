@@ -122,10 +122,4 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
         /** The MEGA65 Open ROMs the app ships (third_party/open-roms/bin). */
         val OPEN_ROMS = listOf("kernal_generic.rom", "basic_generic.rom", "chargen_openroms.rom")
     }
-
-    override fun stateError(code: Int) = when (code) {
-        2 -> getString(R.string.state_error_io)
-        3 -> getString(R.string.state_error_refused)
-        else -> getString(R.string.state_error_code, code)
-    }
 }

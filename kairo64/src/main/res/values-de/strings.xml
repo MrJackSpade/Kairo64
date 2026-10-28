@@ -63,13 +63,6 @@
     <string name="drive_firmware_missing">Dieses Spiel läuft auf dem Laufwerk %1$s: Importieren Sie die %2$s unter Menü › Maschine</string>
     <!-- EN: Preparing the emulator -->
     <string name="preparing_emulator">Emulator wird vorbereitet</string>
-    <!-- EN: the emulator could not read or write the state -->
-    <string name="state_error_io">Der Emulator konnte den Speicherstand nicht lesen oder schreiben</string>
-    <!-- EN: the emulator refused the disk image -->
-    <string name="state_error_refused">Der Emulator hat das Datenträgerabbild abgelehnt</string>
-    <!-- %1$d is the emulator's error code. -->
-    <!-- EN: code %1$d -->
-    <string name="state_error_code">Code %1$d</string>
     <!-- EN: Model -->
     <string name="option_model">Modell</string>
     <!-- %1$s is a C64 model, such as C64 (PAL). -->

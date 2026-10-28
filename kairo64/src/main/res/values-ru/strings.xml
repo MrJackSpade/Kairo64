@@ -63,13 +63,6 @@
     <string name="drive_firmware_missing">Эта игра работает на дисководе %1$s: импортируйте «%2$s» в разделе Меню › Машина</string>
     <!-- EN: Preparing the emulator -->
     <string name="preparing_emulator">Подготовка эмулятора</string>
-    <!-- EN: the emulator could not read or write the state -->
-    <string name="state_error_io">эмулятор не смог прочитать или записать состояние</string>
-    <!-- EN: the emulator refused the disk image -->
-    <string name="state_error_refused">эмулятор отклонил образ диска</string>
-    <!-- %1$d is the emulator's error code. -->
-    <!-- EN: code %1$d -->
-    <string name="state_error_code">код %1$d</string>
     <!-- EN: Model -->
     <string name="option_model">Модель</string>
     <!-- %1$s is a C64 model, such as C64 (PAL). -->
