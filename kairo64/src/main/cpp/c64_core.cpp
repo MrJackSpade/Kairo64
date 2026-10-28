@@ -74,6 +74,8 @@ public:
         return machine_->save_state(directory + kStateFile, error_) ? 0 : kFailed;
     }
 
+    // The emulator's state holds no disk image: the host records and restores them (machine_jni.cpp).
+    bool media_in_state() override { return false; }
     int load_state(const std::string &directory) override {
         return machine_->load_state(directory + kStateFile, error_) ? 0 : kFailed;
     }
