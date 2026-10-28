@@ -40,7 +40,6 @@
     <string name="own_firmware_missing">This game starts on your %1$s firmware: import %2$s in Menu › Machine</string>
     <!-- %1$s is the drive's name, 1541; %2$s its firmware file, such as 1541 drive firmware. -->
     <string name="drive_firmware_missing">This game runs on the %1$s drive: import the %2$s in Menu › Machine</string>
-    <string name="preparing_emulator">Preparing the emulator</string>
 
     <string name="option_model">Model</string>
     <!-- %1$s is a C64 model, such as C64 (PAL). -->

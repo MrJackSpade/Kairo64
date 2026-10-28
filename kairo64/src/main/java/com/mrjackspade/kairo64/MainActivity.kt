@@ -1,6 +1,5 @@
 package com.mrjackspade.kairo64
 
-import com.mrjackspade.kairo.frontend.MachineOption
 import com.mrjackspade.kairo.frontend.CatalogGame
 import com.mrjackspade.kairo.frontend.ControllerGuestSpec
 import com.mrjackspade.kairo.frontend.ControllerLayout
@@ -11,7 +10,9 @@ import com.mrjackspade.kairo.frontend.LayeredGameCatalog
 import com.mrjackspade.kairo.frontend.LibraryStrings
 import com.mrjackspade.kairo.frontend.MachineActivity
 import com.mrjackspade.kairo.frontend.MachineFirstRun
+import com.mrjackspade.kairo.frontend.MachineOption
 import com.mrjackspade.kairo.frontend.NativeMachine
+import com.mrjackspade.kairo.frontend.ShippedAssets
 import com.mrjackspade.kairo.frontend.UiText
 import com.mrjackspade.kairo.frontend.text
 import com.mrjackspade.kairo.frontend.R as FrontendR
@@ -98,28 +99,13 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
     }
 
     /**
-     * The core's home (c64_core.cpp): "openroms", the Open ROMs copied from assets/openroms when
-     * they differ from the app's, and "vice", VICE's own files.
+     * The core's home (c64_core.cpp): "openroms", the Open ROMs from assets/openroms
+     * (ShippedAssets), and "vice", VICE's own files.
      */
     private fun prepareHome(progress: (String) -> Unit): File {
         val home = File(filesDir, "machine")
-        val openRoms = File(home, "openroms")
-        for (name in OPEN_ROMS) {
-            val installed = File(openRoms, name)
-            val shipped = assets.open("openroms/$name").use { it.readBytes() }
-            if (installed.isFile && installed.readBytes().contentEquals(shipped)) continue
-            progress(getString(R.string.preparing_emulator))
-            check(openRoms.mkdirs() || openRoms.isDirectory) { "Could not create $openRoms" }
-            val copy = File(openRoms, "$name.new")
-            copy.writeBytes(shipped)
-            check(copy.renameTo(installed)) { "Could not install $name in $openRoms" }
-        }
+        ShippedAssets.install(this, "openroms", File(home, "openroms"), progress)
         File(home, "vice").mkdirs()
         return home
-    }
-
-    private companion object {
-        /** The MEGA65 Open ROMs the app ships (third_party/open-roms/bin). */
-        val OPEN_ROMS = listOf("kernal_generic.rom", "basic_generic.rom", "chargen_openroms.rom")
     }
 }

@@ -61,8 +61,6 @@
     <!-- %1$s is the drive's name, 1541; %2$s its firmware file, such as 1541 drive firmware. -->
     <!-- EN: This game runs on the %1$s drive: import the %2$s in Menu › Machine -->
     <string name="drive_firmware_missing">이 게임은 %1$s 드라이브에서 실행됩니다. 메뉴 › 머신에서 %2$s을(를) 가져오세요</string>
-    <!-- EN: Preparing the emulator -->
-    <string name="preparing_emulator">에뮬레이터 준비 중</string>
     <!-- EN: Model -->
     <string name="option_model">모델</string>
     <!-- %1$s is a C64 model, such as C64 (PAL). -->

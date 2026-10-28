@@ -61,8 +61,6 @@
     <!-- %1$s is the drive's name, 1541; %2$s its firmware file, such as 1541 drive firmware. -->
     <!-- EN: This game runs on the %1$s drive: import the %2$s in Menu › Machine -->
     <string name="drive_firmware_missing">تعمل هذه اللعبة على محرك %1$s: استورد %2$s من القائمة › الجهاز</string>
-    <!-- EN: Preparing the emulator -->
-    <string name="preparing_emulator">جارٍ تجهيز المحاكي</string>
     <!-- EN: Model -->
     <string name="option_model">الطراز</string>
     <!-- %1$s is a C64 model, such as C64 (PAL). -->
