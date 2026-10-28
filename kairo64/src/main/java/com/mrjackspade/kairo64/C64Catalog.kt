@@ -5,6 +5,7 @@ import com.mrjackspade.kairo.frontend.CatalogSetting
 import com.mrjackspade.kairo.frontend.ChoiceOption
 import com.mrjackspade.kairo.frontend.LayeredGameCatalog
 import com.mrjackspade.kairo.frontend.MachineOption
+import com.mrjackspade.kairo.frontend.UiText
 import org.json.JSONArray
 
 /**
@@ -26,13 +27,13 @@ object C64Catalog : LayeredGameCatalog.Schema {
      * The model, by VICE's name for it: VIC-II, SID and CIA revisions and the TV standard. Most
      * games are PAL; the C64C has the 8580 SID, whose filters some later music is written for.
      */
-    val model = MachineOption("model", "Model", listOf(
+    val model = MachineOption("model", UiText.res(R.string.option_model), listOf(
         ChoiceOption("c64", "C64 (PAL)"),
         ChoiceOption("c64c", "C64C (PAL, 8580 SID)"),
         ChoiceOption("c64ntsc", "C64 (NTSC)"),
         ChoiceOption("c64cntsc", "C64C (NTSC, 8580 SID)"),
-        ChoiceOption("c64old", "Early C64 (PAL)"),
-        ChoiceOption("c64oldntsc", "Early C64 (NTSC)"),
+        ChoiceOption("c64old", UiText.res(R.string.model_early, "C64 (PAL)")),
+        ChoiceOption("c64oldntsc", UiText.res(R.string.model_early, "C64 (NTSC)")),
         ChoiceOption("drean", "Drean C64 (PAL-N)")), "c64")
 
     const val OPEN_ROMS = "openroms"
@@ -43,9 +44,9 @@ object C64Catalog : LayeredGameCatalog.Schema {
      * them, else the MEGA65 Open ROMs, which come with the app (games that call the KERNAL's
      * insides need the player's).
      */
-    val system = MachineOption("system", "System", listOf(
-        ChoiceOption(OPEN_ROMS, "Free C64 firmware"),
-        ChoiceOption(OWN_ROMS, "Your C64 firmware")), OPEN_ROMS, ownFirmware = OWN_ROMS)
+    val system = MachineOption("system", UiText.res(R.string.option_system), listOf(
+        ChoiceOption(OPEN_ROMS, UiText.res(R.string.system_free, "C64")),
+        ChoiceOption(OWN_ROMS, UiText.res(R.string.system_own, "C64"))), OPEN_ROMS, ownFirmware = OWN_ROMS)
 
     const val TRUE_DRIVE = "1541"
     const val VIRTUAL_DRIVE = "virtual"
@@ -55,15 +56,15 @@ object C64Catalog : LayeredGameCatalog.Schema {
      * and copy protection need; or VICE's virtual drive, which loads files the standard way and
      * needs no ROM. A game set to the 1541 does not start until the ROM is imported.
      */
-    val drive = MachineOption("drive", "Drive", listOf(
-        ChoiceOption(VIRTUAL_DRIVE, "Virtual drive"),
+    val drive = MachineOption("drive", UiText.res(R.string.option_drive), listOf(
+        ChoiceOption(VIRTUAL_DRIVE, UiText.res(R.string.drive_virtual)),
         ChoiceOption(TRUE_DRIVE, "1541")), VIRTUAL_DRIVE)
 
     /** What the host's joystick and mouse are: a joystick in port 2 or 1, or the 1351 mouse in port 1. */
-    val ports = MachineOption("ports", "Controls", listOf(
-        ChoiceOption("2", "Joystick in port 2"),
-        ChoiceOption("1", "Joystick in port 1"),
-        ChoiceOption("mouse", "Mouse in port 1, joystick in port 2")), "2")
+    val ports = MachineOption("ports", UiText.res(R.string.option_ports), listOf(
+        ChoiceOption("2", UiText.res(R.string.ports_joystick, 2)),
+        ChoiceOption("1", UiText.res(R.string.ports_joystick, 1)),
+        ChoiceOption("mouse", UiText.res(R.string.ports_mouse))), "2")
 
     val options = listOf(model, system, drive, ports)
 
@@ -74,8 +75,9 @@ object C64Catalog : LayeredGameCatalog.Schema {
      * The program on a disk or tape that autostart loads and runs, by its name (CBM DOS patterns
      * such as SPACE* match too), for a disk whose first file is not the game; "" for its first.
      */
-    val program = CatalogSetting.Text(LAUNCH, PROGRAM, "Start program", "Name on the disk or tape",
-        Regex("[ !#-~]{1,16}"), "First program", { it.trim().uppercase() }) {
+    val program = CatalogSetting.Text(LAUNCH, PROGRAM, UiText.res(R.string.start_program),
+        UiText.res(R.string.start_program_hint), Regex("[ !#-~]{1,16}"), UiText.res(R.string.start_program_first),
+        { it.trim().uppercase() }) {
         it.startsWith("sha256-disk-v1:") || it.startsWith("sha256-tape-v1:")
     }
 

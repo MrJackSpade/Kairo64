@@ -12,6 +12,9 @@ import com.mrjackspade.kairo.frontend.LibraryStrings
 import com.mrjackspade.kairo.frontend.MachineActivity
 import com.mrjackspade.kairo.frontend.MachineFirstRun
 import com.mrjackspade.kairo.frontend.NativeMachine
+import com.mrjackspade.kairo.frontend.UiText
+import com.mrjackspade.kairo.frontend.text
+import com.mrjackspade.kairo.frontend.R as FrontendR
 
 import java.io.File
 import java.util.concurrent.atomic.AtomicBoolean
@@ -20,14 +23,11 @@ import java.util.concurrent.atomic.AtomicBoolean
 class MainActivity : MachineActivity<DiskImageEntry>() {
     override val identity = Identity("KAIRO64", 0xff006BFD.toInt(), "Kairo64", "C64", "kairo64",
         LibraryStrings("KAIRO64", "Kairo64"),
-        "Kairo64 uses VICE's Commodore 64 emulation and the MEGA65 project's free C64 firmware. Source and " +
-            "provenance: github.com/MrJackSpade/Kairo64.",
-        "Choose a games folder to find disk, tape, program and cartridge images and the ZIP and 7z archives holding them",
-        "Folder access expired. Select the games folder again.",
-        MachineFirstRun.Folder("Choose a games folder", "Select the folder containing your C64 games. Kairo64 will " +
-            "scan its disk, tape, program and cartridge images and the ZIP and 7z archives holding them.",
-            "Choose games folder…"),
-        "SAVE STATES", "MrJackSpade/Kairo64")
+        UiText.res(R.string.credits, "Kairo64", "VICE", "Commodore 64", "MEGA65", "C64", "MrJackSpade/Kairo64"),
+        UiText.res(R.string.library_empty), UiText.res(R.string.library_expired),
+        MachineFirstRun.Folder(UiText.res(R.string.folder_title), UiText.res(R.string.folder_description, "C64", "Kairo64"),
+            UiText.res(R.string.folder_button)),
+        UiText.res(R.string.saves_group), "MrJackSpade/Kairo64")
     // The VIC-II's picture with its normal borders is 384 x 272 (PAL); mouse motion is counted in
     // C64 pixels of its 320 x 200 screen.
     override val machine = Machine(320, 200, 4.0 / 3.0, "state.vsf")
@@ -38,35 +38,34 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
     override val joystickControls get() = C64Keys.joystick
     override val controllerSpec = ControllerGuestSpec("C64", C64Keys.bindableCodes, { C64Keys.label(it) ?: "Key $it" },
         setOf(C64Keys.LEFT_SHIFT, C64Keys.RIGHT_SHIFT, C64Keys.CONTROL, C64Keys.COMMODORE),
-        C64Keys.joystick.zip(C64Keys.joystickLabels), "The joystick in the game's port (Game settings › Controls).",
+        C64Keys.joystick.zip(C64Keys.joystickLabels), UiText.res(R.string.joystick_help),
         ControllerGuestSpec.STANDARD_ACTIONS, C64Keys.layout)
     override val bindingsCodec = C64Keys.bindings
     override val artworkDownloadsEnabled: Boolean get() = resources.getBoolean(R.bool.catalog_art_download_enabled)
 
     /** Disk, tape, program and cartridge images, which VICE's autostart starts (c64_machine.h). */
-    private val images by lazy {
-        DiskImageLibrary(this, DiskImageLibrary.Format(
-            kinds = listOf("d64", "g64", "d71", "d81").associateWith { "disk" } +
-                listOf("t64", "tap").associateWith { "tape" } +
-                listOf("prg", "p00").associateWith { "prg" } +
-                mapOf("crt" to "cart"),
-            labels = mapOf("disk" to "Disk", "tape" to "Tape", "prg" to "Program", "cart" to "Cartridge"),
-            maxBytes = mapOf("disk" to 2L * 1024 * 1024, "tape" to 64L * 1024 * 1024, "prg" to 64L * 1024,
-                "cart" to 16L * 1024 * 1024),
-            guestName = "C64"))
-    }
+    private val format = DiskImageLibrary.Format(
+        kinds = listOf("d64", "g64", "d71", "d81").associateWith { "disk" } +
+            listOf("t64", "tap").associateWith { "tape" } +
+            listOf("prg", "p00").associateWith { "prg" } +
+            mapOf("crt" to "cart"),
+        labels = mapOf("disk" to UiText.res(R.string.disk), "tape" to UiText.res(R.string.tape),
+            "prg" to UiText.res(R.string.program), "cart" to UiText.res(R.string.cartridge)),
+        maxBytes = mapOf("disk" to 2L * 1024 * 1024, "tape" to 64L * 1024 * 1024, "prg" to 64L * 1024,
+            "cart" to 16L * 1024 * 1024),
+        guestName = "C64")
+    private val images by lazy { DiskImageLibrary(this, format) }
     override fun createCatalog() = LayeredGameCatalog(this, C64Catalog)
     override fun createLibrary(catalog: LayeredGameCatalog) = images
 
     override val machineOptions = C64Catalog.options
-    override val mediaPageTitle = "Disks"
-    private fun isDisk(entry: DiskImageEntry) = entry.mediaLabel == "Disk"
+    private fun isDisk(entry: DiskImageEntry) = format.kind(entry.displayName) == "disk"
 
     // In the core's drive order (c64_machine.h Drive).
-    override val mediaSlots = listOf(MediaSlot<DiskImageEntry>("Drive 8", ::isDisk))
+    override val mediaSlots = listOf(MediaSlot<DiskImageEntry>(UiText.res(R.string.drive_8), ::isDisk))
 
     private val firmwareDirectory by lazy { File(filesDir, "firmware") }
-    override val firmwareSets by lazy { listOf("C64 firmware" to C64Firmware.set(firmwareDirectory)) }
+    override val firmwareSets by lazy { listOf(UiText.res(R.string.firmware_set, "C64") to C64Firmware.set(firmwareDirectory)) }
     override fun ownFirmwareInstalled(option: MachineOption, values: Map<String, String>): Boolean {
         check(option.id == C64Catalog.system.id) { "${option.id} has no firmware of the player's" }
         return C64Firmware.system.all(firmwareSets.single().second::installed)
@@ -80,12 +79,13 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
         if (options.getValue(C64Catalog.system.id) == C64Catalog.OWN_ROMS) {
             val missing = C64Firmware.system.filterNot(set::installed)
             check(missing.isEmpty()) {
-                "This game starts on your C64 firmware: import ${missing.joinToString(", ") { it.label }} in Menu › Machine"
+                getString(R.string.own_firmware_missing, "C64",
+                    missing.joinToString(getString(FrontendR.string.kairo_list_separator)) { text(it.label) })
             }
         }
         if (options.getValue(C64Catalog.drive.id) == C64Catalog.TRUE_DRIVE) {
             check(set.installed(C64Firmware.dos1541)) {
-                "This game runs on the 1541 drive: import the ${C64Firmware.dos1541.label} in Menu › Machine"
+                getString(R.string.drive_firmware_missing, "1541", text(C64Firmware.dos1541.label))
             }
         }
         val start = images.prepare(entry, cancelled, progress).absolutePath
@@ -108,7 +108,7 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
             val installed = File(openRoms, name)
             val shipped = assets.open("openroms/$name").use { it.readBytes() }
             if (installed.isFile && installed.readBytes().contentEquals(shipped)) continue
-            progress("Preparing the emulator")
+            progress(getString(R.string.preparing_emulator))
             check(openRoms.mkdirs() || openRoms.isDirectory) { "Could not create $openRoms" }
             val copy = File(openRoms, "$name.new")
             copy.writeBytes(shipped)
@@ -124,8 +124,8 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
     }
 
     override fun stateError(code: Int) = when (code) {
-        2 -> "the emulator could not read or write the state"
-        3 -> "the emulator refused the disk image"
-        else -> "code $code"
+        2 -> getString(R.string.state_error_io)
+        3 -> getString(R.string.state_error_refused)
+        else -> getString(R.string.state_error_code, code)
     }
 }

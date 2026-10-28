@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Kairo64's own words. The frontend's are in shared/frontend's values/strings*.xml. -->
+<resources>
+    <!-- %1$s is the app's name, Kairo64; %2$s the emulator it runs, VICE; %3$s the machine, Commodore 64;
+         %4$s the free firmware's project, MEGA65; %5$s the machine's short name, C64; %6$s its GitHub repository. -->
+    <string name="credits">%1$s uses %2$s\'s %3$s emulation and the %4$s project\'s free %5$s firmware. Source and provenance: github.com/%6$s.</string>
+    <string name="library_empty">Choose a games folder to find disk, tape, program and cartridge images and the ZIP and 7z archives holding them</string>
+    <string name="library_expired">Folder access expired. Select the games folder again.</string>
+    <string name="folder_title">Choose a games folder</string>
+    <!-- %1$s is the machine's name, C64; %2$s the app's name, Kairo64. -->
+    <string name="folder_description">Select the folder containing your %1$s games. %2$s will scan its disk, tape, program and cartridge images and the ZIP and 7z archives holding them.</string>
+    <string name="folder_button">Choose games folder…</string>
+    <string name="saves_group">SAVE STATES</string>
+
+    <string name="joystick_help">The joystick in the game\'s port (Game settings › Controls).</string>
+    <string name="joystick_fire">Fire</string>
+    <string name="joystick_fire_2">Fire 2 (unused)</string>
+    <string name="keyboard_symbols">Symbols</string>
+
+    <string name="disk">Disk</string>
+    <string name="tape">Tape</string>
+    <string name="program">Program</string>
+    <string name="cartridge">Cartridge</string>
+    <string name="drive_8">Drive 8</string>
+
+    <!-- %1$s is the machine's name, C64. -->
+    <string name="firmware_set">%1$s firmware</string>
+    <!-- A firmware file's description: %1$s is its file name; %2$s what it does. -->
+    <string name="firmware_part">%1$s · %2$s</string>
+    <string name="firmware_character_set">Character set</string>
+    <!-- %1$s is the drive's name, 1541. -->
+    <string name="firmware_drive">%1$s drive firmware</string>
+    <!-- %1$s is the machine's name, C64. -->
+    <string name="firmware_kernal_description">the %1$s\'s operating system</string>
+    <string name="firmware_chargen_description">the %1$s\'s character set</string>
+    <!-- %1$s is the drive's name, 1541. -->
+    <string name="firmware_dos_description">the %1$s disk drive\'s DOS</string>
+
+    <!-- %1$s is the machine's name, C64; %2$s the firmware files still missing. -->
+    <string name="own_firmware_missing">This game starts on your %1$s firmware: import %2$s in Menu › Machine</string>
+    <!-- %1$s is the drive's name, 1541; %2$s its firmware file, such as 1541 drive firmware. -->
+    <string name="drive_firmware_missing">This game runs on the %1$s drive: import the %2$s in Menu › Machine</string>
+    <string name="preparing_emulator">Preparing the emulator</string>
+    <string name="state_error_io">the emulator could not read or write the state</string>
+    <string name="state_error_refused">the emulator refused the disk image</string>
+    <!-- %1$d is the emulator's error code. -->
+    <string name="state_error_code">code %1$d</string>
+
+    <string name="option_model">Model</string>
+    <!-- %1$s is a C64 model, such as C64 (PAL). -->
+    <string name="model_early">Early %1$s</string>
+    <string name="option_system">System</string>
+    <!-- %1$s is the machine's name, C64. -->
+    <string name="system_free">Free %1$s firmware</string>
+    <string name="system_own">Your %1$s firmware</string>
+    <string name="option_drive">Drive</string>
+    <string name="drive_virtual">Virtual drive</string>
+    <string name="option_ports">Controls</string>
+    <!-- %1$d is a control port's number. -->
+    <string name="ports_joystick">Joystick in port %1$d</string>
+    <string name="ports_mouse">Mouse in port 1, joystick in port 2</string>
+    <string name="start_program">Start program</string>
+    <string name="start_program_hint">Name on the disk or tape</string>
+    <string name="start_program_first">First program</string>
+</resources>

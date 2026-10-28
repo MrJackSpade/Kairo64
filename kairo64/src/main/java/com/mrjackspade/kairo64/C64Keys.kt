@@ -6,6 +6,8 @@ import com.mrjackspade.kairo.frontend.ControllerBindingsCodec
 import com.mrjackspade.kairo.frontend.ControllerLayout
 import com.mrjackspade.kairo.frontend.GuestKeyboardLayout
 import com.mrjackspade.kairo.frontend.GuestKeyboardPage
+import com.mrjackspade.kairo.frontend.UiText
+import com.mrjackspade.kairo.frontend.R as FrontendR
 import com.mrjackspade.kairo.frontend.JoystickInputRouter
 import com.mrjackspade.kairo.frontend.KeyboardKey
 import com.mrjackspade.kairo.frontend.SymbolPage
@@ -71,7 +73,7 @@ object C64Keys {
         brand = "KAIRO64",
         pages = listOf(
             GuestKeyboardPage("ABC", alphabetRows()),
-            GuestKeyboardPage("?123", symbolRows(), pickerLabel = "Symbols"),
+            GuestKeyboardPage("?123", symbolRows(), pickerLabel = UiText.res(R.string.keyboard_symbols)),
             GuestKeyboardPage("C64", c64Rows())
         ),
         modifiers = setOf(LEFT_SHIFT, RIGHT_SHIFT, CONTROL, COMMODORE),
@@ -217,7 +219,8 @@ object C64Keys {
      * first five; the C64 joystick has one fire button, so "button2" reaches nothing.
      */
     val joystick = JoystickInputRouter.DEFAULT_CONTROLS
-    val joystickLabels = listOf("Up", "Down", "Left", "Right", "Fire", "Fire 2 (unused)")
+    val joystickLabels = listOf(FrontendR.string.kairo_up, FrontendR.string.kairo_down, FrontendR.string.kairo_left,
+        FrontendR.string.kairo_right, R.string.joystick_fire, R.string.joystick_fire_2).map { UiText.res(it) }
 
     val bindings = ControllerBindingsCodec({ it in bindableCodes }, joystick,
         setOf("menu", "pause", "restart", "exit", "fastForward"))
