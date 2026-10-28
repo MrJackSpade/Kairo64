@@ -1,31 +1,109 @@
 {
  "descriptions": {
-  "c64:125353": "Jogo de strip construído sobre Maxit: vença uma série de sensuais androides femininas em um jogo de tabuleiro de grade numérica 8x8, e cada vitória revela mais da imagem nua da oponente, em dez etapas.",
-  "c64:136678": "Strip pôquer contra quatro mulheres, entre elas uma ex-Miss Alemanha, cada uma mostrada em cinco fotos digitalizadas que revelam mais conforme ela perde mãos.",
-  "c64:136758": "Resgate a soberana espacial sequestrada Aghamix de cientistas loucos; como recompensa, a cada etapa ela tira mais uma peça de roupa, ficando despida conforme o jogo avança.",
-  "c64:137225": "Strip pôquer: jogue five-card stud contra uma mulher animada, e cada mão que você ganha faz com que ela tire mais uma peça de roupa até ficar nua; os dois jogadores começam com um número definido de roupas.",
-  "c64:138445": "Um pacote de três aventuras de texto eróticas; na história que dá nome ao pacote, um repórter de jornal estudantil investiga a irmandade vampírica Eta Beta Pi, cujas membros insaciáveis podem estar por trás do desaparecimento de um amigo.",
-  "c64:144157": "Strip pôquer para até três jogadores contra uma de oito mulheres digitalizadas; cada vez que uma fica sem dinheiro ela tira parte da roupa, e quatro delas têm curtas sequências animadas de despir-se.",
-  "c64:147400": "Quiz de educação sexual da Dra. Ruth Westheimer: perguntas cronometradas de múltipla escolha sobre sexo e sexualidade humana, escritas com seus pesquisadores, com respostas mais rápidas valendo mais pontos.",
-  "c64:150352": "Uma comédia maliciosa: um caixeiro-viajante cujo carro quebrou perto de uma fazenda isolada corre atrás de um caso com a filha do fazendeiro enquanto tenta evitar a espingarda do pai dela e um casamento forçado.",
-  "c64:152463": "Tetris com imagens adultas como recompensa: limpar a cota de fileiras de cada fase revela outra imagem picante de uma mulher, em cinco níveis de dificuldade que mudam a meta de fileiras e a velocidade dos blocos.",
-  "c64:155276": "Continuação de strip pôquer de Hollywood Poker: escolha uma de quatro mulheres e jogue pôquer com troca contra ela; sempre que ela fica sem dinheiro tira uma peça de roupa, e o jogo é perdido se o jogador quebrar.",
-  "c64:157295": "Uma aventura de texto maliciosa: o marinheiro Jolly Jack tem uma noite de folga em terra em Sharksville e 50 libras para encher a cara, fazer sexo com uma mulher e ainda voltar em segurança ao seu navio.",
-  "c64:157582": "Um jogo de tabuleiro de festa adulto para 2 a 10 jogadores de ambos os sexos: tome um gole de uma poção mágica, role o dado e percorra o tabuleiro roubando as roupas dos outros jogadores, enquanto o Mad Mugger tira mais roupas e Kindly Jack as devolve.",
-  "c64:158621": "A aventura de comédia de ficção científica maliciosa da Infocom: abduzido em 1936 pelas Leather Goddesses of Phobos, que planejam escravizar a Terra, o herói precisa escapar; o nível de safadeza do jogo pode ser ajustado de comportado a obsceno.",
-  "c64:159987": "Strip pôquer: vença Suzi ou Melissa no pôquer de cinco cartas com troca e a foto digitalizada dela a mostra com cada vez menos roupa; discos de expansão acrescentaram outras modelos.",
-  "c64:160452": "Entre as fases o jogo mostra fotos digitalizadas de mulheres nuas ou seminuas como recompensa por resolver os quebra-cabeças.",
-  "c64:171610": "Um jogo de prendas para dois amantes: mais de 13.000 combinações de desafios safados e recompensas, anunciado como a coisa mais safada que o computador pode fazer.",
-  "c64:171611": "Um jogo de festa de perguntas e respostas de temática sexual para duas ou mais pessoas íntimas, com perguntas sugestivas e um sistema de pontuação provocante de prendas.",
-  "c64:171762": "Variante adulta de Arkanoid para um ou dois jogadores: destruir os cubos revela aos poucos uma imagem erótica no estilo mangá por baixo.",
-  "c64:175748": "Uma aventura de comédia de ficção científica maliciosa: Brad Stallion é enviado para deter The Tribe, invasoras amazonas espaciais armadas com pistolas Sex-ray que emasculam, viajando com o computador de bordo Sandie por dois planetas e uma estação espacial.",
-  "c64:176863": "Uma aventura de escolher o caminho grosseira, feita de cenas sexuais explícitas; uma delas envolve uma garota de 17 anos.",
-  "c64:180781": "Strip dardos: um desafio de pub embriagado com uma reviravolta de prenda, jogado como 301 ou 501 contra o computador com roupas em jogo.",
-  "c64:180825": "Strip gamão da Turquia: jogue gamão contra o computador com roupas como aposta.",
-  "c64:180826": "Jogo de novidade grosseiro que simula uma mão estimulando um pênis, mudando a direção do movimento com o joystick ou as teclas de seta; manter velocidade e ritmo o faz crescer, e a superestimulação o deixa de uma cor de alerta.",
-  "c64:180827": "Aventura de texto safada: ache seu parceiro, descubra o que o agrada na cama e desfrute de um sexo prazeroso para ambos.",
-  "c64:187619": "Uma aventura de texto explícita ambientada em Hornyville: um visitante paga por sexo com as mulheres da cidade, visita uma sauna a vapor e um peep show, joga no cassino do Horny Henry e arrisca a cadeia do xerife, da qual só se escapa por um labirinto. As cenas de sexo são descritas em prosa explícita.",
-  "c64:6408": "Strip pôquer contra a modelo pin-up Samantha Fox: ganhe mãos e ela tira a roupa, mostrada em fotos digitalizadas."
+  "c64:125353": {
+   "en": "Strip game built on Maxit: beat a series of sexy female androids at an 8x8 number-grid board game, and each win uncovers more of the opponent's nude picture, across ten stages.",
+   "text": "Jogo de strip construído sobre Maxit: vença uma série de sensuais androides femininas em um jogo de tabuleiro de grade numérica 8x8, e cada vitória revela mais da imagem nua da oponente, em dez etapas."
+  },
+  "c64:136678": {
+   "en": "Strip poker against four women, including a former Miss Germany, each shown in five digitized photos that reveal more as she loses hands.",
+   "text": "Strip pôquer contra quatro mulheres, entre elas uma ex-Miss Alemanha, cada uma mostrada em cinco fotos digitalizadas que revelam mais conforme ela perde mãos."
+  },
+  "c64:136758": {
+   "en": "Rescue the kidnapped space sovereign Aghamix from mad scientists; as a reward at each stage she sheds another piece of her clothing, undressing as the game progresses.",
+   "text": "Resgate a soberana espacial sequestrada Aghamix de cientistas loucos; como recompensa, a cada etapa ela tira mais uma peça de roupa, ficando despida conforme o jogo avança."
+  },
+  "c64:137225": {
+   "en": "Strip poker: play five-card stud against an animated woman, and each hand you win makes her take off another piece of clothing until she is naked; both players start with a set number of clothes.",
+   "text": "Strip pôquer: jogue five-card stud contra uma mulher animada, e cada mão que você ganha faz com que ela tire mais uma peça de roupa até ficar nua; os dois jogadores começam com um número definido de roupas."
+  },
+  "c64:138445": {
+   "en": "A bundle of three erotic text adventures; in the title story, a student newspaper reporter investigates the vampiric Eta Beta Pi sorority, whose insatiable members may be behind a friend's disappearance.",
+   "text": "Um pacote de três aventuras de texto eróticas; na história que dá nome ao pacote, um repórter de jornal estudantil investiga a irmandade vampírica Eta Beta Pi, cujas membros insaciáveis podem estar por trás do desaparecimento de um amigo."
+  },
+  "c64:144157": {
+   "en": "Strip poker for up to three players against one of eight digitized women; each time one runs out of money she takes off some of her clothes, and four of them have short animated undressing sequences.",
+   "text": "Strip pôquer para até três jogadores contra uma de oito mulheres digitalizadas; cada vez que uma fica sem dinheiro ela tira parte da roupa, e quatro delas têm curtas sequências animadas de despir-se."
+  },
+  "c64:147400": {
+   "en": "Sex education quiz by Dr. Ruth Westheimer: timed multiple-choice questions on sex and human sexuality, written with her researchers, with faster answers scoring more.",
+   "text": "Quiz de educação sexual da Dra. Ruth Westheimer: perguntas cronometradas de múltipla escolha sobre sexo e sexualidade humana, escritas com seus pesquisadores, com respostas mais rápidas valendo mais pontos."
+  },
+  "c64:150352": {
+   "en": "A bawdy comedy: a travelling salesman whose car has broken down near a remote farm chases a fling with the farmer's daughter while trying to avoid her father's shotgun and a forced wedding.",
+   "text": "Uma comédia maliciosa: um caixeiro-viajante cujo carro quebrou perto de uma fazenda isolada corre atrás de um caso com a filha do fazendeiro enquanto tenta evitar a espingarda do pai dela e um casamento forçado."
+  },
+  "c64:152463": {
+   "en": "Tetris with adult pictures as rewards: clearing each level's quota of rows uncovers another risqué image of a woman, across five difficulty levels that change the row target and brick speed.",
+   "text": "Tetris com imagens adultas como recompensa: limpar a cota de fileiras de cada fase revela outra imagem picante de uma mulher, em cinco níveis de dificuldade que mudam a meta de fileiras e a velocidade dos blocos."
+  },
+  "c64:155276": {
+   "en": "Strip poker sequel to Hollywood Poker: pick one of four women and play draw poker against her; whenever she runs out of money she takes off a piece of clothing, and the game is lost if the player goes broke.",
+   "text": "Continuação de strip pôquer de Hollywood Poker: escolha uma de quatro mulheres e jogue pôquer com troca contra ela; sempre que ela fica sem dinheiro tira uma peça de roupa, e o jogo é perdido se o jogador quebrar."
+  },
+  "c64:157295": {
+   "en": "A bawdy text adventure: sailor Jolly Jack has one night of shore leave in Sharksville and 50 pounds to get drunk, have sex with a woman and still make it safely back to his ship.",
+   "text": "Uma aventura de texto maliciosa: o marinheiro Jolly Jack tem uma noite de folga em terra em Sharksville e 50 libras para encher a cara, fazer sexo com uma mulher e ainda voltar em segurança ao seu navio."
+  },
+  "c64:157582": {
+   "en": "An adult party board game for 2 to 10 players of mixed sexes: sip a magic potion, roll the die and move around the board stealing other players' clothes, while the Mad Mugger takes more clothes and Kindly Jack returns them.",
+   "text": "Um jogo de tabuleiro de festa adulto para 2 a 10 jogadores de ambos os sexos: tome um gole de uma poção mágica, role o dado e percorra o tabuleiro roubando as roupas dos outros jogadores, enquanto o Mad Mugger tira mais roupas e Kindly Jack as devolve."
+  },
+  "c64:158621": {
+   "en": "Infocom's bawdy sci-fi comedy adventure: abducted in 1936 by the Leather Goddesses of Phobos, who plan to enslave Earth, the hero must escape; the game's naughtiness level can be set from tame up to lewd.",
+   "text": "A aventura de comédia de ficção científica maliciosa da Infocom: abduzido em 1936 pelas Leather Goddesses of Phobos, que planejam escravizar a Terra, o herói precisa escapar; o nível de safadeza do jogo pode ser ajustado de comportado a obsceno."
+  },
+  "c64:159987": {
+   "en": "Strip poker: beat Suzi or Melissa at five-card draw and her digitized photo shows her in fewer and fewer clothes; expansion disks added further models.",
+   "text": "Strip pôquer: vença Suzi ou Melissa no pôquer de cinco cartas com troca e a foto digitalizada dela a mostra com cada vez menos roupa; discos de expansão acrescentaram outras modelos."
+  },
+  "c64:160452": {
+   "en": "Between levels the game shows digitized photos of nude or partly nude women as rewards for solving the puzzles.",
+   "text": "Entre as fases o jogo mostra fotos digitalizadas de mulheres nuas ou seminuas como recompensa por resolver os quebra-cabeças."
+  },
+  "c64:171610": {
+   "en": "A forfeit game for two lovers: over 13,000 combinations of saucy dares and rewards, billed as the naughtiest thing the computer can do.",
+   "text": "Um jogo de prendas para dois amantes: mais de 13.000 combinações de desafios safados e recompensas, anunciado como a coisa mais safada que o computador pode fazer."
+  },
+  "c64:171611": {
+   "en": "A sexually themed quiz party game for two or more intimate players, with suggestive trivia and a provocative scoring system of forfeits.",
+   "text": "Um jogo de festa de perguntas e respostas de temática sexual para duas ou mais pessoas íntimas, com perguntas sugestivas e um sistema de pontuação provocante de prendas."
+  },
+  "c64:171762": {
+   "en": "Adult Arkanoid variant for one or two players: knocking out the cubes gradually uncovers an erotic manga-style picture underneath.",
+   "text": "Variante adulta de Arkanoid para um ou dois jogadores: destruir os cubos revela aos poucos uma imagem erótica no estilo mangá por baixo."
+  },
+  "c64:175748": {
+   "en": "A bawdy science-fiction comedy adventure: Brad Stallion is sent to stop The Tribe, space Amazon raiders armed with emasculating Sex-ray guns, travelling with the shipboard computer Sandie through two planets and a space station.",
+   "text": "Uma aventura de comédia de ficção científica maliciosa: Brad Stallion é enviado para deter The Tribe, invasoras amazonas espaciais armadas com pistolas Sex-ray que emasculam, viajando com o computador de bordo Sandie por dois planetas e uma estação espacial."
+  },
+  "c64:176863": {
+   "en": "A crude choose-your-own-adventure made up of graphic sexual scenes; one of them involves a 17-year-old girl.",
+   "text": "Uma aventura de escolher o caminho grosseira, feita de cenas sexuais explícitas; uma delas envolve uma garota de 17 anos."
+  },
+  "c64:180781": {
+   "en": "Strip darts: a drunken pub challenge with a forfeit twist, played as 301 or 501 against the computer with clothing at stake.",
+   "text": "Strip dardos: um desafio de pub embriagado com uma reviravolta de prenda, jogado como 301 ou 501 contra o computador com roupas em jogo."
+  },
+  "c64:180825": {
+   "en": "Strip backgammon from Turkey: play backgammon against the computer with clothing as the stakes.",
+   "text": "Strip gamão da Turquia: jogue gamão contra o computador com roupas como aposta."
+  },
+  "c64:180826": {
+   "en": "Crude novelty game simulating a hand stimulating a penis, switching stroke direction with the joystick or arrow keys; keeping up speed and rhythm makes it grow, and overstimulation turns it a warning colour.",
+   "text": "Jogo de novidade grosseiro que simula uma mão estimulando um pênis, mudando a direção do movimento com o joystick ou as teclas de seta; manter velocidade e ritmo o faz crescer, e a superestimulação o deixa de uma cor de alerta."
+  },
+  "c64:180827": {
+   "en": "Raunchy text adventure: find your partner, discover what pleases them in bed and enjoy mutually satisfying sex.",
+   "text": "Aventura de texto safada: ache seu parceiro, descubra o que o agrada na cama e desfrute de um sexo prazeroso para ambos."
+  },
+  "c64:187619": {
+   "en": "An explicit text adventure set in Hornyville: a visitor pays for sex with the town's women, visits a steam room and a peep show, gambles at Horny Henry's casino, and risks the sheriff's jail, escaped only through a maze. Sex scenes are described in graphic prose.",
+   "text": "Uma aventura de texto explícita ambientada em Hornyville: um visitante paga por sexo com as mulheres da cidade, visita uma sauna a vapor e um peep show, joga no cassino do Horny Henry e arrisca a cadeia do xerife, da qual só se escapa por um labirinto. As cenas de sexo são descritas em prosa explícita."
+  },
+  "c64:6408": {
+   "en": "Strip poker against pin-up model Samantha Fox: win hands and she removes her clothing, shown in digitised photos.",
+   "text": "Strip pôquer contra a modelo pin-up Samantha Fox: ganhe mãos e ela tira a roupa, mostrada em fotos digitalizadas."
+  }
  },
  "schemaVersion": 1
 }
