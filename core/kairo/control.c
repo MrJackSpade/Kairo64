@@ -25,6 +25,7 @@
 #include "mem.h"
 #include "mouse.h"
 #include "resources.h"
+#include "cartridge.h"
 #include "tape.h"
 
 /* The serial bus's lines as the C64 and drive 8 last drove them, and when one last changed:
@@ -97,6 +98,29 @@ void KairoC64_EjectAll(void)
     autostart_reset();
     file_system_detach_disk_all();
     tape_image_detach_all();
+    /* VICE keeps one machine for the process: a cartridge the last game had comes out too. */
+    cartridge_detach_image(-1);
+}
+
+bool KairoC64_AttachTape(const char *path)
+{
+    if (*path == '\0') {
+        tape_image_detach(1);
+        return true;
+    }
+    return tape_image_attach(1, path) == 0;
+}
+
+bool KairoC64_AttachCartridge(const char *path)
+{
+    if (*path == '\0') {
+        cartridge_detach_image(-1);
+    } else if (cartridge_attach_image(CARTRIDGE_CRT, path) != 0) {
+        return false;
+    }
+    /* A cartridge goes in or comes out with the power off, as on a C64. */
+    KairoC64_PowerCycle();
+    return true;
 }
 
 bool KairoC64_Autostart(const char *path, const char *program)

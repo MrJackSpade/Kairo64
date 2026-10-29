@@ -62,9 +62,14 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
 
     override val machineOptions = C64Catalog.options
     private fun isDisk(entry: DiskImageEntry) = format.kind(entry.displayName) == "disk"
+    private fun isTape(entry: DiskImageEntry) = format.kind(entry.displayName) == "tape"
+    private fun isCartridge(entry: DiskImageEntry) = format.kind(entry.displayName) == "cart"
 
     // In the core's drive order (c64_machine.h Drive).
-    override val mediaSlots = listOf(MediaSlot<DiskImageEntry>(UiText.res(R.string.drive_8), ::isDisk))
+    override val mediaSlots = listOf(MediaSlot<DiskImageEntry>(UiText.res(R.string.drive_8), ::isDisk),
+        // The datasette and the cartridge port (c64_core.cpp); changing the cartridge starts the machine again.
+        MediaSlot(UiText.res(FrontendR.string.kairo_cassette), ::isTape),
+        MediaSlot(UiText.res(FrontendR.string.kairo_cartridge), ::isCartridge))
 
     private val firmwareDirectory by lazy { File(filesDir, "firmware") }
     override val firmwareSets by lazy { listOf(UiText.res(R.string.firmware_set, "C64") to C64Firmware.set(firmwareDirectory)) }
@@ -97,7 +102,11 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
         check(bridge.start(firmwareDirectory.absolutePath, home.absolutePath,
             listOf(start, if (isDisk(entry)) start else ""), options)) { "Another machine is still running" }
         awaitRunning()
-        mediaStarted(listOf(entry.takeIf(::isDisk)))
+        // A T64 on the Open ROMs starts from a disk written from it, with the datasette empty: the
+        // core says where the game's medium went.
+        val paths = checkNotNull(bridge.mediaPaths()) { "The machine stopped before reporting its media" }
+        mediaStarted(listOf(entry.takeIf(::isDisk), entry.takeIf { isTape(it) && paths[1].isNotEmpty() },
+            entry.takeIf(::isCartridge)))
     }
 
     // BASIC's READY. prompt: nothing autostarts, and a disk game's disk waits in drive 8.

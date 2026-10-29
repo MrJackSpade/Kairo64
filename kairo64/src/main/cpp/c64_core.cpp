@@ -143,7 +143,10 @@ public:
         return machine_->load_state(directory + kStateFile, error_) ? 0 : kFailed;
     }
 
+    // Slots (MainActivity.mediaSlots): drive 8, the datasette, the cartridge port.
     int media(int slot, const std::string &path) override {
+        if (slot == kTapeSlot) return machine_->insert_tape(path, error_) ? 0 : kFailed;
+        if (slot == kCartridgeSlot) return machine_->insert_cartridge(path, error_) ? 0 : kFailed;
         if (slot < 0 || slot >= kairo64::kDrives) return kUnsupported;
         return machine_->insert(kairo64::Drive(slot), path, error_) ? 0 : kFailed;
     }
@@ -151,8 +154,13 @@ public:
     std::vector<std::string> media_paths() override {
         std::vector<std::string> paths;
         for (int drive = 0; drive < kairo64::kDrives; ++drive) paths.push_back(machine_->media_path(kairo64::Drive(drive)));
+        paths.push_back(machine_->tape_path());
+        paths.push_back(machine_->cartridge_path());
         return paths;
     }
+
+    static constexpr int kTapeSlot = kairo64::kDrives;
+    static constexpr int kCartridgeSlot = kairo64::kDrives + 1;
 
 private:
     std::unique_ptr<C64Machine> machine_;

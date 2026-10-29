@@ -116,6 +116,13 @@ public:
     bool insert(Drive drive, const std::string &path, std::string &error);
     // The image in a drive, as it was inserted; "" when it is empty.
     std::string media_path(Drive drive);
+    // The tape in the datasette, or none for "". A tape the game started from is in it, unless it
+    // started from a disk written from its T64 (Config::t64_on_disk).
+    bool insert_tape(const std::string &path, std::string &error);
+    std::string tape_path() const;
+    // The cartridge in the port, or none for "": changing it starts the machine again.
+    bool insert_cartridge(const std::string &path, std::string &error);
+    std::string cartridge_path() const;
 
     // The text screen as 25 lines of 40 characters, for tests that look for BASIC's messages.
     std::string screen_text();
@@ -124,6 +131,8 @@ private:
     C64Machine(const Config &config);
     Config config_;
     std::string drive_[kDrives];
+    std::string tape_;
+    std::string cartridge_;
 };
 
 } // namespace kairo64

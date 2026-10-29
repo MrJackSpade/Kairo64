@@ -57,6 +57,10 @@ void KairoC64_EjectAll(void);
 bool KairoC64_Autostart(const char *path, const char *program);
 /* Inserts a disk image in drive 8 or 9, or ejects it for ""; false when VICE refused it. */
 bool KairoC64_AttachDisk(int unit, const char *path);
+/* Puts a tape in the datasette, or takes it out for "". */
+bool KairoC64_AttachTape(const char *path);
+/* Puts a cartridge in the port, or takes it out for "", and starts the machine again with it. */
+bool KairoC64_AttachCartridge(const char *path);
 /* Writes the programs of the T64 tape container tape onto a new D64 disk at disk, in the tape's
  * order, for a KERNAL VICE cannot load T64 files on (the Open ROMs: VICE loads T64 programs by
  * trapping Commodore's KERNAL). False with a message in error when it could not. */

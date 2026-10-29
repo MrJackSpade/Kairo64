@@ -98,12 +98,15 @@ struct Vice {
 
 Vice vice;
 
-bool is_t64(const std::string &path) {
-    if (path.size() < 4) return false;
-    std::string extension = path.substr(path.size() - 4);
-    for (char &c : extension) c = char(std::tolower(static_cast<unsigned char>(c)));
-    return extension == ".t64";
+// Whether path ends in extension (".t64"), in any case.
+bool has_extension(const std::string &path, const std::string &extension) {
+    if (path.size() < extension.size()) return false;
+    std::string end = path.substr(path.size() - extension.size());
+    for (char &c : end) c = char(std::tolower(static_cast<unsigned char>(c)));
+    return end == extension;
 }
+
+bool is_t64(const std::string &path) { return has_extension(path, ".t64"); }
 
 void notice(const char *text) {
 #ifdef __ANDROID__
@@ -236,6 +239,9 @@ std::unique_ptr<C64Machine> C64Machine::create(const Config &config, std::string
                 (vice.last_error.empty() ? "" : ": " + vice.last_error);
         return nullptr;
     }
+    // A tape or cartridge the game starts from is in the datasette or the port: autostart put it there.
+    if (start == config.start && (is_t64(start) || has_extension(start, ".tap"))) machine->tape_ = start;
+    if (has_extension(start, ".crt")) machine->cartridge_ = start;
     // A disk the game starts from is already in drive 8: autostart put it there.
     const std::string &drive8 = machine->config_.drive8;
     if (drive8 == start) {
@@ -338,6 +344,28 @@ bool C64Machine::insert(Drive drive, const std::string &path, std::string &error
 }
 
 std::string C64Machine::media_path(Drive drive) { return drive_[drive]; }
+
+bool C64Machine::insert_tape(const std::string &path, std::string &error) {
+    if (!KairoC64_AttachTape(path.c_str())) {
+        error = "VICE refused the tape image " + path;
+        return false;
+    }
+    tape_ = path;
+    return true;
+}
+
+std::string C64Machine::tape_path() const { return tape_; }
+
+bool C64Machine::insert_cartridge(const std::string &path, std::string &error) {
+    if (!KairoC64_AttachCartridge(path.c_str())) {
+        error = "VICE refused the cartridge image " + path;
+        return false;
+    }
+    cartridge_ = path;
+    return true;
+}
+
+std::string C64Machine::cartridge_path() const { return cartridge_; }
 
 std::string C64Machine::screen_text() {
     char cells[KAIRO_C64_SCREEN_CELLS + 1];

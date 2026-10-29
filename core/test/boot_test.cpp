@@ -335,6 +335,9 @@ int main(int argc, char **argv) {
         std::printf("run %d: %.1f s of guest time in %.1f s (%.1fx real time)\n", run, elapsed, wall, elapsed / wall);
         std::printf("run %d: loading (autostart, tape or disk) for %.1f s of guest time, %s\n", run, loading,
                     was_loading ? "still at the end" : ("last ending at " + std::to_string(loading_ended) + " s").c_str());
+        std::printf("run %d: drive 8 \"%s\", datasette \"%s\", cartridge \"%s\"\n", run,
+                    machine->media_path(kairo64::kDrive8).c_str(), machine->tape_path().c_str(),
+                    machine->cartridge_path().c_str());
         std::printf("run %d: the screen editor %s a line at the end\n", run,
                     machine->waits_for_line() ? "waits for" : "does not wait for");
         std::printf("run %d: the guest read the mouse's position %lu times\n", run, machine->mouse_reads());
