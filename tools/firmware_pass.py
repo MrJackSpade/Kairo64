@@ -52,7 +52,9 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(ROOT / "shared/tools"))
 sys.path.insert(0, str(ROOT / "tools"))
+import catalog_files
 import catalog_config
 
 OUT = ROOT / ".downloads/firmware-pass"
@@ -104,7 +106,7 @@ def all_scanned_media():
 
 def library_media():
     """{content ID: (scan root, archive path, member or None, model)} for every library entry."""
-    research = json.loads((ROOT / "catalog/research/games-v1.json").read_text(encoding="utf-8"))
+    research = catalog_files.read(ROOT / "catalog/research/games-v1.json.gz")
     where = {content_id: fields[:3] for content_id, fields in scanned_media().items()}
     media = {}
     for game in research["games"].values():
