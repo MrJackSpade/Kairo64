@@ -118,6 +118,13 @@ bool KairoC64_Autostarting(void)
     return autostart_in_progress() != 0;
 }
 
+extern unsigned long kairo64_mouse_reads;
+
+unsigned long KairoC64_MouseReads(void)
+{
+    return kairo64_mouse_reads;
+}
+
 bool KairoC64_WaitsForLine(void)
 {
     return autostart_in_progress() == 0 && mem_ram[0xcc] == 0 && mem_ram[0xc6] == 0;

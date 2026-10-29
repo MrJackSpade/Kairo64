@@ -154,6 +154,16 @@ VICE_DIRECTORY_LOOP = [
      '        if (vdrive_dir_part_name_match('),
 ]
 
+# Auto touch mode (Kairo#78) tells a mouse game by its reads of the 1351 mouse's position: VICE
+# asks for it only when the guest reads the SID's POT registers (KairoC64_MouseReads).
+VICE_MOUSE_READS = [
+    ('vice/src/joyport/mouse_1351.c',
+     'static uint8_t mouse_get_1351_x(int port)\n{\n',
+     '/* Kairo64: the guest\'s reads of the mouse position (KairoC64_MouseReads). */\n'
+     'unsigned long kairo64_mouse_reads;\n\n'
+     'static uint8_t mouse_get_1351_x(int port)\n{\n    kairo64_mouse_reads++;\n'),
+]
+
 PATCHES = {
     'vice-directory-loop': VICE_DIRECTORY_LOOP,
     'vice-autostart-keeps-virtual-drive': VICE_AUTOSTART_KEEPS_VIRTUAL_DRIVE,
@@ -162,4 +172,5 @@ PATCHES = {
     'vice-jam': VICE_JAM,
     'vice-tape-load-names-device': VICE_TAPE_LOAD_NAMES_DEVICE,
     'vice-kairo-sound': VICE_KAIRO_SOUND,
+    'vice-mouse-reads': VICE_MOUSE_READS,
 }

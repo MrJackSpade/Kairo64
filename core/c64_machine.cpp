@@ -249,6 +249,7 @@ std::unique_ptr<C64Machine> C64Machine::create(const Config &config, std::string
 
 bool C64Machine::autostarting() const { return KairoC64_Autostarting(); }
 bool C64Machine::waits_for_line() const { return KairoC64_WaitsForLine(); }
+unsigned long C64Machine::mouse_reads() const { return KairoC64_MouseReads(); }
 std::vector<unsigned> C64Machine::raster_irq_lines()
 {
     uint8_t bits[64];

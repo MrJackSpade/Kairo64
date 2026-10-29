@@ -66,6 +66,8 @@ bool KairoC64_Autostarting(void);
 /* Whether the screen editor waits for a line, as at BASIC's READY. prompt: no autostart is typing,
  * the cursor blinks for input (BLNSW, $CC, is 0) and the keyboard buffer is empty (NDX, $C6). */
 bool KairoC64_WaitsForLine(void);
+/* How many times the guest has read the 1351 mouse's position (patch group vice-mouse-reads). */
+unsigned long KairoC64_MouseReads(void);
 /* Whether the datasette's tape is moving: a tape in, the motor on and a button down
  * (kairo/uistatusbar.c). */
 bool KairoC64_TapeMoving(void);

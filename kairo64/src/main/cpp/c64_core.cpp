@@ -54,6 +54,16 @@ public:
 
     // The startup commands go in when the screen editor waits for a line (startup_typer.h), as
     // the C64's keys type them: key codes are row * 8 + column + 1 in the keyboard matrix (C64Keys).
+    // Auto touch mode (Kairo#78): the screen editor waiting for a line is the keyboard; the guest
+    // reading the 1351's position is the mouse. Each sample that finds the editor waiting counts as a wait.
+    bool guest_input(GuestInput &input) override {
+        input.keyboard_waiting = machine_->waits_for_line();
+        if (input.keyboard_waiting) ++keyboard_waits_;
+        input.keyboard_waits = keyboard_waits_;
+        input.mouse_reads = machine_->mouse_reads();
+        return true;
+    }
+
     kairo::Prompt prompt() override { return machine_->waits_for_line() ? kairo::Prompt::Line : kairo::Prompt::None; }
 
     bool typed_key(char c, int &code, bool &shift) override {
@@ -148,6 +158,8 @@ private:
     std::unique_ptr<C64Machine> machine_;
     std::string error_;
     std::array<bool, kKeyCodes> keys_{};
+    // Samples that found the screen editor waiting for a line (guest_input).
+    uint64_t keyboard_waits_ = 0;
 };
 
 } // namespace

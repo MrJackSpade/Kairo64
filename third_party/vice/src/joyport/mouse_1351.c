@@ -124,8 +124,12 @@ static int ds1202_rtc_save; /* smartmouse rtc data save */
     after enabling it in the gui. (see testprogs/SID/paddles/fc3detect.asm)
 */
 
+/* Kairo64: the guest's reads of the mouse position (KairoC64_MouseReads). */
+unsigned long kairo64_mouse_reads;
+
 static uint8_t mouse_get_1351_x(int port)
 {
+    kairo64_mouse_reads++;
     mouse_get_last_int16(&last_mouse_x, &last_mouse_y);
     return (uint8_t)((last_mouse_x & 0x7f) + 0x40);
 }

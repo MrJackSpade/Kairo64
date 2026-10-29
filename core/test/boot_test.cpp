@@ -177,7 +177,7 @@ bool set_system(kairo64::Config &config, const std::string &system, const std::f
 
 int main(int argc, char **argv) {
     if (argc < 5) {
-        std::fprintf(stderr, "usage: boot_test <firmware folder> <work folder> <game> <seconds> [system [runs [keys [model [state]]]]]\n");
+        std::fprintf(stderr, "usage: boot_test <firmware folder> <work folder> <game> <seconds> [system [runs [keys [model [state [program [mouse]]]]]]]\n");
         return 2;
     }
     const std::filesystem::path firmware = argv[1];
@@ -198,6 +198,11 @@ int main(int argc, char **argv) {
     // "state@<seconds>": the guest second to save at; below 0 when not asked for.
     const double save_at = argc > 9 && std::string(argv[9]).rfind("state@", 0) == 0 ? std::atof(argv[9] + 6) : -1;
     if (argc > 10) config.program = argv[10];
+    // "mouse": the 1351 in port 1, as the Controls setting's mouse puts it.
+    if (argc > 11 && std::string(argv[11]) == "mouse") {
+        config.mouse = true;
+        config.joystick_port = 2;
+    }
 
     for (const auto &system : systems) {
         if (!set_system(config, system, firmware)) {
@@ -332,6 +337,7 @@ int main(int argc, char **argv) {
                     was_loading ? "still at the end" : ("last ending at " + std::to_string(loading_ended) + " s").c_str());
         std::printf("run %d: the screen editor %s a line at the end\n", run,
                     machine->waits_for_line() ? "waits for" : "does not wait for");
+        std::printf("run %d: the guest read the mouse's position %lu times\n", run, machine->mouse_reads());
         if (state) {
             if (after_save.empty()) {
                 std::fprintf(stderr, "run %d: no state saved: the game was still loading at the end\n", run);

@@ -71,6 +71,8 @@ public:
     bool autostarting() const;
     // Whether the screen editor waits for a line, as at BASIC's READY. prompt (KairoC64_WaitsForLine).
     bool waits_for_line() const;
+    // How many times the guest has read the mouse's position (KairoC64_MouseReads).
+    unsigned long mouse_reads() const;
     // The raster lines the game's enabled raster interrupts waited on since the last call
     // (KairoC64_RasterIrqLines): a line of 263 or later exists only on a PAL C64.
     std::vector<unsigned> raster_irq_lines();
