@@ -143,6 +143,9 @@ public:
         return machine_->load_state(directory + kStateFile, error_) ? 0 : kFailed;
     }
 
+    void mouse_warp(int x, int y) override { machine_->mouse_warp(x, y); }
+    bool mouse_warp_done() override { return machine_->mouse_warp_done(); }
+
     // Slots (MainActivity.mediaSlots): drive 8, the datasette, the cartridge port.
     int media(int slot, const std::string &path) override {
         if (slot == kTapeSlot) return machine_->insert_tape(path, error_) ? 0 : kFailed;

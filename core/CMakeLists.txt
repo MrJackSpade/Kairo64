@@ -205,7 +205,9 @@ target_compile_definitions(vice_resid PRIVATE VERSION="1.0-pre2")
 # The frame-driven machine (c64_machine.h). VICE's libraries reference one another in both
 # directions, as automake's link of x64sc allows; lld resolves archives in any order.
 add_library(kairo64_core STATIC c64_machine.cpp)
-target_include_directories(kairo64_core PUBLIC "${CMAKE_CURRENT_LIST_DIR}" PRIVATE "${KAIRO}")
+# kairo/relative_warp.h, which c64_machine.h holds (Kairo#79).
+target_include_directories(kairo64_core PUBLIC "${CMAKE_CURRENT_LIST_DIR}"
+    "${CMAKE_CURRENT_LIST_DIR}/../shared/frontend/src/main/cpp" PRIVATE "${KAIRO}")
 target_link_libraries(kairo64_core PUBLIC ${VICE_TARGETS})
 if(ANDROID)
     target_link_libraries(kairo64_core PUBLIC log)

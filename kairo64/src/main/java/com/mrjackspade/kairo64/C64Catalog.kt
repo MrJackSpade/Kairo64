@@ -91,6 +91,8 @@ object C64Catalog : LayeredGameCatalog.Schema {
 
     override val settings: List<CatalogSetting> = options.map(CatalogSetting::Choice) + program + startupCommands
     override val fields = CatalogSetting.fields(settings)
+    /** A 1351 game's pointer goes to a point by a push to the corner and counts (C64Machine::mouse_warp). */
+    override val directTouch = true
 
     override fun validMedia(role: String, contentId: String) = false
 

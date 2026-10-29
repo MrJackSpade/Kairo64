@@ -271,6 +271,7 @@ bool C64Machine::tape_moving() const { return KairoC64_TapeMoving(); }
 bool C64Machine::disk_loading() const { return KairoC64_DiskLoading(); }
 
 bool C64Machine::run_frame(std::string &error) {
+    pace_motion();
     if (vice.ended || !vice.run()) {
         error = vice.error();
         return false;
@@ -306,7 +307,44 @@ void C64Machine::joystick(int control, bool down) {
     if (control >= 0 && control < kJoystickControls) KairoC64_Joystick(config_.joystick_port, control, down);
 }
 
-void C64Machine::mouse_move(int dx, int dy) { KairoC64_MouseMove(dx, dy); }
+void C64Machine::mouse_move(int dx, int dy) {
+    // A drag after a direct tap goes with the warp's counts until they are given.
+    if (warp_.hold(dx, dy)) return;
+    KairoC64_MouseMove(dx, dy);
+}
+
+// The screen is 320 by 200 pixels inside VICE's borders, centred in the picture.
+void C64Machine::mouse_warp(int x, int y) {
+    uint32_t width = 0, height = 0;
+    if (!frame(width, height)) return;
+    warp_.start(x - (int(width) - 320) / 2, y - (int(height) - 200) / 2, 320, 200);
+    paced_x_ = paced_y_ = 0;
+    motion_read_ = true;
+}
+
+bool C64Machine::mouse_warp_done() const { return warp_.done(); }
+
+// Before each frame: the warp's next motion, and 31 counts of what is still to give once the
+// program has read the mouse since the last.
+void C64Machine::pace_motion() {
+    const unsigned long reads = KairoC64_MouseReads();
+    if (reads != reads_at_motion_) motion_read_ = true;
+    if (warp_.running()) {
+        int dx, dy;
+        warp_.step(paced_x_ == 0 && paced_y_ == 0 && motion_read_, dx, dy);
+        paced_x_ += dx;
+        paced_y_ += dy;
+    }
+    if ((paced_x_ || paced_y_) && motion_read_) {
+        const int step_x = paced_x_ > 31 ? 31 : paced_x_ < -31 ? -31 : paced_x_;
+        const int step_y = paced_y_ > 31 ? 31 : paced_y_ < -31 ? -31 : paced_y_;
+        KairoC64_MouseMove(step_x, step_y);
+        paced_x_ -= step_x;
+        paced_y_ -= step_y;
+        reads_at_motion_ = reads;
+        motion_read_ = false;
+    }
+}
 
 void C64Machine::mouse_button(int button, bool down) {
     if (button == 1 || button == 2) KairoC64_MouseButton(button, down);

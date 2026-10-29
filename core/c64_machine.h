@@ -59,6 +59,8 @@ struct Config {
     int sample_rate = 48000;
 };
 
+#include "kairo/relative_warp.h"
+
 class C64Machine {
 public:
     // A machine running config's game; null with error set when it cannot start.
@@ -91,6 +93,13 @@ public:
     double frame_seconds() const;
     // The latest picture: RGBA rows of width pixels.
     const uint8_t *frame(uint32_t &width, uint32_t &height);
+    // Direct touch: moves a mouse game's pointer to point (x, y) of the picture over the next frames,
+    // by a push past the screen's top-left corner and the counts from there (kairo::RelativeWarp),
+    // for a game that moves its pointer a pixel a count and stops it there. The 1351 tells a program
+    // its position modulo 64, so the motion goes 31 counts at a time, each after the program read
+    // the mouse; without the mouse plugged in nothing reads it and the warp does not finish.
+    void mouse_warp(int x, int y);
+    bool mouse_warp_done() const;
     int sample_rate() const;
     // Takes up to max_frames interleaved stereo frames produced so far.
     uint32_t read_audio(int16_t *stereo, uint32_t max_frames);
@@ -133,6 +142,13 @@ private:
     std::string drive_[kDrives];
     std::string tape_;
     std::string cartridge_;
+    // Direct touch: the warp, and its motion still to give the 1351, with the mouse reads when the
+    // last part went.
+    kairo::RelativeWarp warp_;
+    int paced_x_ = 0, paced_y_ = 0;
+    unsigned long reads_at_motion_ = 0;
+    bool motion_read_ = true;
+    void pace_motion();
 };
 
 } // namespace kairo64
