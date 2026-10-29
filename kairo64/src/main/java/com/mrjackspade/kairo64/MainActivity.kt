@@ -72,9 +72,12 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
         return C64Firmware.system.all(firmwareSets.single().second::installed)
     }
 
-    override fun startGame(entry: DiskImageEntry, game: CatalogGame, cancelled: AtomicBoolean,
-                           progress: (String) -> Unit) {
-        val home = prepareHome(progress)
+    /**
+     * The core's launch settings for [game] (c64_core.cpp reads each): its options, after checking the
+     * player's firmware they need, the program its start loads and its startup commands. At the
+     * prompt ([atPrompt]) nothing is loaded and nothing typed.
+     */
+    private fun machineSettings(entry: DiskImageEntry, game: CatalogGame, atPrompt: Boolean): Map<String, String> {
         val options = optionValues(game).toMutableMap()
         val set = firmwareSets.single().second
         if (options.getValue(C64Catalog.system.id) == C64Catalog.OWN_ROMS) {
@@ -98,14 +101,21 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
                 getString(R.string.drive_firmware_missing, "1541", text(C64Firmware.dos1541.label))
             }
         }
+        options[C64Catalog.PROGRAM] = if (atPrompt) "" else C64Catalog.program(game)
+        options += StartupCommands.setting(if (atPrompt) emptyList() else C64Catalog.startupCommands.value(game, options))
+        return options
+    }
+
+    override fun startGame(entry: DiskImageEntry, game: CatalogGame, cancelled: AtomicBoolean,
+                           progress: (String) -> Unit) {
+        val home = prepareHome(progress)
+        val settings = machineSettings(entry, game, atPrompt = false)
         val image = images.prepare(entry, cancelled, progress).absolutePath
         // A hard disk starts at BASIC's prompt; its startup commands start the game.
         val start = if (isHardDisk(entry)) "" else image
-        options[C64Catalog.PROGRAM] = C64Catalog.program(game)
-        options += StartupCommands.setting(C64Catalog.startupCommands.value(game, options))
         // In the core's order (c64_core.cpp): the game to start, drive 8's disk, the hard disk.
         check(bridge.start(firmwareDirectory.absolutePath, home.absolutePath,
-            listOf(start, if (isDisk(entry)) start else "", if (isHardDisk(entry)) image else ""), options)) {
+            listOf(start, if (isDisk(entry)) start else "", if (isHardDisk(entry)) image else ""), settings)) {
             "Another machine is still running"
         }
         awaitRunning()
@@ -122,10 +132,11 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
     override fun startAtPrompt(entry: DiskImageEntry, game: CatalogGame, cancelled: AtomicBoolean,
                                progress: (String) -> Unit) {
         val home = prepareHome(progress)
+        val settings = machineSettings(entry, game, atPrompt = true)
         // With nothing in the start slot (c64_core.cpp), VICE autostarts nothing.
         // A hard disk is there from the start: its interface is set up only as the machine starts.
         val hardDisk = entry.takeIf(::isHardDisk)?.let { images.prepare(it, cancelled, progress).absolutePath } ?: ""
-        check(bridge.start(firmwareDirectory.absolutePath, home.absolutePath, listOf("", "", hardDisk), optionValues(game))) {
+        check(bridge.start(firmwareDirectory.absolutePath, home.absolutePath, listOf("", "", hardDisk), settings)) {
             "Another machine is still running"
         }
         awaitRunning()
