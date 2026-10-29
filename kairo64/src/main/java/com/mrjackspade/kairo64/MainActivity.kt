@@ -45,17 +45,7 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
     override val bindingsCodec = C64Keys.bindings
     override val artworkDownloadsEnabled: Boolean get() = resources.getBoolean(R.bool.catalog_art_download_enabled)
 
-    /** Disk, tape, program and cartridge images, which VICE's autostart starts (c64_machine.h). */
-    private val format = DiskImageLibrary.Format(
-        kinds = listOf("d64", "g64", "d71", "d81").associateWith { "disk" } +
-            listOf("t64", "tap").associateWith { "tape" } +
-            listOf("prg", "p00").associateWith { "prg" } +
-            mapOf("crt" to "cart") + mapOf("dhd" to "cmdhd", "hdd" to "ide64", "cfa" to "ide64"),
-        labels = mapOf("disk" to UiText.res(R.string.disk), "tape" to UiText.res(R.string.tape),
-            "prg" to UiText.res(FrontendR.string.kairo_program), "cart" to UiText.res(FrontendR.string.kairo_cartridge)),
-        maxBytes = mapOf("disk" to 2L * 1024 * 1024, "tape" to 64L * 1024 * 1024, "prg" to 64L * 1024,
-            "cart" to 16L * 1024 * 1024),
-        guestName = "C64")
+    private val format = C64Media.format
     // 2: archives are read again for the hard disks in them.
     private val images by lazy { DiskImageLibrary(this, format, DiskImageLibrary.Cache(mediaFormatsVersion = 2)) }
     override fun createCatalog() = LayeredGameCatalog(this, C64Catalog)
