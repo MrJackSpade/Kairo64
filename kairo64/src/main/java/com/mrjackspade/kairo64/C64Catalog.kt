@@ -18,7 +18,7 @@ object C64Catalog : LayeredGameCatalog.Schema {
     override val platform = "c64"
     override val catalogUrl = "https://raw.githubusercontent.com/MrJackSpade/Kairo64/main/catalog/"
     override val selfHostedArt = "/MrJackSpade/Kairo64/main/catalog/artwork/art/catalog/"
-    override val contentId = Regex("sha256-(?:disk|tape|prg|cart)-v1:[0-9a-f]{64}")
+    override val contentId = Regex("sha256-(?:disk|tape|prg|cart|cmdhd|ide64)-v1:[0-9a-f]{64}")
     override val mediaExtensions =
         Regex("\\.(?:zip|7z|d64|g64|d71|d81|t64|tap|prg|p00|crt)$", RegexOption.IGNORE_CASE)
 

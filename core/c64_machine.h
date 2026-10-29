@@ -55,6 +55,13 @@ struct Config {
     int joystick_port = 2;
     // The 1351 mouse in port 1 instead of a joystick.
     bool mouse = false;
+    // A hard disk image, "" for none: a CMD HD in drive 8 on its boot ROM cmdhd_rom (a .dhd image),
+    // or the IDE64 cartridge's first drive on its IDEDOS ROM ide64_rom (a .hdd or .cfa image). The
+    // ROMs are the player's. The machine starts at BASIC's prompt with it; its startup commands
+    // start the game.
+    std::string hard_disk;
+    std::string cmdhd_rom;
+    std::string ide64_rom;
     // The audio sample rate.
     int sample_rate = 48000;
 };
@@ -132,6 +139,10 @@ public:
     // The cartridge in the port, or none for "": changing it starts the machine again.
     bool insert_cartridge(const std::string &path, std::string &error);
     std::string cartridge_path() const;
+    // The hard disk on the interface the machine started with (Config::hard_disk), or another
+    // image there; an IDE64 one starts the machine again. "" when it has none.
+    bool insert_hard_disk(const std::string &path, std::string &error);
+    std::string hard_disk_path() const;
 
     // The text screen as 25 lines of 40 characters, for tests that look for BASIC's messages.
     std::string screen_text();
@@ -142,6 +153,7 @@ private:
     std::string drive_[kDrives];
     std::string tape_;
     std::string cartridge_;
+    std::string hard_disk_;
     // Direct touch: the warp, and its motion still to give the 1351, with the mouse reads when the
     // last part went.
     kairo::RelativeWarp warp_;

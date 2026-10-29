@@ -136,16 +136,24 @@ bool configure(const Config &config, std::string &error) {
     // After the model, which names its own ROMs.
     if (!set_string("KernalName", config.kernal, "KERNAL ROM") || !set_string("BasicName", config.basic, "BASIC ROM") ||
         !set_string("ChargenName", config.chargen, "character ROM")) return false;
-    // Drive 8: an emulated 1541 on its own DOS ROM, or VICE's virtual drive on the serial bus.
-    // Never KERNAL traps, which patch Commodore's KERNAL and so fit only it.
+    // Drive 8: a CMD HD on its boot ROM, an emulated 1541 on its own DOS ROM, or VICE's virtual
+    // drive on the serial bus. Never KERNAL traps, which patch Commodore's KERNAL and so fit only it.
+    const bool cmdhd = !config.cmdhd_rom.empty();
+    if (cmdhd && !config.dos1541.empty()) {
+        error = "Drive 8 cannot be both a CMD HD and a 1541";
+        return false;
+    }
     const bool true_drive = !config.dos1541.empty();
     if (true_drive && !set_string("DosName1541", config.dos1541, "1541 drive ROM")) return false;
+    if (cmdhd && !set_string("DosNameCMDHD", config.cmdhd_rom, "CMD HD boot ROM")) return false;
     // True emulation before the type: VICE puts a drive of a new type on the bus only while true
     // emulation is on, so after a machine on the virtual drive (true emulation off) a 1541 set
     // first would never answer ("?DEVICE NOT PRESENT").
-    if (!set_int("TrapDevice8", 0) || !set_int("Drive8TrueEmulation", true_drive ? 1 : 0) ||
-        !set_int("Drive8Type", true_drive ? 1541 : 0) || !set_int("BusDevice8", true_drive ? 0 : 1))
+    if (!set_int("TrapDevice8", 0) || !set_int("Drive8TrueEmulation", true_drive || cmdhd ? 1 : 0) ||
+        !set_int("Drive8Type", cmdhd ? 4844 : true_drive ? 1541 : 0) || !set_int("BusDevice8", true_drive || cmdhd ? 0 : 1))
         return false;
+    // The IDE64's first drive holds the hard disk; its cartridge goes in once the machine is set up.
+    if (!config.ide64_rom.empty() && !set_string("IDE64Image1", config.hard_disk, "IDE64 hard disk image")) return false;
     // This machine's ROMs, also when the last one had the same names and a state loaded since
     // put other ROMs in their place; the 1541's once drive 8 is one.
     if (!KairoC64_LoadRoms(config.kernal.c_str(), config.basic.c_str(), config.chargen.c_str(), true_drive)) {
@@ -242,6 +250,17 @@ std::unique_ptr<C64Machine> C64Machine::create(const Config &config, std::string
     // A tape or cartridge the game starts from is in the datasette or the port: autostart put it there.
     if (start == config.start && (is_t64(start) || has_extension(start, ".tap"))) machine->tape_ = start;
     if (has_extension(start, ".crt")) machine->cartridge_ = start;
+    // A hard disk: the CMD HD's image in drive 8, or the IDE64 cartridge in the port.
+    if (!config.cmdhd_rom.empty()) {
+        if (!machine->insert(kDrive8, config.hard_disk, error)) return nullptr;
+        machine->hard_disk_ = config.hard_disk;
+    } else if (!config.ide64_rom.empty()) {
+        if (!KairoC64_AttachIde64(config.ide64_rom.c_str())) {
+            error = "VICE refused the IDE64 ROM " + config.ide64_rom;
+            return nullptr;
+        }
+        machine->hard_disk_ = config.hard_disk;
+    }
     // A disk the game starts from is already in drive 8: autostart put it there.
     const std::string &drive8 = machine->config_.drive8;
     if (drive8 == start) {
@@ -404,6 +423,24 @@ bool C64Machine::insert_cartridge(const std::string &path, std::string &error) {
 }
 
 std::string C64Machine::cartridge_path() const { return cartridge_; }
+
+bool C64Machine::insert_hard_disk(const std::string &path, std::string &error) {
+    if (!config_.cmdhd_rom.empty()) {
+        if (!insert(kDrive8, path, error)) return false;
+    } else if (!config_.ide64_rom.empty()) {
+        if (!KairoC64_SetString("IDE64Image1", path.c_str()) || !KairoC64_AttachIde64(config_.ide64_rom.c_str())) {
+            error = "VICE refused the IDE64 hard disk image " + path;
+            return false;
+        }
+    } else {
+        error = "This C64 started without a hard disk interface; start the hard disk as a game instead";
+        return false;
+    }
+    hard_disk_ = path;
+    return true;
+}
+
+std::string C64Machine::hard_disk_path() const { return hard_disk_; }
 
 std::string C64Machine::screen_text() {
     char cells[KAIRO_C64_SCREEN_CELLS + 1];

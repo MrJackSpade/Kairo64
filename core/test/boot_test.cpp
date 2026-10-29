@@ -185,6 +185,18 @@ int main(int argc, char **argv) {
     config.home = argv[2];
     std::filesystem::create_directories(config.home);
     config.start = argv[3];
+    // A hard disk image starts at BASIC's prompt on its interface: a CMD HD (.dhd) on the firmware
+    // folder's cmdhd.bin, or the IDE64 (.hdd, .cfa) on its ide64.bin.
+    {
+        std::string extension = std::filesystem::path(config.start).extension().string();
+        for (char &c : extension) c = char(std::tolower(static_cast<unsigned char>(c)));
+        if (extension == ".dhd" || extension == ".hdd" || extension == ".cfa") {
+            config.hard_disk = config.start;
+            (extension == ".dhd" ? config.cmdhd_rom : config.ide64_rom) =
+                (firmware / (extension == ".dhd" ? "cmdhd.bin" : "ide64.bin")).string();
+            config.start.clear();
+        }
+    }
     const double seconds = std::atof(argv[4]);
     std::vector<std::string> systems;
     {
@@ -338,6 +350,7 @@ int main(int argc, char **argv) {
         std::printf("run %d: drive 8 \"%s\", datasette \"%s\", cartridge \"%s\"\n", run,
                     machine->media_path(kairo64::kDrive8).c_str(), machine->tape_path().c_str(),
                     machine->cartridge_path().c_str());
+        std::printf("run %d: hard disk \"%s\"\n", run, machine->hard_disk_path().c_str());
         std::printf("run %d: the screen editor %s a line at the end\n", run,
                     machine->waits_for_line() ? "waits for" : "does not wait for");
         std::printf("run %d: the guest read the mouse's position %lu times\n", run, machine->mouse_reads());

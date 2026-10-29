@@ -42,8 +42,18 @@ object C64Firmware {
             "ab16f56989b27d89babe5f89c5a8cb3da71a82f0",  // 1541: 325302-01 + 901229-05
             "d3b78c3dbac55f5199f33f3fe0036439811f7fb3")) // 1541-II: 251968-03
 
+    /** The CMD HD's boot ROM, which a game on a CMD HD image (.dhd) runs (c64_core.cpp). */
+    val cmdhd = FirmwareSet.Part("cmdhd.bin", UiText.res(R.string.firmware_drive, "CMD HD"),
+        description("cmdhd.bin", UiText.res(R.string.firmware_dos_description, "CMD HD")),
+        setOf("cmdhd.bin", "bootromcmdhd-v2-80.bin", "cmdhd boot rom"), false, sizes = setOf(16384L))
+
+    /** IDEDOS, the IDE64 cartridge's system, which a game on an IDE64 image (.hdd, .cfa) runs. */
+    val ide64 = FirmwareSet.Part("ide64.bin", UiText.res(R.string.firmware_drive, "IDE64"),
+        description("ide64.bin", UiText.res(R.string.firmware_dos_description, "IDE64")),
+        setOf("ide64.bin", "idedos.bin"), false, sizes = setOf(65536L, 131072L, 524288L))
+
     /** The ROMs a game set to the player's firmware starts on. */
     val system = listOf(kernal, basic, chargen)
 
-    fun set(directory: File) = FirmwareSet(directory, system + dos1541)
+    fun set(directory: File) = FirmwareSet(directory, system + dos1541 + cmdhd + ide64)
 }

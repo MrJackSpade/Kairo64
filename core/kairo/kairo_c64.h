@@ -61,6 +61,8 @@ bool KairoC64_AttachDisk(int unit, const char *path);
 bool KairoC64_AttachTape(const char *path);
 /* Puts a cartridge in the port, or takes it out for "", and starts the machine again with it. */
 bool KairoC64_AttachCartridge(const char *path);
+/* Puts the IDE64 cartridge with the IDEDOS ROM rom in the port, and starts the machine again with it. */
+bool KairoC64_AttachIde64(const char *rom);
 /* Writes the programs of the T64 tape container tape onto a new D64 disk at disk, in the tape's
  * order, for a KERNAL VICE cannot load T64 files on (the Open ROMs: VICE loads T64 programs by
  * trapping Commodore's KERNAL). False with a message in error when it could not. */

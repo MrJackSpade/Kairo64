@@ -111,6 +111,15 @@ bool KairoC64_AttachTape(const char *path)
     return tape_image_attach(1, path) == 0;
 }
 
+bool KairoC64_AttachIde64(const char *rom)
+{
+    if (cartridge_attach_image(CARTRIDGE_IDE64, rom) != 0) {
+        return false;
+    }
+    KairoC64_PowerCycle();
+    return true;
+}
+
 bool KairoC64_AttachCartridge(const char *path)
 {
     if (*path == '\0') {

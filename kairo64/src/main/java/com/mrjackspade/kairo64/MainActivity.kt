@@ -50,13 +50,14 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
         kinds = listOf("d64", "g64", "d71", "d81").associateWith { "disk" } +
             listOf("t64", "tap").associateWith { "tape" } +
             listOf("prg", "p00").associateWith { "prg" } +
-            mapOf("crt" to "cart"),
+            mapOf("crt" to "cart") + mapOf("dhd" to "cmdhd", "hdd" to "ide64", "cfa" to "ide64"),
         labels = mapOf("disk" to UiText.res(R.string.disk), "tape" to UiText.res(R.string.tape),
             "prg" to UiText.res(FrontendR.string.kairo_program), "cart" to UiText.res(FrontendR.string.kairo_cartridge)),
         maxBytes = mapOf("disk" to 2L * 1024 * 1024, "tape" to 64L * 1024 * 1024, "prg" to 64L * 1024,
             "cart" to 16L * 1024 * 1024),
         guestName = "C64")
-    private val images by lazy { DiskImageLibrary(this, format) }
+    // 2: archives are read again for the hard disks in them.
+    private val images by lazy { DiskImageLibrary(this, format, DiskImageLibrary.Cache(mediaFormatsVersion = 2)) }
     override fun createCatalog() = LayeredGameCatalog(this, C64Catalog)
     override fun createLibrary(catalog: LayeredGameCatalog) = images
 
@@ -64,12 +65,15 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
     private fun isDisk(entry: DiskImageEntry) = format.kind(entry.displayName) == "disk"
     private fun isTape(entry: DiskImageEntry) = format.kind(entry.displayName) == "tape"
     private fun isCartridge(entry: DiskImageEntry) = format.kind(entry.displayName) == "cart"
+    private fun isHardDisk(entry: DiskImageEntry) = format.kind(entry.displayName) in setOf("cmdhd", "ide64")
 
     // In the core's drive order (c64_machine.h Drive).
     override val mediaSlots = listOf(MediaSlot<DiskImageEntry>(UiText.res(R.string.drive_8), ::isDisk),
         // The datasette and the cartridge port (c64_core.cpp); changing the cartridge starts the machine again.
         MediaSlot(UiText.res(FrontendR.string.kairo_cassette), ::isTape),
-        MediaSlot(UiText.res(FrontendR.string.kairo_cartridge), ::isCartridge))
+        MediaSlot(UiText.res(FrontendR.string.kairo_cartridge), ::isCartridge),
+        // On the interface the game started with: a CMD HD in drive 8 or the IDE64 cartridge.
+        MediaSlot(UiText.res(FrontendR.string.kairo_hard_disk), ::isHardDisk))
 
     private val firmwareDirectory by lazy { File(filesDir, "firmware") }
     override val firmwareSets by lazy { listOf(UiText.res(R.string.firmware_set, "C64") to C64Firmware.set(firmwareDirectory)) }
@@ -90,23 +94,36 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
                     missing.joinToString(getString(FrontendR.string.kairo_list_separator)) { text(it.label) })
             }
         }
-        if (options.getValue(C64Catalog.drive.id) == C64Catalog.TRUE_DRIVE) {
+        // A hard disk runs on the player's ROM for its interface; a CMD HD is drive 8 itself.
+        val hardDiskRom = when (format.kind(entry.displayName)) {
+            "cmdhd" -> "CMD HD" to C64Firmware.cmdhd
+            "ide64" -> "IDE64" to C64Firmware.ide64
+            else -> null
+        }
+        hardDiskRom?.let { (name, part) ->
+            check(set.installed(part)) { getString(R.string.drive_firmware_missing, name, text(part.label)) }
+        }
+        if (options.getValue(C64Catalog.drive.id) == C64Catalog.TRUE_DRIVE && format.kind(entry.displayName) != "cmdhd") {
             check(set.installed(C64Firmware.dos1541)) {
                 getString(R.string.drive_firmware_missing, "1541", text(C64Firmware.dos1541.label))
             }
         }
-        val start = images.prepare(entry, cancelled, progress).absolutePath
+        val image = images.prepare(entry, cancelled, progress).absolutePath
+        // A hard disk starts at BASIC's prompt; its startup commands start the game.
+        val start = if (isHardDisk(entry)) "" else image
         options[C64Catalog.PROGRAM] = C64Catalog.program(game)
         options += StartupCommands.setting(C64Catalog.startupCommands.value(game, options))
-        // In the core's order (c64_core.cpp): the game to start, then drive 8's disk.
+        // In the core's order (c64_core.cpp): the game to start, drive 8's disk, the hard disk.
         check(bridge.start(firmwareDirectory.absolutePath, home.absolutePath,
-            listOf(start, if (isDisk(entry)) start else ""), options)) { "Another machine is still running" }
+            listOf(start, if (isDisk(entry)) start else "", if (isHardDisk(entry)) image else ""), options)) {
+            "Another machine is still running"
+        }
         awaitRunning()
         // A T64 on the Open ROMs starts from a disk written from it, with the datasette empty: the
         // core says where the game's medium went.
         val paths = checkNotNull(bridge.mediaPaths()) { "The machine stopped before reporting its media" }
         mediaStarted(listOf(entry.takeIf(::isDisk), entry.takeIf { isTape(it) && paths[1].isNotEmpty() },
-            entry.takeIf(::isCartridge)))
+            entry.takeIf(::isCartridge), entry.takeIf(::isHardDisk)))
     }
 
     // BASIC's READY. prompt: nothing autostarts, and a disk game's disk waits in drive 8.
@@ -116,11 +133,14 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
                                progress: (String) -> Unit) {
         val home = prepareHome(progress)
         // With nothing in the start slot (c64_core.cpp), VICE autostarts nothing.
-        check(bridge.start(firmwareDirectory.absolutePath, home.absolutePath, listOf("", ""), optionValues(game))) {
+        // A hard disk is there from the start: its interface is set up only as the machine starts.
+        val hardDisk = entry.takeIf(::isHardDisk)?.let { images.prepare(it, cancelled, progress).absolutePath } ?: ""
+        check(bridge.start(firmwareDirectory.absolutePath, home.absolutePath, listOf("", "", hardDisk), optionValues(game))) {
             "Another machine is still running"
         }
         awaitRunning()
         insertMedia(listOf(entry.takeIf(::isDisk)), cancelled, progress)
+        mediaStarted(listOf(entry.takeIf(::isDisk), null, null, entry.takeIf(::isHardDisk)))
     }
 
     /**

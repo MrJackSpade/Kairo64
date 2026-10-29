@@ -12,6 +12,14 @@
 
 namespace {
 
+// Whether path ends in extension (".dhd"), in any case.
+bool has_extension(const std::string &path, const std::string &extension) {
+    if (path.size() < extension.size()) return false;
+    for (size_t i = 0; i < extension.size(); ++i)
+        if (std::tolower(static_cast<unsigned char>(path[path.size() - extension.size() + i])) != extension[i]) return false;
+    return true;
+}
+
 using kairo64::C64Machine;
 
 // Media slots, as MainActivity numbers them: drive 8.
@@ -150,6 +158,7 @@ public:
     int media(int slot, const std::string &path) override {
         if (slot == kTapeSlot) return machine_->insert_tape(path, error_) ? 0 : kFailed;
         if (slot == kCartridgeSlot) return machine_->insert_cartridge(path, error_) ? 0 : kFailed;
+        if (slot == kHardDiskSlot) return machine_->insert_hard_disk(path, error_) ? 0 : kFailed;
         if (slot < 0 || slot >= kairo64::kDrives) return kUnsupported;
         return machine_->insert(kairo64::Drive(slot), path, error_) ? 0 : kFailed;
     }
@@ -159,11 +168,13 @@ public:
         for (int drive = 0; drive < kairo64::kDrives; ++drive) paths.push_back(machine_->media_path(kairo64::Drive(drive)));
         paths.push_back(machine_->tape_path());
         paths.push_back(machine_->cartridge_path());
+        paths.push_back(machine_->hard_disk_path());
         return paths;
     }
 
     static constexpr int kTapeSlot = kairo64::kDrives;
     static constexpr int kCartridgeSlot = kairo64::kDrives + 1;
+    static constexpr int kHardDiskSlot = kairo64::kDrives + 2;
 
 private:
     std::unique_ptr<C64Machine> machine_;
@@ -181,12 +192,25 @@ private:
 std::unique_ptr<kairo::MachineCore> kairo::create_core(const kairo::Launch &launch, std::string &error) {
     kairo64::Config config;
     config.home = launch.home + "/vice";
-    if (launch.media.size() != 2) {
-        error = "A C64 launch names the game and drive 8's disk; this one has " + std::to_string(launch.media.size()) + " media";
+    if (launch.media.size() != 3) {
+        error = "A C64 launch names the game, drive 8's disk and a hard disk; this one has " +
+                std::to_string(launch.media.size()) + " media";
         return nullptr;
     }
     config.start = launch.media[0];
     config.drive8 = launch.media[1];
+    // A hard disk on the interface its image is for, on the player's ROM for it (C64Firmware).
+    config.hard_disk = launch.media[2];
+    if (!config.hard_disk.empty()) {
+        if (has_extension(config.hard_disk, ".dhd")) {
+            config.cmdhd_rom = launch.firmware + "/cmdhd.bin";
+        } else if (has_extension(config.hard_disk, ".hdd") || has_extension(config.hard_disk, ".cfa")) {
+            config.ide64_rom = launch.firmware + "/ide64.bin";
+        } else {
+            error = "The hard disk " + config.hard_disk + " is not a CMD HD (.dhd) or IDE64 (.hdd, .cfa) image";
+            return nullptr;
+        }
+    }
     // The program the start loads (C64Catalog.program): "" for its first.
     config.program = launch.settings.at("program");
     // The settings C64Catalog's options name; every launch passes them.
@@ -208,7 +232,8 @@ std::unique_ptr<kairo::MachineCore> kairo::create_core(const kairo::Launch &laun
     }
     const std::string &drive = launch.settings.at("drive");
     if (drive == "1541") {
-        config.dos1541 = launch.firmware + "/dos1541.bin";
+        // Drive 8 is the CMD HD when the game is on one, whatever its drive setting.
+        if (config.cmdhd_rom.empty()) config.dos1541 = launch.firmware + "/dos1541.bin";
     } else if (drive != "virtual") {
         error = "Drive is \"" + drive + "\", not 1541 or virtual";
         return nullptr;
