@@ -86,3 +86,7 @@ def BROKEN_DISK(content_id):
 # in drive 8 during play, so none is inserted beside it.
 BOOT_KINDS = ["disk", "tape", "prg", "cart"]
 COMPANION = {}
+
+# The media slots a disk swap can use and the disks each takes (MainActivity.mediaSlots, the
+# catalog schema's CatalogSetting.DiskSwaps; shared/tools/startup_automation.py).
+DISK_SWAPS = {0: {"disk"}, 1: {"tape"}}

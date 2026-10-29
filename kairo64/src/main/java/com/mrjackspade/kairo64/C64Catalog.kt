@@ -89,7 +89,11 @@ object C64Catalog : LayeredGameCatalog.Schema {
     val startupCommands = CatalogSetting.Lines(LAUNCH, COMMANDS, UiText.res(FrontendR.string.kairo_startup_commands),
         UiText.res(FrontendR.string.kairo_startup_commands_hint), Regex("[ -~]{1,80}"), 8) { _, _ -> emptyList() }
 
-    override val settings: List<CatalogSetting> = options.map(CatalogSetting::Choice) + program + startupCommands
+    override val settings: List<CatalogSetting> = options.map(CatalogSetting::Choice) + program + startupCommands +
+        // A game's startup menus and disk swaps (shared StartupAutomation).
+        listOf(CatalogSetting.StartupChoices,
+        // Drive 8 and the datasette (MainActivity.mediaSlots).
+        CatalogSetting.DiskSwaps(2) { drive, id -> id.startsWith(if (drive == 0) "sha256-disk-v1:" else "sha256-tape-v1:") })
     override val fields = CatalogSetting.fields(settings)
     /** A 1351 game's pointer goes to a point by a push to the corner and counts (C64Machine::mouse_warp). */
     override val directTouch = true
@@ -97,7 +101,7 @@ object C64Catalog : LayeredGameCatalog.Schema {
     override fun validMedia(role: String, contentId: String) = false
 
     override fun validField(field: String, value: Any): Boolean =
-        field in fields && CatalogSetting.validSection(settings, field, value)
+        field in fields && CatalogSetting.valid(settings, contentId, field, value)
 
     override fun validBindings(bindings: JSONArray) = C64Keys.bindings.valid(bindings)
 }
