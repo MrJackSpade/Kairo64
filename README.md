@@ -76,6 +76,7 @@ Kairo64 comes with the [MEGA65 Open ROMs](https://github.com/MEGA65/open-roms), 
 
 ## Documentation
 
+- [Create a game](docs/create-a-game.md): make a new game on a blank floppy and format it
 - [Licensing and credits](docs/licensing.md): code license and third-party components
 - [Source provenance](docs/source-import.md): where the emulator source came from and what was copied
 - [Development](docs/development.md): building, the host test and VICE's generated sources
