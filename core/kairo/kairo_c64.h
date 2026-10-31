@@ -67,6 +67,8 @@ bool KairoC64_AttachIde64(const char *rom);
  * order, for a KERNAL VICE cannot load T64 files on (the Open ROMs: VICE loads T64 programs by
  * trapping Commodore's KERNAL). False with a message in error when it could not. */
 bool KairoC64_TapeToDisk(const char *tape, const char *disk, char *error, size_t error_size);
+/* Writes a new, unformatted 1541 disk (D64) at path. False when VICE could not write it. */
+bool KairoC64_CreateBlankDisk(const char *path);
 /* Whether VICE's autostart is still loading the game's first program. */
 bool KairoC64_Autostarting(void);
 /* Whether the screen editor waits for a line, as at BASIC's READY. prompt: no autostart is typing,

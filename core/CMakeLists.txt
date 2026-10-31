@@ -144,7 +144,7 @@ include("${CMAKE_CURRENT_LIST_DIR}/vice_sources.cmake")
 # - arch/shared/archdep_user_{cache,config,state}_path.c: VICE's per-user folders are the
 #   machine's home folder (archdep_user_paths.c), not the XDG folders an Android app cannot write.
 list(REMOVE_ITEM VICE_BASE_SOURCES "${VICE}/vsync.c")
-list(APPEND VICE_BASE_SOURCES "${KAIRO}/vsync.c" "${KAIRO}/control.c" "${KAIRO}/tapedisk.c")
+list(APPEND VICE_BASE_SOURCES "${KAIRO}/vsync.c" "${KAIRO}/control.c" "${KAIRO}/tapedisk.c" "${KAIRO}/blankdisk.c")
 list(REMOVE_ITEM VICE_LIBRARY_arch "${VICE}/arch/headless/main.c" "${VICE}/arch/headless/video.c"
     "${VICE}/arch/headless/mousedrv.c" "${VICE}/arch/headless/uistatusbar.c")
 list(APPEND VICE_LIBRARY_arch "${KAIRO}/main.c" "${KAIRO}/video.c" "${KAIRO}/mousedrv.c" "${KAIRO}/uistatusbar.c")

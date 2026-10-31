@@ -72,6 +72,9 @@ class C64Machine {
 public:
     // A machine running config's game; null with error set when it cannot start.
     static std::unique_ptr<C64Machine> create(const Config &config, std::string &error);
+    // Writes a new, unformatted 1541 disk (D64, 174,848 bytes) at path with VICE's own image creator.
+    // False with error set when it could not.
+    static bool create_blank_disk(const std::string &path, std::string &error);
     ~C64Machine();
 
     // Whether VICE's autostart is still loading the game's first program. It ends when that

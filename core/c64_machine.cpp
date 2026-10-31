@@ -2,6 +2,7 @@
 
 #include <cctype>
 #include <condition_variable>
+#include <cstdio>
 #include <mutex>
 #include <thread>
 #include <utility>
@@ -11,8 +12,6 @@
 
 #ifdef __ANDROID__
 #include <android/log.h>
-#else
-#include <cstdio>
 #endif
 
 namespace kairo64 {
@@ -270,6 +269,25 @@ std::unique_ptr<C64Machine> C64Machine::create(const Config &config, std::string
     }
     vice.machine = true;
     return machine;
+}
+
+bool C64Machine::create_blank_disk(const std::string &path, std::string &error) {
+    if (!KairoC64_CreateBlankDisk(path.c_str())) {
+        error = "VICE could not write a blank disk at " + path;
+        return false;
+    }
+    FILE *file = std::fopen(path.c_str(), "rb");
+    long size = -1;
+    if (file) {
+        std::fseek(file, 0, SEEK_END);
+        size = std::ftell(file);
+        std::fclose(file);
+    }
+    if (size != 174848) {
+        error = "VICE wrote " + std::to_string(size) + " bytes for a blank D64 at " + path + ", not 174848";
+        return false;
+    }
+    return true;
 }
 
 bool C64Machine::autostarting() const { return KairoC64_Autostarting(); }

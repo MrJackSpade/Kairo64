@@ -252,3 +252,10 @@ std::unique_ptr<kairo::MachineCore> kairo::create_core(const kairo::Launch &laun
     if (!machine) return nullptr;
     return std::make_unique<C64Core>(std::move(machine));
 }
+
+// The blank disks MainActivity.blankDisks lists: "d64", a 1541 floppy.
+std::string kairo::create_blank_disk(const std::string &kind, const std::string &path) {
+    if (kind != "d64") return "Kairo64 makes no blank disk " + kind;
+    std::string error;
+    return C64Machine::create_blank_disk(path, error) ? "" : error;
+}

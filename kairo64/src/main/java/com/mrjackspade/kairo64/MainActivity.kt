@@ -52,6 +52,9 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
     override fun createLibrary(catalog: LayeredGameCatalog) = images
 
     override val machineOptions = C64Catalog.options
+    // Unformatted, as a new floppy was: the player formats it in drive 8 (OPEN15,8,15,"N:NAME,ID").
+    override val blankDisks = listOf(
+        coreBlankDisk("d64", UiText.res(FrontendR.string.kairo_blank_floppy, "170 KB · 1541"), "d64"))
     private fun isDisk(entry: DiskImageEntry) = format.kind(entry.displayName) == "disk"
     private fun isTape(entry: DiskImageEntry) = format.kind(entry.displayName) == "tape"
     private fun isCartridge(entry: DiskImageEntry) = format.kind(entry.displayName) == "cart"
