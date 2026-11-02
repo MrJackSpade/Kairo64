@@ -55,10 +55,10 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
     // Unformatted, as a new floppy was: the player formats it in drive 8 (OPEN15,8,15,"N:NAME,ID").
     override val blankDisks = listOf(
         coreBlankDisk("d64", UiText.res(FrontendR.string.kairo_blank_floppy, "170 KB · 1541"), "d64"))
-    private fun isDisk(entry: DiskImageEntry) = format.kind(entry.displayName) == "disk"
-    private fun isTape(entry: DiskImageEntry) = format.kind(entry.displayName) == "tape"
-    private fun isCartridge(entry: DiskImageEntry) = format.kind(entry.displayName) == "cart"
-    private fun isHardDisk(entry: DiskImageEntry) = format.kind(entry.displayName) in setOf("cmdhd", "ide64")
+    private fun isDisk(entry: DiskImageEntry) = entry.kind == "disk"
+    private fun isTape(entry: DiskImageEntry) = entry.kind == "tape"
+    private fun isCartridge(entry: DiskImageEntry) = entry.kind == "cart"
+    private fun isHardDisk(entry: DiskImageEntry) = entry.kind in setOf("cmdhd", "ide64")
 
     // In the core's drive order (c64_machine.h Drive).
     override val mediaSlots = listOf(MediaSlot<DiskImageEntry>(UiText.res(R.string.drive_8), ::isDisk),
@@ -91,7 +91,7 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
             }
         }
         // A hard disk runs on the player's ROM for its interface; a CMD HD is drive 8 itself.
-        val hardDiskRom = when (format.kind(entry.displayName)) {
+        val hardDiskRom = when (entry.kind) {
             "cmdhd" -> "CMD HD" to C64Firmware.cmdhd
             "ide64" -> "IDE64" to C64Firmware.ide64
             else -> null
@@ -99,7 +99,7 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
         hardDiskRom?.let { (name, part) ->
             check(set.installed(part)) { getString(R.string.drive_firmware_missing, name, text(part.label)) }
         }
-        if (options.getValue(C64Catalog.drive.id) == C64Catalog.TRUE_DRIVE && format.kind(entry.displayName) != "cmdhd") {
+        if (options.getValue(C64Catalog.drive.id) == C64Catalog.TRUE_DRIVE && entry.kind != "cmdhd") {
             check(set.installed(C64Firmware.dos1541)) {
                 getString(R.string.drive_firmware_missing, "1541", text(C64Firmware.dos1541.label))
             }
