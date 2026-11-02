@@ -79,7 +79,7 @@ object C64Keys {
         modifiers = setOf(LEFT_SHIFT, RIGHT_SHIFT, CONTROL, COMMODORE),
         shiftCodes = setOf(LEFT_SHIFT, RIGHT_SHIFT),
         capsCode = null,
-        // Right Shift, on no joystick line, as the D-pad's up and left chord it (catalog/system-v1.json).
+        // Right Shift, on no joystick line, as the D-pad's up and left chord it (catalog/system-v2.json).
         chordShiftCode = RIGHT_SHIFT
     )
 

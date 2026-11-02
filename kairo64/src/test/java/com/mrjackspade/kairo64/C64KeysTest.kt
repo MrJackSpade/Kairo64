@@ -34,11 +34,11 @@ class C64KeysTest {
         assertEquals(C64Keys.RETURN, 0 * 8 + 1 + 1)
     }
 
-    /** The system's definition (catalog/system-v1.json) is a C64 mapping: parsing fails on any key it cannot send. */
+    /** The system's definition (catalog/system-v2.json) is a C64 mapping: parsing fails on any key it cannot send. */
     @Test
     fun theSystemDefinitionIsAC64Mapping() {
         val root = java.io.File(System.getProperty("kairo.root") ?: error("kairo.root is not set"))
-        val system = org.json.JSONObject(java.io.File(root, "catalog/system-v1.json").readText())
+        val system = org.json.JSONObject(java.io.File(root, "catalog/system-v2.json").readText())
         C64Keys.bindings.parse(system.getJSONObject("controller").getJSONArray("bindings").toString())
     }
 }
