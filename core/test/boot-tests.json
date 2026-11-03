@@ -82,6 +82,67 @@
           "swap": ""
         }
       }
+    },
+    {
+      "name": "Mission Om",
+      "firmware": "bios",
+      "home": {
+        "vice": "folder:",
+        "openroms/kernal_generic.rom": "app:third_party/open-roms/bin/kernal_generic.rom",
+        "openroms/basic_generic.rom": "app:third_party/open-roms/bin/basic_generic.rom",
+        "openroms/chargen_openroms.rom": "app:third_party/open-roms/bin/chargen_openroms.rom"
+      },
+      "media": [
+        "games/Mission Om (Europe) (Side A).TAP",
+        "",
+        ""
+      ],
+      "settings": {
+        "program": "",
+        "model": "c64",
+        "system": "openroms",
+        "drive": "virtual",
+        "ports": "2"
+      },
+      "checks": {
+        "stateDisks": {
+          "drive": 1,
+          "at": 600,
+          "swap": "games/Mission Om (Europe) (Side B).TAP"
+        }
+      }
+    },
+    {
+      "name": "Prince of Persia",
+      "firmware": "bios",
+      "home": {
+        "vice": "folder:",
+        "openroms/kernal_generic.rom": "app:third_party/open-roms/bin/kernal_generic.rom",
+        "openroms/basic_generic.rom": "app:third_party/open-roms/bin/basic_generic.rom",
+        "openroms/chargen_openroms.rom": "app:third_party/open-roms/bin/chargen_openroms.rom"
+      },
+      "media": [
+        "games/Prince of Persia (USA) (Unl).CRT",
+        "",
+        ""
+      ],
+      "settings": {
+        "program": "",
+        "model": "c64",
+        "system": "openroms",
+        "drive": "virtual",
+        "ports": "2"
+      },
+      "checks": {
+        "boot": {
+          "frames": 1200
+        },
+        "stateDisks": {
+          "drive": 2,
+          "at": 600,
+          "swap": ""
+        }
+      }
     }
   ]
 }

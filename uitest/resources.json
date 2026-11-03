@@ -5,7 +5,10 @@
   "bios/C64_Chargen.bin": "C:\\Users\\Service Account\\Kairo\\Kairo64\\bios\\C64_Chargen.bin",
   "bios/C64_Drive-1541.bin": "C:\\Users\\Service Account\\Kairo\\Kairo64\\bios\\C64_Drive-1541.bin",
   "bios/C64_Kernal.bin": "C:\\Users\\Service Account\\Kairo\\Kairo64\\bios\\C64_Kernal.bin",
-  "games/Deflektor (Europe).D64": "C:\\Users\\Service Account\\Downloads\\C64RomCollectionByGhostware\\Deflektor (Europe).D64",
-  "games/Klax (Europe).D64": "C:\\Users\\Service Account\\Downloads\\C64RomCollectionByGhostware\\Klax (Europe).D64"
+  "games/Deflektor (Europe).D64": "\\\\192.168.1.202\\Public\\Games\\Roms\\Commodore 64\\Deflektor (Europe).D64",
+  "games/Klax (Europe).D64": "\\\\192.168.1.202\\Public\\Games\\Roms\\Commodore 64\\Klax (Europe).D64",
+  "games/Mission Om (Europe) (Side A).TAP": "\\\\192.168.1.202\\Public\\Games\\Roms\\Commodore 64\\Mission Om (Europe) (Side A).TAP",
+  "games/Mission Om (Europe) (Side B).TAP": "\\\\192.168.1.202\\Public\\Games\\Roms\\Commodore 64\\Mission Om (Europe) (Side B).TAP",
+  "games/Prince of Persia (USA) (Unl).CRT": "\\\\192.168.1.202\\Public\\Games\\Roms\\Commodore 64\\Prince of Persia (USA) (Unl).CRT"
  }
 }
