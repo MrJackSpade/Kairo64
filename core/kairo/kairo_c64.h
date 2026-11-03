@@ -50,6 +50,9 @@ bool KairoC64_SetModel(const char *name);
 bool KairoC64_LoadRoms(const char *kernal, const char *basic, const char *chargen, bool drive1541);
 /* A hard reset: the power switch, with every disk and tape left in. */
 void KairoC64_PowerCycle(void);
+/* Seeds VICE's random numbers (the random autostart delay, the RAM's power-on pattern), which VICE
+ * seeds from the time once as it starts: a test that compares runs seeds them for each machine. */
+void KairoC64_Seed(unsigned int seed);
 /* Ejects every disk and tape and forgets any autostart in progress. */
 void KairoC64_EjectAll(void);
 /* Starts a game image (a disk, tape or program) as VICE's autostart does: loads its program named

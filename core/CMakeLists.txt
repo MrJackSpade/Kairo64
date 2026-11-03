@@ -132,6 +132,7 @@ include("${CMAKE_CURRENT_LIST_DIR}/vice_sources.cmake")
 #   host can tell when a tape is moving (KairoC64_TapeMoving).
 # - arch/shared/archdep_exit.c: an exit ends the machine with an error instead of the process.
 # - arch/shared/archdep_default_logger.c: VICE's log goes to the host.
+# - arch/shared/archdep_fix_streams.c: the host owns its streams (VICE's closed a piped stdout on Windows).
 # - arch/shared/archdep_user_{cache,config,state}_path.c: VICE's per-user folders are the
 #   machine's home folder (archdep_user_paths.c), not the XDG folders an Android app cannot write.
 list(REMOVE_ITEM VICE_BASE_SOURCES "${VICE}/vsync.c")
@@ -140,9 +141,9 @@ list(REMOVE_ITEM VICE_LIBRARY_arch "${VICE}/arch/headless/main.c" "${VICE}/arch/
     "${VICE}/arch/headless/mousedrv.c" "${VICE}/arch/headless/uistatusbar.c")
 list(APPEND VICE_LIBRARY_arch "${KAIRO}/main.c" "${KAIRO}/video.c" "${KAIRO}/mousedrv.c" "${KAIRO}/uistatusbar.c")
 list(REMOVE_ITEM VICE_LIBRARY_archdep "${VICE}/arch/shared/archdep_exit.c"
-    "${VICE}/arch/shared/archdep_default_logger.c" "${VICE}/arch/shared/archdep_user_cache_path.c"
+    "${VICE}/arch/shared/archdep_default_logger.c" "${VICE}/arch/shared/archdep_fix_streams.c" "${VICE}/arch/shared/archdep_user_cache_path.c"
     "${VICE}/arch/shared/archdep_user_config_path.c" "${VICE}/arch/shared/archdep_user_state_path.c")
-list(APPEND VICE_LIBRARY_archdep "${KAIRO}/archdep_exit.c" "${KAIRO}/archdep_default_logger.c"
+list(APPEND VICE_LIBRARY_archdep "${KAIRO}/archdep_exit.c" "${KAIRO}/archdep_default_logger.c" "${KAIRO}/archdep_fix_streams.c"
     "${KAIRO}/archdep_user_paths.c")
 # The VIC-II's state the host reads (KairoC64_RasterIrqLine), with the C64 library's VIC-II headers.
 list(APPEND VICE_LIBRARY_c64sc "${KAIRO}/vicii.c")

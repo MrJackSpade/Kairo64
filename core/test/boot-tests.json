@@ -1,0 +1,87 @@
+{
+  "tests": [
+    {
+      "name": "Klax",
+      "firmware": "bios",
+      "home": {
+        "vice": "folder:",
+        "openroms/kernal_generic.rom": "app:third_party/open-roms/bin/kernal_generic.rom",
+        "openroms/basic_generic.rom": "app:third_party/open-roms/bin/basic_generic.rom",
+        "openroms/chargen_openroms.rom": "app:third_party/open-roms/bin/chargen_openroms.rom"
+      },
+      "media": [
+        "games/Klax (Europe).D64",
+        "",
+        ""
+      ],
+      "settings": {
+        "program": "",
+        "model": "c64",
+        "system": "openroms",
+        "drive": "virtual",
+        "ports": "2"
+      },
+      "checks": {
+        "boot": {
+          "frames": 1800
+        },
+        "guestInput": {
+          "frames": 2400,
+          "expect": "keyboard"
+        },
+        "sessions": {
+          "frames": 600
+        },
+        "state": {
+          "at": 300,
+          "frames": 120
+        },
+        "loading": {
+          "startsBy": 120,
+          "doneBy": 4800,
+          "settled": 120,
+          "idle": {
+            "media": [
+              "",
+              "",
+              ""
+            ],
+            "frames": 600
+          }
+        }
+      }
+    },
+    {
+      "name": "Deflektor",
+      "firmware": "bios",
+      "home": {
+        "vice": "folder:",
+        "openroms/kernal_generic.rom": "app:third_party/open-roms/bin/kernal_generic.rom",
+        "openroms/basic_generic.rom": "app:third_party/open-roms/bin/basic_generic.rom",
+        "openroms/chargen_openroms.rom": "app:third_party/open-roms/bin/chargen_openroms.rom"
+      },
+      "media": [
+        "games/Deflektor (Europe).D64",
+        "games/Deflektor (Europe).D64",
+        ""
+      ],
+      "settings": {
+        "program": "",
+        "model": "c64",
+        "system": "openroms",
+        "drive": "virtual",
+        "ports": "2"
+      },
+      "checks": {
+        "boot": {
+          "frames": 1800
+        },
+        "stateDisks": {
+          "drive": 0,
+          "at": 900,
+          "swap": ""
+        }
+      }
+    }
+  ]
+}

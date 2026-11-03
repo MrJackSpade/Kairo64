@@ -93,6 +93,11 @@ void KairoC64_PowerCycle(void)
     bus_ever_changed = false;
 }
 
+void KairoC64_Seed(unsigned int seed)
+{
+    lib_rand_seed(seed);
+}
+
 void KairoC64_EjectAll(void)
 {
     autostart_reset();

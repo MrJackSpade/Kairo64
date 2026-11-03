@@ -30,6 +30,9 @@ constexpr int kMatrixColumns = 8;
 struct Config {
     // A private folder for VICE's own files (its log).
     std::string home;
+    // Whether runs must repeat, for tests that compare them: VICE's random numbers start from the
+    // same seed for each machine.
+    bool repeatable = false;
     // The model, by VICE's -model name: c64 (PAL, 6581 SID), c64c (PAL, 8580 SID), c64ntsc and so on.
     std::string model = "c64";
     // The system ROMs: KERNAL, BASIC and character set.

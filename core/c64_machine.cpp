@@ -228,6 +228,7 @@ std::unique_ptr<C64Machine> C64Machine::create(const Config &config, std::string
     KairoC64_EjectAll();
     if (!configure(config, error)) return nullptr;
     vice.last_error.clear();
+    if (config.repeatable) KairoC64_Seed(1);
     KairoC64_PowerCycle();
     std::unique_ptr<C64Machine> machine(new C64Machine(config));
     std::string start = config.start;

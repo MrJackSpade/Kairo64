@@ -192,6 +192,8 @@ private:
 std::unique_ptr<kairo::MachineCore> kairo::create_core(const kairo::Launch &launch, std::string &error) {
     kairo64::Config config;
     config.home = launch.home + "/vice";
+    // A test that compares runs (the shared PC boot test).
+    config.repeatable = launch.repeatable;
     if (launch.media.size() != 3) {
         error = "A C64 launch names the game, drive 8's disk and a hard disk; this one has " +
                 std::to_string(launch.media.size()) + " media";
