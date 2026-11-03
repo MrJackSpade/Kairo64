@@ -30,7 +30,14 @@
           "expect": "keyboard"
         },
         "sessions": {
-          "frames": 600
+          "frames": 600,
+          "prompt": {
+            "media": [
+              "",
+              "",
+              ""
+            ]
+          }
         },
         "state": {
           "at": 300,
