@@ -217,6 +217,89 @@
           "screens": [
             "f662cdf99ed19e0d"
           ]
+        },
+        "guestInput": {
+          "frames": 1200,
+          "expect": "keyboard"
+        }
+      }
+    },
+    {
+      "name": "Mouse program",
+      "firmware": "bios",
+      "home": {
+        "vice": "folder:",
+        "openroms/kernal_generic.rom": "app:third_party/open-roms/bin/kernal_generic.rom",
+        "openroms/basic_generic.rom": "app:third_party/open-roms/bin/basic_generic.rom",
+        "openroms/chargen_openroms.rom": "app:third_party/open-roms/bin/chargen_openroms.rom"
+      },
+      "media": [
+        "app:core/test/c64/mouse.prg",
+        "",
+        ""
+      ],
+      "settings": {
+        "program": "",
+        "model": "c64",
+        "system": "openroms",
+        "drive": "virtual",
+        "ports": "mouse"
+      },
+      "checks": {
+        "boot": {
+          "frames": 1200
+        },
+        "guestInput": {
+          "frames": 1800,
+          "expect": "mouse"
+        },
+        "directTap": {
+          "frames": 1200,
+          "warpBy": 600,
+          "tolerance": 0,
+          "ownPointer": true,
+          "points": [
+            {
+              "x": 34,
+              "y": 38,
+              "screens": [
+                "2e4a3c512f4f9495"
+              ],
+              "selectedBy": 60
+            },
+            {
+              "x": 349,
+              "y": 38,
+              "screens": [
+                "a0fa48cd171b4a6a"
+              ],
+              "selectedBy": 60
+            },
+            {
+              "x": 34,
+              "y": 233,
+              "screens": [
+                "daa5a0c38326ea39"
+              ],
+              "selectedBy": 60
+            },
+            {
+              "x": 349,
+              "y": 233,
+              "screens": [
+                "599f0994b007d699"
+              ],
+              "selectedBy": 60
+            },
+            {
+              "x": 192,
+              "y": 136,
+              "screens": [
+                "2c9a8af64cfa77fd"
+              ],
+              "selectedBy": 60
+            }
+          ]
         }
       }
     }

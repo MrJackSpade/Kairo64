@@ -234,9 +234,15 @@ void KairoC64_Joystick(int port, int control, bool down)
     }
 }
 
+/* The 1351's position, which it reports as is (patch group vice-1351-host-position): the host's
+ * motion is in C64 pixels, a step of the pointer each. Its Y counts up as the mouse moves away from
+ * the player, the host's down. */
+extern int kairo64_mouse_x, kairo64_mouse_y;
+
 void KairoC64_MouseMove(int dx, int dy)
 {
-    mouse_move((float)dx, (float)dy);
+    kairo64_mouse_x += dx;
+    kairo64_mouse_y -= dy;
 }
 
 /* The VIC-II's text screen: its bank from CIA 2 port A (the inverse of bits 0-1 of $DD00), its

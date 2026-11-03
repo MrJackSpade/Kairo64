@@ -126,18 +126,18 @@ static int ds1202_rtc_save; /* smartmouse rtc data save */
 
 /* Kairo64: the guest's reads of the mouse position (KairoC64_MouseReads). */
 unsigned long kairo64_mouse_reads;
+/* Kairo64: the 1351's position, in steps of the pointer (KairoC64_MouseMove). */
+int kairo64_mouse_x, kairo64_mouse_y;
 
 static uint8_t mouse_get_1351_x(int port)
 {
     kairo64_mouse_reads++;
-    mouse_get_last_int16(&last_mouse_x, &last_mouse_y);
-    return (uint8_t)((last_mouse_x & 0x7f) + 0x40);
+    return (uint8_t)(((kairo64_mouse_x << 1) & 0x7e) + 0x40); /* Kairo64 */
 }
 
 static uint8_t mouse_get_1351_y(int port)
 {
-    mouse_get_last_int16(&last_mouse_x, &last_mouse_y);
-    return (uint8_t)((last_mouse_y & 0x7f) + 0x40);
+    return (uint8_t)(((kairo64_mouse_y << 1) & 0x7e) + 0x40); /* Kairo64 */
 }
 
 void mouse_1351_button_right(int pressed)

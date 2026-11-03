@@ -164,6 +164,28 @@ VICE_MOUSE_READS = [
      'static uint8_t mouse_get_1351_x(int port)\n{\n    kairo64_mouse_reads++;\n'),
 ]
 
+# The 1351 reports the position the host gives it (KairoC64_MouseMove), a step of the pointer for each
+# count of bit 1, as the 1351 counts (its position is bits 1-6). VICE's own position moves toward a
+# host mouse's over host-clock intervals (mouse_poll's quadrature timing), which a machine run frame
+# by frame, often flat out, does not repeat, and it counts in bits 0-6, half a step each (Kairo64#63).
+VICE_1351_HOST_POSITION = [
+    ('vice/src/joyport/mouse_1351.c',
+     'unsigned long kairo64_mouse_reads;\n\n'
+     'static uint8_t mouse_get_1351_x(int port)\n{\n    kairo64_mouse_reads++;\n'
+     '    mouse_get_last_int16(&last_mouse_x, &last_mouse_y);\n'
+     '    return (uint8_t)((last_mouse_x & 0x7f) + 0x40);\n}\n\n'
+     'static uint8_t mouse_get_1351_y(int port)\n{\n'
+     '    mouse_get_last_int16(&last_mouse_x, &last_mouse_y);\n'
+     '    return (uint8_t)((last_mouse_y & 0x7f) + 0x40);\n}\n',
+     'unsigned long kairo64_mouse_reads;\n'
+     '/* Kairo64: the 1351\'s position, in steps of the pointer (KairoC64_MouseMove). */\n'
+     'int kairo64_mouse_x, kairo64_mouse_y;\n\n'
+     'static uint8_t mouse_get_1351_x(int port)\n{\n    kairo64_mouse_reads++;\n'
+     '    return (uint8_t)(((kairo64_mouse_x << 1) & 0x7e) + 0x40); /* Kairo64 */\n}\n\n'
+     'static uint8_t mouse_get_1351_y(int port)\n{\n'
+     '    return (uint8_t)(((kairo64_mouse_y << 1) & 0x7e) + 0x40); /* Kairo64 */\n}\n'),
+]
+
 PATCHES = {
     'vice-directory-loop': VICE_DIRECTORY_LOOP,
     'vice-autostart-keeps-virtual-drive': VICE_AUTOSTART_KEEPS_VIRTUAL_DRIVE,
@@ -173,4 +195,5 @@ PATCHES = {
     'vice-tape-load-names-device': VICE_TAPE_LOAD_NAMES_DEVICE,
     'vice-kairo-sound': VICE_KAIRO_SOUND,
     'vice-mouse-reads': VICE_MOUSE_READS,
+    'vice-1351-host-position': VICE_1351_HOST_POSITION,
 }
