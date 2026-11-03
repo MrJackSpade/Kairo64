@@ -200,7 +200,11 @@ bool vsync_should_skip_frame(struct video_canvas_s *canvas)
     return false;
 }
 
-/* At the end of every frame: VICE's frame work, then the host's turn. */
+/* kairo/main.c: VICE shuts down and KairoC64_Run returns. */
+void kairo_c64_quit_now(void);
+
+/* At the end of every frame: VICE's frame work, then the host's turn; then VICE shuts down if the
+ * host asked it to quit meanwhile. */
 void vsync_do_vsync(struct video_canvas_s *c)
 {
     monitor_vsync_hook();
@@ -210,4 +214,7 @@ void vsync_do_vsync(struct video_canvas_s *c)
     execute_vsync_callbacks();
     kbdbuf_flush();
     KairoC64Host_Vbl();
+    if (KairoC64_Quitting()) {
+        kairo_c64_quit_now();
+    }
 }

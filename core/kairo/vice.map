@@ -1,0 +1,5 @@
+/* The VICE library's one exported symbol (kairo_c64.h); VICE's own functions stay inside. */
+{
+    global: KairoC64_Api;
+    local: *;
+};

@@ -7,10 +7,10 @@ The catalog starts a USA, Japanese or Canadian release on an NTSC C64 and every 
 (tools/catalog_config.py, by the release's name). A name can be wrong: 1943: The Battle of Midway
 (USA) is a PAL game (Kairo64#13). This pass boots every library entry the catalog starts on NTSC on
 both a PAL and an NTSC C64, with the firmware and drive its record asks for, through the core's
-boot_test (.build/host/boot_test.exe) and the firmware pass's judgement of a boot
+pass runner (core/test/firmware_pass_run.cpp) and the firmware pass's judgement of a boot
 (firmware_pass.boot): whether the load ends and the game then runs.
 
-boot_test also reports every raster line the game's enabled raster interrupts waited on after the
+The runner also reports every raster line the game's enabled raster interrupts waited on after the
 load. A PAL C64 draws lines 0 to 311 and an NTSC one 0 to 262: a game that interrupts on line 263 or
 later was written for PAL (on NTSC that line never comes).
 
@@ -28,7 +28,6 @@ does not start with this tool's name) are kept. Results are kept per entry in
 """
 import argparse
 import json
-import re
 import shutil
 import sys
 import threading
@@ -43,7 +42,6 @@ OUT = ROOT / ".downloads/model-pass"
 LIST = firmware_pass.LIST
 # The pass's version: results from an older one are booted again.
 PASS = 1
-RASTER = re.compile(r"raster interrupts after load: (\d+) lines, highest (\d+)")
 # The highest raster line an NTSC C64 draws; an interrupt below it can come on PAL and NTSC alike.
 NTSC_LAST_LINE = 262
 PAL = "c64"
@@ -51,25 +49,11 @@ TOOL = "model_pass.py:"
 
 
 def setup(content_id, listed):
-    """The firmware pass's setup for an entry (boot_test's <system>): the player's ROMs where the
+    """The firmware pass's setup for an entry (the runner's <system>): the player's ROMs where the
     research says it needs them, and the 1541 where it needs that."""
     needs = listed.get(content_id, {})
     system = "own" if needs.get("system") == "own" else "open"
     return system + ("+1541" if needs.get("drive") == "1541" else "")
-
-
-def highest_raster_line(work):
-    """The highest raster line the boot's interrupts waited on after the load, from boot_test's output
-    (kept by boot as work/boot.txt); None without any."""
-    found = RASTER.search((work / "boot.txt").read_text(encoding="utf-8"))
-    return int(found.group(2)) if found and int(found.group(1)) else None
-
-
-def boot(system, path, model, seconds, work):
-    """firmware_pass.boot with the raster report: the outcome plus "raster", the highest raster line."""
-    outcome = firmware_pass.boot(system, path, model, seconds, work, keep_output=work / "boot.txt")
-    outcome["raster"] = highest_raster_line(work)
-    return outcome
 
 
 def decide(record, named):
@@ -128,7 +112,7 @@ def main():
             system = setup(content_id, listed["games"])
             named = named_models[content_id]
             record = {"pass": PASS, "system": system, "named": named, "seconds": seconds,
-                      "boots": {model: boot(system, path, model, seconds, work) for model in (PAL, named)}}
+                      "boots": {model: firmware_pass.boot(system, path, model, seconds, work) for model in (PAL, named)}}
             record["model"], record["why"] = decide(record, named)
         finally:
             with lock:

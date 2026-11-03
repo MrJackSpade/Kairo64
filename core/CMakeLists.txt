@@ -194,23 +194,49 @@ endforeach()
 set_target_properties(vice_resid PROPERTIES CXX_STANDARD 11)
 target_compile_definitions(vice_resid PRIVATE VERSION="1.0-pre2")
 
-# The frame-driven machine (c64_machine.h). VICE's libraries reference one another in both
-# directions, as automake's link of x64sc allows; lld resolves archives in any order.
-add_library(kairo64_core STATIC c64_machine.cpp)
-# kairo/relative_warp.h, which c64_machine.h holds (Kairo#79).
-target_include_directories(kairo64_core PUBLIC "${CMAKE_CURRENT_LIST_DIR}"
-    "${CMAKE_CURRENT_LIST_DIR}/../shared/frontend/src/main/cpp" PRIVATE "${KAIRO}")
-target_link_libraries(kairo64_core PUBLIC ${VICE_TARGETS})
+# VICE, as a library of its own: each machine loads a fresh copy of it (c64_machine.cpp, the shared
+# kairo/fresh_library.h), so VICE's process-wide variables start from their initial values for
+# every machine (Kairo64#67). Its only exported symbol is KairoC64_Api (kairo/kairo_c64.h), in
+# kairo/api.c, which pulls the glue and VICE out of their archives; VICE's libraries reference one
+# another in both directions, as automake's link of x64sc allows, and lld resolves archives in any
+# order.
+foreach(target ${VICE_TARGETS} kairo_zlib)
+    set_target_properties(${target} PROPERTIES POSITION_INDEPENDENT_CODE ON)
+endforeach()
+add_library(kairo64_vice SHARED "${KAIRO}/api.c")
+set_target_properties(kairo64_vice PROPERTIES C_STANDARD 99 C_EXTENSIONS ON C_VISIBILITY_PRESET hidden PREFIX "lib")
+target_include_directories(kairo64_vice PRIVATE "${KAIRO}")
+target_link_libraries(kairo64_vice PRIVATE ${VICE_TARGETS})
 if(ANDROID)
-    target_link_libraries(kairo64_core PUBLIC log)
+    target_link_libraries(kairo64_vice PRIVATE log)
+    target_link_options(kairo64_vice PRIVATE "-Wl,--version-script=${KAIRO}/vice.map")
+    set_target_properties(kairo64_vice PROPERTIES LINK_DEPENDS "${KAIRO}/vice.map")
 elseif(WIN32)
-    target_link_libraries(kairo64_core PUBLIC ws2_32 shlwapi winmm)
+    # The DLL carries its own runtime, as the host executables do.
+    target_link_libraries(kairo64_vice PRIVATE ws2_32 shlwapi winmm)
+    target_link_options(kairo64_vice PRIVATE -static)
 endif()
 
+# The frame-driven machine (c64_machine.h), which loads the VICE library by its file name.
+add_library(kairo64_core STATIC c64_machine.cpp)
+# kairo/relative_warp.h, which c64_machine.h holds (Kairo#79); kairo/fresh_library.h.
+target_include_directories(kairo64_core PUBLIC "${CMAKE_CURRENT_LIST_DIR}"
+    "${CMAKE_CURRENT_LIST_DIR}/../shared/frontend/src/main/cpp" PRIVATE "${KAIRO}")
+target_compile_definitions(kairo64_core PRIVATE KAIRO64_VICE_FILE="$<TARGET_FILE_NAME:kairo64_vice>")
+add_dependencies(kairo64_core kairo64_vice)
+if(ANDROID)
+    target_link_libraries(kairo64_core PUBLIC dl log)
+endif()
+
+# The firmware and model passes' runner (test/firmware_pass_run.cpp), with the VICE library beside
+# it (the shared kairo_library_beside_test). The boot tests are the shared PC boot test's
+# (shared/tools/test-core.ps1).
 if(NOT ANDROID)
-    add_executable(boot_test test/boot_test.cpp)
-    target_link_libraries(boot_test PRIVATE kairo64_core)
+    include("${CMAKE_CURRENT_LIST_DIR}/../shared/cmake/KairoMachine.cmake")
+    add_executable(firmware_pass_run test/firmware_pass_run.cpp)
+    target_link_libraries(firmware_pass_run PRIVATE kairo64_core)
+    kairo_library_beside_test(firmware_pass_run kairo64_vice)
     if(WIN32)
-        target_link_options(boot_test PRIVATE -static)
+        target_link_options(firmware_pass_run PRIVATE -static)
     endif()
 endif()

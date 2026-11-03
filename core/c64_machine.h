@@ -3,9 +3,9 @@
 // at the end of each frame (core/kairo/kairo_c64.h); between frames the host takes the picture and
 // sound and sends input.
 //
-// VICE keeps process-wide state and cannot start twice in a process: it starts with the first
-// machine and stays, and each later machine is the same VICE set up again and switched on anew.
-// A process runs one machine at a time.
+// VICE keeps process-wide state and was written to run once per process, so each machine runs its
+// own fresh copy of the VICE library (core/kairo/kairo_c64.h), unloaded when the machine goes:
+// every machine starts from VICE's initial state (Kairo64#67).
 
 #pragma once
 
@@ -13,6 +13,10 @@
 #include <memory>
 #include <string>
 #include <vector>
+
+#include "kairo/relative_warp.h"
+
+struct KairoC64Api;
 
 namespace kairo64 {
 
@@ -68,8 +72,6 @@ struct Config {
     // The audio sample rate.
     int sample_rate = 48000;
 };
-
-#include "kairo/relative_warp.h"
 
 class C64Machine {
 public:
@@ -153,9 +155,14 @@ public:
     // The text screen as 25 lines of 40 characters, for tests that look for BASIC's messages.
     std::string screen_text();
 
+    // This machine's VICE: its library copy and thread (c64_machine.cpp).
+    struct Session;
+
 private:
-    C64Machine(const Config &config);
+    C64Machine(const Config &config, std::unique_ptr<Session> session);
     Config config_;
+    std::unique_ptr<Session> session_;
+    const KairoC64Api &vice_;
     std::string drive_[kDrives];
     std::string tape_;
     std::string cartridge_;

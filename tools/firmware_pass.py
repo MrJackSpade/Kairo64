@@ -4,7 +4,8 @@
 Usage: firmware_pass.py <seconds> [--tape-seconds N] [--workers N] [--scanned]
 
 Boots every game the library lists (each game's set entries and lone images) on the host with the
-core's boot_test (.build/host/boot_test.exe, under shared/tools/run-limited.ps1) for <seconds> of
+core's pass runner (core/test/firmware_pass_run.cpp, built to .build/host/firmware_pass_run.exe; run
+under shared/tools/run-limited.ps1) for <seconds> of
 guest time, on the model its catalog record asks for, in order of how much of the player's
 firmware a setup needs, until one runs it:
 
@@ -29,7 +30,7 @@ that runs a game when it needs more than the first, so tools/catalog_config.MACH
 "system": "own" and/or "drive": "1541"; a game none runs is recorded as failing, for review.
 The tool's own entries ("firmware_pass.py: ...") follow each run's results; entries decided by
 hand are kept as they are. A hand entry may also name the "program" the game's medium starts
-instead of its first (C64Catalog.program, boot_test's <program>), for a disk whose first file is
+instead of its first (C64Catalog.program), for a disk whose first file is
 not the game.
 
 Results are kept per game in .downloads/firmware-pass/results.json, so a stopped run carries on;
@@ -59,13 +60,13 @@ import catalog_config
 
 OUT = ROOT / ".downloads/firmware-pass"
 LIST = ROOT / "catalog/research/firmware-v1.json"
-BOOT_TEST = ROOT / ".build/host/boot_test.exe"
+RUNNER = ROOT / ".build/host/firmware_pass_run.exe"
 SYSTEMS = ["open", "open+1541", "own", "own+1541"]
 # What a setup asks of the game's settings (C64Catalog's system and drive options).
 SETTINGS = {"open": {}, "open+1541": {"drive": "1541"}, "own": {"system": "own"},
             "own+1541": {"system": "own", "drive": "1541"}}
 BASIC_ERROR = re.compile(r"\?[A-Z ]+ ERROR|BRK AT \$[0-9A-F]{4}")
-# What the pass presses after the load (boot_test's <keys>, timed from the load's end): fire on the
+# What the pass presses after the load (the runner's <keys>, timed from the load's end): fire on the
 # joystick (control 4), Space (keyboard matrix row 7, column 4), fire.
 PRESSES = "+250:j:4,+500:7:4,+750:j:4"
 # How far the sound must move after the load for a game to count as making a sound.
@@ -77,9 +78,6 @@ PASS = 4
 # written in BASIC shows it above what it prints after RUN) and counted text on one background
 # colour as a blank screen.
 RECHECK = {"back at BASIC's READY. without a sound", "a blank screen, still and silent"}
-LOADING = re.compile(r"loading \(autostart, tape or disk\) for ([\d.]+) s of guest time, (still at the end|last ending)")
-PICTURES = re.compile(r"pictures after load: (\d+) distinct of (\d+) seconds; the last has (\d+) colours, (\d+) in "
-                      r"its display window")
 
 
 def scanned_media():
@@ -144,61 +142,53 @@ def basic_idle(screen):
     return bool(rows) and rows[-1] == "READY."
 
 
-def boot(system, path, model, seconds, work, keep_output=None):
+def boot(system, path, model, seconds, work):
     """The outcome of one boot: {"ok": bool, "doubtful": whether it ran only on a still, silent
     picture, "why": text, "range": int, "pictures": distinct pictures after the load, "colours": the
-    last picture's, "frame": whether it ran to the end and wrote its last frame}. The frame is
-    kept as work/frame-<system>.bmp; with keep_output, boot_test's report is written there too."""
+    last picture's, "frame": whether it ran to the end and wrote its last frame, "loading",
+    "loadingAtEnd", "raster": the runner's}. The frame is kept as work/frame-<system>.bmp."""
     for old in list(work.glob("*.bmp")) + list(work.glob("*.txt")):
         old.unlink()
-    result = subprocess.run(["pwsh", "-NoProfile", "-File", str(ROOT / "shared/tools/run-limited.ps1"),
-                             str(BOOT_TEST), str(ROOT / "bios"), str(work), str(path),
-                             str(seconds), system, "1", PRESSES, model],
-                            capture_output=True, text=True, encoding="utf-8", errors="replace")
-    lines = result.stdout.splitlines() + result.stderr.splitlines()
-    if keep_output is not None:
-        keep_output.write_text("\n".join(lines) + "\n", encoding="utf-8")
+    run = subprocess.run(["pwsh", "-NoProfile", "-File", str(ROOT / "shared/tools/run-limited.ps1"),
+                          str(RUNNER), str(ROOT / "bios"), str(work), str(path), str(seconds), system, PRESSES, model],
+                         capture_output=True, text=True, encoding="utf-8", errors="replace")
+    lines = run.stdout.splitlines() + run.stderr.splitlines()
+    result = next((json.loads(line) for line in lines if line.startswith("{")), None)
 
-    # How long the app would run the load flat out (the autostart, a moving tape, a disk load),
-    # and whether that was still going at the end: a game the app would fast-forward in play.
-    loading = next((LOADING.search(line) for line in lines if LOADING.search(line)), None)
-
-    def outcome(ok, why, played=0, pictures=0, colours=0, frame=True, doubtful=False):
+    def outcome(ok, why, frame=True, doubtful=False):
         if frame:
-            (work / "frame-0.bmp").replace(work / f"frame-{system}.bmp")
-        return {"ok": ok, "doubtful": doubtful, "why": why, "range": played, "pictures": pictures,
-                "colours": colours, "frame": frame,
-                "loading": float(loading.group(1)) if loading else None,
-                "loadingAtEnd": bool(loading and loading.group(2) == "still at the end")}
+            (work / "frame.bmp").replace(work / f"frame-{system}.bmp")
+        # How long the app would run the load flat out (the autostart, a moving tape, a disk load),
+        # and whether that was still going at the end: a game the app would fast-forward in play.
+        return {"ok": ok, "doubtful": doubtful, "why": why, "range": result["range"] if frame else 0,
+                "pictures": result["pictures"] if frame else 0, "colours": result["colours"] if frame else 0,
+                "frame": frame, "loading": result["loading"] if result else None,
+                "loadingAtEnd": bool(result and result["loadingAtEnd"]), "raster": result["raster"] if result else None}
 
-    for line in lines:
-        if line.startswith("run 0: could not start") or line.startswith("run 0: stopped after"):
-            return outcome(False, line.split(": ", 2)[-1], frame=False)
-    summary = next((line for line in lines if line.startswith("run 0:") and " range after load " in line), None)
-    if summary is None:
+    if result is None:
         crash = next((line for line in lines if line.startswith("exit -")), None)
         if crash:
             return outcome(False, f"the core crashed ({crash})", frame=False)
-        raise RuntimeError(f"boot_test gave no result for {path} on {system}:\n" + "\n".join(lines[-20:]))
-    played = int(summary.split(" range after load ")[1].split(",")[0])
-    found = next(PICTURES.search(line) for line in lines if PICTURES.search(line))
-    pictures, colours = int(found.group(1)), int(found.group(4))
-    if summary.endswith("(still loading)"):
-        return outcome(False, f"still loading after {seconds} s", played, pictures, colours)
-    screen = (work / "screen-0.txt").read_text(encoding="ascii")
+        raise RuntimeError(f"firmware_pass_run gave no result for {path} on {system}:\n" + "\n".join(lines[-20:]))
+    if result["error"]:
+        return outcome(False, result["error"], frame=False)
+    played, pictures, colours = result["range"], result["pictures"], result["colours"]
+    if result["stillLoading"]:
+        return outcome(False, f"still loading after {seconds} s")
+    screen = (work / "screen.txt").read_text(encoding="ascii")
     error = BASIC_ERROR.search(screen)
     if error:
-        return outcome(False, f"BASIC says {error.group(0)}", played, pictures, colours)
+        return outcome(False, f"BASIC says {error.group(0)}")
     sound = played >= SOUND_RANGE
     if basic_idle(screen) and not sound:
-        return outcome(False, "back at BASIC's READY. without a sound", played, pictures, colours)
+        return outcome(False, "back at BASIC's READY. without a sound")
     if pictures <= 1 and colours <= 1:
-        return outcome(False, "a blank display window" + (" with a sound" if sound else ""), played, pictures, colours)
+        return outcome(False, "a blank display window" + (" with a sound" if sound else ""))
     if sound or pictures > 1:
-        return outcome(True, "runs", played, pictures, colours)
+        return outcome(True, "runs")
     if colours <= 1:
-        return outcome(False, "a blank screen, still and silent", played, pictures, colours)
-    return outcome(True, "a still picture without a sound", played, pictures, colours, doubtful=True)
+        return outcome(False, "a blank screen, still and silent")
+    return outcome(True, "a still picture without a sound", doubtful=True)
 
 
 def runs_on(record):

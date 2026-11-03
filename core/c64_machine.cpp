@@ -1,13 +1,12 @@
 #include "c64_machine.h"
 
 #include <cctype>
-#include <condition_variable>
 #include <cstdio>
-#include <mutex>
-#include <thread>
 #include <utility>
 #include <vector>
 
+#include "kairo/emulator_turns.h"
+#include "kairo/fresh_library.h"
 #include "kairo_c64.h"
 
 #ifdef __ANDROID__
@@ -18,84 +17,26 @@ namespace kairo64 {
 
 namespace {
 
-// VICE, for the life of the process. It runs on its own thread and the host on the caller's;
-// exactly one of them runs at a time: the host lets VICE run until the end of its next frame, and
-// VICE waits there until the host lets it run again. The mutex hand-off orders every access to
-// VICE's state.
-struct Vice {
-    enum class Turn { kVice, kHost };
+void notice(const char *text) {
+#ifdef __ANDROID__
+    __android_log_print(ANDROID_LOG_ERROR, "Kairo64", "VICE: %s", text);
+#else
+    std::fprintf(stderr, "VICE: %s\n", text);
+#endif
+}
 
-    std::mutex mutex;
-    std::condition_variable changed;
-    Turn turn = Turn::kVice;
-    bool started = false;
-    // VICE's thread has returned from KairoC64_Run: VICE cannot run again in this process.
-    bool ended = false;
-    // Why VICE ended (KairoC64Host_Fatal), on VICE's thread before it returns.
-    std::string fatal;
-    // The last error VICE logged, which says more than an exit code.
-    std::string last_error;
-    // The running machine's CPU stopped (KairoC64Host_Jam), during its frame.
-    std::string jam;
-    // A machine is running.
-    bool machine = false;
-    // VICE's folder for its cache, configuration and state: the home folder of the machine it
-    // started with, kept for VICE's life.
-    std::string user_dir;
-    // VICE is starting or a machine is being set up, through its first frame: VICE logs errors
-    // for the ROMs its defaults and models name before Kairo64 names its own, and for the KERNAL
-    // traps it cannot install on a KERNAL other than Commodore's as the machine resets, so its log
-    // lines stay in its log file (KairoC64Host_Log) and in last_error, which a failure reports.
-    bool quiet = true;
-
-    // Lets VICE run until the end of its next frame or until it ends; false when it ended.
-    bool run() {
-        std::unique_lock lock(mutex);
-        turn = Turn::kVice;
-        changed.notify_all();
-        changed.wait(lock, [&] { return turn == Turn::kHost || ended; });
-        return !ended;
+// A fresh copy of the VICE library and its functions; null with error set when it cannot load.
+std::unique_ptr<kairo::FreshLibrary> load_vice(const KairoC64Api *&api, std::string &error) {
+    auto library = kairo::FreshLibrary::load(KAIRO64_VICE_FILE, error);
+    if (!library) return nullptr;
+    auto entry = reinterpret_cast<const KairoC64Api *(*)()>(library->symbol(KAIRO_C64_API_SYMBOL));
+    if (!entry) {
+        error = std::string(KAIRO64_VICE_FILE) + " has no " + KAIRO_C64_API_SYMBOL;
+        return nullptr;
     }
-
-    // On VICE's thread, at the end of a frame.
-    void at_vbl() {
-        std::unique_lock lock(mutex);
-        turn = Turn::kHost;
-        changed.notify_all();
-        changed.wait(lock, [&] { return turn == Turn::kVice; });
-    }
-
-    std::string error() const {
-        std::string message = fatal.empty() ? std::string("VICE stopped") : fatal;
-        if (!last_error.empty()) message += ": " + last_error;
-        return message;
-    }
-
-    // Starts VICE with its user folder and command line and waits for the end of its first frame;
-    // false with error set when it could not start.
-    bool start(const std::string &home, std::vector<std::string> args, std::string &error) {
-        started = true;
-        user_dir = home;
-        std::thread([this, args = std::move(args)]() mutable {
-            std::vector<char *> argv;
-            for (auto &arg : args) argv.push_back(arg.data());
-            argv.push_back(nullptr);
-            KairoC64_Run(user_dir.c_str(), int(args.size()), argv.data());
-            std::lock_guard lock(mutex);
-            ended = true;
-            changed.notify_all();
-        }).detach();
-        std::unique_lock lock(mutex);
-        changed.wait(lock, [&] { return turn == Turn::kHost || ended; });
-        if (ended) {
-            error = this->error();
-            return false;
-        }
-        return true;
-    }
-};
-
-Vice vice;
+    api = entry();
+    return library;
+}
 
 // Whether path ends in extension (".t64"), in any case.
 bool has_extension(const std::string &path, const std::string &extension) {
@@ -107,28 +48,89 @@ bool has_extension(const std::string &path, const std::string &extension) {
 
 bool is_t64(const std::string &path) { return has_extension(path, ".t64"); }
 
-void notice(const char *text) {
-#ifdef __ANDROID__
-    __android_log_print(ANDROID_LOG_ERROR, "Kairo64", "VICE: %s", text);
-#else
-    std::fprintf(stderr, "VICE: %s\n", text);
-#endif
+} // namespace
+
+// This machine's VICE: its own copy of the library, running on its own thread and taking turns with
+// the host's (kairo/emulator_turns.h): the host lets VICE run until the end of its next frame, and
+// VICE waits there until the host lets it run again.
+struct C64Machine::Session {
+    // Unloaded after VICE's thread ends (the members go in reverse order).
+    std::unique_ptr<kairo::FreshLibrary> library;
+    const KairoC64Api *vice = nullptr;
+    KairoC64Host host{};
+    kairo::EmulatorTurns turns;
+    // VICE's folder for its cache, configuration and state, for VICE's whole run.
+    std::string user_dir;
+    // Why VICE ended (fatal), on VICE's thread before its turn ends.
+    std::string fatal;
+    // The last error VICE logged, which says more than an exit code.
+    std::string last_error;
+    // The CPU stopped (jam), during its frame.
+    std::string jam;
+    // VICE is starting or the machine is being set up, through its first frame: VICE logs errors
+    // for the ROMs its defaults and models name before Kairo64 names its own, and for the KERNAL
+    // traps it cannot install on a KERNAL other than Commodore's as the machine resets, so its log
+    // lines stay in its log file and in last_error, which a failure reports.
+    bool quiet = true;
+
+    std::string error() const {
+        std::string message = fatal.empty() ? std::string("VICE stopped") : fatal;
+        if (!last_error.empty()) message += ": " + last_error;
+        return message;
+    }
+
+    // Ends VICE's thread: asks it to quit and lets it run to the end.
+    ~Session() {
+        if (!vice) return;
+        if (!turns.ended()) vice->quit();
+        turns.finish();
+    }
+};
+
+namespace {
+
+// VICE's thread's calls (KairoC64Host), with the session as their context.
+using Session = C64Machine::Session;
+
+void host_vbl(void *context) { static_cast<Session *>(context)->turns.frame_end(); }
+
+void host_fatal(void *context, const char *message) {
+    auto *session = static_cast<Session *>(context);
+    // The first is the cause; later ones follow from it.
+    if (session->fatal.empty()) session->fatal = message;
+    notice(message);
+}
+
+void host_jam(void *context, const char *message) {
+    auto *session = static_cast<Session *>(context);
+    if (session->jam.empty()) session->jam = message;
+}
+
+// VICE's log goes to its log file; its errors and warnings also go where the platform's logs are
+// read, at error level, as some devices keep no other.
+void host_log(void *context, const char *level, const char *text) {
+    auto *session = static_cast<Session *>(context);
+    const std::string prefix = level;
+    const bool error = prefix.find("Error") != std::string::npos;
+    if (!error && prefix.find("Warning") == std::string::npos) return;
+    if (error) session->last_error = prefix + text;
+    if (!session->quiet) notice((prefix + text).c_str());
 }
 
 // Sets up the machine for config: model, ROMs, drive, ports and the settings Kairo64 runs every
 // machine with. VICE is waiting at the end of a frame.
-bool configure(const Config &config, std::string &error) {
+bool configure(const KairoC64Api &vice, const Config &config, std::string &error) {
     auto set_int = [&](const char *name, int value) {
-        if (KairoC64_SetInt(name, value)) return true;
+        if (vice.set_int(name, value)) return true;
         error = std::string("VICE refused ") + name + " = " + std::to_string(value);
         return false;
     };
     auto set_string = [&](const char *name, const std::string &value, const char *what) {
-        if (KairoC64_SetString(name, value.c_str())) return true;
+        if (vice.set_string(name, value.c_str())) return true;
         error = std::string("VICE could not load the ") + what + " " + value;
         return false;
     };
-    if (!KairoC64_SetModel(config.model.c_str())) {
+    if (!vice.set_model(config.model.c_str())) {
         error = "VICE has no C64 model " + config.model;
         return false;
     }
@@ -146,23 +148,21 @@ bool configure(const Config &config, std::string &error) {
     if (true_drive && !set_string("DosName1541", config.dos1541, "1541 drive ROM")) return false;
     if (cmdhd && !set_string("DosNameCMDHD", config.cmdhd_rom, "CMD HD boot ROM")) return false;
     // True emulation before the type: VICE puts a drive of a new type on the bus only while true
-    // emulation is on, so after a machine on the virtual drive (true emulation off) a 1541 set
-    // first would never answer ("?DEVICE NOT PRESENT").
+    // emulation is on, so a 1541 set first would never answer ("?DEVICE NOT PRESENT").
     if (!set_int("TrapDevice8", 0) || !set_int("Drive8TrueEmulation", true_drive || cmdhd ? 1 : 0) ||
         !set_int("Drive8Type", cmdhd ? 4844 : true_drive ? 1541 : 0) || !set_int("BusDevice8", true_drive || cmdhd ? 0 : 1))
         return false;
     // The IDE64's first drive holds the hard disk; its cartridge goes in once the machine is set up.
     if (!config.ide64_rom.empty() && !set_string("IDE64Image1", config.hard_disk, "IDE64 hard disk image")) return false;
-    // This machine's ROMs, also when the last one had the same names and a state loaded since
-    // put other ROMs in their place; the 1541's once drive 8 is one.
-    if (!KairoC64_LoadRoms(config.kernal.c_str(), config.basic.c_str(), config.chargen.c_str(), true_drive)) {
+    // This machine's ROMs, after the model named its own; the 1541's once drive 8 is one.
+    if (!vice.load_roms(config.kernal.c_str(), config.basic.c_str(), config.chargen.c_str(), true_drive)) {
         error = "VICE could not load the ROMs " + config.kernal + ", " + config.basic + ", " + config.chargen +
                 (true_drive ? ", " + config.dos1541 : std::string());
         return false;
     }
     // A program starts from a disk VICE writes it to, in the machine's own folder (VICE's default
     // is a per-user cache folder an app does not have).
-    if (!KairoC64_SetString("AutostartPrgDiskImage", (config.home + "/program.d64").c_str())) {
+    if (!vice.set_string("AutostartPrgDiskImage", (config.home + "/program.d64").c_str())) {
         error = "VICE refused its program disk " + config.home + "/program.d64";
         return false;
     }
@@ -171,7 +171,7 @@ bool configure(const Config &config, std::string &error) {
     if (!set_int("Mouse", config.mouse ? 1 : 0) || !set_int("JoyPort1Device", config.mouse ? 3 : 1) ||
         !set_int("JoyPort2Device", 1)) return false;
     // Raw pixels at the VIC-II's own size with the normal borders, for the host's shaders; a JAM
-    // reaches KairoC64Host_Jam through the headless UI's dialog (local change vice-jam); the host
+    // reaches the host's jam through the headless UI's dialog (local change vice-jam); the host
     // runs the load at full speed itself, so autostart does not warp.
     // reSID samples the SID's output directly (0, SID_RESID_SAMPLING_FAST). VICE's default
     // resampling filter kept the C64 below real time on the RG DS (0.9x flat out); interpolation
@@ -184,67 +184,65 @@ bool configure(const Config &config, std::string &error) {
 
 } // namespace
 
-C64Machine::C64Machine(const Config &config) : config_(config) {}
+C64Machine::C64Machine(const Config &config, std::unique_ptr<Session> session)
+    : config_(config), session_(std::move(session)), vice_(*session_->vice) {}
 
-C64Machine::~C64Machine() {
-    if (!vice.ended) {
-        KairoC64_ReleaseInputs();
-        KairoC64_EjectAll();
-        // Sound left over from this machine is not the next one's.
-        int16_t discarded[512 * 2];
-        while (KairoC64_ReadAudio(discarded, 512) > 0) {}
-    }
-    vice.machine = false;
-}
+C64Machine::~C64Machine() = default;
 
 std::unique_ptr<C64Machine> C64Machine::create(const Config &config, std::string &error) {
-    if (vice.machine) {
-        error = "Another machine is still running";
+    auto session = std::make_unique<Session>();
+    session->library = load_vice(session->vice, error);
+    if (!session->library) return nullptr;
+    session->host = {session.get(), host_vbl, host_fatal, host_log, host_jam};
+    session->user_dir = config.home;
+    // VICE's command line: no configuration file, Kairo64's sound device, and the machine's ROMs,
+    // which VICE needs to start. The drive starts empty: VICE loads a drive ROM only when its name
+    // changes after VICE is up, so configure names it. Everything else is set as VICE waits at
+    // the end of its first frame (configure).
+    std::vector<std::string> args = {"x64sc"};
+    // A machine that must repeat seeds VICE's random numbers (the random autostart delay, the RAM's
+    // power-on pattern) as it starts, before it draws any; VICE seeds them from the time otherwise.
+    if (config.repeatable) args.insert(args.end(), {"-seed", "1"});
+    args.insert(args.end(), {
+        "-default",
+        "-logfile", config.home + "/vice.log",
+        "-sounddev", "kairo",
+        "-soundrate", std::to_string(config.sample_rate),
+        "-kernal", config.kernal,
+        "-basic", config.basic,
+        "-chargen", config.chargen,
+        "-drive8type", "0",
+    });
+    Session *running = session.get();
+    const bool up = session->turns.start([running, args = std::move(args)]() mutable {
+        std::vector<char *> argv;
+        for (auto &arg : args) argv.push_back(arg.data());
+        argv.push_back(nullptr);
+        running->vice->run(running->user_dir.c_str(), int(args.size()), argv.data(), &running->host);
+    });
+    if (!up) {
+        error = session->error();
         return nullptr;
     }
-    if (vice.ended) {
-        error = "VICE stopped earlier in this run of the app (" + vice.error() + "); restart the app";
-        return nullptr;
-    }
-    if (!vice.started) {
-        // VICE's command line: no configuration file, Kairo64's sound device, and the machine's
-        // ROMs, which VICE needs to start. The drive starts empty: VICE loads a drive ROM only
-        // when its name changes after VICE is up, so configure names it. Everything else is set
-        // per machine (configure).
-        std::vector<std::string> args = {
-            "x64sc", "-default",
-            "-logfile", config.home + "/vice.log",
-            "-sounddev", "kairo",
-            "-soundrate", std::to_string(config.sample_rate),
-            "-kernal", config.kernal,
-            "-basic", config.basic,
-            "-chargen", config.chargen,
-            "-drive8type", "0",
-        };
-        if (!vice.start(config.home, std::move(args), error)) return nullptr;
-    }
-    vice.jam.clear();
-    vice.quiet = true;
-    KairoC64_EjectAll();
-    if (!configure(config, error)) return nullptr;
-    vice.last_error.clear();
-    if (config.repeatable) KairoC64_Seed(1);
-    KairoC64_PowerCycle();
-    std::unique_ptr<C64Machine> machine(new C64Machine(config));
+    const KairoC64Api &vice = *session->vice;
+    if (!configure(vice, config, error)) return nullptr;
+    session->last_error.clear();
+    vice.power_cycle();
+    std::unique_ptr<C64Machine> machine(new C64Machine(config, std::move(session)));
     std::string start = config.start;
     if (config.t64_on_disk && is_t64(start)) {
         const std::string disk = config.home + "/tape.d64";
         char message[256];
-        if (!KairoC64_TapeToDisk(start.c_str(), disk.c_str(), message, sizeof message)) {
+        if (!vice.tape_to_disk(start.c_str(), disk.c_str(), message, sizeof message)) {
             error = std::string("Could not put the tape's programs on a disk: ") + message;
             return nullptr;
         }
         start = disk;
         machine->config_.drive8 = disk;
     }
-    if (!start.empty() && !KairoC64_Autostart(start.c_str(), config.program.c_str())) {
+    if (!start.empty() && !vice.autostart(start.c_str(), config.program.c_str())) {
         error = "VICE could not start " + start + (config.program.empty() ? "" : " (program " + config.program + ")") +
-                (vice.last_error.empty() ? "" : ": " + vice.last_error);
+                (machine->session_->last_error.empty() ? "" : ": " + machine->session_->last_error);
         return nullptr;
     }
     // A tape or cartridge the game starts from is in the datasette or the port: autostart put it there.
@@ -255,7 +253,7 @@ std::unique_ptr<C64Machine> C64Machine::create(const Config &config, std::string
         if (!machine->insert(kDrive8, config.hard_disk, error)) return nullptr;
         machine->hard_disk_ = config.hard_disk;
     } else if (!config.ide64_rom.empty()) {
-        if (!KairoC64_AttachIde64(config.ide64_rom.c_str())) {
+        if (!vice.attach_ide64(config.ide64_rom.c_str())) {
             error = "VICE refused the IDE64 ROM " + config.ide64_rom;
             return nullptr;
         }
@@ -268,12 +266,15 @@ std::unique_ptr<C64Machine> C64Machine::create(const Config &config, std::string
     } else if (!drive8.empty() && !machine->insert(kDrive8, drive8, error)) {
         return nullptr;
     }
-    vice.machine = true;
     return machine;
 }
 
 bool C64Machine::create_blank_disk(const std::string &path, std::string &error) {
-    if (!KairoC64_CreateBlankDisk(path.c_str())) {
+    // VICE's image creator needs no running machine: a copy of the library for the call alone.
+    const KairoC64Api *vice = nullptr;
+    auto library = load_vice(vice, error);
+    if (!library) return false;
+    if (!vice->create_blank_disk(path.c_str())) {
         error = "VICE could not write a blank disk at " + path;
         return false;
     }
@@ -291,65 +292,65 @@ bool C64Machine::create_blank_disk(const std::string &path, std::string &error) 
     return true;
 }
 
-bool C64Machine::autostarting() const { return KairoC64_Autostarting(); }
-bool C64Machine::waits_for_line() const { return KairoC64_WaitsForLine(); }
-unsigned long C64Machine::mouse_reads() const { return KairoC64_MouseReads(); }
+bool C64Machine::autostarting() const { return vice_.autostarting(); }
+bool C64Machine::waits_for_line() const { return vice_.waits_for_line(); }
+unsigned long C64Machine::mouse_reads() const { return vice_.mouse_reads(); }
 std::vector<unsigned> C64Machine::raster_irq_lines()
 {
     uint8_t bits[64];
-    KairoC64_RasterIrqLines(bits);
+    vice_.raster_irq_lines(bits);
     std::vector<unsigned> lines;
     for (unsigned line = 0; line < 512; ++line)
         if (bits[line / 8] & (1 << (line % 8))) lines.push_back(line);
     return lines;
 }
 
-bool C64Machine::tape_moving() const { return KairoC64_TapeMoving(); }
+bool C64Machine::tape_moving() const { return vice_.tape_moving(); }
 
-bool C64Machine::disk_loading() const { return KairoC64_DiskLoading(); }
+bool C64Machine::disk_loading() const { return vice_.disk_loading(); }
 
 bool C64Machine::run_frame(std::string &error) {
     pace_motion();
-    if (vice.ended || !vice.run()) {
-        error = vice.error();
+    if (!session_->turns.run_frame()) {
+        error = session_->error();
         return false;
     }
-    if (!vice.jam.empty()) {
-        error = "The C64 stopped: " + vice.jam;
+    if (!session_->jam.empty()) {
+        error = "The C64 stopped: " + session_->jam;
         return false;
     }
-    KairoC64_FrameDone();
-    vice.quiet = false;
+    vice_.frame_done();
+    session_->quiet = false;
     return true;
 }
 
-double C64Machine::frame_seconds() const { return KairoC64_FrameSeconds(); }
+double C64Machine::frame_seconds() const { return vice_.frame_seconds(); }
 
 const uint8_t *C64Machine::frame(uint32_t &width, uint32_t &height) {
     int w, h;
-    const uint8_t *pixels = KairoC64_Screen(&w, &h);
+    const uint8_t *pixels = vice_.screen(&w, &h);
     width = uint32_t(w);
     height = uint32_t(h);
     return pixels;
 }
 
-int C64Machine::sample_rate() const { return KairoC64_SampleRate(); }
+int C64Machine::sample_rate() const { return vice_.sample_rate(); }
 
-uint32_t C64Machine::read_audio(int16_t *stereo, uint32_t max_frames) { return KairoC64_ReadAudio(stereo, max_frames); }
+uint32_t C64Machine::read_audio(int16_t *stereo, uint32_t max_frames) { return vice_.read_audio(stereo, max_frames); }
 
-void C64Machine::key(int row, int column, bool down) { KairoC64_Key(row, column, down); }
+void C64Machine::key(int row, int column, bool down) { vice_.key(row, column, down); }
 
-void C64Machine::restore(bool down) { KairoC64_Restore(down); }
+void C64Machine::restore(bool down) { vice_.restore(down); }
 
 void C64Machine::joystick(int control, bool down) {
     static_assert(kJoystickControls == KAIRO_C64_JOYSTICK_CONTROLS);
-    if (control >= 0 && control < kJoystickControls) KairoC64_Joystick(config_.joystick_port, control, down);
+    if (control >= 0 && control < kJoystickControls) vice_.joystick(config_.joystick_port, control, down);
 }
 
 void C64Machine::mouse_move(int dx, int dy) {
     // A drag after a direct tap goes with the warp's counts until they are given.
     if (warp_.hold(dx, dy)) return;
-    KairoC64_MouseMove(dx, dy);
+    vice_.mouse_move(dx, dy);
 }
 
 // The screen is 320 by 200 pixels inside VICE's borders, centred in the picture.
@@ -366,7 +367,7 @@ bool C64Machine::mouse_warp_done() const { return warp_.done(); }
 // Before each frame: the warp's next motion, and 31 counts of what is still to give once the
 // program has read the mouse since the last.
 void C64Machine::pace_motion() {
-    const unsigned long reads = KairoC64_MouseReads();
+    const unsigned long reads = vice_.mouse_reads();
     if (reads != reads_at_motion_) motion_read_ = true;
     if (warp_.running()) {
         int dx, dy;
@@ -377,7 +378,7 @@ void C64Machine::pace_motion() {
     if ((paced_x_ || paced_y_) && motion_read_) {
         const int step_x = paced_x_ > 31 ? 31 : paced_x_ < -31 ? -31 : paced_x_;
         const int step_y = paced_y_ > 31 ? 31 : paced_y_ < -31 ? -31 : paced_y_;
-        KairoC64_MouseMove(step_x, step_y);
+        vice_.mouse_move(step_x, step_y);
         paced_x_ -= step_x;
         paced_y_ -= step_y;
         reads_at_motion_ = reads;
@@ -386,15 +387,15 @@ void C64Machine::pace_motion() {
 }
 
 void C64Machine::mouse_button(int button, bool down) {
-    if (button == 1 || button == 2) KairoC64_MouseButton(button, down);
+    if (button == 1 || button == 2) vice_.mouse_button(button, down);
 }
 
-void C64Machine::reset() { KairoC64_PowerCycle(); }
+void C64Machine::reset() { vice_.power_cycle(); }
 
 bool C64Machine::save_state(const std::string &file, std::string &error) {
-    KairoC64_RequestSave(file.c_str());
+    vice_.request_save(file.c_str());
     if (!run_frame(error)) return false;
-    if (KairoC64_SnapshotFailed()) {
+    if (vice_.snapshot_failed()) {
         error = "VICE could not save the state to " + file;
         return false;
     }
@@ -402,9 +403,9 @@ bool C64Machine::save_state(const std::string &file, std::string &error) {
 }
 
 bool C64Machine::load_state(const std::string &file, std::string &error) {
-    KairoC64_RequestLoad(file.c_str());
+    vice_.request_load(file.c_str());
     if (!run_frame(error)) return false;
-    if (KairoC64_SnapshotFailed()) {
+    if (vice_.snapshot_failed()) {
         error = "VICE could not load the state from " + file;
         return false;
     }
@@ -412,7 +413,7 @@ bool C64Machine::load_state(const std::string &file, std::string &error) {
 }
 
 bool C64Machine::insert(Drive drive, const std::string &path, std::string &error) {
-    if (!KairoC64_AttachDisk(8 + drive, path.c_str())) {
+    if (!vice_.attach_disk(8 + drive, path.c_str())) {
         error = "VICE refused the disk image " + path;
         return false;
     }
@@ -423,7 +424,7 @@ bool C64Machine::insert(Drive drive, const std::string &path, std::string &error
 std::string C64Machine::media_path(Drive drive) { return drive_[drive]; }
 
 bool C64Machine::insert_tape(const std::string &path, std::string &error) {
-    if (!KairoC64_AttachTape(path.c_str())) {
+    if (!vice_.attach_tape(path.c_str())) {
         error = "VICE refused the tape image " + path;
         return false;
     }
@@ -434,7 +435,7 @@ bool C64Machine::insert_tape(const std::string &path, std::string &error) {
 std::string C64Machine::tape_path() const { return tape_; }
 
 bool C64Machine::insert_cartridge(const std::string &path, std::string &error) {
-    if (!KairoC64_AttachCartridge(path.c_str())) {
+    if (!vice_.attach_cartridge(path.c_str())) {
         error = "VICE refused the cartridge image " + path;
         return false;
     }
@@ -448,7 +449,7 @@ bool C64Machine::insert_hard_disk(const std::string &path, std::string &error) {
     if (!config_.cmdhd_rom.empty()) {
         if (!insert(kDrive8, path, error)) return false;
     } else if (!config_.ide64_rom.empty()) {
-        if (!KairoC64_SetString("IDE64Image1", path.c_str()) || !KairoC64_AttachIde64(config_.ide64_rom.c_str())) {
+        if (!vice_.set_string("IDE64Image1", path.c_str()) || !vice_.attach_ide64(config_.ide64_rom.c_str())) {
             error = "VICE refused the IDE64 hard disk image " + path;
             return false;
         }
@@ -464,34 +465,10 @@ std::string C64Machine::hard_disk_path() const { return hard_disk_; }
 
 std::string C64Machine::screen_text() {
     char cells[KAIRO_C64_SCREEN_CELLS + 1];
-    KairoC64_ScreenText(cells);
+    vice_.screen_text(cells);
     std::string text;
     for (int row = 0; row < 25; ++row) text.append(cells + row * 40, 40).push_back('\n');
     return text;
 }
 
 } // namespace kairo64
-
-// VICE's thread.
-
-extern "C" void KairoC64Host_Vbl(void) { kairo64::vice.at_vbl(); }
-
-extern "C" void KairoC64Host_Fatal(const char *message) {
-    // The first is the cause; later ones follow from it.
-    if (kairo64::vice.fatal.empty()) kairo64::vice.fatal = message;
-    kairo64::notice(message);
-}
-
-extern "C" void KairoC64Host_Jam(const char *message) {
-    if (kairo64::vice.jam.empty()) kairo64::vice.jam = message;
-}
-
-// VICE's log goes to its log file; its errors and warnings also go where the platform's logs are
-// read, at error level, as some devices keep no other.
-extern "C" void KairoC64Host_Log(const char *level, const char *text) {
-    const std::string prefix = level;
-    const bool error = prefix.find("Error") != std::string::npos;
-    if (!error && prefix.find("Warning") == std::string::npos) return;
-    if (error) kairo64::vice.last_error = prefix + text;
-    if (!kairo64::vice.quiet) kairo64::notice((prefix + text).c_str());
-}

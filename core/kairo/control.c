@@ -93,20 +93,6 @@ void KairoC64_PowerCycle(void)
     bus_ever_changed = false;
 }
 
-void KairoC64_Seed(unsigned int seed)
-{
-    lib_rand_seed(seed);
-}
-
-void KairoC64_EjectAll(void)
-{
-    autostart_reset();
-    file_system_detach_disk_all();
-    tape_image_detach_all();
-    /* VICE keeps one machine for the process: a cartridge the last game had comes out too. */
-    cartridge_detach_image(-1);
-}
-
 bool KairoC64_AttachTape(const char *path)
 {
     if (*path == '\0') {
@@ -251,13 +237,6 @@ void KairoC64_Joystick(int port, int control, bool down)
 void KairoC64_MouseMove(int dx, int dy)
 {
     mouse_move((float)dx, (float)dy);
-}
-
-void KairoC64_ReleaseInputs(void)
-{
-    keyboard_clear_keymatrix();
-    machine_set_restore_key(0);
-    joystick_clear_all();
 }
 
 /* The VIC-II's text screen: its bank from CIA 2 port A (the inverse of bits 0-1 of $DD00), its

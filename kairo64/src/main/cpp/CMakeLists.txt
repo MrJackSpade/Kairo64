@@ -9,3 +9,7 @@ add_subdirectory("${KAIRO64_ROOT}/core" core)
 
 kairo_machine_library(kairo64 c64_core.cpp)
 target_link_libraries(kairo64 PRIVATE kairo64_core)
+if(NOT ANDROID)
+    # The shared PC boot test loads VICE as the app does, a library beside it (c64_machine.cpp).
+    kairo_library_beside_test(kairo64 kairo64_vice)
+endif()
