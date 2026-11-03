@@ -318,6 +318,7 @@ bool C64Machine::run_frame(std::string &error) {
         error = "The C64 stopped: " + vice.jam;
         return false;
     }
+    KairoC64_FrameDone();
     vice.quiet = false;
     return true;
 }

@@ -74,9 +74,12 @@ bool KairoC64_TapeToDisk(const char *tape, const char *disk, char *error, size_t
 bool KairoC64_CreateBlankDisk(const char *path);
 /* Whether VICE's autostart is still loading the game's first program. */
 bool KairoC64_Autostarting(void);
-/* Whether the screen editor waits for a line, as at BASIC's READY. prompt: no autostart is typing,
- * the cursor blinks for input (BLNSW, $CC, is 0) and the keyboard buffer is empty (NDX, $C6). */
+/* Whether the screen editor waits for a line at BASIC's READY. prompt: no autostart is typing,
+ * READY. is on the line above the cursor, the cursor blinks for input (BLNSW, $CC, is 0, and the
+ * last frame counted its countdown BLNCT, $CD) and the keyboard buffer is empty (NDX, $C6). */
 bool KairoC64_WaitsForLine(void);
+/* Called after each frame: samples what KairoC64_WaitsForLine compares between frames. */
+void KairoC64_FrameDone(void);
 /* How many times the guest has read the 1351 mouse's position (patch group vice-mouse-reads). */
 unsigned long KairoC64_MouseReads(void);
 /* Whether the datasette's tape is moving: a tape in, the motor on and a button down

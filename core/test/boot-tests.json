@@ -143,6 +143,75 @@
           "swap": ""
         }
       }
+    },
+    {
+      "name": "Open ROMs BASIC",
+      "firmware": "bios",
+      "home": {
+        "vice": "folder:",
+        "openroms/kernal_generic.rom": "app:third_party/open-roms/bin/kernal_generic.rom",
+        "openroms/basic_generic.rom": "app:third_party/open-roms/bin/basic_generic.rom",
+        "openroms/chargen_openroms.rom": "app:third_party/open-roms/bin/chargen_openroms.rom"
+      },
+      "media": [
+        "",
+        "",
+        ""
+      ],
+      "settings": {
+        "program": "",
+        "model": "c64",
+        "system": "openroms",
+        "drive": "virtual",
+        "ports": "2"
+      },
+      "checks": {
+        "commands": {
+          "commands": "PRINT \"KAIRO\"",
+          "typedBy": 1800,
+          "answerBy": 300,
+          "screens": [
+            "54315da144ef1c3a"
+          ]
+        }
+      }
+    },
+    {
+      "name": "C64 BASIC",
+      "firmware": {
+        "kernal.bin": "bios/C64_Kernal.bin",
+        "basic.bin": "bios/C64_Basic.bin",
+        "chargen.bin": "bios/C64_Chargen.bin",
+        "dos1541.bin": "bios/C64_Drive-1541.bin"
+      },
+      "home": {
+        "vice": "folder:",
+        "openroms/kernal_generic.rom": "app:third_party/open-roms/bin/kernal_generic.rom",
+        "openroms/basic_generic.rom": "app:third_party/open-roms/bin/basic_generic.rom",
+        "openroms/chargen_openroms.rom": "app:third_party/open-roms/bin/chargen_openroms.rom"
+      },
+      "media": [
+        "",
+        "",
+        ""
+      ],
+      "settings": {
+        "program": "",
+        "model": "c64",
+        "system": "own",
+        "drive": "1541",
+        "ports": "2"
+      },
+      "checks": {
+        "commands": {
+          "commands": "PRINT 6*7",
+          "typedBy": 1800,
+          "answerBy": 300,
+          "screens": [
+            "f662cdf99ed19e0d"
+          ]
+        }
+      }
     }
   ]
 }

@@ -163,9 +163,37 @@ unsigned long KairoC64_MouseReads(void)
     return kairo64_mouse_reads;
 }
 
+/* The screen editor's cursor blink countdown (BLNCT, $CD) as the last frame left it, and whether
+ * that frame counted it: the IRQ counts it only while the cursor blinks. */
+static uint8_t blink_count;
+static bool blink_counted;
+
+void KairoC64_FrameDone(void)
+{
+    blink_counted = mem_ram[0xcd] != blink_count;
+    blink_count = mem_ram[0xcd];
+}
+
+/* Whether the line above the cursor (row TBLX, $D6, of the screen at page HIBASE, $0288) starts
+ * with READY., as BASIC prints it, in screen codes. */
+static bool ready_above_cursor(void)
+{
+    static const uint8_t ready[] = {18, 5, 1, 4, 25, 46};
+    const unsigned row = mem_ram[0xd6];
+    if (row == 0 || row > 24) return false;
+    const unsigned line = (unsigned)mem_ram[0x288] * 256u + (row - 1) * 40u;
+    if (line + sizeof ready > 0xffff) return false;
+    return memcmp(mem_ram + line, ready, sizeof ready) == 0;
+}
+
 bool KairoC64_WaitsForLine(void)
 {
-    return autostart_in_progress() == 0 && mem_ram[0xcc] == 0 && mem_ram[0xc6] == 0;
+    /* BASIC's READY. above the cursor, the cursor on ($CC 0) with no key waiting ($C6 0), and
+     * blinking. Before BASIC's READY. (the real KERNAL's RAM test runs for about two seconds, and
+     * its start then runs with the IRQ on), $CC and $C6 are 0 and the blink counts too, and what
+     * is typed then is lost. */
+    return autostart_in_progress() == 0 && mem_ram[0xcc] == 0 && mem_ram[0xc6] == 0 && blink_counted &&
+           ready_above_cursor();
 }
 
 void KairoC64_BusLine(void)
