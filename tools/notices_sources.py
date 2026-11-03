@@ -48,5 +48,5 @@ SECTIONS = [
     ('VICE: MD5', 'third_party/vice/src/lib/md5', [MD5_TERMS]),
     ('MEGA65 Open ROMs', 'https://github.com/MEGA65/open-roms, third_party/open-roms',
      [OPEN_ROMS_TERMS, text('open-roms/LICENSE'), text('open-roms/COPYING.LESSER')]),
-    ('zlib 1.3.2', 'https://zlib.net/, third_party/zlib', [text('zlib/LICENSE')]),
+    ('zlib 1.3.2', 'https://zlib.net/, shared/third_party/zlib', [text('../shared/third_party/zlib/LICENSE')]),
 ]

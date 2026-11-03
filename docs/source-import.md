@@ -36,13 +36,7 @@ The app ships the generic C64 build in `bin/`: `kernal_generic.rom`, `basic_gene
 
 ## Libraries VICE needs
 
-VICE links zlib. It is a pinned release copied into `third_party/`, built by `core/CMakeLists.txt`.
-
-| Library | Release | Archive | Archive SHA-256 | Released |
-| --- | --- | --- | --- | --- |
-| zlib (`zlib/`) | 1.3.2 | GitHub release `v1.3.2` of `madler/zlib`, `zlib-1.3.2.tar.gz` | `bb329a0a2cd0274d05519d61c667c062e06990d72e125ee2dfa8de64f0119d16` | 2026-02-17 |
-
-It was imported on 2026-10-24 as the same snapshot as KairoST's (the files match), which copied the archive whole except for `amiga/`, `contrib/`, `doc/`, `msdos/`, `os400/`, `qnx/`, `test/`, `watcom/` and `win32/`.
+VICE links zlib 1.3.2, from the shared frontend (`shared/third_party/zlib/`, built by `shared/cmake/KairoLibraries.cmake`).
 
 ## Local changes
 

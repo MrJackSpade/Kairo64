@@ -42,7 +42,7 @@ Kairo64 builds VICE's `x64sc` sources, as VICE's own makefiles list them for a b
 
 | Library | Location | License |
 | --- | --- | --- |
-| zlib 1.3.2 | `third_party/zlib/` | zlib license (`LICENSE`) |
+| zlib 1.3.2 | `shared/third_party/zlib/` | zlib license (`LICENSE`) |
 
 ## Shared frontend
 

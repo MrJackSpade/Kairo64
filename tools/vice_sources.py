@@ -36,7 +36,7 @@ SUBSTITUTIONS = {
     'ARCH_LIBS': '$(top_builddir)/src/arch/headless/libarch.a',
     'RESID_LIBS': '$(top_builddir)/src/resid/libresid.a',
     'LIBOBJS': '', 'SOUND_DRIVERS': '', 'HWSIDDRIVERS': '',
-    # System libraries: none (zlib comes from third_party/zlib, linked by core/CMakeLists.txt).
+    # System libraries: none (zlib comes from the shared frontend, linked by core/CMakeLists.txt).
     'TFE_LIBS': '', 'NETPLAY_LIBS': '', 'UI_LIBS': '', 'SDL_EXTRA_LIBS': '', 'SOUND_LIBS': '',
     'GFXOUTPUT_DRIVERS': '', 'JOY_LIBS': '', 'GFXOUTPUT_LIBS': '', 'ZLIB_LIBS': '', 'DYNLIB_LIBS': '',
     # Preprocessor flags, as configure sets them for a headless build (configure.ac): the

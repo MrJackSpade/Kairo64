@@ -17,17 +17,8 @@ set(VICE "${THIRD_PARTY}/vice/src")
 set(KAIRO "${CMAKE_CURRENT_LIST_DIR}/kairo")
 set(GENERATED "${CMAKE_CURRENT_BINARY_DIR}/vice-config")
 
-# zlib, which VICE uses for compressed images.
-set(ZLIB_DIR "${THIRD_PARTY}/zlib")
-add_library(kairo_zlib STATIC
-    "${ZLIB_DIR}/adler32.c" "${ZLIB_DIR}/compress.c" "${ZLIB_DIR}/crc32.c" "${ZLIB_DIR}/deflate.c"
-    "${ZLIB_DIR}/gzclose.c" "${ZLIB_DIR}/gzlib.c" "${ZLIB_DIR}/gzread.c" "${ZLIB_DIR}/gzwrite.c"
-    "${ZLIB_DIR}/infback.c" "${ZLIB_DIR}/inffast.c" "${ZLIB_DIR}/inflate.c" "${ZLIB_DIR}/inftrees.c"
-    "${ZLIB_DIR}/trees.c" "${ZLIB_DIR}/uncompr.c" "${ZLIB_DIR}/zutil.c")
-target_include_directories(kairo_zlib PUBLIC "${ZLIB_DIR}")
-if(NOT WIN32)
-    target_compile_definitions(kairo_zlib PRIVATE HAVE_UNISTD_H)
-endif()
+# zlib, which VICE uses for compressed images, from the shared frontend (kairo_zlib).
+include("${CMAKE_CURRENT_LIST_DIR}/../shared/cmake/KairoLibraries.cmake")
 
 # VICE's config.h, from its own template (src/config.h.in): each "#undef NAME" becomes defined when
 # the variable NAME is set below, as configure would for a headless build of x64sc.
