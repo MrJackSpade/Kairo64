@@ -56,4 +56,14 @@ object C64Firmware {
     val system = listOf(kernal, basic, chargen)
 
     fun set(directory: File) = FirmwareSet(directory, system + dos1541 + cmdhd + ide64)
+
+    /** Whether every one of the player's C64 ROMs is in [set], which "Your C64 firmware" starts on. */
+    fun systemInstalled(set: FirmwareSet) = system.all(set::installed)
+
+    /**
+     * The player's C64 ROMs a game whose System is [choice] needs and [set] lacks: none on the free
+     * Open ROMs, and never a fall back to them for "Your C64 firmware" (Kairo#112).
+     */
+    fun missingForStart(choice: String, set: FirmwareSet): List<FirmwareSet.Part> =
+        if (choice == C64Catalog.OWN_ROMS) system.filterNot(set::installed) else emptyList()
 }

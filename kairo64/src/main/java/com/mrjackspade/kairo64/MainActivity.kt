@@ -72,7 +72,7 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
     override val firmwareSets by lazy { listOf(UiText.res(R.string.firmware_set, "C64") to C64Firmware.set(firmwareDirectory)) }
     override fun ownFirmwareInstalled(option: MachineOption, values: Map<String, String>): Boolean {
         check(option.id == C64Catalog.system.id) { "${option.id} has no firmware of the player's" }
-        return C64Firmware.system.all(firmwareSets.single().second::installed)
+        return C64Firmware.systemInstalled(firmwareSets.single().second)
     }
 
     /**
@@ -83,12 +83,10 @@ class MainActivity : MachineActivity<DiskImageEntry>() {
     private fun machineSettings(entry: DiskImageEntry, game: CatalogGame, atPrompt: Boolean): Map<String, String> {
         val options = optionValues(game).toMutableMap()
         val set = firmwareSets.single().second
-        if (options.getValue(C64Catalog.system.id) == C64Catalog.OWN_ROMS) {
-            val missing = C64Firmware.system.filterNot(set::installed)
-            check(missing.isEmpty()) {
-                getString(R.string.own_firmware_missing, "C64",
-                    missing.joinToString(getString(FrontendR.string.kairo_list_separator)) { text(it.label) })
-            }
+        val missing = C64Firmware.missingForStart(options.getValue(C64Catalog.system.id), set)
+        check(missing.isEmpty()) {
+            getString(R.string.own_firmware_missing, "C64",
+                missing.joinToString(getString(FrontendR.string.kairo_list_separator)) { text(it.label) })
         }
         // A hard disk runs on the player's ROM for its interface; a CMD HD is drive 8 itself.
         val hardDiskRom = when (entry.kind) {
