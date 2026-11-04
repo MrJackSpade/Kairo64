@@ -36,6 +36,11 @@ object Kairo64App : AppUnderTest() {
     override val bootGame = "Klax"
     override val bootGameFile = "games/Klax (Europe).D64"
     override val otherGame = "Deflektor"
+    // No catalog game starts with the 1351, so the mouse game is the PC boot test's 1351 program
+    // (core/test/c64/mouse.prg), its Controls set to the mouse (Kairo#104); Klax reads the joystick.
+    override val mouseGame = "Mouse program.prg"
+    override val mouseGameSettings = mapOf("ports" to "mouse")
+    override val keyboardGame = "Klax"
     override val defaultOption = "model"
     override val searchTerm = "Klax"
     override val arrowKeys = listOf(C64Keys.CURSOR_DOWN, C64Keys.CURSOR_DOWN, C64Keys.CURSOR_RIGHT, C64Keys.CURSOR_RIGHT)
