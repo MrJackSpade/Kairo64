@@ -258,6 +258,13 @@ enum {
     P_ATN       = 0x80
 };
 
+/* Kairo64 (serial-iec-device.h). */
+int serial_iec_device_busy(unsigned int devnr)
+{
+    return serial_iec_device_state[devnr].enabled
+           && (serial_iec_device_state[devnr].flags & (P_TALKING | P_LISTENING | P_ATN)) != 0;
+}
+
 
 static void serial_iec_device_exec_main(unsigned int devnr, CLOCK clk_value)
 {

@@ -97,6 +97,11 @@ struct KairoC64Api {
     bool (*create_blank_disk)(const char *path);
     /* Whether VICE's autostart is still loading the game's first program. */
     bool (*autostarting)(void);
+    /* Whether VICE's virtual drive 8 is in a transaction on the bus (talking, listening or under
+     * ATN, the bus moving within the last second) or has a channel open (a file being read or
+     * written, channels 0 to 14): what a load through it holds that VICE's snapshots do not
+     * (Kairo64#69). */
+    bool (*virtual_drive_busy)(void);
     /* Ends VICE's autostart where it is: the medium it loads from has gone, so it cannot finish. */
     void (*cancel_autostart)(void);
     /* Whether the screen editor waits for a line at BASIC's READY. prompt: no autostart is typing,
@@ -170,6 +175,7 @@ void KairoC64_PowerCycle(void);
 bool KairoC64_Autostart(const char *path, const char *program);
 bool KairoC64_AttachDisk(int unit, const char *path);
 bool KairoC64_ResetDrive(int unit, unsigned buttons);
+bool KairoC64_VirtualDriveBusy(void);
 bool KairoC64_AttachTape(const char *path);
 bool KairoC64_AttachCartridge(const char *path);
 bool KairoC64_AttachIde64(const char *rom);

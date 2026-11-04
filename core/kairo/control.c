@@ -28,6 +28,8 @@
 #include "resources.h"
 #include "cartridge.h"
 #include "tape.h"
+#include "serial/serial-iec-device.h"
+#include "vdrive.h"
 
 /* The serial bus's lines as the C64 and drive 8 last drove them, and when one last changed:
  * sampled at the end of every raster line (KairoC64_BusLine). A load moves them all the time; a
@@ -85,6 +87,27 @@ bool KairoC64_LoadRoms(const char *kernal, const char *basic, const char *charge
         machine_drive_rom_setup_image(0);
     }
     return true;
+}
+
+bool KairoC64_VirtualDriveBusy(void)
+{
+    /* A transaction in progress: the device talking, listening or under ATN while the bus moves.
+     * Its flags alone stay set when a guest leaves the protocol half done (Klax's loader leaves it
+     * listening under ATN), long after the bus has fallen silent. */
+    if (serial_iec_device_busy(8) && KairoC64_DiskLoading()) {
+        return true;
+    }
+    const vdrive_t *vdrive = file_system_get_vdrive(8);
+    if (vdrive == NULL) {
+        return false;
+    }
+    /* Channel 15, the command channel, is always in use. */
+    for (int channel = 0; channel < 15; channel++) {
+        if (vdrive->buffers[channel].mode != BUFFER_NOT_IN_USE) {
+            return true;
+        }
+    }
+    return false;
 }
 
 bool KairoC64_ResetDrive(int unit, unsigned buttons)

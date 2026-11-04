@@ -411,7 +411,10 @@ void C64Machine::medium_changed(AutostartFrom slot) {
 
 bool C64Machine::loading_through_traps() const {
     const bool virtual_drive = config_.dos1541.empty() && config_.cmdhd_rom.empty();
-    return autostarting() || (virtual_drive && disk_loading());
+    // The virtual drive's part of a load is a transaction on the bus or a channel it has open, which
+    // end; a guest that keeps polling the bus (a KERNAL retrying an emptied drive) leaves gaps between
+    // its transactions, and holding a save until the bus fell silent held it forever (Kairo64#69).
+    return autostarting() || (virtual_drive && vice_.virtual_drive_busy());
 }
 
 bool C64Machine::save_state(const std::string &file, std::string &error) {

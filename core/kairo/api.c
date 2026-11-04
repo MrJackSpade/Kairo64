@@ -20,6 +20,7 @@ const struct KairoC64Api *KairoC64_Api(void)
         .autostart = KairoC64_Autostart,
         .attach_disk = KairoC64_AttachDisk,
         .reset_drive = KairoC64_ResetDrive,
+        .virtual_drive_busy = KairoC64_VirtualDriveBusy,
         .attach_tape = KairoC64_AttachTape,
         .attach_cartridge = KairoC64_AttachCartridge,
         .attach_ide64 = KairoC64_AttachIde64,

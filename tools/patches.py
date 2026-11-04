@@ -207,6 +207,17 @@ VICE_65C02_SNAPSHOT_CLOCKS = [
      '        || SMW_CLOCK(m, cpu->stop_clk) < 0 /* Kairo64: as read (SMR_CLOCK) */\n'),
 ]
 
+# The save hold (Kairo64#66, #69) waits for a transaction on the virtual drive's IEC bus, which VICE's
+# snapshots do not hold: the device reports whether it is talking, listening or under ATN.
+VICE_IEC_DEVICE_BUSY = [
+    ('vice/src/serial/serial-iec-device.h',
+     'void serial_iec_device_init(void);\nvoid serial_iec_device_reset(void);\n',
+     "void serial_iec_device_init(void);\nvoid serial_iec_device_reset(void);\n/* Kairo64: whether device devnr is talking, listening or under ATN, a transaction VICE's\n * snapshots do not hold (Kairo64#69). */\nint serial_iec_device_busy(unsigned int devnr);\n"),
+    ('vice/src/serial/serial-iec-device.c',
+     '    P_TALKING   = 0x20,\n    P_LISTENING = 0x40,\n    P_ATN       = 0x80\n};\n',
+     '    P_TALKING   = 0x20,\n    P_LISTENING = 0x40,\n    P_ATN       = 0x80\n};\n\n/* Kairo64 (serial-iec-device.h). */\nint serial_iec_device_busy(unsigned int devnr)\n{\n    return serial_iec_device_state[devnr].enabled\n           && (serial_iec_device_state[devnr].flags & (P_TALKING | P_LISTENING | P_ATN)) != 0;\n}\n'),
+]
+
 PATCHES = {
     'vice-directory-loop': VICE_DIRECTORY_LOOP,
     'vice-autostart-keeps-virtual-drive': VICE_AUTOSTART_KEEPS_VIRTUAL_DRIVE,
@@ -218,4 +229,5 @@ PATCHES = {
     'vice-mouse-reads': VICE_MOUSE_READS,
     'vice-1351-host-position': VICE_1351_HOST_POSITION,
     'vice-65c02-snapshot-clocks': VICE_65C02_SNAPSHOT_CLOCKS,
+    'vice-iec-device-busy': VICE_IEC_DEVICE_BUSY,
 }

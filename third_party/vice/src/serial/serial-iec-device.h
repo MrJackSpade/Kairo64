@@ -32,5 +32,8 @@ int serial_iec_device_cmdline_options_init(void);
 
 void serial_iec_device_init(void);
 void serial_iec_device_reset(void);
+/* Kairo64: whether device devnr is talking, listening or under ATN, a transaction VICE's
+ * snapshots do not hold (Kairo64#69). */
+int serial_iec_device_busy(unsigned int devnr);
 
 #endif
