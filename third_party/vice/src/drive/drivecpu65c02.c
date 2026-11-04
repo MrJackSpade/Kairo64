@@ -445,7 +445,7 @@ int drivecpu65c02_snapshot_write_module(diskunit_context_t *drv, snapshot_t *s)
     }
 
     if (0
-        || SMW_DW(m, (uint32_t) *(drv->clk_ptr)) < 0
+        || SMW_CLOCK(m, *(drv->clk_ptr)) < 0 /* Kairo64: as read (SMR_CLOCK) */
         || SMW_B(m, (uint8_t)R65C02_REGS_GET_A(&(cpu->cpu_R65C02_regs))) < 0
         || SMW_B(m, (uint8_t)R65C02_REGS_GET_X(&(cpu->cpu_R65C02_regs))) < 0
         || SMW_B(m, (uint8_t)R65C02_REGS_GET_Y(&(cpu->cpu_R65C02_regs))) < 0
@@ -453,10 +453,10 @@ int drivecpu65c02_snapshot_write_module(diskunit_context_t *drv, snapshot_t *s)
         || SMW_W(m, (uint16_t)R65C02_REGS_GET_PC(&(cpu->cpu_R65C02_regs))) < 0
         || SMW_B(m, (uint8_t)R65C02_REGS_GET_STATUS(&(cpu->cpu_R65C02_regs))) < 0
         || SMW_DW(m, (uint32_t)(cpu->last_opcode_info)) < 0
-        || SMW_DW(m, (uint32_t)(cpu->last_clk)) < 0
-        || SMW_DW(m, (uint32_t)(cpu->cycle_accum)) < 0
-        || SMW_DW(m, (uint32_t)(cpu->last_exc_cycles)) < 0
-        || SMW_DW(m, (uint32_t)(cpu->stop_clk)) < 0
+        || SMW_CLOCK(m, cpu->last_clk) < 0 /* Kairo64: as read (SMR_CLOCK) */
+        || SMW_CLOCK(m, cpu->cycle_accum) < 0 /* Kairo64: as read (SMR_CLOCK) */
+        || SMW_CLOCK(m, cpu->last_exc_cycles) < 0 /* Kairo64: as read (SMR_CLOCK) */
+        || SMW_CLOCK(m, cpu->stop_clk) < 0 /* Kairo64: as read (SMR_CLOCK) */
         || SMW_B(m, cpu->cpu_last_data) < 0
         ) {
         goto fail;

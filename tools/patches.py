@@ -186,6 +186,27 @@ VICE_1351_HOST_POSITION = [
      '    return (uint8_t)(((kairo64_mouse_y << 1) & 0x7e) + 0x40); /* Kairo64 */\n}\n'),
 ]
 
+# The 65C02 drive CPU (the CMD HD's) wrote its five clocks as 32-bit words and read them as CLOCK,
+# 64 bits: a state saved with a CMD HD read past its module and never loaded (Kairo64#68). It writes
+# them as CLOCK, as drivecpu.c does for the 6502 drives.
+VICE_65C02_SNAPSHOT_CLOCKS = [
+    ('vice/src/drive/drivecpu65c02.c',
+     '        || SMW_DW(m, (uint32_t) *(drv->clk_ptr)) < 0\n',
+     '        || SMW_CLOCK(m, *(drv->clk_ptr)) < 0 /* Kairo64: as read (SMR_CLOCK) */\n'),
+    ('vice/src/drive/drivecpu65c02.c',
+     '        || SMW_DW(m, (uint32_t)(cpu->last_clk)) < 0\n',
+     '        || SMW_CLOCK(m, cpu->last_clk) < 0 /* Kairo64: as read (SMR_CLOCK) */\n'),
+    ('vice/src/drive/drivecpu65c02.c',
+     '        || SMW_DW(m, (uint32_t)(cpu->cycle_accum)) < 0\n',
+     '        || SMW_CLOCK(m, cpu->cycle_accum) < 0 /* Kairo64: as read (SMR_CLOCK) */\n'),
+    ('vice/src/drive/drivecpu65c02.c',
+     '        || SMW_DW(m, (uint32_t)(cpu->last_exc_cycles)) < 0\n',
+     '        || SMW_CLOCK(m, cpu->last_exc_cycles) < 0 /* Kairo64: as read (SMR_CLOCK) */\n'),
+    ('vice/src/drive/drivecpu65c02.c',
+     '        || SMW_DW(m, (uint32_t)(cpu->stop_clk)) < 0\n',
+     '        || SMW_CLOCK(m, cpu->stop_clk) < 0 /* Kairo64: as read (SMR_CLOCK) */\n'),
+]
+
 PATCHES = {
     'vice-directory-loop': VICE_DIRECTORY_LOOP,
     'vice-autostart-keeps-virtual-drive': VICE_AUTOSTART_KEEPS_VIRTUAL_DRIVE,
@@ -196,4 +217,5 @@ PATCHES = {
     'vice-kairo-sound': VICE_KAIRO_SOUND,
     'vice-mouse-reads': VICE_MOUSE_READS,
     'vice-1351-host-position': VICE_1351_HOST_POSITION,
+    'vice-65c02-snapshot-clocks': VICE_65C02_SNAPSHOT_CLOCKS,
 }
