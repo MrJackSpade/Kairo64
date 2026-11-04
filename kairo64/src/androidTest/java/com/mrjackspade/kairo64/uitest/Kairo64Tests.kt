@@ -41,6 +41,11 @@ object Kairo64App : AppUnderTest() {
     override val mouseGame = "Mouse program.prg"
     override val mouseGameSettings = mapOf("ports" to "mouse")
     override val keyboardGame = "Klax"
+    // Klax boots into a cracker intro whose colours cycle and whose text scrolls, and Deflektor's
+    // title moves too: their pictures never hold for a state to be saved on. The mouse program's
+    // pointer stays where it is until the mouse moves. (Deflektor is also the other game, whose
+    // slots a state test needs empty.)
+    override val stateGame = "Mouse program.prg"
     override val defaultOption = "model"
     override val searchTerm = "Klax"
     override val arrowKeys = listOf(C64Keys.CURSOR_DOWN, C64Keys.CURSOR_DOWN, C64Keys.CURSOR_RIGHT, C64Keys.CURSOR_RIGHT)
