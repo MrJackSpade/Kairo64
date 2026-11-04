@@ -156,6 +156,10 @@ public:
 
     // The text screen as 25 lines of 40 characters, for tests that look for BASIC's messages.
     std::string screen_text();
+    // VICE itself, for host tools that set it up past what a game needs (a second drive, a drive's
+    // reset with its buttons held: core/test/cmdhd_install_run.cpp). Called between frames, as
+    // this class's own calls are.
+    const KairoC64Api &vice() const { return vice_; }
 
     // This machine's VICE: its library copy and thread (c64_machine.cpp).
     struct Session;

@@ -229,7 +229,7 @@ if(ANDROID)
 endif()
 
 # The firmware and model passes' runner (test/firmware_pass_run.cpp), with the VICE library beside
-# it (the shared kairo_library_beside_test). The boot tests are the shared PC boot test's
+# it, and the CMD HD image maker's (the shared kairo_library_beside_test). The boot tests are the shared PC boot test's
 # (shared/tools/test-core.ps1).
 if(NOT ANDROID)
     include("${CMAKE_CURRENT_LIST_DIR}/../shared/cmake/KairoMachine.cmake")
@@ -238,5 +238,12 @@ if(NOT ANDROID)
     kairo_library_beside_test(firmware_pass_run kairo64_vice)
     if(WIN32)
         target_link_options(firmware_pass_run PRIVATE -static)
+    endif()
+    # The CMD HD image maker's runner (test/cmdhd_install_run.cpp, tools/make_cmdhd_image.py).
+    add_executable(cmdhd_install_run test/cmdhd_install_run.cpp)
+    target_link_libraries(cmdhd_install_run PRIVATE kairo64_core)
+    kairo_library_beside_test(cmdhd_install_run kairo64_vice)
+    if(WIN32)
+        target_link_options(cmdhd_install_run PRIVATE -static)
     endif()
 endif()

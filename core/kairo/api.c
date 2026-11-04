@@ -19,6 +19,7 @@ const struct KairoC64Api *KairoC64_Api(void)
         .power_cycle = KairoC64_PowerCycle,
         .autostart = KairoC64_Autostart,
         .attach_disk = KairoC64_AttachDisk,
+        .reset_drive = KairoC64_ResetDrive,
         .attach_tape = KairoC64_AttachTape,
         .attach_cartridge = KairoC64_AttachCartridge,
         .attach_ide64 = KairoC64_AttachIde64,

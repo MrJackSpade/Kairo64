@@ -4,6 +4,7 @@
 #include "vice.h"
 
 #include <stdbool.h>
+#include <stdio.h>
 #include <string.h>
 
 #include "attach.h"
@@ -83,6 +84,21 @@ bool KairoC64_LoadRoms(const char *kernal, const char *basic, const char *charge
     if (drive1541) {
         machine_drive_rom_setup_image(0);
     }
+    return true;
+}
+
+bool KairoC64_ResetDrive(int unit, unsigned buttons)
+{
+    if (unit < 8 || unit >= 8 + NUM_DISK_UNITS) {
+        return false;
+    }
+    int type = 0;
+    char name[16];
+    sprintf(name, "Drive%dType", unit);
+    if (resources_get_int(name, &type) < 0 || type == DRIVE_TYPE_NONE) {
+        return false;
+    }
+    drive_cpu_trigger_reset_button((unsigned)(unit - 8), buttons);
     return true;
 }
 

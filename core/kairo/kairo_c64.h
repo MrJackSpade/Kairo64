@@ -77,6 +77,10 @@ struct KairoC64Api {
     bool (*autostart)(const char *path, const char *program);
     /* Inserts a disk image in drive 8 or 9, or ejects it for ""; false when VICE refused it. */
     bool (*attach_disk)(int unit, const char *path);
+    /* Resets the drive of unit (8 to 11) with its front panel's buttons held, VICE's DRIVE_BUTTON_*
+     * bits: a CMD HD reset with Write Protect held comes up in configuration mode, which CMD's
+     * HD-TOOLS partitions in (core/test/cmdhd_install_run.cpp). False for a unit with no drive. */
+    bool (*reset_drive)(int unit, unsigned buttons);
     /* Puts a tape in the datasette, or takes it out for "". */
     bool (*attach_tape)(const char *path);
     /* Puts a cartridge in the port, or takes it out for "", and starts the machine again with it. */
@@ -165,6 +169,7 @@ bool KairoC64_LoadRoms(const char *kernal, const char *basic, const char *charge
 void KairoC64_PowerCycle(void);
 bool KairoC64_Autostart(const char *path, const char *program);
 bool KairoC64_AttachDisk(int unit, const char *path);
+bool KairoC64_ResetDrive(int unit, unsigned buttons);
 bool KairoC64_AttachTape(const char *path);
 bool KairoC64_AttachCartridge(const char *path);
 bool KairoC64_AttachIde64(const char *rom);

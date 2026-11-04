@@ -2,6 +2,7 @@
  "schemaVersion": 1,
  "files": {
   "bios/C64_Basic.bin": "C:\\Users\\Service Account\\Kairo\\Kairo64\\bios\\C64_Basic.bin",
+  "bios/C64_CMDHD.bin": "G:\\Work\\Kairo64 test media\\C64_CMDHD.bin",
   "bios/C64_Chargen.bin": "C:\\Users\\Service Account\\Kairo\\Kairo64\\bios\\C64_Chargen.bin",
   "bios/C64_Drive-1541.bin": "C:\\Users\\Service Account\\Kairo\\Kairo64\\bios\\C64_Drive-1541.bin",
   "bios/C64_Kernal.bin": "C:\\Users\\Service Account\\Kairo\\Kairo64\\bios\\C64_Kernal.bin",
@@ -10,6 +11,8 @@
   "games/Mission Om (Europe) (Side A).TAP": "\\\\192.168.1.202\\Public\\Games\\Roms\\Commodore 64\\Mission Om (Europe) (Side A).TAP",
   "games/Mission Om (Europe) (Side B).TAP": "\\\\192.168.1.202\\Public\\Games\\Roms\\Commodore 64\\Mission Om (Europe) (Side B).TAP",
   "games/Mouse program.prg": "C:\\Users\\Service Account\\Kairo\\Kairo64\\core\\test\\c64\\mouse.prg",
-  "games/Prince of Persia (USA) (Unl).CRT": "\\\\192.168.1.202\\Public\\Games\\Roms\\Commodore 64\\Prince of Persia (USA) (Unl).CRT"
+  "games/Prince of Persia (USA) (Unl).CRT": "\\\\192.168.1.202\\Public\\Games\\Roms\\Commodore 64\\Prince of Persia (USA) (Unl).CRT",
+  "host/CMD HD second.dhd": "G:\\Work\\Kairo64 test media\\CMD HD second.dhd",
+  "host/CMD HD.dhd": "G:\\Work\\Kairo64 test media\\CMD HD.dhd"
  }
 }

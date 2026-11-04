@@ -302,6 +302,56 @@
           ]
         }
       }
+    },
+    {
+      "name": "CMD HD",
+      "firmware": {
+        "kernal.bin": "bios/C64_Kernal.bin",
+        "basic.bin": "bios/C64_Basic.bin",
+        "chargen.bin": "bios/C64_Chargen.bin",
+        "cmdhd.bin": "bios/C64_CMDHD.bin"
+      },
+      "home": {
+        "vice": "folder:",
+        "openroms/kernal_generic.rom": "app:third_party/open-roms/bin/kernal_generic.rom",
+        "openroms/basic_generic.rom": "app:third_party/open-roms/bin/basic_generic.rom",
+        "openroms/chargen_openroms.rom": "app:third_party/open-roms/bin/chargen_openroms.rom"
+      },
+      "media": [
+        "",
+        "",
+        "host/CMD HD.dhd"
+      ],
+      "settings": {
+        "program": "",
+        "model": "c64",
+        "system": "own",
+        "drive": "virtual",
+        "ports": "2"
+      },
+      "checks": {
+        "hardDisk": {
+          "settle": 300,
+          "write": {
+            "commands": "OPEN1,8,2,\"KAIRO,S,W\":PRINT#1,\"KAIRO\":CLOSE1",
+            "typedBy": 1800
+          },
+          "read": {
+            "commands": "LOAD\"$\",8\nLIST",
+            "typedBy": 1800,
+            "answerBy": 600,
+            "screens": [
+              "4b0225539c5b635d"
+            ]
+          }
+        },
+        "stateDisks": {
+          "drive": 3,
+          "at": 900,
+          "swap": "host/CMD HD second.dhd",
+          "eject": false
+        }
+      }
     }
   ]
 }
