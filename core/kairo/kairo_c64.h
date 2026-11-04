@@ -93,6 +93,8 @@ struct KairoC64Api {
     bool (*create_blank_disk)(const char *path);
     /* Whether VICE's autostart is still loading the game's first program. */
     bool (*autostarting)(void);
+    /* Ends VICE's autostart where it is: the medium it loads from has gone, so it cannot finish. */
+    void (*cancel_autostart)(void);
     /* Whether the screen editor waits for a line at BASIC's READY. prompt: no autostart is typing,
      * READY. is on the line above the cursor, the cursor blinks for input (BLNSW, $CC, is 0, and
      * the last frame counted its countdown BLNCT, $CD) and the keyboard buffer is empty (NDX,
@@ -169,6 +171,7 @@ bool KairoC64_AttachIde64(const char *rom);
 bool KairoC64_TapeToDisk(const char *tape, const char *disk, char *error, size_t error_size);
 bool KairoC64_CreateBlankDisk(const char *path);
 bool KairoC64_Autostarting(void);
+void KairoC64_CancelAutostart(void);
 bool KairoC64_WaitsForLine(void);
 void KairoC64_FrameDone(void);
 unsigned long KairoC64_MouseReads(void);

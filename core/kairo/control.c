@@ -142,6 +142,11 @@ bool KairoC64_Autostarting(void)
     return autostart_in_progress() != 0;
 }
 
+void KairoC64_CancelAutostart(void)
+{
+    autostart_reset();
+}
+
 extern unsigned long kairo64_mouse_reads;
 
 unsigned long KairoC64_MouseReads(void)

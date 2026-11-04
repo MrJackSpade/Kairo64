@@ -132,11 +132,13 @@ public:
     // A reset, as the C64's power switch does, with the disks left in.
     void reset();
     // Saves or loads the whole machine; false with error set when VICE could not. VICE does
-    // either between CPU instructions, so the call runs one more frame.
+    // either between CPU instructions, so the call runs one more frame. A save asked while a load
+    // runs through VICE's autostart or virtual drive waits for the load to end (Kairo64#66).
     bool save_state(const std::string &file, std::string &error);
     bool load_state(const std::string &file, std::string &error);
 
     // Inserts an image in a drive, or ejects it for ""; false with error set when VICE refused it.
+    // Changing the medium the autostart is loading from ends the autostart, which cannot finish.
     bool insert(Drive drive, const std::string &path, std::string &error);
     // The image in a drive, as it was inserted; "" when it is empty.
     std::string media_path(Drive drive);
@@ -167,6 +169,14 @@ private:
     std::string tape_;
     std::string cartridge_;
     std::string hard_disk_;
+    // Where VICE's autostart loads the game from, while it does.
+    enum class AutostartFrom { kNothing, kDrive8, kTape };
+    AutostartFrom autostart_from_ = AutostartFrom::kNothing;
+    // A medium in the autostart's slot changed: the autostart cannot finish, so it ends.
+    void medium_changed(AutostartFrom slot);
+    // Whether a load runs through VICE's host-side traps (its autostart, its virtual drive), which
+    // its snapshots do not hold.
+    bool loading_through_traps() const;
     // Direct touch: the warp, and its motion still to give the 1351, with the mouse reads when the
     // last part went.
     kairo::RelativeWarp warp_;

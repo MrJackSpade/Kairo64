@@ -246,7 +246,11 @@ std::unique_ptr<C64Machine> C64Machine::create(const Config &config, std::string
         return nullptr;
     }
     // A tape or cartridge the game starts from is in the datasette or the port: autostart put it there.
-    if (start == config.start && (is_t64(start) || has_extension(start, ".tap"))) machine->tape_ = start;
+    const bool from_tape = start == config.start && (is_t64(start) || has_extension(start, ".tap"));
+    if (from_tape) machine->tape_ = start;
+    // Disks and programs (VICE writes a program to its program disk) load through drive 8.
+    if (!start.empty() && !has_extension(start, ".crt"))
+        machine->autostart_from_ = from_tape ? AutostartFrom::kTape : AutostartFrom::kDrive8;
     if (has_extension(start, ".crt")) machine->cartridge_ = start;
     // A hard disk: the CMD HD's image in drive 8, or the IDE64 cartridge in the port.
     if (!config.cmdhd_rom.empty()) {
@@ -392,7 +396,30 @@ void C64Machine::mouse_button(int button, bool down) {
 
 void C64Machine::reset() { vice_.power_cycle(); }
 
+// A save asked while VICE's autostart is loading the game, or while the game loads through VICE's
+// virtual drive, waits for the load's end (Kairo64#66): autostart and the virtual drive work
+// through host-side traps that VICE's snapshots do not hold, so a state saved then does not load
+// back to the same machine. An emulated 1541 or CMD HD is in the snapshot, down to its CPU. The
+// frames run meanwhile are the load's, run as the app runs a load, flat out; their sound is
+// dropped, as nothing plays it. A load whose medium went has ended (medium_changed: the autostart
+// is cancelled; the virtual drive stops talking), so nothing waits for one that cannot finish.
+void C64Machine::medium_changed(AutostartFrom slot) {
+    if (slot != autostart_from_ || !autostarting()) return;
+    vice_.cancel_autostart();
+    autostart_from_ = AutostartFrom::kNothing;
+}
+
+bool C64Machine::loading_through_traps() const {
+    const bool virtual_drive = config_.dos1541.empty() && config_.cmdhd_rom.empty();
+    return autostarting() || (virtual_drive && disk_loading());
+}
+
 bool C64Machine::save_state(const std::string &file, std::string &error) {
+    int16_t discarded[512 * 2];
+    while (loading_through_traps()) {
+        if (!run_frame(error)) return false;
+        while (read_audio(discarded, 512) > 0) {}
+    }
     vice_.request_save(file.c_str());
     if (!run_frame(error)) return false;
     if (vice_.snapshot_failed()) {
@@ -418,6 +445,7 @@ bool C64Machine::insert(Drive drive, const std::string &path, std::string &error
         return false;
     }
     drive_[drive] = path;
+    if (drive == kDrive8) medium_changed(AutostartFrom::kDrive8);
     return true;
 }
 
@@ -429,6 +457,7 @@ bool C64Machine::insert_tape(const std::string &path, std::string &error) {
         return false;
     }
     tape_ = path;
+    medium_changed(AutostartFrom::kTape);
     return true;
 }
 

@@ -25,6 +25,7 @@ const struct KairoC64Api *KairoC64_Api(void)
         .tape_to_disk = KairoC64_TapeToDisk,
         .create_blank_disk = KairoC64_CreateBlankDisk,
         .autostarting = KairoC64_Autostarting,
+        .cancel_autostart = KairoC64_CancelAutostart,
         .waits_for_line = KairoC64_WaitsForLine,
         .frame_done = KairoC64_FrameDone,
         .mouse_reads = KairoC64_MouseReads,
