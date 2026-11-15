@@ -24,8 +24,7 @@ import org.junit.Test
 /**
  * Kairo64 as the shared UI tests see it. Its test resources are two single-disk games in D64
  * images, which start on the Open ROMs and the virtual drive, and the player's C64 and 1541 ROMs;
- * the Open ROMs ship with the app. The C64 has two cursor keys: the D-pad's up and left send them
- * with Shift.
+ * the Open ROMs ship with the app.
  */
 object Kairo64App : AppUnderTest() {
     override val name = "Kairo64"
@@ -48,7 +47,6 @@ object Kairo64App : AppUnderTest() {
     override val stateGame = "Mouse program.prg"
     override val defaultOption = "model"
     override val searchTerm = "Klax"
-    override val arrowKeys = listOf(C64Keys.CURSOR_DOWN, C64Keys.CURSOR_DOWN, C64Keys.CURSOR_RIGHT, C64Keys.CURSOR_RIGHT)
     override val returnKey = C64Keys.RETURN
     override val spaceKey = C64Keys.SPACE
     override val mediaSwap = MediaSwap("Klax", "Drive 8", "Deflektor", filler = "d64")
