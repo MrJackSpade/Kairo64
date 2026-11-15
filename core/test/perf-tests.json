@@ -1,0 +1,93 @@
+{
+  "tests": [
+    {
+      "name": "Klax",
+      "firmware": "bios",
+      "home": {
+        "vice": "folder:",
+        "openroms/kernal_generic.rom": "app:third_party/open-roms/bin/kernal_generic.rom",
+        "openroms/basic_generic.rom": "app:third_party/open-roms/bin/basic_generic.rom",
+        "openroms/chargen_openroms.rom": "app:third_party/open-roms/bin/chargen_openroms.rom"
+      },
+      "media": [
+        "games/Klax (Europe).D64",
+        "",
+        ""
+      ],
+      "settings": {
+        "program": "",
+        "model": "c64",
+        "system": "openroms",
+        "drive": "virtual",
+        "ports": "2"
+      },
+      "checks": {
+        "profile": {
+          "boot": 1800,
+          "frames": 3000
+        }
+      }
+    },
+    {
+      "name": "Prince of Persia",
+      "firmware": "bios",
+      "home": {
+        "vice": "folder:",
+        "openroms/kernal_generic.rom": "app:third_party/open-roms/bin/kernal_generic.rom",
+        "openroms/basic_generic.rom": "app:third_party/open-roms/bin/basic_generic.rom",
+        "openroms/chargen_openroms.rom": "app:third_party/open-roms/bin/chargen_openroms.rom"
+      },
+      "media": [
+        "games/Prince of Persia (USA) (Unl).CRT",
+        "",
+        ""
+      ],
+      "settings": {
+        "program": "",
+        "model": "c64",
+        "system": "openroms",
+        "drive": "virtual",
+        "ports": "2"
+      },
+      "checks": {
+        "profile": {
+          "boot": 1800,
+          "frames": 3000
+        }
+      }
+    },
+    {
+      "name": "Klax on a 1541",
+      "firmware": {
+        "kernal.bin": "bios/C64_Kernal.bin",
+        "basic.bin": "bios/C64_Basic.bin",
+        "chargen.bin": "bios/C64_Chargen.bin",
+        "dos1541.bin": "bios/C64_Drive-1541.bin"
+      },
+      "home": {
+        "vice": "folder:",
+        "openroms/kernal_generic.rom": "app:third_party/open-roms/bin/kernal_generic.rom",
+        "openroms/basic_generic.rom": "app:third_party/open-roms/bin/basic_generic.rom",
+        "openroms/chargen_openroms.rom": "app:third_party/open-roms/bin/chargen_openroms.rom"
+      },
+      "media": [
+        "games/Klax (Europe).D64",
+        "",
+        ""
+      ],
+      "settings": {
+        "program": "",
+        "model": "c64",
+        "system": "own",
+        "drive": "1541",
+        "ports": "2"
+      },
+      "checks": {
+        "profile": {
+          "boot": 1800,
+          "frames": 3000
+        }
+      }
+    }
+  ]
+}
